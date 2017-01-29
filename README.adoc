@@ -1,0 +1,33 @@
+ = Apress Source Code
+
+TODO - change book ISBN
+This repository accompanies [*Pro Spring*](http://www.apress.com/9781430261513) by Iuliana Cosmina, Clarence Ho, Rob Harrop, and Chris  Schaefer (Apress, 2017).
+
+TODO change cover image
+![Cover image](9781430261513.jpg)
+
+Download the files as a zip using the green button, or clone the repository to your machine using Git.
+
+== Releases
+Release v1.0 corresponds to the code in the published book, without corrections or updates.
+
+== Contributions
+See the file Contributing.adoc for more information on how you can contribute to this repository.
+
+== UNDER CONSTRUCTION
+
+Version 5 of this book is being written so sources here will be changed to use Spring 5.x and Spring Boot 2.x
+
+
+== Building and Deploying
+This is a Gradle multi-module project. The *-practice projects, have tests and pieces left unimplemented so building the full project using:
+----
+gradle build
+----
+will fail.
+
+In order to build the full project and skipping tests, build from the root  (`book-code`) directory:
+----
+gradle build -x test 
+----
+

@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:batch="http://www.springframework.org/schema/batch"
+        xmlns:jdbc="http://www.springframework.org/schema/jdbc"
+        xmlns:p="http://www.springframework.org/schema/p"
+        xsi:schemaLocation="
+        http://www.springframework.org/schema/batch http://www.springframework.org/schema/batch/spring-batch.xsd
+        http://www.springframework.org/schema/jdbc http://www.springframework.org/schema/jdbc/spring-jdbc.xsd
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <batch:job id="personJob">
+        <batch:step id="step1">
+            <batch:tasklet>
+                <batch:chunk reader="itemReader" processor="itemProcessor" writer="itemWriter"
+                             commit-interval="10"/>
+                <batch:listeners>
+                    <batch:listener ref="stepExecutionStatsListener"/>
+                </batch:listeners>
+            </batch:tasklet>
+            <batch:fail on="FAILED"/>
+            <batch:end on="*"/>
+        </batch:step>
+    </batch:job>
+
+    <jdbc:embedded-database id="dataSource" type="H2">
+        <jdbc:script location="classpath:/org/springframework/batch/core/schema-h2.sql"/>
+        <jdbc:script location="classpath:/META-INF/spring/jobs/personJob/support/person.sql"/>
+    </jdbc:embedded-database>
+
+    <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager"
+                p:dataSource-ref="dataSource"/>
+
+    <batch:job-repository id="jobRepository"/>
+
+    <bean id="jobLauncher" class="org.springframework.batch.core.launch.support.SimpleJobLauncher"
+                p:jobRepository-ref="jobRepository"/>
+
+    <bean id="stepExecutionStatsListener" class="com.apress.prospring4.ch18.StepExecutionStatsListener"/>
+
+    <bean id="itemReader" class="org.springframework.batch.item.file.FlatFileItemReader">
+        <property name="resource" value="classpath:/META-INF/spring/jobs/personJob/support/test-data.csv"/>
+        <property name="lineMapper">
+            <bean class="org.springframework.batch.item.file.mapping.DefaultLineMapper">
+                <property name="lineTokenizer">
+                    <bean class="org.springframework.batch.item.file.transform.DelimitedLineTokenizer">
+                        <property name="names" value="firstName,lastName"/>
+                    </bean>
+                </property>
+                <property name="fieldSetMapper">
+                    <bean class="org.springframework.batch.item.file.mapping.BeanWrapperFieldSetMapper">
+                        <property name="targetType" value="com.apress.prospring4.ch18.Person"/>
+                    </bean>
+                </property>
+            </bean>
+        </property>
+    </bean>
+
+    <bean id="itemProcessor" class="com.apress.prospring4.ch18.PersonItemProcessor"/>
+
+    <bean id="itemWriter" class="org.springframework.batch.item.database.JdbcBatchItemWriter">
+        <property name="itemSqlParameterSourceProvider">
+            <bean class="org.springframework.batch.item.database.BeanPropertyItemSqlParameterSourceProvider"/>
+        </property>
+        <property name="sql" value="INSERT INTO people (first_name, last_name) VALUES (:firstName, :lastName)"/>
+        <property name="dataSource" ref="dataSource"/>
+    </bean>
+</beans>

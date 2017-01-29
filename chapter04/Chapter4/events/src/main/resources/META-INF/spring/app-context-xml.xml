@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="publisher" class="com.apress.prospring4.ch4.Publisher"/>
+
+    <bean id="messageEventListener" 
+        class="com.apress.prospring4.ch4.MessageEventListener"/>
+</beans>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.springframework.org/schema/beans
+      http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="bean" class="org.springframework.aop.framework.ProxyFactoryBean">
+        <property name="target">
+            <bean class="com.apress.prospring4.ch5.TargetBean">
+                <property name="name">
+                    <value>Chris Schaefer</value>
+                </property>
+            </bean>
+        </property>
+        <property name="interceptorNames">
+            <list>
+                <value>advisor</value>
+            </list>
+        </property>
+        <property name="proxyTargetClass">
+            <value>true</value>
+        </property>
+    </bean>
+
+    <bean id="advisor" class="com.apress.prospring4.ch5.IsModifiedAdvisor"/>
+</beans>

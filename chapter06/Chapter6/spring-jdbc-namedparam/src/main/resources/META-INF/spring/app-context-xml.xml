@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:jdbc="http://www.springframework.org/schema/jdbc"
+    xmlns:p="http://www.springframework.org/schema/p"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/jdbc 
+        http://www.springframework.org/schema/jdbc/spring-jdbc.xsd">
+
+    <jdbc:embedded-database id="dataSource" type="H2">
+        <jdbc:script location="classpath:META-INF/sql/schema.sql"/>
+        <jdbc:script location="classpath:META-INF/sql/test-data.sql"/>
+    </jdbc:embedded-database>
+
+    <bean id="contactDao" class="com.apress.prospring4.ch6.JdbcContactDao"
+        p:dataSource-ref="dataSource"/>
+</beans>

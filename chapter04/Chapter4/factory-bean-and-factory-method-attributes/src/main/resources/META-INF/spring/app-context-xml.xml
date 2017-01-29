@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:p="http://www.springframework.org/schema/p"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="shaDigestFactory" 
+        class="com.apress.prospring4.ch4.MessageDigestFactory"
+        p:algorithmName="SHA1"/>
+
+    <bean id="defaultDigestFactory"
+        class="com.apress.prospring4.ch4.MessageDigestFactory"/>
+
+    <bean id="shaDigest"
+          factory-bean="shaDigestFactory"
+          factory-method="createInstance">
+    </bean>
+
+    <bean id="defaultDigest"
+          factory-bean="defaultDigestFactory"
+          factory-method="createInstance"/>
+
+    <bean id="digester" 
+        class="com.apress.prospring4.ch4.MessageDigester"
+        p:digest1-ref="shaDigest"
+        p:digest2-ref="defaultDigest"/>
+</beans>

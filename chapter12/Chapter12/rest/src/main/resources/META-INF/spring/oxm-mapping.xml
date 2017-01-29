@@ -1,0 +1,31 @@
+<mapping>
+    <class name="com.apress.prospring4.ch12.Contacts">
+        <field name="contacts" type="com.apress.prospring4.ch12.Contact" collection="arraylist">
+            <bind-xml name="contact"/>
+        </field>
+    </class>
+
+    <class name="com.apress.prospring4.ch12.Contact" identity="id">
+        <map-to xml="contact" />
+
+        <field name="id" type="long">
+            <bind-xml name="id" node="element"/>
+        </field>
+        <field name="firstName" type="string">
+            <bind-xml name="firstName" node="element" />
+        </field>
+        <field name="lastName" type="string">
+            <bind-xml name="lastName" node="element" />
+        </field>
+        <field name="birthDate" type="string" handler="dateHandler">
+            <bind-xml name="birthDate" node="element" />
+        </field>
+        <field name="version" type="integer">
+            <bind-xml name="version" node="element" />
+        </field>
+    </class>
+
+    <field-handler name="dateHandler" class="com.apress.prospring4.ch12.DateTimeFieldHandler">
+        <param name="date-format" value="yyyy-MM-dd"/>
+    </field-handler>
+</mapping>

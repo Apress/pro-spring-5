@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:jdbc="http://www.springframework.org/schema/jdbc"
+       xmlns:jpa="http://www.springframework.org/schema/data/jpa"
+       xsi:schemaLocation="http://www.springframework.org/schema/jdbc
+        http://www.springframework.org/schema/jdbc/spring-jdbc.xsd
+        http://www.springframework.org/schema/beans 
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/data/jpa
+        http://www.springframework.org/schema/data/jpa/spring-jpa.xsd
+        http://www.springframework.org/schema/context 
+        http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <jdbc:embedded-database id="dataSource" type="H2">
+        <jdbc:script location="classpath:META-INF/config/schema.sql"/>
+        <jdbc:script location="classpath:META-INF/config/test-data.sql"/>
+    </jdbc:embedded-database>
+
+    <bean id="transactionTemplate"
+          class="org.springframework.transaction.support.TransactionTemplate">
+        <property name="propagationBehaviorName" value="PROPAGATION_NEVER"/>
+        <property name="timeout" value="30"/>
+        <property name="transactionManager" ref="transactionManager"/>
+    </bean>
+
+    <bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">
+        <property name="entityManagerFactory" ref="emf"/>
+    </bean>
+
+    <bean id="emf" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
+        <property name="dataSource" ref="dataSource" />
+        <property name="jpaVendorAdapter">
+            <bean class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter" />
+        </property>
+        <property name="packagesToScan"
+                  value="com.apress.prospring4.ch9"/>
+        <property name="jpaProperties">
+            <props>
+                <prop key="hibernate.dialect">
+                    org.hibernate.dialect.H2Dialect
+                </prop>
+                <prop key="hibernate.max_fetch_depth">3</prop>
+                <prop key="hibernate.jdbc.fetch_size">50</prop>
+                <prop key="hibernate.jdbc.batch_size">10</prop>
+                <prop key="hibernate.show_sql">true</prop>
+            </props>
+        </property>
+    </bean>
+
+    <context:component-scan
+            base-package="com.apress.prospring4.ch9" />
+
+    <jpa:repositories base-package="com.apress.prospring4.ch9"
+                      entity-manager-factory-ref="emf"
+                      transaction-manager-ref="transactionManager"/>
+</beans>

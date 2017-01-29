@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:rabbit="http://www.springframework.org/schema/rabbit"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/rabbit
+        http://www.springframework.org/schema/rabbit/spring-rabbit.xsd">
+
+    <rabbit:connection-factory id="connectionFactory" host="localhost" />
+
+    <rabbit:template id="amqpTemplate" connection-factory="connectionFactory"
+                     reply-timeout="2000" routing-key="forecasts"
+                     exchange="weather" />
+
+    <rabbit:admin connection-factory="connectionFactory" />
+
+    <rabbit:queue name="forecasts" />
+
+    <rabbit:direct-exchange name="weather">
+        <rabbit:bindings>
+            <rabbit:binding queue="forecasts" key="forecasts" />
+        </rabbit:bindings>
+    </rabbit:direct-exchange>
+
+    <bean id="weatherServiceProxy"
+          class="org.springframework.amqp.remoting.client.AmqpProxyFactoryBean">
+        <property name="amqpTemplate" ref="amqpTemplate" />
+        <property name="serviceInterface" value="com.apress.prospring4.ch12.WeatherService" />
+    </bean>
+
+    <rabbit:listener-container connection-factory="connectionFactory">
+        <rabbit:listener ref="weatherServiceExporter" queue-names="forecasts" />
+    </rabbit:listener-container>
+
+    <bean id="weatherServiceExporter"
+          class="org.springframework.amqp.remoting.service.AmqpInvokerServiceExporter">
+        <property name="amqpTemplate" ref="amqpTemplate" />
+        <property name="serviceInterface" value="com.apress.prospring4.ch12.WeatherService" />
+        <property name="service">
+            <bean class="com.apress.prospring4.ch12.WeatherServiceImpl"/>
+        </property>
+    </bean>
+</beans>

@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans:beans xmlns="http://www.springframework.org/schema/mvc"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xmlns:beans="http://www.springframework.org/schema/beans"
+             xmlns:p="http://www.springframework.org/schema/p"
+             xmlns:context="http://www.springframework.org/schema/context"
+             xmlns:security="http://www.springframework.org/schema/security"
+             xsi:schemaLocation="http://www.springframework.org/schema/mvc
+        http://www.springframework.org/schema/mvc/spring-mvc.xsd
+        http://www.springframework.org/schema/beans 
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context 
+        http://www.springframework.org/schema/context/spring-context.xsd
+        http://www.springframework.org/schema/security
+        http://www.springframework.org/schema/security/spring-security.xsd">
+
+    <annotation-driven validator="validator"/>
+
+    <security:global-method-security pre-post-annotations="enabled"/>
+
+    <resources location="/, classpath:/META-INF/web-resources/" mapping="/resources/**"/>
+
+    <default-servlet-handler/>
+
+    <beans:bean class="org.springframework.web.servlet.view.UrlBasedViewResolver"
+                id="tilesViewResolver">
+        <beans:property name="viewClass" value="org.springframework.web.servlet.view.tiles3.TilesView"/>
+    </beans:bean>
+
+    <beans:bean class="org.springframework.web.servlet.view.tiles3.TilesConfigurer" id="tilesConfigurer">
+        <beans:property name="definitions">
+            <beans:list>
+                <beans:value>/WEB-INF/layouts/layouts.xml</beans:value>
+                <beans:value>/WEB-INF/views/**/views.xml</beans:value>
+            </beans:list>
+        </beans:property>
+    </beans:bean>
+
+    <context:component-scan base-package="com.apress.prospring4.ch16" />
+
+    <interceptors>
+        <beans:bean class="org.springframework.web.servlet.theme.ThemeChangeInterceptor"/>
+        <beans:bean class="org.springframework.web.servlet.i18n.LocaleChangeInterceptor"
+                    p:paramName="lang"/>
+    </interceptors>
+
+    <beans:bean class="org.springframework.context.support.ReloadableResourceBundleMessageSource"
+                id="messageSource" p:basenames="WEB-INF/i18n/messages,WEB-INF/i18n/application"
+                p:fallbackToSystemLocale="false"/>
+
+    <beans:bean class="org.springframework.web.servlet.i18n.CookieLocaleResolver"
+                id="localeResolver" p:cookieName="locale"/>
+
+    <beans:bean class="org.springframework.ui.context.support.ResourceBundleThemeSource" id="themeSource"/>
+
+    <beans:bean class="org.springframework.web.servlet.theme.CookieThemeResolver"
+                id="themeResolver" p:cookieName="theme" p:defaultThemeName="standard"/>
+
+    <beans:bean id="validator" class="org.springframework.validation.beanvalidation.LocalValidatorFactoryBean">
+        <beans:property name="validationMessageSource" ref="messageSource"/>
+    </beans:bean>
+
+    <beans:bean
+            class="org.springframework.web.multipart.support.StandardServletMultipartResolver"
+            id="multipartResolver"/>
+</beans:beans>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <bean id="connectionFactory"
+          class="org.apache.activemq.ActiveMQConnectionFactory"
+          p:brokerURL="tcp://localhost:61616" />
+
+    <bean id="jmsTemplate" class="org.springframework.jms.core.JmsTemplate">
+        <constructor-arg name="connectionFactory" ref="connectionFactory"/>
+        <property name="defaultDestinationName" value="prospring4"/>
+    </bean>
+
+    <context:component-scan base-package="com.apress.prospring4.ch12"/>
+</beans>

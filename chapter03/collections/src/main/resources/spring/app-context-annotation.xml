@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+          http://www.springframework.org/schema/beans/spring-beans.xsd
+          http://www.springframework.org/schema/context 
+          http://www.springframework.org/schema/context/spring-context.xsd
+          http://www.springframework.org/schema/util
+          http://www.springframework.org/schema/util/spring-util.xsd">
+
+    <context:component-scan 
+          base-package="com.apress.prospring5.ch3.annotation"/>
+
+    <util:map id="map" map-class="java.util.HashMap">
+        <entry key="someValue">
+            <value>Hello World!</value>
+        </entry>
+        <entry key="someBean">
+            <ref bean="oracle"/>
+        </entry>
+    </util:map>
+    
+    <util:properties id="props">
+        <prop key="firstName">Chris</prop>
+        <prop key="secondName">Schaefer</prop>
+    </util:properties>
+    
+    <util:set id="set">
+        <value>Hello World!</value>
+        <ref bean="oracle"/>   
+    </util:set>	
+    
+    <util:list id="list">
+        <value>Hello World!</value>
+        <ref bean="oracle"/> 
+    </util:list>
+</beans>

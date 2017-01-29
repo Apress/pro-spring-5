@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/tx
+        http://www.springframework.org/schema/tx/spring-tx.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <bean id="dataSourceA" class="com.atomikos.jdbc.AtomikosDataSourceBean"
+          init-method="init" destroy-method="close">
+        <property name="uniqueResourceName" value="XADBMSA"/>
+        <property name="xaDataSourceClassName" value="com.mysql.jdbc.jdbc2.optional.MysqlXADataSource"/>
+        <property name="xaProperties">
+            <props>
+                <prop key="databaseName">prospring4_ch9a</prop>
+                <prop key="user">prospring4_ch9a</prop>
+                <prop key="password">prospring4_ch9a</prop>
+            </props>
+        </property>
+        <property name="poolSize" value="1"/>
+    </bean>
+
+    <bean id="dataSourceB" class="com.atomikos.jdbc.AtomikosDataSourceBean"
+          init-method="init" destroy-method="close">
+        <property name="uniqueResourceName" value="XADBMSB"/>
+        <property name="xaDataSourceClassName" value="com.mysql.jdbc.jdbc2.optional.MysqlXADataSource"/>
+        <property name="xaProperties">
+            <props>
+                <prop key="databaseName">prospring4_ch9b</prop>
+                <prop key="user">prospring4_ch9b</prop>
+                <prop key="password">prospring4_ch9b</prop>
+            </props>
+        </property>
+        <property name="poolSize" value="1"/>
+    </bean>
+
+    <bean id="emfBase" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean"
+          abstract="true">
+        <property name="jpaVendorAdapter">
+            <bean class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter"/>
+        </property>
+        <property name="packagesToScan" value="com.apress.prospring4.ch9"/>
+        <property name="jpaProperties">
+            <props>
+                <prop key="hibernate.transaction.factory_class">
+                    org.hibernate.engine.transaction.internal.jta.CMTTransactionFactory</prop>
+                <prop key="hibernate.transaction.manager_lookup_class">
+                    com.atomikos.icatch.jta.hibernate3.TransactionManagerLookup</prop>
+                <prop key="hibernate.dialect">
+                    org.hibernate.dialect.MySQL5Dialect</prop>
+                <prop key="hibernate.max_fetch_depth">3</prop>
+                <prop key="hibernate.jdbc.fetch_size">50</prop>
+                <prop key="hibernate.jdbc.batch_size">10</prop>
+                <prop key="hibernate.show_sql">true</prop>
+            </props>
+        </property>
+    </bean>
+
+    <bean id="emfA" parent="emfBase">
+        <property name="dataSource" ref="dataSourceA"/>
+        <property name="persistenceUnitName" value="emfA"/>
+    </bean>
+
+    <bean id="emfB" parent="emfBase">
+        <property name="dataSource" ref="dataSourceB"/>
+        <property name="persistenceUnitName" value="emfB"/>
+    </bean>
+
+    <tx:annotation-driven transaction-manager="transactionManager" />
+
+    <bean id="atomikosTransactionManager" class="com.atomikos.icatch.jta.UserTransactionManager"
+          init-method="init" destroy-method="close">
+        <property name="forceShutdown" value="true"/>
+    </bean>
+
+    <bean id="atomikosUserTransaction" class="com.atomikos.icatch.jta.UserTransactionImp">
+        <property name="transactionTimeout" value="300"/>
+    </bean>
+
+    <bean id="transactionManager" class="org.springframework.transaction.jta.JtaTransactionManager">
+        <property name="transactionManager" ref="atomikosTransactionManager"/>
+        <property name="userTransaction" ref="atomikosUserTransaction"/>
+    </bean>
+
+    <context:component-scan base-package="com.apress.prospring4.ch9 " />
+</beans> 

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:util="http://www.springframework.org/schema/util"
+    xmlns:p="http://www.springframework.org/schema/p"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/util    
+        http://www.springframework.org/schema/util/spring-util.xsd">
+
+    <bean id="customEditorConfigurer" 
+        class="org.springframework.beans.factory.config.CustomEditorConfigurer"
+        p:propertyEditorRegistrars-ref="propertyEditorRegistrarsList"/>
+   
+    <util:list id="propertyEditorRegistrarsList">
+        <bean class="com.apress.prospring4.ch4.PropertyEditorBean$CustomPropertyEditorRegistrar"/>
+    </util:list>
+
+    <bean id="builtInSample" class="com.apress.prospring4.ch4.PropertyEditorBean"
+        p:bytes="Hello World"
+        p:cls="java.lang.String"
+        p:trueOrFalse="true"
+        p:stringList-ref="stringList"
+        p:stream="test.txt"
+        p:floatValue="123.45678"
+        p:date="05/03/13"
+        p:file="#{systemProperties['java.io.tmpdir']}#{systemProperties['file.separator']}test.txt"
+        p:locale="en_US"
+        p:pattern="a*b"
+        p:properties="name=Chris age=32"
+        p:trimString="   String need trimming   "
+        p:url="http://www.springframework.org"
+    /> 
+
+    <util:list id="stringList">
+        <value>String member 1</value>
+        <value>String member 2</value>
+    </util:list>
+</beans>

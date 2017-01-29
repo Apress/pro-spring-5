@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:p="http://www.springframework.org/schema/p"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean name="customEditorConfigurer"
+          class="org.springframework.beans.factory.config.CustomEditorConfigurer">
+        <property name="customEditors">
+            <map>
+                <entry key="com.apress.prospring4.ch4.Name" 
+                       value="com.apress.prospring4.ch4.NamePropertyEditor"/>
+            </map>
+        </property>
+    </bean>
+
+    <bean id="exampleBean" class="com.apress.prospring4.ch4.CustomEditorExample"
+      p:name="Chris Schaefer"/>
+</beans>

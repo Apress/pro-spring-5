@@ -1,0 +1,50 @@
+rootProject.name = 'pro-spring-15'
+
+
+include 'chapter02'
+include 'chapter02:hello-world'
+findProject(':chapter02:hello-world')?.name = 'hello-world'
+
+include 'chapter03'
+include 'chapter03:bean-aliases'
+findProject(':chapter03:bean-aliases')?.name = 'bean-aliases'
+include 'chapter03:bean-autowiring'
+findProject(':chapter03:bean-autowiring')?.name = 'bean-autowiring'
+include 'chapter03:bean-inheritance'
+findProject(':chapter03:bean-inheritance')?.name = 'bean-inheritance'
+include 'chapter03:bean-instantiation-mode'
+findProject(':chapter03:bean-instantiation-mode')?.name = 'bean-instantiation-mode'
+include 'chapter03:cdl'
+findProject(':chapter03:cdl')?.name = 'cdl'
+include 'chapter03:collections'
+findProject(':chapter03:collections')?.name = 'collections'
+include 'chapter03:constructor-injection'
+findProject(':chapter03:constructor-injection')?.name = 'constructor-injection'
+include 'chapter03:dependency-pull'
+findProject(':chapter03:collections')?.name = 'collections'
+include 'chapter03:injection'
+findProject(':chapter03:collections')?.name = 'collections'
+include 'chapter03:method-injection'
+findProject(':chapter03:collections')?.name = 'collections'
+include 'chapter03:method-replacement'
+findProject(':chapter03:collections')?.name = 'collections'
+include 'chapter03:nesting'
+findProject(':chapter03:collections')?.name = 'collections'
+include 'chapter03:collections'
+findProject(':chapter03:collections')?.name = 'collections'
+include 'chapter03:setter-injection'
+findProject(':chapter03:collections')?.name = 'collections'
+include 'chapter03:simple-types'
+findProject(':chapter03:collections')?.name = 'collections'
+
+println(' This project is a collection of simple code samples. It is meant to be used together with the ' +
+		'"Spring Pro, Fifth Edition" ' +
+		' published by Apress in order to learn and practice with all Spring Web libraries. ')
+
+//we check if the modules have gradle configuration files
+rootProject.children.each { project ->
+	project.buildFileName = "${project.name}.gradle"
+	assert project.projectDir.isDirectory()
+	assert project.buildFile.exists()
+	assert project.buildFile.isFile()
+}

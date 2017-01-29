@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<div xmlns:jsp="http://java.sun.com/JSP/Page"
+     xmlns:c="http://java.sun.com/jsp/jstl/core"
+     xmlns:spring="http://www.springframework.org/tags"
+     xmlns:form="http://www.springframework.org/tags/form"
+     version="2.0">
+
+    <script type="text/javascript">
+        $(function(){
+            $('#birthDate').datepicker({
+                dateFormat: 'yy-mm-dd',
+                changeYear: true
+            });
+
+            $("#contactDescription").ckeditor(
+                    {
+                        toolbar : 'Basic',
+                        uiColor : '#CCCCCC'
+                    }
+            );
+        });
+    </script>
+
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+
+    <spring:message code="label_contact_new" var="labelContactNew"/>
+    <spring:message code="label_contact_update" var="labelContactUpdate"/>
+    <spring:message code="label_contact_first_name" var="labelContactFirstName"/>
+    <spring:message code="label_contact_last_name" var="labelContactLastName"/>
+    <spring:message code="label_contact_birth_date" var="labelContactBirthDate"/>
+    <spring:message code="label_contact_description" var="labelContactDescription"/>
+    <spring:message code="label_contact_photo" var="labelContactPhoto"/>
+
+    <spring:eval expression="contact.id == null ? labelContactNew:labelContactUpdate"
+                 var="formTitle"/>
+
+    <h1>${formTitle}</h1>
+
+    <div id="contactUpdate">
+        <form:form modelAttribute="contact" id="contactUpdateForm" method="post"
+                   enctype="multipart/form-data">
+
+        <c:if test="${not empty message}">
+                <div id="message" class="${message.type}">${message.message}</div>
+            </c:if>
+
+            <form:label path="firstName">
+                ${labelContactFirstName}*
+            </form:label>
+            <form:input path="firstName" />
+            <div>
+                <form:errors path="firstName" cssClass="error" />
+            </div>
+            <p/>
+
+            <form:label path="lastName">
+                ${labelContactLastName}*
+            </form:label>
+            <form:input path="lastName" />
+            <div>
+                <form:errors path="lastName" cssClass="error" />
+            </div>
+            <p/>
+
+            <form:label path="birthDate">
+                ${labelContactBirthDate}
+            </form:label>
+            <form:input path="birthDate" id="birthDate"/>
+            <div>
+                <form:errors path="birthDate" cssClass="error" />
+            </div>
+            <p/>
+
+            <form:label path="description">
+                ${labelContactDescription}
+            </form:label>
+            <form:textarea cols="60" rows="8" path="description" id="contactDescription"/>
+            <div>
+                <form:errors path="description" cssClass="error" />
+            </div>
+            <p/>
+
+            <label for="file">
+                ${labelContactPhoto}
+            </label>
+            <input name="file" type="file"/>
+            <p/>
+
+            <form:hidden path="version" />
+
+            <button type="submit" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only">
+                <span class="ui-button-text">Save</span>
+            </button>
+            <button type="reset" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only">
+                <span class="ui-button-text">Reset</span>
+            </button>
+        </form:form>
+    </div>
+</div>

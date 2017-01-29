@@ -1,0 +1,21 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:websocket="http://www.springframework.org/schema/websocket"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xsi:schemaLocation="
+        http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/websocket
+        http://www.springframework.org/schema/websocket/spring-websocket.xsd
+        http://www.springframework.org/schema/mvc
+        http://www.springframework.org/schema/mvc/spring-mvc.xsd">
+
+    <mvc:resources mapping="/index.html" location="/static/" />
+
+    <websocket:handlers>
+        <websocket:mapping path="/echoHandler" handler="echoHandler"/>
+        <websocket:sockjs/>
+    </websocket:handlers>
+
+    <bean id="echoHandler" class="com.apress.prospring4.ch17.EchoHandler"/>
+</beans>

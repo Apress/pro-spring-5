@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="myBean1" class="com.apress.prospring4.ch5.MyBean">
+        <property name="dep">
+            <ref bean="myDependency1"/>
+        </property>
+    </bean>
+
+    <bean id="myBean2" class="com.apress.prospring4.ch5.MyBean">
+        <property name="dep">
+            <ref bean="myDependency2"/>
+        </property>
+    </bean>
+
+    <bean id="myDependencyTarget" class="com.apress.prospring4.ch5.MyDependency"/>
+
+    <bean id="myDependency1" class="org.springframework.aop.framework.ProxyFactoryBean">
+        <property name="target">
+            <ref bean="myDependencyTarget"/>
+        </property>
+        <property name="interceptorNames">
+            <list>
+                <value>advice</value>
+            </list>
+        </property>
+    </bean>
+
+    <bean id="myDependency2" class="org.springframework.aop.framework.ProxyFactoryBean">
+        <property name="target">
+            <ref bean="myDependencyTarget"/>
+        </property>
+        <property name="interceptorNames">
+            <list>
+                <value>advisor</value>
+            </list>
+        </property>
+    </bean>
+
+    <bean id="advice" class="com.apress.prospring4.ch5.MyAdvice"/>
+
+    <bean id="advisor" class="org.springframework.aop.support.DefaultPointcutAdvisor">
+        <property name="advice">
+            <ref bean="advice"/>
+        </property>
+        <property name="pointcut">
+            <bean class="org.springframework.aop.aspectj.AspectJExpressionPointcut">
+                <property name="expression">
+                    <value>execution(* foo*(..))</value>
+                </property>
+            </bean>
+        </property>
+    </bean>
+</beans>
