@@ -1,4 +1,4 @@
-package com.apress.prospring5.ch3.annotation;
+package com.apress.prospring5.ch3.annotated;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.support.GenericXmlApplicationContext;
@@ -31,7 +31,7 @@ public class InjectSimpleSpel {
 
     public static void main(String... args) {
         GenericXmlApplicationContext ctx = new GenericXmlApplicationContext();
-        ctx.load("classpath:META-INF/spring/app-context-annotation.xml");
+        ctx.load("classpath:spring/app-context-annotation.xml");
         ctx.refresh();
 
         InjectSimpleSpel simple = (InjectSimpleSpel)ctx.getBean("injectSimpleSpel");

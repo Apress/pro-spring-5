@@ -9,7 +9,7 @@
         <property name="target">
             <bean class="com.apress.prospring4.ch5.TargetBean">
                 <property name="name">
-                    <value>Chris Schaefer</value>
+                    <value>John Mayer</value>
                 </property>
             </bean>
         </property>

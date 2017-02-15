@@ -15,7 +15,7 @@ public class IntroductionConfigExample {
         System.out.println("Is IsModified?: " + (bean instanceof IsModified));
 
         System.out.println("Has been modified?: " + mod.isModified());
-        bean.setName("Chris Schaefer");
+        bean.setName("John Mayer");
 
         System.out.println("Has been modified?: " + mod.isModified());
         bean.setName("Clarence Ho");

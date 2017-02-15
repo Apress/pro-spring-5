@@ -1,7 +1,13 @@
+dependencies {
+	compile project(':chapter02:hello-world')
+	compile spring.context, misc.slf4jJcl, misc.logback
+	testCompile testing.junit
+}
+
 jar {
 	manifest {
 		attributes(
-				'Main-Class': 'com.apress.prospring5.ch3.annotation.ConstructorConfusion<',
+				'Main-Class': 'com.apress.prospring5.ch3.annotation.ConstructorConfusion',
 				"Class-Path": configurations.compile.collect { it.getName() }.join(' '))
 	}
 }

@@ -5,7 +5,7 @@ import org.springframework.context.support.GenericXmlApplicationContext;
 public class NonSingleton {
     public static void main(String... args) {
           GenericXmlApplicationContext ctx = new GenericXmlApplicationContext();
-          ctx.load("classpath:META-INF/spring/app-context-xml.xml");
+          ctx.load("classpath:spring/app-context-xml.xml");
           ctx.refresh();
         
           String s1 = (String) ctx.getBean("nonSingleton");

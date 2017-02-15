@@ -34,6 +34,8 @@ include 'chapter03:setter-injection'
 findProject(':chapter03:setter-injection')?.name = 'setter-injection'
 include 'chapter03:simple-types'
 findProject(':chapter03:simple-types')?.name = 'simple-types'
+include 'chapter03:field-injection'
+findProject(':chapter03:field-injection')?.name = 'field-injection'
 
 println(' This project is a collection of simple code samples. It is meant to be used together with the ' +
 		'"Spring Pro, Fifth Edition" ' +
@@ -46,3 +48,5 @@ rootProject.children.each { project ->
 	assert project.buildFile.exists()
 	assert project.buildFile.isFile()
 }
+
+

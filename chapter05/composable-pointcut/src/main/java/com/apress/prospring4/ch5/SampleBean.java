@@ -2,13 +2,13 @@ package com.apress.prospring4.ch5;
 
 public class SampleBean {
     public String getName() {
-        return "Chris Schaefer";
+        return "John Mayer";
     }
 
     public void setName(String name) {
     }
 
     public int getAge() {
-        return 32;
+        return 39;
     }
 }

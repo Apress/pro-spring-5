@@ -37,7 +37,7 @@ public class Target {
 
     public static void main(String... args) {
         GenericXmlApplicationContext ctx = new GenericXmlApplicationContext();
-        ctx.load("classpath:META-INF/spring/app-context-xml.xml");
+        ctx.load("classpath:spring/app-context-xml.xml");
         ctx.refresh();
 
         Target t = null;

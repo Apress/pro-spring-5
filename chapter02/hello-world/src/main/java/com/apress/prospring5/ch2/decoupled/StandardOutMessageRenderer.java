@@ -4,6 +4,10 @@ public class StandardOutMessageRenderer implements MessageRenderer {
 
 	private MessageProvider messageProvider;
 
+	public StandardOutMessageRenderer(){
+		System.out.println(" --> StandardOutMessageRenderer: constructor caled");
+	}
+
 	@Override
 	public void render() {
 		if (messageProvider == null) {
@@ -16,6 +20,7 @@ public class StandardOutMessageRenderer implements MessageRenderer {
 
 	@Override
 	public void setMessageProvider(MessageProvider provider) {
+		System.out.println(" --> StandardOutMessageRenderer: setting the provider");
 		this.messageProvider = provider;
 	}
 

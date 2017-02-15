@@ -14,13 +14,13 @@
 
     <bean id="simpleBean1"
         class="com.apress.prospring4.ch4.SimpleBeanWithJSR250"
-        p:name="Chris Schaefer" p:age="32"/>
+        p:name="John Mayer" p:age="39"/>
 
     <bean id="simpleBean2"
         class="com.apress.prospring4.ch4.SimpleBeanWithJSR250"
-        p:age="32"/>
+        p:age="39"/>
 
     <bean id="simpleBean3" 
         class="com.apress.prospring4.ch4.SimpleBeanWithJSR250"
-        p:name="Chris Schaefer"/>
+        p:name="John Mayer"/>
 </beans>

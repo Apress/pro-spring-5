@@ -5,11 +5,11 @@ import org.springframework.context.support.GenericXmlApplicationContext;
 public class HierarchicalAppContextUsage {
     public static void main(String... args) {
         GenericXmlApplicationContext parent = new GenericXmlApplicationContext();
-        parent.load("classpath:META-INF/spring/parent.xml");
+        parent.load("classpath:spring/parent.xml");
         parent.refresh();
 
         GenericXmlApplicationContext child = new GenericXmlApplicationContext();
-        child.load("classpath:META-INF/spring/app-context-xml.xml");
+        child.load("classpath:spring/app-context-xml.xml");
         child.setParent(parent);
         child.refresh();
 

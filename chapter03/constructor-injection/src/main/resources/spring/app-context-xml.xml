@@ -6,9 +6,9 @@
     xsi:schemaLocation="http://www.springframework.org/schema/beans
     http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-    <bean id="messageProvider" 
+    <bean id="provider"
         class="com.apress.prospring5.ch3.xml.ConfigurableMessageProvider"
-        c:message="This is a configurable message"/>
+        c:message="I hope that someone gets my message in a bottle"/>
 
     <bean id="constructorConfusion"
         class="com.apress.prospring5.ch3.xml.ConstructorConfusion">

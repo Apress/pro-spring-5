@@ -7,8 +7,8 @@
         http://www.springframework.org/schema/beans/spring-beans.xsd">
 
     <bean id="inheritParent" class="com.apress.prospring5.ch3.xml.SimpleBean"
-        p:name="Chris Schaefer" p:age="32"/>
+        p:name="John Mayer" p:age="39"/>
     
     <bean id="inheritChild" class="com.apress.prospring5.ch3.xml.SimpleBean"
-        parent="inheritParent" p:age="33"/>
+        parent="inheritParent" p:age="40"/>
 </beans>

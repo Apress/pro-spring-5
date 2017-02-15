@@ -12,7 +12,7 @@ public class InjectRef {
 
     public static void main(String... args) {
         GenericXmlApplicationContext ctx = new GenericXmlApplicationContext();
-        ctx.load("classpath:META-INF/spring/app-context-xml.xml");
+        ctx.load("classpath:spring/app-context-xml.xml");
         ctx.refresh();
 
         InjectRef injectRef = (InjectRef) ctx.getBean("injectRef");

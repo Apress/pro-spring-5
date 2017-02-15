@@ -6,7 +6,7 @@ import org.springframework.aop.framework.ProxyFactory;
 public class IntroductionExample {
     public static void main(String[] args) {
         TargetBean target = new TargetBean();
-        target.setName("Chris Schaefer");
+        target.setName("John Mayer");
 
         IntroductionAdvisor advisor = new IsModifiedAdvisor();
 
@@ -24,7 +24,7 @@ public class IntroductionExample {
         System.out.println("Has been modified?: " + 
             proxyInterface.isModified());
 
-        proxy.setName("Chris Schaefer");
+        proxy.setName("John Mayer");
 
         System.out.println("Has been modified?: " + 
             proxyInterface.isModified());

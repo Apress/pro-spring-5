@@ -1,4 +1,4 @@
-package com.apress.prospring5.ch3.annotation;
+package com.apress.prospring5.ch3.annotated;
 
 import org.springframework.stereotype.Service;
 

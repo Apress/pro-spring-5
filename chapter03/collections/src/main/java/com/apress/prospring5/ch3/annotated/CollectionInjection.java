@@ -1,4 +1,4 @@
-package com.apress.prospring5.ch3.annotation;
+package com.apress.prospring5.ch3.annotated;
 
 import java.util.List;
 import java.util.Map;
@@ -26,7 +26,7 @@ public class CollectionInjection {
 
     public static void main(String... args) {
         GenericXmlApplicationContext ctx = new GenericXmlApplicationContext();
-        ctx.load("classpath:META-INF/spring/app-context-annotation.xml");
+        ctx.load("classpath:spring/app-context-annotation.xml");
         ctx.refresh();  
 
         CollectionInjection instance = (CollectionInjection) ctx.getBean("injectCollection");

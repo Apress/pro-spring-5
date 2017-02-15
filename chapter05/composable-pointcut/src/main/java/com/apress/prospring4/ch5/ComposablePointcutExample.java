@@ -45,7 +45,7 @@ public class ComposablePointcutExample {
     private static void testInvoke(SampleBean proxy) {
         proxy.getAge();
         proxy.getName();
-        proxy.setName("Chris Schaefer");
+        proxy.setName("John Mayer");
     }
 
     private static class GetterMethodMatcher extends StaticMethodMatcher {

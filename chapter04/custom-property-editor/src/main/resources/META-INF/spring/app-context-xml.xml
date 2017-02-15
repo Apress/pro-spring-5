@@ -17,5 +17,5 @@
     </bean>
 
     <bean id="exampleBean" class="com.apress.prospring4.ch4.CustomEditorExample"
-      p:name="Chris Schaefer"/>
+      p:name="John Mayer"/>
 </beans>

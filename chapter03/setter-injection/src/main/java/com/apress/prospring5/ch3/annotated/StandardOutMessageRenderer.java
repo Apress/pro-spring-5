@@ -1,11 +1,11 @@
-package com.apress.prospring5.ch3.annotation;
+package com.apress.prospring5.ch3.annotated;
 
+import com.apress.prospring5.ch2.decoupled.MessageProvider;
+import com.apress.prospring5.ch2.decoupled.MessageRenderer;
 import org.springframework.stereotype.Service;
-import com.apress.prospring5.ch3.MessageRenderer;
-import com.apress.prospring5.ch3.MessageProvider;
 import org.springframework.beans.factory.annotation.Autowired;
 
-@Service("messageRenderer")
+@Service("renderer")
 public class StandardOutMessageRenderer implements MessageRenderer {
     private MessageProvider messageProvider;
 
