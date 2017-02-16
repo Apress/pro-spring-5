@@ -3,22 +3,26 @@ package com.apress.prospring5.ch3;
 import org.springframework.context.support.GenericXmlApplicationContext;
 
 public class HierarchicalAppContextUsage {
-    public static void main(String... args) {
-        GenericXmlApplicationContext parent = new GenericXmlApplicationContext();
-        parent.load("classpath:spring/parent.xml");
-        parent.refresh();
 
-        GenericXmlApplicationContext child = new GenericXmlApplicationContext();
-        child.load("classpath:spring/app-context-xml.xml");
-        child.setParent(parent);
-        child.refresh();
+	public static void main(String... args) {
+		GenericXmlApplicationContext parent = new GenericXmlApplicationContext();
+		parent.load("classpath:spring/parent-context.xml");
+		parent.refresh();
 
-        SimpleTarget target1 = (SimpleTarget) child.getBean("target1");
-        SimpleTarget target2 = (SimpleTarget) child.getBean("target2");
-        SimpleTarget target3 = (SimpleTarget) child.getBean("target3");
+		GenericXmlApplicationContext child = new GenericXmlApplicationContext();
+		child.load("classpath:spring/child-context.xml");
+		child.setParent(parent);
+		child.refresh();
 
-        System.out.println(target1.getVal());
-        System.out.println(target2.getVal());
-        System.out.println(target3.getVal());
-    }
+		Song song1 = (Song) child.getBean("song1");
+		Song song2 = (Song) child.getBean("song2");
+		Song song3 = (Song) child.getBean("song3");
+
+		System.out.println("from parent ctx: " + song1.getTitle());
+		System.out.println("from child ctx: " + song2.getTitle());
+		System.out.println("from parent ctx: " + song3.getTitle());
+
+		child.close();
+		parent.close();
+	}
 }

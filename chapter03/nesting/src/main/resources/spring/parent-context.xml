@@ -6,7 +6,7 @@
     xsi:schemaLocation="http://www.springframework.org/schema/beans
         http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-    <bean id="injectBean" class="java.lang.String" c:_0="Bean In Parent"/>
+    <bean id="childTitle" class="java.lang.String" c:_0="Daughters"/>
 
-    <bean id="injectBeanParent" class="java.lang.String" c:_0="Bean In Parent"/>
+    <bean id="parentTitle" class="java.lang.String" c:_0="Gravity"/>
 </beans>

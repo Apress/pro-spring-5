@@ -17,6 +17,8 @@ public class InjectRef {
 
         InjectRef injectRef = (InjectRef) ctx.getBean("injectRef");
         System.out.println(injectRef);
+
+        ctx.close();
     }
 
     public String toString() {

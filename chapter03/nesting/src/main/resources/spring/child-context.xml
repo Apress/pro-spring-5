@@ -7,17 +7,17 @@
     xsi:schemaLocation="http://www.springframework.org/schema/beans
         http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-    <bean id="target1" class="com.apress.prospring5.ch3.SimpleTarget"
-        p:val-ref="injectBeanParent"/> 
+    <bean id="song1" class="com.apress.prospring5.ch3.Song"
+          p:title-ref="parentTitle"/>
 
-    <bean id="target2" class="com.apress.prospring5.ch3.SimpleTarget"
-        p:val-ref="injectBean"/>
+    <bean id="song2" class="com.apress.prospring5.ch3.Song"
+          p:title-ref="childTitle"/>
 
-    <bean id="target3" class="com.apress.prospring5.ch3.SimpleTarget">
-        <property name="val">
-            <ref parent="injectBean"/>
+    <bean id="song3" class="com.apress.prospring5.ch3.Song">
+        <property name="title">
+            <ref parent="childTitle"/>
         </property> 
     </bean>
 
-    <bean id="injectBean" class="java.lang.String" c:_0="Child In Bean"/>
+    <bean id="childTitle" class="java.lang.String" c:_0="No Such Thing"/>
 </beans>

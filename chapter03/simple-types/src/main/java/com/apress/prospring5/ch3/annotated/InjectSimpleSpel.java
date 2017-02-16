@@ -22,10 +22,10 @@ public class InjectSimpleSpel {
     private Long ageInSeconds;
 
     public String toString() {
-        return "Name: " + name + "\n" 
+        return "Name: " + name + "\n"
             + "Age: " + age + "\n"
-            + "Age in Seconds: " + ageInSeconds + "\n" 
-            + "Height: " + height + "\n" 
+            + "Age in Seconds: " + ageInSeconds + "\n"
+            + "Height: " + height + "\n"
             + "Is Programmer?: " + programmer;
     }
 
@@ -36,5 +36,7 @@ public class InjectSimpleSpel {
 
         InjectSimpleSpel simple = (InjectSimpleSpel)ctx.getBean("injectSimpleSpel");
         System.out.println(simple);
+
+        ctx.close();
     }
 }
