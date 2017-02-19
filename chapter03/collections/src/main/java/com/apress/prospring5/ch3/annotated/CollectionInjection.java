@@ -5,6 +5,8 @@ import java.util.Map;
 import java.util.Properties;
 import java.util.Set;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 import org.springframework.context.support.GenericXmlApplicationContext;
 
@@ -12,7 +14,12 @@ import javax.annotation.Resource;
 
 @Service("injectCollection")
 public class CollectionInjection {
-    @Resource(name="map")
+
+    /**
+     *      @Resource(name="map") is equivalent with @Autowired @Qualifier("map")
+     */
+    @Autowired
+    @Qualifier("map")
     private Map<String, Object> map;
 
     @Resource(name="props")

@@ -1,19 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <beans xmlns="http://www.springframework.org/schema/beans"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="http://www.springframework.org/schema/beans
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
         http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-    <bean id="helper" class="com.apress.prospring5.ch3.MyHelper" scope="prototype"/>
-    
+    <bean id="singer" class="com.apress.prospring5.ch3.Singer" scope="prototype"/>
+
     <bean id="abstractLookupBean" class="com.apress.prospring5.ch3.AbstractLookupDemoBean">
-        <lookup-method name="getMyHelper" bean="helper"/>
+        <lookup-method name="getMySinger" bean="singer"/>
     </bean>
-    
+
     <bean id="standardLookupBean" class="com.apress.prospring5.ch3.StandardLookupDemoBean">
-        <property name="myHelper">
-            <ref bean="helper"/>
-        </property>
+        <property name="mySinger" ref="singer"/>
     </bean>
 </beans>
