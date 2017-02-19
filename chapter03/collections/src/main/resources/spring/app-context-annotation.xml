@@ -15,12 +15,9 @@
           base-package="com.apress.prospring5.ch3.annotated"/>
 
     <util:map id="map" map-class="java.util.HashMap">
-        <entry key="someValue">
-            <value>It's a Friday, we finally made it</value>
-        </entry>
-        <entry key="someBean">
-            <ref bean="oracle"/>
-        </entry>
+        <entry key="someValue" value="It's a Friday, we finally made it"/>
+
+        <entry key="someBean" value-ref="oracle"/>
     </util:map>
     
     <util:properties id="props">

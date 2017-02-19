@@ -10,12 +10,8 @@
     <bean id="injectCollection" class="com.apress.prospring5.ch3.xml.CollectionInjection">
         <property name="map">
             <map>
-                <entry key="someValue">
-                    <value>It's a Friday, we finally made it</value>
-                </entry>
-                <entry key="someBean">
-                    <ref bean="oracle"/>
-                </entry>
+                <entry key="someValue" value="It's a Friday, we finally made it"/>
+                <entry key="someBean" value-ref="oracle"/>
             </map>
         </property>
         <property name="props">
