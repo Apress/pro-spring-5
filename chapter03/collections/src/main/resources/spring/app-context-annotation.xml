@@ -16,8 +16,7 @@
 
     <util:map id="map" map-class="java.util.HashMap">
         <entry key="someValue" value="It's a Friday, we finally made it"/>
-
-        <entry key="someBean" value-ref="oracle"/>
+        <entry key="someBean" value-ref="lyricHolder"/>
     </util:map>
     
     <util:properties id="props">
@@ -25,13 +24,13 @@
         <prop key="secondName">Mayer</prop>
     </util:properties>
     
-    <util:set id="set">
+    <util:set id="set" set-class="java.util.HashSet">
         <value>I can't believe I get to see your face</value>
-        <ref bean="oracle"/>   
+        <ref bean="lyricHolder"/>
     </util:set>	
     
-    <util:list id="list">
+    <util:list id="list" list-class="java.util.ArrayList">
         <value>You've been working and I've been waiting</value>
-        <ref bean="oracle"/> 
+        <ref bean="lyricHolder"/>
     </util:list>
 </beans>

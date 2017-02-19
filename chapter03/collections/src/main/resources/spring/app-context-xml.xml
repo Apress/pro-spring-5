@@ -5,13 +5,13 @@
     xsi:schemaLocation="http://www.springframework.org/schema/beans
         http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-    <bean id="oracle" name="wiseworm" class="com.apress.prospring5.ch3.xml.BookwormOracle"/>
+    <bean id="lyricHolder" class="com.apress.prospring5.ch3.xml.LyricHolder"/>
     
     <bean id="injectCollection" class="com.apress.prospring5.ch3.xml.CollectionInjection">
         <property name="map">
             <map>
                 <entry key="someValue" value="It's a Friday, we finally made it"/>
-                <entry key="someBean" value-ref="oracle"/>
+                <entry key="someBean" value-ref="lyricHolder"/>
             </map>
         </property>
         <property name="props">
@@ -23,13 +23,13 @@
         <property name="set">
             <set>
                 <value>I can't believe I get to see your face</value>
-                <ref bean="oracle"/>
+                <ref bean="lyricHolder"/>
             </set>
         </property>
         <property name="list">
             <list>
                 <value>You've been working and I've been waiting</value>
-                <ref bean="oracle"/>
+                <ref bean="lyricHolder"/>
             </list>
         </property>
     </bean>

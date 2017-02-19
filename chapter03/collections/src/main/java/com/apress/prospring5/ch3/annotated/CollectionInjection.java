@@ -31,30 +31,22 @@ public class CollectionInjection {
 
         CollectionInjection instance = (CollectionInjection) ctx.getBean("injectCollection");
         instance.displayInfo();
+
+        ctx.close();
     }
 
     public void displayInfo() {
         System.out.println("Map contents:\n");
-
-        for (Map.Entry<String, Object> entry: map.entrySet()) {
-            System.out.println("Key: " + entry.getKey() + " - Value: " + entry.getValue());
-        }
+        map.entrySet().stream().forEach(e -> System.out.println("Key: " + e.getKey() + " - Value: " + e.getValue()));
 
         System.out.println("\nProperties contents:\n");
-
-        for (Map.Entry<Object, Object> entry: props.entrySet()) {
-            System.out.println("Key: " + entry.getKey() + " - Value: " + entry.getValue());
-        }
+        props.entrySet().stream().forEach(e -> System.out.println("Key: " + e.getKey() + " - Value: " + e.getValue()));
 
         System.out.println("\nSet contents:\n");
+        set.forEach(obj -> System.out.println("Value: " + obj));
 
-        for (Object obj: set) {
-            System.out.println("Value: " + obj);
-        }
         System.out.println("\nList contents:\n");
-
-        for (Object obj: list) {
-            System.out.println("Value: " + obj);
-        }
+        list.forEach(obj -> System.out.println("Value: " + obj));
     }
+
 }
