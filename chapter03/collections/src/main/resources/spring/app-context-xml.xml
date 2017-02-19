@@ -11,29 +11,29 @@
         <property name="map">
             <map>
                 <entry key="someValue">
-                    <value>Hello World!</value>
+                    <value>It's a Friday, we finally made it</value>
                 </entry>
                 <entry key="someBean">
-                    <ref local="oracle"/>
+                    <ref bean="oracle"/>
                 </entry>
             </map>
         </property>
         <property name="props">
             <props>
-                <prop key="firstName">Chris</prop>
-                <prop key="secondName">Schaefer</prop>
+                <prop key="firstName">John</prop>
+                <prop key="secondName">Mayer</prop>
             </props>
         </property>
         <property name="set">
             <set>
-                <value>Hello World!</value>
-                <ref local="oracle"/>
+                <value>I can't believe I get to see your face</value>
+                <ref bean="oracle"/>
             </set>
         </property>
         <property name="list">
             <list>
-                <value>Hello World!</value>
-                <ref local="oracle"/>
+                <value>You've been working and I've been waiting</value>
+                <ref bean="oracle"/>
             </list>
         </property>
     </bean>
