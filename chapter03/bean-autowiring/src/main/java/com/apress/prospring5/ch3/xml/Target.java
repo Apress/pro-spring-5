@@ -1,8 +1,6 @@
 package com.apress.prospring5.ch3.xml;
 
 import org.springframework.context.support.GenericXmlApplicationContext;
-import com.apress.prospring5.ch3.Foo;
-import com.apress.prospring5.ch3.Bar;
 
 public class Target {
     private Foo foo;
@@ -37,7 +35,7 @@ public class Target {
 
     public static void main(String... args) {
         GenericXmlApplicationContext ctx = new GenericXmlApplicationContext();
-        ctx.load("classpath:spring/app-context-xml.xml");
+        ctx.load("classpath:spring/app-context-03.xml");
         ctx.refresh();
 
         Target t = null;
@@ -50,6 +48,8 @@ public class Target {
         
         System.out.println("\nUsing constructor:\n");
         t = (Target) ctx.getBean("targetConstructor");
+
+        ctx.close();
         
     }
 }

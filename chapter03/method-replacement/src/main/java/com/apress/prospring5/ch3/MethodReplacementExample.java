@@ -16,16 +16,20 @@ public class MethodReplacementExample {
 
         displayInfo(replacementTarget);
         displayInfo(standardTarget);
+
+        ctx.close();
     }
 
     private static void displayInfo(ReplacementTarget target) {
-        System.out.println(target.formatMessage("Hello World!"));
+        System.out.println(target.formatMessage("Thanks for playing, try again!"));
 
         StopWatch stopWatch = new StopWatch();
         stopWatch.start("perfTest");
 
         for (int x = 0; x < 1000000; x++) {
-            String out = target.formatMessage("foo");
+            String out = target.formatMessage("No filter in my head");
+            //commented to not pollute the console
+            //System.out.println(out);
         }
 
         stopWatch.stop();

@@ -2,10 +2,10 @@
 
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xmlns:c="http://www.springframework.org/schema/c"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
         http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-    <bean id="nonSingleton" class="com.apress.prospring5.ch3.annotated.Singer"
-          scope="prototype" c:_0="John Mayer"/>
+    <bean name="jon johnny,jonathan;jim" class="java.lang.String"/>
+
+    <bean id="jon johnny,jonathan;jim" class="java.lang.String"/>
 </beans>

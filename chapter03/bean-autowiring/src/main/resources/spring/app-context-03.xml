@@ -5,8 +5,8 @@
     xsi:schemaLocation="http://www.springframework.org/schema/beans
         http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-    <bean id="foo" class="com.apress.prospring5.ch3.Foo"/>
-    <bean id="bar1" class="com.apress.prospring5.ch3.Bar"/>
+    <bean id="foo" class="com.apress.prospring5.ch3.xml.Foo"/>
+    <bean id="bar1" class="com.apress.prospring5.ch3.xml.Bar"/>
     
     <bean id="targetByName" autowire="byName" class="com.apress.prospring5.ch3.xml.Target"
         lazy-init="true"/>

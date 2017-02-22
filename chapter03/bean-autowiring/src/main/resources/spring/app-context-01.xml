@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- Following the principle of DRY (Don't Repeat Yourself) the same classes can be used for the XML
+    and Annotated example. If component scanning is not enabled, the annotations are ignored. -->
+    <bean id="johnMayer" class="com.apress.prospring5.ch3.annotated.Singer" depends-on="gopher"/>
+    <bean id="gopher" class="com.apress.prospring5.ch3.annotated.Guitar"/>
+</beans>

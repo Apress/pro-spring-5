@@ -5,6 +5,7 @@
     xsi:schemaLocation="http://www.springframework.org/schema/beans
         http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-    <bean id="name1" name="name2 name3,name4;name5" class="java.lang.String"/>
-    <alias name="name1" alias="name6"/>
+    <bean id="john" name="jon johnny,jonathan;jim" class="java.lang.String"/>
+
+    <alias name="john" alias="ion"/>
 </beans>
