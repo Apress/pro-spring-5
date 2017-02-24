@@ -6,9 +6,9 @@
     xsi:schemaLocation="http://www.springframework.org/schema/beans
         http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-    <bean id="inheritParent" class="com.apress.prospring5.ch3.xml.SimpleBean"
-        p:name="John Mayer" p:age="39"/>
+    <bean id="parent" class="com.apress.prospring5.ch3.xml.Singer"
+        p:name="John Mayer" p:age="39" />
     
-    <bean id="inheritChild" class="com.apress.prospring5.ch3.xml.SimpleBean"
-        parent="inheritParent" p:age="40"/>
+    <bean id="child" class="com.apress.prospring5.ch3.xml.Singer"
+        parent="parent" p:age="0"/>
 </beans>

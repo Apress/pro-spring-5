@@ -50,7 +50,7 @@
         <property name="pointcut">
             <bean class="org.springframework.aop.aspectj.AspectJExpressionPointcut">
                 <property name="expression">
-                    <value>execution(* foo*(..))</value>
+                    <value>execution(* fooOne*(..))</value>
                 </property>
             </bean>
         </property>

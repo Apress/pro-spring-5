@@ -3,8 +3,8 @@ package com.apress.prospring5.ch3.xml;
 import org.springframework.context.support.GenericXmlApplicationContext;
 
 public class Target {
-    private Foo foo;
-    private Foo foo2;
+    private Foo fooOne;
+    private Foo fooTwo;
     private Bar bar;
 
     public Target() {
@@ -18,14 +18,14 @@ public class Target {
         System.out.println("Target(Foo, Bar) called");
     }
     
-    public void setFoo(Foo foo) {
-        this.foo = foo;
-        System.out.println("Property foo set");
+    public void setFooOne(Foo fooOne) {
+        this.fooOne = fooOne;
+        System.out.println("Property fooOne set");
     }
     
-    public void setFoo2(Foo foo) {
-        this.foo2 = foo;
-        System.out.println("Property foo2 set");
+    public void setFooTwo(Foo foo) {
+        this.fooTwo = foo;
+        System.out.println("Property fooTwo set");
     }
 
     public void setBar(Bar bar) {

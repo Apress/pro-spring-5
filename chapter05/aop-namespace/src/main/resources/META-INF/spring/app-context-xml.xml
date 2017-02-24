@@ -10,7 +10,7 @@
 
     <aop:config>
         <aop:pointcut id="fooExecution" 
-            expression="execution(* com.apress.prospring4.ch5..foo*(int))"/>
+            expression="execution(* com.apress.prospring4.ch5..fooOne*(int))"/>
 
         <aop:aspect ref="advice">
             <aop:before pointcut-ref="fooExecution" 
