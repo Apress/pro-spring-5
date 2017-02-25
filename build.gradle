@@ -2,6 +2,7 @@ ext {
 	springVersion = '5.0.0.M4'
 	slf4jVersion = '1.7.22'
 	logbackVersion = '1.1.9'
+	groovyVersion = '2.4.5'
 	junitVersion = '4.12'
 
 	spring = [
@@ -14,7 +15,8 @@ ext {
 
 	misc = [
 			slf4jJcl: "org.slf4j:jcl-over-slf4j:$slf4jVersion",
-			logback : "ch.qos.logback:logback-classic:$logbackVersion"
+			logback : "ch.qos.logback:logback-classic:$logbackVersion",
+			groovy  : "org.codehaus.groovy:groovy-all:$groovyVersion"
 	]
 }
 

@@ -37,6 +37,46 @@ findProject(':chapter03:simple-types')?.name = 'simple-types'
 include 'chapter03:field-injection'
 findProject(':chapter03:field-injection')?.name = 'field-injection'
 
+include 'chapter04'
+include 'chapter04:accessing-factory-beans'
+findProject(':chapter04:accessing-factory-beans')?.name = 'accessing-factory-beans'
+include 'chapter04:application-context-aware'
+findProject(':chapter04:application-context-aware')?.name = 'application-context-aware'
+include 'chapter04:bean-init'
+findProject(':chapter04:bean-init')?.name = 'bean-init'
+include 'chapter04:bean-name-aware'
+findProject(':chapter04:bean-name-aware')?.name = 'bean-name-aware'
+include 'chapter04:custom-property-editor'
+findProject(':chapter04:custom-property-editor')?.name = 'custom-property-editor'
+include 'chapter04:disposable-bean'
+findProject(':chapter04:disposable-bean')?.name = 'disposable-bean'
+include 'chapter04:environment'
+findProject(':chapter04:environment')?.name = 'environment'
+include 'chapter04:events'
+findProject(':chapter04:events')?.name = 'events'
+include 'chapter04:factory-bean'
+findProject(':chapter04:factory-bean')?.name = 'factory-bean'
+
+
+include 'chapter04:factory-bean-and-factory-method-attributes'
+findProject(':chapter04:factory-bean-and-factory-method-attributes')?.name = 'factory-bean-and-factory-method-attributes'
+include 'chapter04:groovy-config'
+findProject(':chapter04:groovy-config')?.name = 'groovy-config'
+include 'chapter04:groovy-config-java'
+findProject(':chapter04:groovy-config-java')?.name = 'groovy-config-java'
+
+
+/*
+* 			environment					initializing-bean-destroy			profiles
+									java-config					property-editors
+bean-init										java-config-message-provider			property-placeholder
+					jsr330						resource
+									message-source					shutdown-hook
+							post-construct
+				initializing-bean				post-construct-pre-destroy
+*/
+
+
 println(' This project is a collection of simple code samples. It is meant to be used together with the ' +
 		'"Spring Pro, Fifth Edition" ' +
 		' published by Apress in order to learn and practice with all Spring Web libraries. ')
