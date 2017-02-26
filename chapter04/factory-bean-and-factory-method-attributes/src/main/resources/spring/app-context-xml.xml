@@ -7,11 +7,11 @@
         http://www.springframework.org/schema/beans/spring-beans.xsd">
 
     <bean id="shaDigestFactory" 
-        class="com.apress.prospring4.ch4.MessageDigestFactory"
+        class="com.apress.prospring5.ch4.MessageDigestFactory"
         p:algorithmName="SHA1"/>
 
     <bean id="defaultDigestFactory"
-        class="com.apress.prospring4.ch4.MessageDigestFactory"/>
+        class="com.apress.prospring5.ch4.MessageDigestFactory"/>
 
     <bean id="shaDigest"
           factory-bean="shaDigestFactory"
@@ -23,7 +23,7 @@
           factory-method="createInstance"/>
 
     <bean id="digester" 
-        class="com.apress.prospring4.ch4.MessageDigester"
+        class="MessageDigester"
         p:digest1-ref="shaDigest"
         p:digest2-ref="defaultDigest"/>
 </beans>

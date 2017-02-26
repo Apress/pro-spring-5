@@ -6,7 +6,8 @@ ext {
 	junitVersion = '4.12'
 
 	spring = [
-			context: "org.springframework:spring-context:$springVersion"
+			context: "org.springframework:spring-context:$springVersion",
+			tx: "org.springframework:spring-tx:$springVersion"
 	]
 
 	testing = [
@@ -16,7 +17,8 @@ ext {
 	misc = [
 			slf4jJcl: "org.slf4j:jcl-over-slf4j:$slf4jVersion",
 			logback : "ch.qos.logback:logback-classic:$logbackVersion",
-			groovy  : "org.codehaus.groovy:groovy-all:$groovyVersion"
+			groovy  : "org.codehaus.groovy:groovy-all:$groovyVersion",
+			inject  : "javax.inject:javax.inject:1"
 	]
 }
 

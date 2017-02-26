@@ -56,26 +56,38 @@ include 'chapter04:events'
 findProject(':chapter04:events')?.name = 'events'
 include 'chapter04:factory-bean'
 findProject(':chapter04:factory-bean')?.name = 'factory-bean'
-
-
 include 'chapter04:factory-bean-and-factory-method-attributes'
 findProject(':chapter04:factory-bean-and-factory-method-attributes')?.name = 'factory-bean-and-factory-method-attributes'
 include 'chapter04:groovy-config'
 findProject(':chapter04:groovy-config')?.name = 'groovy-config'
 include 'chapter04:groovy-config-java'
 findProject(':chapter04:groovy-config-java')?.name = 'groovy-config-java'
-
-
-/*
-* 			environment					initializing-bean-destroy			profiles
-									java-config					property-editors
-bean-init										java-config-message-provider			property-placeholder
-					jsr330						resource
-									message-source					shutdown-hook
-							post-construct
-				initializing-bean				post-construct-pre-destroy
-*/
-
+include 'chapter04:initializing-bean'
+findProject(':chapter04:initializing-bean')?.name = 'initializing-bean'
+include 'chapter04:initializing-bean-destroy'
+findProject(':chapter04:initializing-bean-destroy')?.name = 'initializing-bean-destroy'
+include 'chapter04:java-config'
+findProject(':chapter04:java-config')?.name = 'java-config'
+include 'chapter04:java-config-message-provider'
+findProject(':chapter04:java-config-message-provider')?.name = 'java-config-message-provider'
+include 'chapter04:jsr330'
+findProject(':chapter04:jsr330')?.name = 'jsr330'
+include 'chapter04:message-source'
+findProject(':chapter04:message-source')?.name = 'message-source'
+include 'chapter04:post-construct'
+findProject(':chapter04:post-construct')?.name = 'post-construct'
+include 'chapter04:post-construct-pre-destroy'
+findProject(':chapter04:post-construct-pre-destroy')?.name = 'post-construct-pre-destroy'
+include 'chapter04:profiles'
+findProject(':chapter04:profiles')?.name = 'profiles'
+include 'chapter04:property-editors'
+findProject(':chapter04:property-editors')?.name = 'property-editors'
+include 'chapter04:property-placeholder'
+findProject(':chapter04:property-placeholder')?.name = 'property-placeholder'
+include 'chapter04:resource'
+findProject(':chapter04:resource')?.name = 'resource'
+include 'chapter04:shutdown-hook'
+findProject(':chapter04:shutdown-hook')?.name = 'shutdown-hook'
 
 println(' This project is a collection of simple code samples. It is meant to be used together with the ' +
 		'"Spring Pro, Fifth Edition" ' +

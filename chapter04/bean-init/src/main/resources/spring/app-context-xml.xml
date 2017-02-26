@@ -8,14 +8,14 @@
     default-lazy-init="true">
 
     <bean id="simpleBean1"
-        class="com.apress.prospring4.ch4.SimpleBean"
+        class="com.apress.prospring5.ch4.SimpleBean"
         init-method="init" p:name="John Mayer" p:age="39"/>
 
     <bean id="simpleBean2"
-        class="com.apress.prospring4.ch4.SimpleBean"
+        class="com.apress.prospring5.ch4.SimpleBean"
         init-method="init" p:age="39"/>
 
     <bean id="simpleBean3" 
-        class="com.apress.prospring4.ch4.SimpleBean"
+        class="com.apress.prospring5.ch4.SimpleBean"
         init-method="init" p:name="John Mayer"/>
 </beans>

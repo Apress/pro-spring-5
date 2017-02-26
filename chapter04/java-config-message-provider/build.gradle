@@ -1,0 +1,13 @@
+dependencies {
+	compile spring.tx, spring.context, misc.slf4jJcl, misc.logback
+	testCompile testing.junit
+}
+
+jar {
+	manifest {
+		attributes(
+				'Main-Class': 'com.apress.prospring5.ch4.JavaConfigSimpleExample',
+				"Class-Path": configurations.compile.collect { it.getName() }.join(' '))
+	}
+}
+

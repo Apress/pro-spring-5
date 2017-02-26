@@ -7,7 +7,7 @@
         http://www.springframework.org/schema/beans/spring-beans.xsd">
 
     <bean id="destructiveBean"
-        class="com.apress.prospring4.ch4.DestructiveBeanWithInterface"
+        class="DestructiveBeanWithInterface"
         p:filePath=
         "#{systemProperties['java.io.tmpdir']}#{systemProperties['file.separator']}test.txt"/>
 </beans>

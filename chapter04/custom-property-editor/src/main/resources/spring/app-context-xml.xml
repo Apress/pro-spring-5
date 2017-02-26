@@ -10,12 +10,12 @@
           class="org.springframework.beans.factory.config.CustomEditorConfigurer">
         <property name="customEditors">
             <map>
-                <entry key="com.apress.prospring4.ch4.Name" 
-                       value="com.apress.prospring4.ch4.NamePropertyEditor"/>
+                <entry key="com.apress.prospring5.ch4.Name"
+                       value="com.apress.prospring5.ch4.NamePropertyEditor"/>
             </map>
         </property>
     </bean>
 
-    <bean id="exampleBean" class="com.apress.prospring4.ch4.CustomEditorExample"
+    <bean id="exampleBean" class="com.apress.prospring5.ch4.CustomEditorExample"
       p:name="John Mayer"/>
 </beans>
