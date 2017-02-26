@@ -1,10 +1,11 @@
 package com.apress.prospring5.ch4;
 
 import org.springframework.beans.factory.BeanCreationException;
+import org.springframework.beans.factory.InitializingBean;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.GenericXmlApplicationContext;
 
-public class Singer {
+public class SingerWithInterface implements InitializingBean {
     private static final String DEFAULT_NAME = "Eric Clapton";
 
     private String name;
@@ -18,17 +19,18 @@ public class Singer {
         this.age = age;
     }
 
-    public void init() {
+    public void afterPropertiesSet() throws Exception {
         System.out.println("Initializing bean");
 
-       if (name == null) {
+        if (name == null) {
             System.out.println("Using default name");
             name = DEFAULT_NAME;
         }
 
         if (age == Integer.MIN_VALUE) {
             throw new IllegalArgumentException(
-                    "You must set the age property of any beans of type " + Singer.class);
+                    "You must set the age property of any beans of type " 
+                    + SingerWithInterface.class);
         }
     }
 
@@ -36,7 +38,7 @@ public class Singer {
         return "\tName: " + name + "\n\tAge: " + age;
     }
 
-    public static void main(String[] args) {
+    public static void main(String... args) {
         GenericXmlApplicationContext ctx = new GenericXmlApplicationContext();
         ctx.load("classpath:spring/app-context-xml.xml");
         ctx.refresh();
@@ -48,13 +50,14 @@ public class Singer {
         ctx.close();
     }
 
-    private static Singer getBean(String beanName, ApplicationContext ctx) {
+    private static SingerWithInterface getBean(String beanName,
+            ApplicationContext ctx) {
         try {
-            Singer bean = (Singer) ctx.getBean(beanName);
+            SingerWithInterface bean = (SingerWithInterface) ctx.getBean(beanName);
             System.out.println(bean);
             return bean;
         } catch (BeanCreationException ex) {
-            System.out.println("An error occured in bean configuration: "
+            System.out.println("An error occurred in bean configuration: "
                     + ex.getMessage());
             return null;
         }

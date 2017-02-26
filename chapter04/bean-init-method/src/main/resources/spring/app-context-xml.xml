@@ -5,17 +5,17 @@
     xmlns:p="http://www.springframework.org/schema/p"
     xsi:schemaLocation="http://www.springframework.org/schema/beans
         http://www.springframework.org/schema/beans/spring-beans.xsd"
-    default-lazy-init="true">
+    default-lazy-init="true" default-init-method="init">
 
     <bean id="singerOne"
         class="com.apress.prospring5.ch4.Singer"
-        init-method="init" p:name="John Mayer" p:age="39"/>
+          p:name="John Mayer" p:age="39"/>
 
     <bean id="singerTwo"
         class="com.apress.prospring5.ch4.Singer"
-        init-method="init" p:age="39"/>
+         p:age="72"/>
 
     <bean id="singerThree"
         class="com.apress.prospring5.ch4.Singer"
-        init-method="init" p:name="John Butler"/>
+         p:name="John Butler"/>
 </beans>

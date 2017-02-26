@@ -6,7 +6,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.core.io.Resource;
 
 public class ResourceDemo {
-    public static void main(String[] args) throws Exception{
+    public static void main(String... args) throws Exception{
         ApplicationContext ctx = new ClassPathXmlApplicationContext();
 
         File file = File.createTempFile("test", "txt");

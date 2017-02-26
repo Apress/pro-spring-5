@@ -5,8 +5,8 @@ import org.springframework.beans.factory.BeanCreationException;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.GenericXmlApplicationContext;
 
-public class SimpleBeanWithJSR250 {
-    private static final String DEFAULT_NAME = "Luke Skywalker";
+public class SingerWithJSR250 {
+    private static final String DEFAULT_NAME = "Eric Clapton";
 
     private String name;
     private int age = Integer.MIN_VALUE;
@@ -20,7 +20,7 @@ public class SimpleBeanWithJSR250 {
     }
 
     @PostConstruct
-    public void init() throws Exception {
+    private void init() throws Exception {
         System.out.println("Initializing bean");
 
        if (name == null) {
@@ -31,27 +31,29 @@ public class SimpleBeanWithJSR250 {
         if (age == Integer.MIN_VALUE) {
             throw new IllegalArgumentException(
                     "You must set the age property of any beans of type " + 
-                    SimpleBeanWithJSR250.class);
+                    SingerWithJSR250.class);
         }
     }
 
     public String toString() {
-        return "Name: " + name + "\nAge: " + age;
+        return "\tName: " + name + "\n\tAge: " + age;
     }
 
-    public static void main(String[] args) {
+    public static void main(String... args) {
         GenericXmlApplicationContext ctx = new GenericXmlApplicationContext();
         ctx.load("classpath:spring/app-context-annotation.xml");
         ctx.refresh();
 
-        SimpleBeanWithJSR250 simpleBean1 = getBean("simpleBean1", ctx);
-        SimpleBeanWithJSR250 simpleBean2 = getBean("simpleBean2", ctx);
-        SimpleBeanWithJSR250 simpleBean3 = getBean("simpleBean3", ctx);
+        getBean("singerOne", ctx);
+        getBean("singerTwo", ctx);
+        getBean("singerThree", ctx);
+
+        ctx.close();
     }
 
-    private static SimpleBeanWithJSR250 getBean(String beanName, ApplicationContext ctx) {
+    private static SingerWithJSR250 getBean(String beanName, ApplicationContext ctx) {
         try {
-            SimpleBeanWithJSR250 bean = (SimpleBeanWithJSR250) ctx.getBean(beanName);
+            SingerWithJSR250 bean = (SingerWithJSR250) ctx.getBean(beanName);
             System.out.println(bean);
             return bean;
         } catch (BeanCreationException ex) {

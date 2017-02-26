@@ -40,7 +40,7 @@ public class DestructiveBeanWithInterface implements InitializingBean, Disposabl
         this.filePath = filePath;
     }
 
-    public static void main(String[] args) throws Exception {
+    public static void main(String... args) throws Exception {
         GenericXmlApplicationContext ctx = new GenericXmlApplicationContext();
         ctx.load("classpath:spring/app-context-xml.xml");
         ctx.refresh(); 

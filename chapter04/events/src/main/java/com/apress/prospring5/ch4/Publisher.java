@@ -17,7 +17,7 @@ public class Publisher implements ApplicationContextAware {
         ctx.publishEvent(new MessageEvent(this, message));
     }
 
-    public static void main(String[] args) {
+    public static void main(String... args) {
         ApplicationContext ctx = new ClassPathXmlApplicationContext(
                 "classpath:spring/app-context-xml.xml");
 

@@ -12,15 +12,15 @@
 
     <context:annotation-config/>
 
-    <bean id="simpleBean1"
-        class="com.apress.prospring5.ch4.SimpleBeanWithJSR250"
-        p:name="John Mayer" p:age="39"/>
+    <bean id="singerOne"
+          class="com.apress.prospring5.ch4.SingerWithJSR250"
+          p:name="John Mayer" p:age="39"/>
 
-    <bean id="simpleBean2"
-        class="com.apress.prospring5.ch4.SimpleBeanWithJSR250"
-        p:age="39"/>
+    <bean id="singerTwo"
+          class="com.apress.prospring5.ch4.SingerWithJSR250"
+          p:age="72"/>
 
-    <bean id="simpleBean3" 
-        class="com.apress.prospring5.ch4.SimpleBeanWithJSR250"
-        p:name="John Mayer"/>
+    <bean id="singerThree"
+          class="com.apress.prospring5.ch4.SingerWithJSR250"
+          p:name="John Butler"/>
 </beans>

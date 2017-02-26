@@ -5,7 +5,7 @@ import java.security.MessageDigest;
 import org.springframework.context.support.GenericXmlApplicationContext;
 
 public class AccessingFactoryBeans {
-    public static void main(String[] args) {
+    public static void main(String... args) {
         GenericXmlApplicationContext ctx = new GenericXmlApplicationContext();
         ctx.load("classpath:spring/app-context-xml.xml");
         ctx.refresh();
