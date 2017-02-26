@@ -4,8 +4,8 @@ import org.springframework.beans.factory.BeanCreationException;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.GenericXmlApplicationContext;
 
-public class SimpleBean {
-    private static final String DEFAULT_NAME = "Luke Skywalker";
+public class Singer {
+    private static final String DEFAULT_NAME = "Eric Clapton";
 
     private String name;
     private int age = Integer.MIN_VALUE;
@@ -28,12 +28,12 @@ public class SimpleBean {
 
         if (age == Integer.MIN_VALUE) {
             throw new IllegalArgumentException(
-                    "You must set the age property of any beans of type " + SimpleBean.class);
+                    "You must set the age property of any beans of type " + Singer.class);
         }
     }
 
     public String toString() {
-        return "Name: " + name + "\nAge: " + age;
+        return "\tName: " + name + "\n\tAge: " + age;
     }
 
     public static void main(String[] args) {
@@ -41,14 +41,16 @@ public class SimpleBean {
         ctx.load("classpath:spring/app-context-xml.xml");
         ctx.refresh();
 
-        SimpleBean simpleBean1 = getBean("simpleBean1", ctx);
-        SimpleBean simpleBean2 = getBean("simpleBean2", ctx);
-        SimpleBean simpleBean3 = getBean("simpleBean3", ctx);
+        getBean("singerOne", ctx);
+        getBean("singerTwo", ctx);
+        getBean("singerThree", ctx);
+
+        ctx.close();
     }
 
-    private static SimpleBean getBean(String beanName, ApplicationContext ctx) {
+    private static Singer getBean(String beanName, ApplicationContext ctx) {
         try {
-            SimpleBean bean = (SimpleBean) ctx.getBean(beanName);
+            Singer bean = (Singer) ctx.getBean(beanName);
             System.out.println(bean);
             return bean;
         } catch (BeanCreationException ex) {

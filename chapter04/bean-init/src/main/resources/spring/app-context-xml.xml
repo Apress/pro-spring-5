@@ -7,15 +7,15 @@
         http://www.springframework.org/schema/beans/spring-beans.xsd"
     default-lazy-init="true">
 
-    <bean id="simpleBean1"
-        class="com.apress.prospring5.ch4.SimpleBean"
+    <bean id="singerOne"
+        class="com.apress.prospring5.ch4.Singer"
         init-method="init" p:name="John Mayer" p:age="39"/>
 
-    <bean id="simpleBean2"
-        class="com.apress.prospring5.ch4.SimpleBean"
+    <bean id="singerTwo"
+        class="com.apress.prospring5.ch4.Singer"
         init-method="init" p:age="39"/>
 
-    <bean id="simpleBean3" 
-        class="com.apress.prospring5.ch4.SimpleBean"
-        init-method="init" p:name="John Mayer"/>
+    <bean id="singerThree"
+        class="com.apress.prospring5.ch4.Singer"
+        init-method="init" p:name="John Butler"/>
 </beans>
