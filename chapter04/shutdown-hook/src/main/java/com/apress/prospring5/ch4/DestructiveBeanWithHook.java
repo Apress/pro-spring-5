@@ -5,18 +5,18 @@ import javax.annotation.PreDestroy;
 import java.io.File;
 import org.springframework.context.support.GenericXmlApplicationContext;
 
-public class DestructiveBeanWithInterface {
+public class DestructiveBeanWithHook {
     private File file;
     private String filePath;
-    
+
     @PostConstruct
     public void afterPropertiesSet() throws Exception {
         System.out.println("Initializing Bean");
 
         if (filePath == null) {
             throw new IllegalArgumentException(
-                    "You must specify the filePath property of " + 
-                    DestructiveBeanWithInterface.class);
+                    "You must specify the filePath property of " +
+                    DestructiveBeanWithHook.class);
         }
 
         this.file = new File(filePath);
@@ -44,9 +44,10 @@ public class DestructiveBeanWithInterface {
         GenericXmlApplicationContext ctx = new GenericXmlApplicationContext();
         ctx.load("classpath:spring/app-context-annotation.xml");
         ctx.registerShutdownHook();
-        ctx.refresh(); 
+        ctx.refresh();
 
-        DestructiveBeanWithInterface bean = 
-            (DestructiveBeanWithInterface) ctx.getBean("destructiveBean");
+        ctx.getBean(DestructiveBeanWithHook.class);
+
+        ctx.close();
     }
 }

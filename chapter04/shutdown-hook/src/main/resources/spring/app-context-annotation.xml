@@ -12,7 +12,7 @@
     <context:annotation-config/>
 
     <bean id="destructiveBean"
-        class="com.apress.prospring5.ch4.DestructiveBeanWithInterface"
+        class="com.apress.prospring5.ch4.DestructiveBeanWithHook"
         p:filePath=
         "#{systemProperties['java.io.tmpdir']}#{systemProperties['file.separator']}test.txt"/>
 </beans>
