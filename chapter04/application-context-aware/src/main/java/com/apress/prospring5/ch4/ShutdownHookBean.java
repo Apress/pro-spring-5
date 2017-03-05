@@ -8,7 +8,7 @@ import org.springframework.context.support.GenericApplicationContext;
 public class ShutdownHookBean implements ApplicationContextAware {
     private ApplicationContext ctx;
 
-    @Override
+    /** @Implements {@link ApplicationContextAware#setApplicationContext(ApplicationContext)}  }*/
     public void setApplicationContext(ApplicationContext ctx)
         throws BeansException {
 

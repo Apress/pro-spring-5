@@ -45,8 +45,6 @@ public class DestructiveBeanWithInterface {
         ctx.load("classpath:spring/app-context-annotation.xml");
         ctx.registerShutdownHook();
         ctx.refresh(); 
-
-        DestructiveBeanWithInterface bean = 
-            (DestructiveBeanWithInterface) ctx.getBean("destructiveBean");
+        ctx.getBean("destructiveBean", DestructiveBeanWithInterface.class);
     }
 }
