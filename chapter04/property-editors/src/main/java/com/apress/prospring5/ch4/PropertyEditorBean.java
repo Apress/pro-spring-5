@@ -3,10 +3,7 @@ package com.apress.prospring5.ch4;
 import java.io.File;
 import java.io.InputStream;
 import java.net.URL;
-import java.util.Date;
-import java.util.List;
-import java.util.Locale;
-import java.util.Properties;
+import java.util.*;
 import java.util.regex.Pattern;
 import java.text.SimpleDateFormat;
 import org.springframework.beans.PropertyEditorRegistrar;
@@ -18,6 +15,7 @@ import org.springframework.context.support.GenericXmlApplicationContext;
 
 public class PropertyEditorBean {
     private byte[] bytes;                 // ByteArrayPropertyEditor
+    private Character character;          //CharacterEditor
     private Class cls;                    // ClassEditor
     private Boolean trueOrFalse;          // CustomBooleanEditor
     private List<String> stringList;      // CustomCollectionEditor
@@ -30,6 +28,11 @@ public class PropertyEditorBean {
     private Properties properties;        // PropertiesEditor
     private String trimString;            // StringTrimmerEditor
     private URL url;                      // URLEditor
+
+    public void setCharacter(Character character) {
+        System.out.println("Setting character: " + character);
+        this.character = character;
+    }
 
     public void setCls(Class cls) {
         System.out.println("Setting class: " + cls.getName());
@@ -56,8 +59,8 @@ public class PropertyEditorBean {
         this.url = url;
     }
 
-    public void setBytes(byte[] bytes) {
-        System.out.println("Adding " + bytes.length + " bytes");
+    public void setBytes(byte... bytes) {
+        System.out.println("Setting bytes: " + Arrays.toString(bytes));
         this.bytes = bytes;
     }
 
@@ -123,5 +126,7 @@ public class PropertyEditorBean {
 
         PropertyEditorBean bean = 
             (PropertyEditorBean) ctx.getBean("builtInSample");
+
+        ctx.close();
     }
 }

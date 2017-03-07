@@ -38,8 +38,6 @@ include 'chapter03:field-injection'
 findProject(':chapter03:field-injection')?.name = 'field-injection'
 
 include 'chapter04'
-include 'chapter04:accessing-factory-beans'
-findProject(':chapter04:accessing-factory-beans')?.name = 'accessing-factory-beans'
 include 'chapter04:application-context-aware'
 findProject(':chapter04:application-context-aware')?.name = 'application-context-aware'
 include 'chapter04:bean-init-method'

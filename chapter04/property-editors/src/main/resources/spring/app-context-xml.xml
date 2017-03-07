@@ -14,11 +14,12 @@
         p:propertyEditorRegistrars-ref="propertyEditorRegistrarsList"/>
    
     <util:list id="propertyEditorRegistrarsList">
-        <bean class="PropertyEditorBean$CustomPropertyEditorRegistrar"/>
+        <bean class="com.apress.prospring5.ch4.PropertyEditorBean$CustomPropertyEditorRegistrar"/>
     </util:list>
 
-    <bean id="builtInSample" class="PropertyEditorBean"
-        p:bytes="Hello World"
+    <bean id="builtInSample" class="com.apress.prospring5.ch4.PropertyEditorBean"
+          p:character="A"
+        p:bytes="John Mayer"
         p:cls="java.lang.String"
         p:trueOrFalse="true"
         p:stringList-ref="stringList"

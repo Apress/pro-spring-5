@@ -23,7 +23,7 @@
           factory-method="createInstance"/>
 
     <bean id="digester" 
-        class="MessageDigester"
+        class="com.apress.prospring5.ch4.MessageDigester"
         p:digest1-ref="shaDigest"
         p:digest2-ref="defaultDigest"/>
 </beans>
