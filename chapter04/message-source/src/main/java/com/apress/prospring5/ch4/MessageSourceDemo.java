@@ -11,12 +11,16 @@ public class MessageSourceDemo {
         ctx.refresh();
 
         Locale english = Locale.ENGLISH;
-        Locale czech = new Locale("cs", "CZ");
+        Locale german = new Locale("de", "DE");
 
         System.out.println(ctx.getMessage("msg", null, english));
-        System.out.println(ctx.getMessage("msg", null, czech));
+        System.out.println(ctx.getMessage("msg", null, german));
 
-        System.out.println(ctx.getMessage("nameMsg", new Object[] { "Chris",
-                "Schaefer" }, english));
+        System.out.println(ctx.getMessage("nameMsg", new Object[] { "John",
+                "Mayer" }, english));
+        System.out.println(ctx.getMessage("nameMsg", new Object[] { "John",
+                "Mayer" }, german));
+
+        ctx.close();
     }
 }

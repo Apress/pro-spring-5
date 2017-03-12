@@ -22,7 +22,8 @@ public class Publisher implements ApplicationContextAware {
                 "classpath:spring/app-context-xml.xml");
 
         Publisher pub = (Publisher) ctx.getBean("publisher");
-        pub.publish("Hello World!");
-        pub.publish("The quick brown fox jumped over the lazy dog");
+        pub.publish("I send an SOS to the world... ");
+        pub.publish("... I hope that someone gets my...");
+        pub.publish("... Message in a bottle");
     }
 }
