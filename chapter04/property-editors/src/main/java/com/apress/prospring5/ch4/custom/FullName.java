@@ -1,10 +1,10 @@
-package com.apress.prospring5.ch4;
+package com.apress.prospring5.ch4.custom;
 
-public class Name {
+public class FullName {
     private String firstName;
     private String lastName;
 
-    public Name(String firstName, String lastName) {
+    public FullName(String firstName, String lastName) {
         this.firstName = firstName;
         this.lastName = lastName;
     }

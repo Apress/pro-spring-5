@@ -31,7 +31,7 @@
         p:pattern="a*b"
         p:properties="name=Chris age=32"
         p:trimString="   String need trimming   "
-        p:url="http://www.springframework.org"
+        p:url="https://spring.io/"
     /> 
 
     <util:list id="stringList">

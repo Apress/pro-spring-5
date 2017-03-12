@@ -121,7 +121,7 @@ public class PropertyEditorBean {
         file.deleteOnExit();
 
         GenericXmlApplicationContext ctx = new GenericXmlApplicationContext();
-        ctx.load("classpath:spring/app-context-xml.xml");
+        ctx.load("classpath:spring/app-context-01.xml");
         ctx.refresh();
 
         PropertyEditorBean bean = 
