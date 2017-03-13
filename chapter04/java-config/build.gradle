@@ -1,3 +1,8 @@
+dependencies {
+	compile project(':chapter03:constructor-injection')
+	testCompile testing.junit
+}
+
 jar {
 	manifest {
 		attributes(

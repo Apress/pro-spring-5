@@ -5,7 +5,7 @@ public class StandardOutMessageRenderer implements MessageRenderer {
 	private MessageProvider messageProvider;
 
 	public StandardOutMessageRenderer(){
-		System.out.println(" --> StandardOutMessageRenderer: constructor caled");
+		System.out.println(" --> StandardOutMessageRenderer: constructor called");
 	}
 
 	@Override

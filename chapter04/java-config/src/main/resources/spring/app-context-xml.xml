@@ -8,10 +8,10 @@
         http://www.springframework.org/schema/beans/spring-beans.xsd">
 
     <bean id="messageRenderer" 
-        class="StandardOutMessageRenderer"
+        class="com.apress.prospring5.ch2.decoupled.StandardOutMessageRenderer"
         p:messageProvider-ref="messageProvider"/>
 
     <bean id="messageProvider" 
-        class="ConfigurableMessageProvider"
+        class="com.apress.prospring5.ch3.xml.ConfigurableMessageProvider"
         c:message="This is a configurable message"/>
 </beans>
