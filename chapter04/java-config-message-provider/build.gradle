@@ -1,5 +1,6 @@
 dependencies {
-	compile spring.tx, spring.context, misc.slf4jJcl, misc.logback
+	compile spring.tx
+	compile project(':chapter03:constructor-injection')
 	testCompile testing.junit
 }
 

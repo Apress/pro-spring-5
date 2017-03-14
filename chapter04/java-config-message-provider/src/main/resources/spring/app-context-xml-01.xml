@@ -2,9 +2,11 @@
 
 <beans xmlns="http://www.springframework.org/schema/beans"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
     xsi:schemaLocation="http://www.springframework.org/schema/beans
         http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-    <!-- Example file to include XML wired beans if desired, loaded via @ImportResource -->
+   <bean id="provider" class="com.apress.prospring5.ch4.ConfigurableMessageProvider"
+         p:message="Love on the weekend" />
 
 </beans>

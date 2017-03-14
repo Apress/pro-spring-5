@@ -1,5 +1,7 @@
 package com.apress.prospring5.ch4;
 
+import com.apress.prospring5.ch2.decoupled.MessageProvider;
+
 public class ConfigurableMessageProvider implements MessageProvider {
     private String message = "Default message";
 
