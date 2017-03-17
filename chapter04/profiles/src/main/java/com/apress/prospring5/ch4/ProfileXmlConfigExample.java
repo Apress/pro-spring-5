@@ -17,5 +17,7 @@ public class ProfileXmlConfigExample {
         for (Food food: lunchSet) {
             System.out.println("Food: " + food.getName());
         }
+
+        ctx.close();
     }
 }

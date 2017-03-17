@@ -1,5 +1,4 @@
 dependencies {
-	compile spring.tx
 	compile project(':chapter03:constructor-injection')
 	testCompile testing.junit
 }

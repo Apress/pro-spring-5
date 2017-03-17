@@ -9,7 +9,6 @@ import org.springframework.core.env.Environment;
 
 @Configuration
 @PropertySource(value = "classpath:message.properties")
-//@EnableTransactionManagement
 public class AppConfigOne {
 
 	@Autowired
