@@ -7,7 +7,8 @@ ext {
 
 	spring = [
 			context: "org.springframework:spring-context:$springVersion",
-			tx: "org.springframework:spring-tx:$springVersion"
+			tx: "org.springframework:spring-tx:$springVersion",
+			test: "org.springframework:spring-test:$springVersion"
 	]
 
 	testing = [

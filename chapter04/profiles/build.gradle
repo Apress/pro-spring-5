@@ -1,3 +1,6 @@
+dependencies {
+	testCompile spring.test, testing.junit
+}
 jar {
 	manifest {
 		attributes(
