@@ -1,6 +1,5 @@
 dependencies {
-	compile spring.tx, spring.context, misc.slf4jJcl, misc.logback, misc.inject
-	testCompile testing.junit
+	compile  misc.inject
 }
 
 jar {
