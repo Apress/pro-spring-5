@@ -7,7 +7,7 @@ import org.springframework.aop.framework.ProxyFactory;
 import org.springframework.aop.support.DefaultPointcutAdvisor;
 
 public class StaticPointcutExample {
-    public static void main(String[] args) {
+    public static void main(String... args) {
         BeanOne one = new BeanOne();
         BeanTwo two = new BeanTwo();
 

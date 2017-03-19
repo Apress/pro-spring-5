@@ -6,7 +6,7 @@ import org.springframework.aop.framework.ProxyFactory;
 import org.springframework.aop.support.DefaultPointcutAdvisor;
 
 public class ProxyPerfTest {
-    public static void main(String[] args) {
+    public static void main(String... args) {
         SimpleBean target = new DefaultSimpleBean();
 
         Advisor advisor = new DefaultPointcutAdvisor(new TestPointcut(),

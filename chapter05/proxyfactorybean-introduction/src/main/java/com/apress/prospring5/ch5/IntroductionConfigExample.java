@@ -3,7 +3,7 @@ package com.apress.prospring5.ch5;
 import org.springframework.context.support.GenericXmlApplicationContext;
 
 public class IntroductionConfigExample {
-    public static void main(String[] args) {
+    public static void main(String... args) {
         GenericXmlApplicationContext ctx = new GenericXmlApplicationContext();
         ctx.load("classpath:META-INF/spring/app-context-xml.xml");
         ctx.refresh();

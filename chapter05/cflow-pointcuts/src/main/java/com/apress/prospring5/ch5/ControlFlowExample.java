@@ -7,7 +7,7 @@ import org.springframework.aop.support.ControlFlowPointcut;
 import org.springframework.aop.support.DefaultPointcutAdvisor;
 
 public class ControlFlowExample {
-    public static void main(String[] args) {
+    public static void main(String... args) {
         ControlFlowExample ex = new ControlFlowExample();
         ex.run();
     }

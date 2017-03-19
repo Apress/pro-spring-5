@@ -6,7 +6,7 @@ import org.springframework.aop.support.DefaultPointcutAdvisor;
 import org.springframework.aop.support.annotation.AnnotationMatchingPointcut;
 
 public class AnnotationPointcutExample {
-    public static void main(String[] args) {
+    public static void main(String... args) {
         SampleAnnotationBean target = new SampleAnnotationBean();
 
         AnnotationMatchingPointcut pc = AnnotationMatchingPointcut

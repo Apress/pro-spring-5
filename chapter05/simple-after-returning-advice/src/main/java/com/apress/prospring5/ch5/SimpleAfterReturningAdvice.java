@@ -6,7 +6,7 @@ import org.springframework.aop.AfterReturningAdvice;
 import org.springframework.aop.framework.ProxyFactory;
 
 public class SimpleAfterReturningAdvice implements AfterReturningAdvice {
-    public static void main(String[] args) {
+    public static void main(String... args) {
         MessageWriter target = new MessageWriter();
 
         ProxyFactory pf = new ProxyFactory();

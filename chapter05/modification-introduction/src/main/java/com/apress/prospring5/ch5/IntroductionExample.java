@@ -4,7 +4,7 @@ import org.springframework.aop.IntroductionAdvisor;
 import org.springframework.aop.framework.ProxyFactory;
 
 public class IntroductionExample {
-    public static void main(String[] args) {
+    public static void main(String... args) {
         TargetBean target = new TargetBean();
         target.setName("John Mayer");
 

@@ -10,7 +10,7 @@ import org.springframework.aop.support.DefaultPointcutAdvisor;
 import org.springframework.aop.support.StaticMethodMatcher;
 
 public class ComposablePointcutExample {
-    public static void main(String[] args) {
+    public static void main(String... args) {
         SampleBean target = new SampleBean();
 
         ComposablePointcut pc = new ComposablePointcut(ClassFilter.TRUE, 

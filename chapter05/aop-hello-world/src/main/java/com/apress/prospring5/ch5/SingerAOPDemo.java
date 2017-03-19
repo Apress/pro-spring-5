@@ -3,7 +3,7 @@ package com.apress.prospring5.ch5;
 import org.springframework.aop.framework.ProxyFactory;
 
 public class SingerAOPDemo {
-    public static void main(String[] args) {
+    public static void main(String... args) {
         Singer target = new Singer();
 
         ProxyFactory pf = new ProxyFactory();

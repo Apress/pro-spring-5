@@ -6,7 +6,7 @@ import org.springframework.aop.support.DefaultPointcutAdvisor;
 import org.springframework.aop.support.NameMatchMethodPointcut;
 
 public class NamePointcutExample {
-    public static void main(String[] args) {
+    public static void main(String... args) {
         NameBean target = new NameBean();
 
         NameMatchMethodPointcut pc = new NameMatchMethodPointcut();

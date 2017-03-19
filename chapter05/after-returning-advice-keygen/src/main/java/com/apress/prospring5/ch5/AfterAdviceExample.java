@@ -13,7 +13,7 @@ public class AfterAdviceExample {
         return (KeyGenerator)factory.getProxy();
     }
 
-    public static void main(String[] args) {
+    public static void main(String... args) {
         KeyGenerator keyGen = getKeyGenerator();
 
         for(int x = 0; x < 10; x++) {

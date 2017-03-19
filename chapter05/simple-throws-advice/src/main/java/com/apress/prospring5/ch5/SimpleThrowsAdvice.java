@@ -6,7 +6,7 @@ import org.springframework.aop.ThrowsAdvice;
 import org.springframework.aop.framework.ProxyFactory;
 
 public class SimpleThrowsAdvice implements ThrowsAdvice {
-    public static void main(String[] args) throws Exception {
+    public static void main(String... args) throws Exception {
         ErrorBean errorBean = new ErrorBean();
 
         ProxyFactory pf = new ProxyFactory();

@@ -5,7 +5,7 @@ import org.springframework.aop.framework.ProxyFactory;
 import org.springframework.aop.support.DefaultPointcutAdvisor;
 
 public class DynamicPointcutExample {
-    public static void main(String[] args) {
+    public static void main(String... args) {
         SampleBean target = new SampleBean();
 
         Advisor advisor = new DefaultPointcutAdvisor(
