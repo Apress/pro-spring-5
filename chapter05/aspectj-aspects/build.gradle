@@ -1,0 +1,9 @@
+jar {
+	manifest {
+		attributes(
+				'Main-Class': 'com.apress.prospring5.ch5.AspectJExample',
+				"Class-Path": configurations.compile.collect { it.getName() }.join(' '))
+	}
+}
+
+//the pom.xml has some shady things in there, I left it in case of need
