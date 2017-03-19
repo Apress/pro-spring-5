@@ -2,18 +2,18 @@ package com.apress.prospring5.ch5;
 
 import org.springframework.aop.framework.ProxyFactory;
 
-public class HelloWorldAOPExample {
+public class SingerAOPDemo {
     public static void main(String[] args) {
-        MessageWriter target = new MessageWriter();
+        Singer target = new Singer();
 
         ProxyFactory pf = new ProxyFactory();
-        pf.addAdvice(new MessageDecorator());
+        pf.addAdvice(new SingerDecorator());
         pf.setTarget(target);
 
-        MessageWriter proxy = (MessageWriter) pf.getProxy();
+        Singer proxy = (Singer) pf.getProxy();
 
-        target.writeMessage();
+        target.sing();
         System.out.println("");
-        proxy.writeMessage();
+        proxy.sing();
     }
 }
