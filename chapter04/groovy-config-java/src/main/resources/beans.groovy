@@ -1,5 +1,7 @@
 package com.apress.prospring5.ch4
 
+import com.apress.prospring5.ch3.xml.Singer
+
 beans {
-    contact(Contact, firstName: 'Chris', lastName: 'Schaefer', age: 32)
+    singer(Singer, name: 'John Mayer', age: 39)
 }

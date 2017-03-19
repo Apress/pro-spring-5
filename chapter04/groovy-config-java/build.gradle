@@ -2,10 +2,8 @@ apply plugin: 'groovy'
 
 dependencies {
 	compile misc.groovy
-	compile spring.context, misc.slf4jJcl, misc.logback
-	testCompile testing.junit
+	compile project(':chapter03:bean-inheritance')
 }
-
 
 jar {
 	manifest {
