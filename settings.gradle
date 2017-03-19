@@ -84,6 +84,10 @@ include 'chapter04:resource'
 findProject(':chapter04:resource')?.name = 'resource'
 include 'chapter04:shutdown-hook'
 findProject(':chapter04:shutdown-hook')?.name = 'shutdown-hook'
+include 'chapter04:boot-simple'
+findProject(':chapter04:boot-simple')?.name = 'boot-simple'
+include 'chapter04:boot-web'
+findProject(':chapter04:boot-web')?.name = 'boot-web'
 
 println(' This project is a collection of simple code samples. It is meant to be used together with the ' +
 		'"Spring Pro, Fifth Edition" ' +

@@ -1,5 +1,5 @@
 subprojects {
-	group 'com.apress.prospring5.ch03'
+	group 'com.apress.prospring5.ch04'
 	apply plugin: 'java'
 
 	//Unfortunately, the runtime discovery algorithm in commons-logging, while convenient for the end-user, is problematic
@@ -16,7 +16,10 @@ subprojects {
 	}
 
 	dependencies {
-		compile spring.context, misc.slf4jJcl, misc.logback
+		//we specify these dependencies for all submodules, except the boot module, that defines its own
+		if (!project.name.contains("boot")) {
+			compile spring.context,misc.slf4jJcl, misc.logback
+		}
 		testCompile testing.junit
 	}
 }

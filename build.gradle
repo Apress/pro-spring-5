@@ -4,11 +4,20 @@ ext {
 	logbackVersion = '1.1.9'
 	groovyVersion = '2.4.5'
 	junitVersion = '4.12'
+	bootVersion = '2.0.0.BUILD-SNAPSHOT'
 
 	spring = [
 			context: "org.springframework:spring-context:$springVersion",
-			tx: "org.springframework:spring-tx:$springVersion",
-			test: "org.springframework:spring-test:$springVersion"
+			tx     : "org.springframework:spring-tx:$springVersion",
+			test   : "org.springframework:spring-test:$springVersion"
+	]
+
+	boot = [
+			springBootPlugin: "org.springframework.boot:spring-boot-gradle-plugin:$bootVersion",
+			starter         : "org.springframework.boot:spring-boot-starter:$bootVersion",
+			starterWeb      : "org.springframework.boot:spring-boot-starter-web:$bootVersion",
+			actuator        : "org.springframework.boot:spring-boot-starter-actuator:$bootVersion",
+			starterTest     : "org.springframework.boot:spring-boot-starter-test:$bootVersion"
 	]
 
 	testing = [
@@ -27,9 +36,11 @@ subprojects {
 	version '5.0-SNAPSHOT'
 
 	repositories {
+		mavenLocal()
 		mavenCentral()
 		maven { url "http://repo.spring.io/release" }
 		maven { url "http://repo.spring.io/snapshot" }
+		maven { url "https://repo.spring.io/libs-snapshot" }
 		maven { url "http://repo.spring.io/milestone" }
 	}
 }
