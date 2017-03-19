@@ -2,18 +2,18 @@ package com.apress.prospring5.ch5;
 
 import org.springframework.aop.framework.ProxyFactory;
 
-public class SingerAOPDemo {
+public class AgentAOPDemo {
     public static void main(String... args) {
-        Singer target = new Singer();
+        Agent target = new Agent();
 
         ProxyFactory pf = new ProxyFactory();
-        pf.addAdvice(new SingerDecorator());
+        pf.addAdvice(new AgentDecorator());
         pf.setTarget(target);
 
-        Singer proxy = (Singer) pf.getProxy();
+        Agent proxy = (Agent) pf.getProxy();
 
-        target.sing();
+        target.speak();
         System.out.println("");
-        proxy.sing();
+        proxy.speak();
     }
 }

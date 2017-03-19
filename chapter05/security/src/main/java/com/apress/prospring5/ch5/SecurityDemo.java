@@ -8,12 +8,12 @@ public class SecurityExample {
 
         SecureBean bean = getSecureBean();
 
-        mgr.login("chris", "pwd");
+        mgr.login("John", "pwd");
         bean.writeSecureMessage();
         mgr.logout();
 
         try {
-            mgr.login("invaliduser", "pwd");
+            mgr.login("invalid user", "pwd");
             bean.writeSecureMessage();
         } catch(SecurityException ex) {
             System.out.println("Exception Caught: " + ex.getMessage());
