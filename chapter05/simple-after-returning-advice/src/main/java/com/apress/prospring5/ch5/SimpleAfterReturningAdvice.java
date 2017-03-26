@@ -7,21 +7,20 @@ import org.springframework.aop.framework.ProxyFactory;
 
 public class SimpleAfterReturningAdvice implements AfterReturningAdvice {
     public static void main(String... args) {
-        MessageWriter target = new MessageWriter();
+        Singer target = new Singer();
 
         ProxyFactory pf = new ProxyFactory();
 
         pf.addAdvice(new SimpleAfterReturningAdvice());
         pf.setTarget(target);
 
-        MessageWriter proxy = (MessageWriter) pf.getProxy();
-        proxy.writeMessage();
+        Singer proxy = (Singer) pf.getProxy();
+        proxy.sing();
     }
 
     @Override
     public void afterReturning(Object returnValue, Method method, 
              Object[] args, Object target) throws Throwable {
-        System.out.println("");
-        System.out.println("After method: " + method.getName());
+        System.out.println("After '" + method.getName()+ "' put down guitar.");
     }
 }

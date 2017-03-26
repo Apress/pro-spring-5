@@ -2,7 +2,7 @@ package com.apress.prospring5.ch5;
 
 import org.springframework.aop.framework.ProxyFactory;
 
-public class SecurityExample {
+public class SecurityDemo {
     public static void main(String... args) {
         SecurityManager mgr = new SecurityManager();
 

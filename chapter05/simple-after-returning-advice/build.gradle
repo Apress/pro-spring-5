@@ -1,3 +1,7 @@
+dependencies {
+	compile project(':chapter05:simple-before-advice')
+}
+
 jar {
 	manifest {
 		attributes(

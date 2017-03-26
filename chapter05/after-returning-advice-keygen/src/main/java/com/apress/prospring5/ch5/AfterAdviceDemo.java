@@ -2,7 +2,7 @@ package com.apress.prospring5.ch5;
 
 import org.springframework.aop.framework.ProxyFactory;
 
-public class AfterAdviceExample {
+public class AfterAdviceDemo {
     private static KeyGenerator getKeyGenerator() {
         KeyGenerator target = new KeyGenerator();
 
