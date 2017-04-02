@@ -1,16 +1,17 @@
 package com.apress.prospring5.ch5;
 
+import com.apress.prospring5.ch2.common.Guitar;
 import org.springframework.aop.Advisor;
 import org.springframework.aop.framework.ProxyFactory;
 import org.springframework.aop.support.DefaultPointcutAdvisor;
-import org.springframework.aop.support.JdkRegexpMethodPointcut;
+import org.springframework.aop.support.annotation.AnnotationMatchingPointcut;
 
-public class RegexpPointcutExample {
+public class AnnotationPointcutDemo {
     public static void main(String... args) {
         JohnMayer target = new JohnMayer();
 
-        JdkRegexpMethodPointcut pc = new JdkRegexpMethodPointcut();
-        pc.setPattern(".*sing.*");
+        AnnotationMatchingPointcut pc = AnnotationMatchingPointcut
+            .forMethodAnnotation(AdviceRequired.class);
         Advisor advisor = new DefaultPointcutAdvisor(pc, new SimpleAdvice());
 
         ProxyFactory pf = new ProxyFactory();
@@ -18,8 +19,7 @@ public class RegexpPointcutExample {
         pf.addAdvisor(advisor);
         JohnMayer proxy = (JohnMayer) pf.getProxy();
 
-        proxy.sing();
-        proxy.sing2();
+        proxy.sing(new Guitar());
         proxy.rest();
     }
 }

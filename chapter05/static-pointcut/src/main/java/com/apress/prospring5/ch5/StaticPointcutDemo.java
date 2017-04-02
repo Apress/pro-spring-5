@@ -1,18 +1,19 @@
 package com.apress.prospring5.ch5;
 
+import com.apress.prospring5.ch2.common.Singer;
 import org.aopalliance.aop.Advice;
 import org.springframework.aop.Advisor;
 import org.springframework.aop.Pointcut;
 import org.springframework.aop.framework.ProxyFactory;
 import org.springframework.aop.support.DefaultPointcutAdvisor;
 
-public class StaticPointcutExample {
+public class StaticPointcutDemo {
     public static void main(String... args) {
-        BeanOne one = new BeanOne();
-        BeanTwo two = new BeanTwo();
+        JohnMayer one = new JohnMayer();
+        EricClapton two = new EricClapton();
 
-        BeanOne proxyOne;
-        BeanTwo proxyTwo;
+        Singer proxyOne;
+        Singer proxyTwo;
 
         Pointcut pc = new SimpleStaticPointcut();
         Advice advice = new SimpleAdvice();
@@ -21,17 +22,14 @@ public class StaticPointcutExample {
         ProxyFactory pf = new ProxyFactory();
         pf.addAdvisor(advisor);
         pf.setTarget(one);
-        proxyOne = (BeanOne)pf.getProxy();
+        proxyOne = (Singer)pf.getProxy();
 
         pf = new ProxyFactory();
         pf.addAdvisor(advisor);
         pf.setTarget(two);
-        proxyTwo = (BeanTwo)pf.getProxy();
+        proxyTwo = (Singer)pf.getProxy();
 
-        proxyOne.foo();
-        proxyTwo.foo();
-
-        proxyOne.bar();
-        proxyTwo.bar();
+        proxyOne.sing();
+        proxyTwo.sing();
     }
 }

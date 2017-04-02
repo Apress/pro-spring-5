@@ -1,24 +1,25 @@
 package com.apress.prospring5.ch5;
 
 import org.springframework.aop.Advisor;
+import org.springframework.aop.aspectj.AspectJExpressionPointcut;
 import org.springframework.aop.framework.ProxyFactory;
 import org.springframework.aop.support.DefaultPointcutAdvisor;
-import org.springframework.aop.support.annotation.AnnotationMatchingPointcut;
 
-public class AnnotationPointcutExample {
+public class AspectjexpPointcutDemo {
     public static void main(String... args) {
-        SampleAnnotationBean target = new SampleAnnotationBean();
+        JohnMayer target = new JohnMayer();
 
-        AnnotationMatchingPointcut pc = AnnotationMatchingPointcut
-            .forMethodAnnotation(AdviceRequired.class);
+        AspectJExpressionPointcut pc = new AspectJExpressionPointcut();
+        pc.setExpression("execution(* sing*(..))");
         Advisor advisor = new DefaultPointcutAdvisor(pc, new SimpleAdvice());
 
         ProxyFactory pf = new ProxyFactory();
         pf.setTarget(target);
         pf.addAdvisor(advisor);
-        SampleAnnotationBean proxy = (SampleAnnotationBean) pf.getProxy();
+        JohnMayer proxy = (JohnMayer) pf.getProxy();
 
-        proxy.foo(100);
-        proxy.bar();
+        proxy.sing();
+        proxy.sing2();
+        proxy.rest();
     }
 }

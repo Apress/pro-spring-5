@@ -1,3 +1,9 @@
+dependencies {
+	compile project(':chapter02:hello-world')
+	compile project(':chapter05:aop-hello-world')
+}
+
+
 jar {
 	manifest {
 		attributes(

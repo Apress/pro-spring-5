@@ -8,15 +8,11 @@ import org.springframework.aop.support.StaticMethodMatcherPointcut;
 public class SimpleStaticPointcut extends StaticMethodMatcherPointcut {
     @Override
     public boolean matches(Method method, Class<?> cls) {
-        return ("foo".equals(method.getName()));
+        return ("sing".equals(method.getName()));
     }
 
     @Override
     public ClassFilter getClassFilter() {
-        return new ClassFilter() {
-            public boolean matches(Class<?> cls) {
-                return (cls == BeanOne.class);
-            }
-        };
+        return cls -> (cls == JohnMayer.class);
     }
 }

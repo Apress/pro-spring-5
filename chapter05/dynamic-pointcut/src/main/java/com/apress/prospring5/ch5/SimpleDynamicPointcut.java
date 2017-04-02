@@ -23,10 +23,6 @@ public class SimpleDynamicPointcut extends DynamicMethodMatcherPointcut {
 
     @Override
     public ClassFilter getClassFilter() {
-        return new ClassFilter() {
-            public boolean matches(Class<?> cls) {
-                return (cls == SampleBean.class);
-            }
-        };
+        return cls -> (cls == SampleBean.class);
     }
 }
