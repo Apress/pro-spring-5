@@ -3,6 +3,7 @@ dependencies {
 	compile project(':chapter05:aop-hello-world')
 	compile project(':chapter05:regex-pointcuts')
 }
+
 jar {
 	manifest {
 		attributes(

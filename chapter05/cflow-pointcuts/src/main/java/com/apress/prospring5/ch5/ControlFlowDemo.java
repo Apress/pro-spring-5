@@ -6,17 +6,16 @@ import org.springframework.aop.framework.ProxyFactory;
 import org.springframework.aop.support.ControlFlowPointcut;
 import org.springframework.aop.support.DefaultPointcutAdvisor;
 
-public class ControlFlowExample {
+public class ControlFlowDemo {
     public static void main(String... args) {
-        ControlFlowExample ex = new ControlFlowExample();
+        ControlFlowDemo ex = new ControlFlowDemo();
         ex.run();
     }
 
     public void run() {
         TestBean target = new TestBean();
 
-        Pointcut pc = new ControlFlowPointcut(ControlFlowExample.class, 
-            "test");
+        Pointcut pc = new ControlFlowPointcut(ControlFlowDemo.class, "test");
         Advisor advisor = new DefaultPointcutAdvisor(pc, 
             new SimpleBeforeAdvice());
 
@@ -26,9 +25,9 @@ public class ControlFlowExample {
 
         TestBean proxy = (TestBean) pf.getProxy();
  
-        System.out.println("Trying normal invoke");
+        System.out.println("\tTrying normal invoke");
         proxy.foo();
-        System.out.println("Trying under ControlFlowExample.test()");
+        System.out.println("\n\tTrying under ControlFlowDemo.test()");
         test(proxy);
     }
 
