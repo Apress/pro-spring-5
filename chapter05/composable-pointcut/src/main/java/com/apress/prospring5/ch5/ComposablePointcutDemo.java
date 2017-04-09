@@ -10,42 +10,42 @@ import org.springframework.aop.support.ComposablePointcut;
 import org.springframework.aop.support.DefaultPointcutAdvisor;
 import org.springframework.aop.support.StaticMethodMatcher;
 
-public class ComposablePointcutExample {
+public class ComposablePointcutDemo {
     public static void main(String... args) {
-        JohnMayer target = new JohnMayer();
+        GrammyGuitarist johnMayer = new GrammyGuitarist();
 
         ComposablePointcut pc = new ComposablePointcut(ClassFilter.TRUE, 
             new SingMethodMatcher());
 
         System.out.println("Test 1 >> ");
-        JohnMayer proxy = getProxy(pc, target);
+        GrammyGuitarist proxy = getProxy(pc, johnMayer);
         testInvoke(proxy);
         System.out.println();
 
         System.out.println("Test 2 >> ");
         pc.union(new TalkMethodMatcher());
-        proxy = getProxy(pc, target);
+        proxy = getProxy(pc, johnMayer);
         testInvoke(proxy);
         System.out.println();
 
         System.out.println("Test 3 >> ");
         pc.intersection(new RestMethodMatcher());
-        proxy = getProxy(pc, target);
+        proxy = getProxy(pc, johnMayer);
         testInvoke(proxy);
     }
 
-    private static JohnMayer getProxy(ComposablePointcut pc,
-            JohnMayer target) {
+    private static GrammyGuitarist getProxy(ComposablePointcut pc,
+            GrammyGuitarist target) {
         Advisor advisor = new DefaultPointcutAdvisor(pc, 
             new SimpleBeforeAdvice());
 
         ProxyFactory pf = new ProxyFactory();
         pf.setTarget(target);
         pf.addAdvisor(advisor);
-        return (JohnMayer) pf.getProxy();
+        return (GrammyGuitarist) pf.getProxy();
     }
 
-    private static void testInvoke(JohnMayer proxy) {
+    private static void testInvoke(GrammyGuitarist proxy) {
         proxy.sing();
         proxy.sing(new Guitar());
         proxy.talk();

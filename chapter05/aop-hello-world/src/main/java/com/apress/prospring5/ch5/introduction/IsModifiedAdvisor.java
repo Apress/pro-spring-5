@@ -1,4 +1,4 @@
-package com.apress.prospring5.ch5;
+package com.apress.prospring5.ch5.introduction;
 
 import org.springframework.aop.support.DefaultIntroductionAdvisor;
 

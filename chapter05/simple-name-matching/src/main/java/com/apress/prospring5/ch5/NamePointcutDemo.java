@@ -9,7 +9,7 @@ import org.springframework.aop.support.NameMatchMethodPointcut;
 public class NamePointcutDemo {
 
 	public static void main(String... args) {
-		JohnMayer target = new JohnMayer();
+		GrammyGuitarist johnMayer = new GrammyGuitarist();
 
 		NameMatchMethodPointcut pc = new NameMatchMethodPointcut();
 		pc.addMethodName("sing");
@@ -17,10 +17,10 @@ public class NamePointcutDemo {
 
 		Advisor advisor = new DefaultPointcutAdvisor(pc, new SimpleAdvice());
 		ProxyFactory pf = new ProxyFactory();
-		pf.setTarget(target);
+		pf.setTarget(johnMayer);
 		pf.addAdvisor(advisor);
 
-		JohnMayer proxy = (JohnMayer) pf.getProxy();
+		GrammyGuitarist proxy = (GrammyGuitarist) pf.getProxy();
 		proxy.sing();
 		proxy.sing(new Guitar());
 		proxy.rest();

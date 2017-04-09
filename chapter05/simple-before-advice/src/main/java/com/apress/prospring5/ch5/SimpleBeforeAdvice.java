@@ -7,13 +7,13 @@ import org.springframework.aop.framework.ProxyFactory;
 
 public class SimpleBeforeAdvice implements MethodBeforeAdvice {
     public static void main(String... args) {
-        Singer johnMayer = new Singer();
+        Guitarist johnMayer = new Guitarist();
 
         ProxyFactory pf = new ProxyFactory();
         pf.addAdvice(new SimpleBeforeAdvice());
         pf.setTarget(johnMayer);
 
-        Singer proxy = (Singer) pf.getProxy();
+        Guitarist proxy = (Guitarist) pf.getProxy();
 
         proxy.sing();
     }

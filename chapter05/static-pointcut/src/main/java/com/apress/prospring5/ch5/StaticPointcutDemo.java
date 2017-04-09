@@ -9,8 +9,8 @@ import org.springframework.aop.support.DefaultPointcutAdvisor;
 
 public class StaticPointcutDemo {
     public static void main(String... args) {
-        JohnMayer one = new JohnMayer();
-        EricClapton two = new EricClapton();
+        GoodGuitarist johnMayer = new GoodGuitarist();
+        GreatGuitarist ericClapton = new GreatGuitarist();
 
         Singer proxyOne;
         Singer proxyTwo;
@@ -21,12 +21,12 @@ public class StaticPointcutDemo {
 
         ProxyFactory pf = new ProxyFactory();
         pf.addAdvisor(advisor);
-        pf.setTarget(one);
+        pf.setTarget(johnMayer);
         proxyOne = (Singer)pf.getProxy();
 
         pf = new ProxyFactory();
         pf.addAdvisor(advisor);
-        pf.setTarget(two);
+        pf.setTarget(ericClapton);
         proxyTwo = (Singer)pf.getProxy();
 
         proxyOne.sing();

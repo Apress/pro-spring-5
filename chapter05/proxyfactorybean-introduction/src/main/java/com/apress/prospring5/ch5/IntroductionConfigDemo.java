@@ -1,11 +1,12 @@
 package com.apress.prospring5.ch5;
 
+import com.apress.prospring5.ch5.introduction.IsModified;
 import org.springframework.context.support.GenericXmlApplicationContext;
 
-public class IntroductionConfigExample {
+public class IntroductionConfigDemo {
     public static void main(String... args) {
         GenericXmlApplicationContext ctx = new GenericXmlApplicationContext();
-        ctx.load("classpath:META-INF/spring/app-context-xml.xml");
+        ctx.load("classpath:spring/app-context-xml.xml");
         ctx.refresh();
 
         TargetBean bean = (TargetBean) ctx.getBean("bean");

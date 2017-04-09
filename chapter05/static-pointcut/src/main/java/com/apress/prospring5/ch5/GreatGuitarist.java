@@ -5,7 +5,7 @@ import com.apress.prospring5.ch2.common.Singer;
 /**
  * Created by iuliana.cosmina on 4/2/17.
  */
-public class EricClapton implements Singer {
+public class GreatGuitarist implements Singer {
 
 	@Override public void sing() {
 		System.out.println("I shot the sheriff, \n" +

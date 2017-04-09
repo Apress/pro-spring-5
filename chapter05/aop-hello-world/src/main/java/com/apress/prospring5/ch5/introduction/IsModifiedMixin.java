@@ -1,4 +1,4 @@
-package com.apress.prospring5.ch5;
+package com.apress.prospring5.ch5.introduction;
 
 import java.lang.reflect.Method;
 import java.util.HashMap;
@@ -11,7 +11,7 @@ public class IsModifiedMixin extends DelegatingIntroductionInterceptor
         implements IsModified {
     private boolean isModified = false;
 
-    private Map<Method, Method> methodCache = new HashMap<Method, Method>();
+    private Map<Method, Method> methodCache = new HashMap<>();
 
     @Override
     public boolean isModified() {
@@ -37,7 +37,7 @@ public class IsModifiedMixin extends DelegatingIntroductionInterceptor
                     } else if((newVal != null) && (oldVal == null)) {
                         isModified = true;
                     } else {
-                        isModified = (!newVal.equals(oldVal));
+                        isModified = !newVal.equals(oldVal);
                     }
                 }
             }
@@ -47,23 +47,18 @@ public class IsModifiedMixin extends DelegatingIntroductionInterceptor
     }
 
     private Method getGetter(Method setter) {
-        Method getter = null;
-
-        getter = (Method) methodCache.get(setter);
+        Method  getter = methodCache.get(setter);
 
         if (getter != null) {
             return getter;
         }
 
         String getterName = setter.getName().replaceFirst("set", "get");
-
         try {
             getter = setter.getDeclaringClass().getMethod(getterName, null);
-
             synchronized (methodCache) {
                 methodCache.put(setter, getter);
             }
-
             return getter;
         } catch (NoSuchMethodException ex) {
             return null;

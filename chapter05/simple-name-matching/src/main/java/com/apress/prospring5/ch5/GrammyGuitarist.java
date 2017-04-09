@@ -6,13 +6,13 @@ import com.apress.prospring5.ch2.common.Singer;
 /**
  * Created by iuliana.cosmina on 4/2/17.
  */
-public class JohnMayer implements Singer {
+public class GrammyGuitarist implements Singer {
 
 	@Override public void sing() {
-		System.out.println("Dream of ways to throw it all away");
+		System.out.println("sing: Gravity is working against me\n" +
+				"And gravity wants to bring me down");
 	}
 
-	@AdviceRequired
 	public void sing(Guitar guitar) {
 		System.out.println("play: " + guitar.play());
 	}
@@ -21,4 +21,7 @@ public class JohnMayer implements Singer {
 		System.out.println("zzz");
 	}
 
+	public void talk(){
+		System.out.println("talk");
+	}
 }

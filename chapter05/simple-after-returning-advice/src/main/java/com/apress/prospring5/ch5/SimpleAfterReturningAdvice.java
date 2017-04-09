@@ -7,14 +7,14 @@ import org.springframework.aop.framework.ProxyFactory;
 
 public class SimpleAfterReturningAdvice implements AfterReturningAdvice {
     public static void main(String... args) {
-        Singer target = new Singer();
+        Guitarist target = new Guitarist();
 
         ProxyFactory pf = new ProxyFactory();
 
         pf.addAdvice(new SimpleAfterReturningAdvice());
         pf.setTarget(target);
 
-        Singer proxy = (Singer) pf.getProxy();
+        Guitarist proxy = (Guitarist) pf.getProxy();
         proxy.sing();
     }
 
