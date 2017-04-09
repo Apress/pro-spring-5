@@ -6,7 +6,7 @@ dependencies {
 jar {
 	manifest {
 		attributes(
-				'Main-Class': 'com.apress.prospring5.ch5.ControlFlowExample',
+				'Main-Class': 'com.apress.prospring5.ch5.ControlFlowDemo',
 				"Class-Path": configurations.compile.collect { it.getName() }.join(' '))
 	}
 }

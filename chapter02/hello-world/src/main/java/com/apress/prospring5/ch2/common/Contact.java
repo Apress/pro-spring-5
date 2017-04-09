@@ -3,27 +3,18 @@ package com.apress.prospring5.ch2.common;
 /**
  * Created by iuliana.cosmina on 4/9/17.
  */
-public class Person {
+public class Contact {
 
-	private String firstName;
-	private String lastName;
+	private String name;
 	private String phoneNumber;
 	private String email;
 
-	public String getFirstName() {
-		return firstName;
+	public String getName() {
+		return name;
 	}
 
-	public void setFirstName(String firstName) {
-		this.firstName = firstName;
-	}
-
-	public String getLastName() {
-		return lastName;
-	}
-
-	public void setLastName(String lastName) {
-		this.lastName = lastName;
+	public void setName(String name) {
+		this.name = name;
 	}
 
 	public String getPhoneNumber() {

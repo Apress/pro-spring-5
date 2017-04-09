@@ -2,57 +2,44 @@
 
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:util="http://www.springframework.org/schema/util"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
-           http://www.springframework.org/schema/beans/spring-beans.xsd">
+           http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/util
+        http://www.springframework.org/schema/util/spring-util.xsd">
 
-    <bean id="myBean1" class="com.apress.prospring5.ch5.MyBean">
-        <property name="dep">
-            <ref bean="myDependency1"/>
-        </property>
+    <bean id="johnMayer" class="com.apress.prospring5.ch5.GrammyGuitarist"/>
+    <bean id="advice" class="com.apress.prospring5.ch5.AuditAdvice"/>
+
+    <bean id="documentaristOne" class="com.apress.prospring5.ch5.Documentarist"
+          p:guitarist-ref="proxyOne"/>
+
+    <bean id="proxyOne" class="org.springframework.aop.framework.ProxyFactoryBean"
+          p:target-ref="johnMayer" p:interceptorNames-ref="interceptorAdviceNames"/>
+
+    <util:list id="interceptorAdviceNames">
+        <value>advice</value>
+    </util:list>
+
+
+    <bean id="documentaristTwo" class="com.apress.prospring5.ch5.Documentarist"
+          p:guitarist-ref="proxyTwo"/>
+
+    <bean id="proxyTwo" class="org.springframework.aop.framework.ProxyFactoryBean"
+          p:target-ref="johnMayer" p:interceptorNames-ref="interceptorAdvisorNames">
     </bean>
 
-    <bean id="myBean2" class="com.apress.prospring5.ch5.MyBean">
-        <property name="dep">
-            <ref bean="myDependency2"/>
-        </property>
-    </bean>
+    <util:list id="interceptorAdvisorNames">
+        <value>advisor</value>
+    </util:list>
 
-    <bean id="myDependencyTarget" class="com.apress.prospring5.ch5.MyDependency"/>
-
-    <bean id="myDependency1" class="org.springframework.aop.framework.ProxyFactoryBean">
-        <property name="target">
-            <ref bean="myDependencyTarget"/>
-        </property>
-        <property name="interceptorNames">
-            <list>
-                <value>advice</value>
-            </list>
-        </property>
-    </bean>
-
-    <bean id="myDependency2" class="org.springframework.aop.framework.ProxyFactoryBean">
-        <property name="target">
-            <ref bean="myDependencyTarget"/>
-        </property>
-        <property name="interceptorNames">
-            <list>
-                <value>advisor</value>
-            </list>
-        </property>
-    </bean>
-
-    <bean id="advice" class="com.apress.prospring5.ch5.MyAdvice"/>
-
-    <bean id="advisor" class="org.springframework.aop.support.DefaultPointcutAdvisor">
-        <property name="advice">
-            <ref bean="advice"/>
-        </property>
+    <bean id="advisor" class="org.springframework.aop.support.DefaultPointcutAdvisor"
+          p:advice-ref="advice">
         <property name="pointcut">
-            <bean class="org.springframework.aop.aspectj.AspectJExpressionPointcut">
-                <property name="expression">
-                    <value>execution(* fooOne*(..))</value>
-                </property>
-            </bean>
+            <bean class="org.springframework.aop.aspectj.AspectJExpressionPointcut"
+                  p:expression="execution(* sing*(..))"/>
         </property>
     </bean>
+
 </beans>

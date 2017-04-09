@@ -2,16 +2,10 @@
 
 <beans xmlns="http://www.springframework.org/schema/beans"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:p="http://www.springframework.org/schema/p"
     xsi:schemaLocation="http://www.springframework.org/schema/beans
       http://www.springframework.org/schema/beans/spring-beans.xsd">
 
     <bean id="aspect" class="com.apress.prospring5.ch5.MessageWrapper"
-        factory-method="aspectOf">
-        <property name="prefix">
-            <value>The Prefix</value>
-        </property>
-        <property name="suffix">
-            <value>The Suffix</value>
-        </property>
-    </bean>
+        factory-method="aspectOf" p:prefix="The Prefix" p:suffix="The Suffix"/>
 </beans>

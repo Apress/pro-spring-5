@@ -5,7 +5,7 @@ dependencies {
 jar {
 	manifest {
 		attributes(
-				'Main-Class': 'com.apress.prospring5.ch4.Jsr330Example',
+				'Main-Class': 'com.apress.prospring5.ch4.Jsr330Demo',
 				"Class-Path": configurations.compile.collect { it.getName() }.join(' '))
 	}
 }

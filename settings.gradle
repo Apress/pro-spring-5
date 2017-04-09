@@ -137,6 +137,8 @@ include 'chapter05:regex-pointcuts'
 findProject(':chapter05:regex-pointcuts')?.name = 'regex-pointcuts'
 include 'chapter05:simple-before-advice'
 findProject(':chapter05:simple-before-advice')?.name = 'simple-before-advice'
+include 'chapter05:aspectj-boot'
+findProject(':chapter05:aspectj-boot')?.name = 'aspectj-boot'
 
 
 println(' This project is a collection of simple code samples. It is meant to be used together with the ' +

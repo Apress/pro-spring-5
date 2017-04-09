@@ -18,7 +18,8 @@ ext {
 			starter         : "org.springframework.boot:spring-boot-starter:$bootVersion",
 			starterWeb      : "org.springframework.boot:spring-boot-starter-web:$bootVersion",
 			actuator        : "org.springframework.boot:spring-boot-starter-actuator:$bootVersion",
-			starterTest     : "org.springframework.boot:spring-boot-starter-test:$bootVersion"
+			starterTest     : "org.springframework.boot:spring-boot-starter-test:$bootVersion",
+			starterAop      : "org.springframework.boot:spring-boot-starter-aop:$bootVersion"
 	]
 
 	testing = [
@@ -26,12 +27,12 @@ ext {
 	]
 
 	misc = [
-			slf4jJcl: "org.slf4j:jcl-over-slf4j:$slf4jVersion",
-			logback : "ch.qos.logback:logback-classic:$logbackVersion",
-			groovy  : "org.codehaus.groovy:groovy-all:$groovyVersion",
-			inject  : "javax.inject:javax.inject:1",
-			aspectjweaver     : "org.aspectj:aspectjweaver:$aspectjVersion",
-			aspectjrt         : "org.aspectj:aspectjrt:$aspectjVersion",
+			slf4jJcl     : "org.slf4j:jcl-over-slf4j:$slf4jVersion",
+			logback      : "ch.qos.logback:logback-classic:$logbackVersion",
+			groovy       : "org.codehaus.groovy:groovy-all:$groovyVersion",
+			inject       : "javax.inject:javax.inject:1",
+			aspectjweaver: "org.aspectj:aspectjweaver:$aspectjVersion",
+			aspectjrt    : "org.aspectj:aspectjrt:$aspectjVersion",
 	]
 }
 

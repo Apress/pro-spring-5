@@ -2,26 +2,26 @@
 
 <beans xmlns="http://www.springframework.org/schema/beans"
       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-      xsi:schemaLocation="http://www.springframework.org/schema/beans
-      http://www.springframework.org/schema/beans/spring-beans.xsd">
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/util
+        http://www.springframework.org/schema/util/spring-util.xsd">
 
-    <bean id="bean" class="org.springframework.aop.framework.ProxyFactoryBean">
-        <property name="target">
-            <bean class="com.apress.prospring5.ch5.TargetBean">
-                <property name="name">
-                    <value>John Mayer</value>
-                </property>
-            </bean>
-        </property>
-        <property name="interceptorNames">
-            <list>
-                <value>advisor</value>
-            </list>
-        </property>
-        <property name="proxyTargetClass">
-            <value>true</value>
-        </property>
+    <bean id="guitarist" class="com.apress.prospring5.ch2.common.Contact"
+          p:name="John Mayer"/>
+
+    <bean id="advisor" class="com.apress.prospring5.ch5.introduction.IsModifiedAdvisor"/>
+
+    <util:list id="interceptorAdvisorNames">
+        <value>advisor</value>
+    </util:list>
+
+    <bean id="bean" class="org.springframework.aop.framework.ProxyFactoryBean"
+          p:target-ref="guitarist"
+          p:interceptorNames-ref="interceptorAdvisorNames"
+          p:proxyTargetClass="true">
     </bean>
 
-    <bean id="advisor" class="com.apress.prospring5.ch5.IsModifiedAdvisor"/>
 </beans>
