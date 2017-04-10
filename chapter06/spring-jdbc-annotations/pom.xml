@@ -49,7 +49,7 @@
         <configuration>
           <archive>
             <manifest>
-              <mainClass>com.apress.prospring4.ch6.AnnotationJdbcDaoSample</mainClass>
+              <mainClass>AnnotationJdbcDaoSample</mainClass>
               <addClasspath>true</addClasspath>
               <classpathPrefix>dependency/</classpathPrefix>
             </manifest>
