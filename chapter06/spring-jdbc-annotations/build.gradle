@@ -1,5 +1,5 @@
 dependencies {
-	compile db.mysql
+	compile db.mysql, db.dbcp
 }
 
 jar {

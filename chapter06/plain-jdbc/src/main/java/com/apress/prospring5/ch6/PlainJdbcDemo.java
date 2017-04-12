@@ -5,41 +5,41 @@ import java.util.GregorianCalendar;
 import java.util.List;
 
 public class PlainJdbcDemo {
-    private static ContactDao contactDao = new PlainContactDao();
+    private static SingerDao singerDao = new PlainSingerDao();
 
     public static void main(String... args) {
-        System.out.println("Listing initial contact data:");
+        System.out.println("Listing initial singer data:");
 
-        listAllContacts();
-
-        System.out.println();
-        System.out.println("Insert a new contact");
-
-        Contact contact = new Contact();
-        contact.setFirstName("Jacky");
-        contact.setLastName("Chan");
-        contact.setBirthDate(new Date((new GregorianCalendar(2001, 10, 1)).getTime().getTime()));
-        contactDao.insert(contact);
-
-        System.out.println("Listing contact data after new contact created:");
-
-        listAllContacts();
+        listAllSingers();
 
         System.out.println();
-        System.out.println("Deleting the previous created contact");
+        System.out.println("Insert a new singer");
 
-        contactDao.delete(contact.getId());
+        Singer singer = new Singer();
+        singer.setFirstName("Ed");
+        singer.setLastName("Sheeran");
+        singer.setBirthDate(new Date((new GregorianCalendar(1991, 2, 1991)).getTime().getTime()));
+        singerDao.insert(singer);
 
-        System.out.println("Listing contact data after new contact deleted:");
+        System.out.println("Listing singer data after new singer created:");
 
-        listAllContacts();
+        listAllSingers();
+
+        System.out.println();
+        System.out.println("Deleting the previous created singer");
+
+        singerDao.delete(singer.getId());
+
+        System.out.println("Listing singer data after new singer deleted:");
+
+        listAllSingers();
     }
 
-    private static void listAllContacts() {
-        List<Contact> contacts = contactDao.findAll();
+    private static void listAllSingers() {
+        List<Singer> singers = singerDao.findAll();
 
-        for (Contact contact: contacts) {
-            System.out.println(contact);
+        for (Singer singer: singers) {
+            System.out.println(singer);
         }
     }
 }

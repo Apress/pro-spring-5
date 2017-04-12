@@ -7,17 +7,15 @@ import javax.sql.DataSource;
 import org.springframework.jdbc.core.SqlParameter;
 import org.springframework.jdbc.object.SqlUpdate;
 
-public class InsertContact extends SqlUpdate {
-    private static final String SQL_INSERT_CONTACT = 
-        "insert into contact (first_name, last_name, birth_date) values (:first_name, :last_name, :birth_date)";
+public class UpdateSinger extends SqlUpdate {
+    private static final String SQL_UPDATE_CONTACT = 
+        "update contact set first_name=:first_name, last_name=:last_name, birth_date=:birth_date where id=:id";
 
-    public InsertContact(DataSource dataSource) {
-        super(dataSource, SQL_INSERT_CONTACT);
+    public UpdateSinger(DataSource dataSource) {
+        super(dataSource, SQL_UPDATE_CONTACT);
         super.declareParameter(new SqlParameter("first_name", Types.VARCHAR));
         super.declareParameter(new SqlParameter("last_name", Types.VARCHAR));
         super.declareParameter(new SqlParameter("birth_date", Types.DATE));
-        super.setGeneratedKeysColumnNames(new String[] {"id"});
-        super.setReturnGeneratedKeys(true);
+        super.declareParameter(new SqlParameter("id", Types.INTEGER));
     }
-
 }

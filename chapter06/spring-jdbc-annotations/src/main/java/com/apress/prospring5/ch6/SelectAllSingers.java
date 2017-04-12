@@ -5,18 +5,19 @@ import java.sql.SQLException;
 
 import javax.sql.DataSource;
 
+import com.apress.prospring5.ch6.entities.Singer;
 import org.springframework.jdbc.object.MappingSqlQuery;
 
-public class SelectAllContacts extends MappingSqlQuery<Contact> {
+public class SelectAllSingers extends MappingSqlQuery<Singer> {
     private static final String SQL_SELECT_ALL_CONTACT = 
         "select id, first_name, last_name, birth_date from contact";
 
-    public SelectAllContacts(DataSource dataSource) {
+    public SelectAllSingers(DataSource dataSource) {
         super(dataSource, SQL_SELECT_ALL_CONTACT);
     }
 
-    protected Contact mapRow(ResultSet rs, int rowNum) throws SQLException {
-        Contact contact = new Contact();
+    protected Singer mapRow(ResultSet rs, int rowNum) throws SQLException {
+        Singer contact = new Singer();
 
         contact.setId(rs.getLong("id"));
         contact.setFirstName(rs.getString("first_name"));

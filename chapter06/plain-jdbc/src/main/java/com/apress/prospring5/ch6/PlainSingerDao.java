@@ -9,18 +9,19 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-public class PlainContactDao implements ContactDao {
-    private static String DB_URL = "jdbc:derby:memory:prospring5_ch6;user=prospring5;password=prospring5;create=true;";
+public class PlainSingerDao implements SingerDao {
     static {
         try {
-            Class.forName("org.apache.derby.jdbc.EmbeddedDriver");
+            Class.forName("com.mysql.cj.jdbc.Driver");
         } catch (ClassNotFoundException ex) {
             ex.printStackTrace();
         }
     }
 
     private Connection getConnection() throws SQLException {
-        return DriverManager.getConnection(DB_URL);
+        return DriverManager.getConnection(
+                "jdbc:mysql://localhost:3306/musicdb?useSSL=true",
+                "prospring5", "prospring5");
     }
 
     private void closeConnection(Connection connection) {
@@ -36,27 +37,27 @@ public class PlainContactDao implements ContactDao {
     }
 
     @Override
-    public List<Contact> findAll() {
-        List<Contact> result = new ArrayList<>();
+    public List<Singer> findAll() {
+        List<Singer> result = new ArrayList<Singer>();
 
         Connection connection = null;
 
         try {
             connection = getConnection();
 
-            PreparedStatement statement = 
-                connection.prepareStatement("select * from contact");
+            PreparedStatement statement =
+                    connection.prepareStatement("select * from singer");
 
             ResultSet resultSet = statement.executeQuery();
 
             while (resultSet.next()) {
-                Contact contact = new Contact();
-                contact.setId(resultSet.getLong("id"));
-                contact.setFirstName(resultSet.getString("first_name"));
-                contact.setLastName(resultSet.getString("last_name"));
-                contact.setBirthDate(resultSet.getDate("birth_date"));
+                Singer singer = new Singer();
+                singer.setId(resultSet.getLong("id"));
+                singer.setFirstName(resultSet.getString("first_name"));
+                singer.setLastName(resultSet.getString("last_name"));
+                singer.setBirthDate(resultSet.getDate("birth_date"));
 
-                result.add(contact);
+                result.add(singer);
             }
         } catch (SQLException ex) {
             ex.printStackTrace();
@@ -68,24 +69,24 @@ public class PlainContactDao implements ContactDao {
     }
 
     @Override
-    public void insert(Contact contact) {
+    public void insert(Singer singer) {
         Connection connection = null;
 
         try {
             connection = getConnection();
 
             PreparedStatement statement = connection.prepareStatement(
-              "insert into Contact (first_name, last_name, birth_date) values (?, ?, ?)"
-              , Statement.RETURN_GENERATED_KEYS);
-            statement.setString(1, contact.getFirstName());
-            statement.setString(2, contact.getLastName());
-            statement.setDate(3, contact.getBirthDate());
+                    "insert into Singer (first_name, last_name, birth_date) values (?, ?, ?)"
+                    , Statement.RETURN_GENERATED_KEYS);
+            statement.setString(1, singer.getFirstName());
+            statement.setString(2, singer.getLastName());
+            statement.setDate(3, singer.getBirthDate());
             statement.execute();
 
-            ResultSet generatedKeys = statement.getGeneratedKeys(); 
+            ResultSet generatedKeys = statement.getGeneratedKeys();
 
             if (generatedKeys.next()) {
-                contact.setId(generatedKeys.getLong(1));
+                singer.setId(generatedKeys.getLong(1));
             }
         } catch (SQLException ex) {
             ex.printStackTrace();
@@ -95,14 +96,14 @@ public class PlainContactDao implements ContactDao {
     }
 
     @Override
-    public void delete(Long contactId) {
+    public void delete(Long singerId) {
         Connection connection = null;
 
         try {
             connection = getConnection();
 
-            PreparedStatement statement = connection.prepareStatement("delete from contact where id=?");
-            statement.setLong(1, contactId);
+            PreparedStatement statement = connection.prepareStatement("delete from singer where id=?");
+            statement.setLong(1, singerId);
             statement.execute();
         } catch (SQLException ex) {
             ex.printStackTrace();
@@ -112,7 +113,7 @@ public class PlainContactDao implements ContactDao {
     }
 
     @Override
-    public List<Contact> findByFirstName(String firstName) {
+    public List<Singer> findByFirstName(String firstName) {
         return null;
     }
 
@@ -127,6 +128,6 @@ public class PlainContactDao implements ContactDao {
     }
 
     @Override
-    public void update(Contact contact) {
+    public void update(Singer singer) {
     }
 }

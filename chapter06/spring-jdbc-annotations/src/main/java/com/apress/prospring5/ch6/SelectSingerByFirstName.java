@@ -6,20 +6,21 @@ import java.sql.Types;
 
 import javax.sql.DataSource;
 
+import com.apress.prospring5.ch6.entities.Singer;
 import org.springframework.jdbc.object.MappingSqlQuery;
 import org.springframework.jdbc.core.SqlParameter;
 
-public class SelectContactByFirstName extends MappingSqlQuery<Contact> {
+public class SelectSingerByFirstName extends MappingSqlQuery<Singer> {
     private static final String SQL_FIND_BY_FIRST_NAME = 
         "select id, first_name, last_name, birth_date from contact where first_name = :first_name";
 
-    public SelectContactByFirstName(DataSource dataSource) {
+    public SelectSingerByFirstName(DataSource dataSource) {
         super(dataSource, SQL_FIND_BY_FIRST_NAME);
         super.declareParameter(new SqlParameter("first_name", Types.VARCHAR));
     }
 
-    protected Contact mapRow(ResultSet rs, int rowNum) throws SQLException {
-        Contact contact = new Contact();
+    protected Singer mapRow(ResultSet rs, int rowNum) throws SQLException {
+        Singer contact = new Singer();
 
         contact.setId(rs.getLong("id"));
         contact.setFirstName(rs.getString("first_name"));
