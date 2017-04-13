@@ -1,4 +1,5 @@
 dependencies {
+	compile project(':chapter06:plain-jdbc')
 	compile db.mysql, db.dbcp
 }
 
