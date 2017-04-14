@@ -9,8 +9,7 @@
         http://www.springframework.org/schema/util/spring-util.xsd">
 
     <bean id="dataSource"
-          class="org.apache.commons.dbcp2.BasicDataSource"
-          destroy-method="close"
+          class="org.springframework.jdbc.datasource.DriverManagerDataSource"
           p:driverClassName="#{jdbc.driverClassName}"
           p:url="#{jdbc.url}"
           p:username="#{jdbc.username}"
