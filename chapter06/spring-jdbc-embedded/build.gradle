@@ -1,11 +1,12 @@
 dependencies {
-	compile db.derby
+	compile project(':chapter06:plain-jdbc')
+	compile db.h2, db.derby
 }
 
 jar {
 	manifest {
 		attributes(
-				'Main-Class': 'com.apress.prospring5.ch6.JdbcContactDaoSample',
+				'Main-Class': 'com.apress.prospring5.ch6.JdbcSingerDaoDemo',
 				"Class-Path": configurations.compile.collect { it.getName() }.join(' '))
 	}
 }

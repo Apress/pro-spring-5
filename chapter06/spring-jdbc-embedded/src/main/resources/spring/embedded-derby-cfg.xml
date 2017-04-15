@@ -9,11 +9,11 @@
         http://www.springframework.org/schema/jdbc 
         http://www.springframework.org/schema/jdbc/spring-jdbc.xsd">
 
-    <jdbc:embedded-database id="dataSource" type="H2">
-        <jdbc:script location="classpath:sql/schema.sql"/>
-        <jdbc:script location="classpath:sql/test-data.sql"/>
+    <jdbc:embedded-database id="dataSource" type="DERBY">
+        <jdbc:script location="classpath:db/derby/schema.sql"/>
+        <jdbc:script location="classpath:db/derby/test-data.sql"/>
     </jdbc:embedded-database>
 
-    <bean id="contactDao" class="JdbcContactDao"
-        p:dataSource-ref="dataSource"/>
+    <bean id="singerDao" class="com.apress.prospring5.ch6.JdbcSingerDao"
+          p:dataSource-ref="dataSource"/>
 </beans>

@@ -7,7 +7,6 @@ import org.springframework.context.annotation.Lazy;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.context.support.PropertySourcesPlaceholderConfigurer;
 import org.springframework.jdbc.datasource.SimpleDriverDataSource;
-import org.springframework.jdbc.datasource.init.DatabasePopulatorUtils;
 
 import javax.sql.DataSource;
 import java.sql.Driver;
@@ -16,7 +15,7 @@ import java.sql.Driver;
  * Created by iuliana.cosmina on 4/14/17.
  */
 @Configuration
-@PropertySource("classpath:db/jdbc2.properties")
+@PropertySource("classpath:db/h2/jdbc2.properties")
 public class DbConfig {
 
 	@Value("${driverClassName}")
@@ -33,6 +32,7 @@ public class DbConfig {
 		return new PropertySourcesPlaceholderConfigurer();
 	}
 
+	@SuppressWarnings("unchecked")
 	@Lazy
 	@Bean
 	public DataSource dataSource() {

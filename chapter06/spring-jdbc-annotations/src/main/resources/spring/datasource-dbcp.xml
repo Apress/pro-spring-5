@@ -16,6 +16,6 @@
           p:username="#{jdbc.username}"
           p:password="#{jdbc.password}"/>
 
-    <util:properties id="jdbc" location="classpath:db/jdbc2.properties"/>
+    <util:properties id="jdbc" location="classpath:db/h2/jdbc2.properties"/>
 
 </beans>

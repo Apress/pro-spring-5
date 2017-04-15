@@ -3,7 +3,7 @@ package com.apress.prospring5.ch6;
 import org.springframework.context.support.GenericXmlApplicationContext;
 
 public class JdbcContactDaoSample {
-    public static void main(String[] args) {
+    public static void main(String... args) {
         GenericXmlApplicationContext ctx = new GenericXmlApplicationContext();
         ctx.load("classpath:spring/app-context-xml.xml");
         ctx.refresh();

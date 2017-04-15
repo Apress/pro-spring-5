@@ -156,6 +156,10 @@ public class JdbcSingerDao implements SingerDao {
 		}
 	}
 
+	@Override public String findNameById(Long id) {
+		throw new NotImplementedException("findNameById");
+	}
+
 	@Override public String findLastNameById(Long id) {
 		throw new NotImplementedException("findLastNameById");
 	}
