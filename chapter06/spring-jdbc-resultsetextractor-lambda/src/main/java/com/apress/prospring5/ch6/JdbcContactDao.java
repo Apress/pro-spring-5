@@ -27,7 +27,7 @@ public class JdbcContactDao implements ContactDao, InitializingBean {
     }
 
     @Override
-    public List<Contact> findAllWithDetail() {
+    public List<Contact> findAllWithAlbums() {
         String sql = "select c.id, c.first_name, c.last_name, c.birth_date" + 
                      ", t.id as contact_tel_id, t.tel_type, t.tel_number from contact c " + 
                      "left join contact_tel_detail t on c.id = t.contact_id";

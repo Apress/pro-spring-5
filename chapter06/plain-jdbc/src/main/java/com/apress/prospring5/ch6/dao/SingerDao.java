@@ -22,8 +22,8 @@ public interface SingerDao {
 
 	void delete(Long singerId);
 
-	List<Singer> findAllWithDetail();
+	List<Singer> findAllWithAlbums();
 
-	void insertWithDetail(Singer singer);
+	void insertWithAlbums(Singer singer);
 }
 

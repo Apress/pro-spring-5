@@ -7,32 +7,20 @@ import org.springframework.beans.factory.BeanCreationException;
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.jdbc.core.JdbcTemplate;
 
-import javax.sql.DataSource;
 import java.util.List;
 
 public class JdbcSingerDao implements SingerDao, InitializingBean {
 
-	private DataSource dataSource;
 	private JdbcTemplate jdbcTemplate;
 
-	public void setDataSource(DataSource dataSource) {
-		this.dataSource = dataSource;
-		JdbcTemplate jdbcTemplate = new JdbcTemplate();
-		jdbcTemplate.setDataSource(dataSource);
-		MySQLErrorCodesTranslator errorTranslator =
-				new MySQLErrorCodesTranslator();
-		errorTranslator.setDataSource(dataSource);
-		jdbcTemplate.setExceptionTranslator(errorTranslator);
+	public void setJdbcTemplate(JdbcTemplate jdbcTemplate) {
 		this.jdbcTemplate = jdbcTemplate;
 	}
 
-	public void afterPropertiesSet() throws Exception {
-		if (dataSource == null) {
-			throw new BeanCreationException("Must set dataSource on SingerDao");
-		}
-		if (jdbcTemplate == null) {
-			throw new BeanCreationException("Null JdbcTemplate on SingerDao");
-		}
+	@Override public String findNameById(Long id) {
+		return jdbcTemplate.queryForObject(
+				"select first_name || ' ' || last_name from singer where id = ?",
+				new Object[]{id}, String.class);
 	}
 
 	@Override
@@ -42,7 +30,6 @@ public class JdbcSingerDao implements SingerDao, InitializingBean {
 				new Object[]{id}, String.class);
 	}
 
-
 	@Override public List<Singer> findAll() {
 		throw new NotImplementedException("findAll");
 	}
@@ -51,11 +38,7 @@ public class JdbcSingerDao implements SingerDao, InitializingBean {
 		throw new NotImplementedException("findByFirstName");
 	}
 
-	@Override public String findNameById(Long id) {
-		return jdbcTemplate.queryForObject(
-				"select first_name || ' ' || last_name from singer where id = ?",
-				new Object[]{id}, String.class);
-	}
+
 
 	@Override public String findLastNameById(Long id) {
 		throw new NotImplementedException("findLastNameById");
@@ -73,11 +56,18 @@ public class JdbcSingerDao implements SingerDao, InitializingBean {
 		throw new NotImplementedException("delete");
 	}
 
-	@Override public List<Singer> findAllWithDetail() {
-		throw new NotImplementedException("findAllWithDetail");
+	@Override public List<Singer> findAllWithAlbums() {
+		throw new NotImplementedException("findAllWithAlbums");
 	}
 
-	@Override public void insertWithDetail(Singer singer) {
-		throw new NotImplementedException("insertWithDetail");
+	@Override public void insertWithAlbums(Singer singer) {
+		throw new NotImplementedException("insertWithAlbums");
 	}
+
+	@Override public void afterPropertiesSet() throws Exception {
+		if (jdbcTemplate == null) {
+			throw new BeanCreationException("Null JdbcTemplate on SingerDao");
+		}
+	}
+
 }

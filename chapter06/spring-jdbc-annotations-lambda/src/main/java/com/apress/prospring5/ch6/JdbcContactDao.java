@@ -64,7 +64,7 @@ public class JdbcContactDao implements ContactDao {
     }
 
     @Override
-    public void insertWithDetail(Contact contact) {
+    public void insertWithAlbums(Contact contact) {
         insertContactTelDetail = new InsertContactTelDetail(dataSource);
 
         Map<String, Object> paramMap = new HashMap<String, Object>();
@@ -97,7 +97,7 @@ public class JdbcContactDao implements ContactDao {
     }
 
     @Override
-    public List<Contact> findAllWithDetail() {
+    public List<Contact> findAllWithAlbums() {
         JdbcTemplate jdbcTemplate = new JdbcTemplate(getDataSource());
 
         String sql = "select c.id, c.first_name, c.last_name, c.birth_date" + 

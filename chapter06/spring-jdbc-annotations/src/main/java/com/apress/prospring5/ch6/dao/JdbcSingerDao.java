@@ -65,7 +65,7 @@ public class JdbcSingerDao implements SingerDao {
 	}
 
 	@Override
-	public void insertWithDetail(Singer singer) {
+	public void insertWithAlbums(Singer singer) {
 		insertSingerAlbum = new InsertSingerAlbum(dataSource);
 		Map<String, Object> paramMap = new HashMap<>();
 		paramMap.put("first_name", singer.getFirstName());
@@ -90,7 +90,7 @@ public class JdbcSingerDao implements SingerDao {
 	}
 
 	@Override
-	public List<Singer> findAllWithDetail() {
+	public List<Singer> findAllWithAlbums() {
 		JdbcTemplate jdbcTemplate = new JdbcTemplate(getDataSource());
 		String sql = "select c.id, c.first_name, c.last_name, c.birth_date" +
 				", a.id as album_id, t.title, t.release_date from singer c " +

@@ -122,12 +122,12 @@ public class PlainSingerDao implements SingerDao {
 		throw new NotImplementedException("update");
 	}
 
-	@Override public List<Singer> findAllWithDetail() {
-		throw new NotImplementedException("findAllWithDetail");
+	@Override public List<Singer> findAllWithAlbums() {
+		throw new NotImplementedException("findAllWithAlbums");
 	}
 
-	@Override public void insertWithDetail(Singer singer) {
-		throw new NotImplementedException("insertWithDetail");
+	@Override public void insertWithAlbums(Singer singer) {
+		throw new NotImplementedException("insertWithAlbums");
 	}
 
 	@Override public String findNameById(Long id) {

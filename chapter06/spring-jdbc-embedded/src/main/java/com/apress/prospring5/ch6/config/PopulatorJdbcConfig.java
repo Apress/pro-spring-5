@@ -75,9 +75,10 @@ public class PopulatorJdbcConfig {
 	@Bean
 	public SingerDao singerDao() {
 		JdbcSingerDao dao = new JdbcSingerDao();
-		dao.setDataSource(dataSource());
+		dao.setJdbcTemplate(jdbcTemplate());
 		return dao;
 	}
+
 	@Bean
 	public JdbcTemplate jdbcTemplate() {
 		return new JdbcTemplate(dataSource());

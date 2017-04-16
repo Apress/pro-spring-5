@@ -6,8 +6,8 @@ public interface ContactDao {
     List<Contact> findAll();
     List<Contact> findByFirstName(String firstName);
     String findFirstNameById(Long id);
-    List<Contact> findAllWithDetail();
+    List<Contact> findAllWithAlbums();
     void insert(Contact contact);
-    void insertWithDetail(Contact contact);
+    void insertWithAlbums(Contact contact);
     void update(Contact contact);
 }
