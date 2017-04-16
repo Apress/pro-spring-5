@@ -8,11 +8,11 @@ import org.springframework.jdbc.core.SqlParameter;
 import org.springframework.jdbc.object.SqlUpdate;
 
 public class InsertSinger extends SqlUpdate {
-    private static final String SQL_INSERT_CONTACT = 
-        "insert into contact (first_name, last_name, birth_date) values (:first_name, :last_name, :birth_date)";
+    private static final String SQL_INSERT_SINGER =
+        "insert into singer (first_name, last_name, birth_date) values (:first_name, :last_name, :birth_date)";
 
     public InsertSinger(DataSource dataSource) {
-        super(dataSource, SQL_INSERT_CONTACT);
+        super(dataSource, SQL_INSERT_SINGER);
         super.declareParameter(new SqlParameter("first_name", Types.VARCHAR));
         super.declareParameter(new SqlParameter("last_name", Types.VARCHAR));
         super.declareParameter(new SqlParameter("birth_date", Types.DATE));

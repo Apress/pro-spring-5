@@ -44,8 +44,8 @@ public class JdbcSingerDao implements SingerDao, InitializingBean {
 		throw new NotImplementedException("findAllWithAlbums");
 	}
 
-	@Override public void insertWithAlbums(Singer singer) {
-		throw new NotImplementedException("insertWithAlbums");
+	@Override public void insertWithAlbum(Singer singer) {
+		throw new NotImplementedException("insertWithAlbum");
 	}
 
 	@Override public List<Singer> findAll() {

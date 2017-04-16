@@ -4,19 +4,15 @@ import com.apress.prospring5.ch6.*;
 import com.apress.prospring5.ch6.entities.Album;
 import com.apress.prospring5.ch6.entities.Singer;
 import org.apache.commons.lang3.NotImplementedException;
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
-import org.springframework.dao.DataAccessException;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.jdbc.core.ResultSetExtractor;
 import org.springframework.jdbc.support.GeneratedKeyHolder;
 import org.springframework.jdbc.support.KeyHolder;
 import org.springframework.stereotype.Repository;
 
 import javax.annotation.Resource;
 import javax.sql.DataSource;
-import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -25,7 +21,7 @@ import java.util.Map;
 @Repository("singerDao")
 public class JdbcSingerDao implements SingerDao {
 
-	private static final Log LOG = LogFactory.getLog(JdbcSingerDao.class);
+	private static Logger logger = LoggerFactory.getLogger(JdbcSingerDao.class);
 	private DataSource dataSource;
 	private SelectAllSingers selectAllSingers;
 	private SelectSingerByFirstName selectSingerByFirstName;
@@ -61,11 +57,11 @@ public class JdbcSingerDao implements SingerDao {
 		KeyHolder keyHolder = new GeneratedKeyHolder();
 		insertSinger.updateByNamedParam(paramMap, keyHolder);
 		singer.setId(keyHolder.getKey().longValue());
-		LOG.info("New singer inserted with id: " + singer.getId());
+		logger.info("New singer inserted with id: " + singer.getId());
 	}
 
 	@Override
-	public void insertWithAlbums(Singer singer) {
+	public void insertWithAlbum(Singer singer) {
 		insertSingerAlbum = new InsertSingerAlbum(dataSource);
 		Map<String, Object> paramMap = new HashMap<>();
 		paramMap.put("first_name", singer.getFirstName());
@@ -74,15 +70,15 @@ public class JdbcSingerDao implements SingerDao {
 		KeyHolder keyHolder = new GeneratedKeyHolder();
 		insertSinger.updateByNamedParam(paramMap, keyHolder);
 		singer.setId(keyHolder.getKey().longValue());
-		LOG.info("New singer inserted with id: " + singer.getId());
-		List<Album> singerTelDetails =
+		logger.info("New singer inserted with id: " + singer.getId());
+		List<Album> albums =
 				singer.getAlbums();
-		if (singerTelDetails != null) {
-			for (Album singerTelDetail : singerTelDetails) {
+		if (albums != null) {
+			for (Album album : albums) {
 				paramMap = new HashMap<>();
 				paramMap.put("singer_id", singer.getId());
-				paramMap.put("tel_type", singerTelDetail.getTitle());
-				paramMap.put("tel_number", singerTelDetail.getReleaseDate());
+				paramMap.put("title", album.getTitle());
+				paramMap.put("release_date", album.getReleaseDate());
 				insertSingerAlbum.updateByNamedParam(paramMap);
 			}
 		}
@@ -92,42 +88,10 @@ public class JdbcSingerDao implements SingerDao {
 	@Override
 	public List<Singer> findAllWithAlbums() {
 		JdbcTemplate jdbcTemplate = new JdbcTemplate(getDataSource());
-		String sql = "select c.id, c.first_name, c.last_name, c.birth_date" +
-				", a.id as album_id, t.title, t.release_date from singer c " +
-				"left join album a on c.id = a.singer_id";
-		return jdbcTemplate.query(sql, new SingerWithDetailExtractor());
-	}
-
-	@Override
-	public void update(Singer singer) {
-		Map<String, Object> paramMap = new HashMap<String, Object>();
-		paramMap.put("first_name", singer.getFirstName());
-		paramMap.put("last_name", singer.getLastName());
-		paramMap.put("birth_date", singer.getBirthDate());
-		paramMap.put("id", singer.getId());
-		updateSinger.updateByNamedParam(paramMap);
-		LOG.info("Existing singer updated with id: " + singer.getId());
-	}
-
-	@Resource(name = "dataSource")
-	public void setDataSource(DataSource dataSource) {
-		this.dataSource = dataSource;
-		this.selectAllSingers = new SelectAllSingers(dataSource);
-		this.selectSingerByFirstName = new SelectSingerByFirstName(dataSource);
-		this.updateSinger = new UpdateSinger(dataSource);
-		this.insertSinger = new InsertSinger(dataSource);
-		this.storedFunctionFirstNameById = new StoredFunctionFirstNameById(dataSource);
-	}
-
-	public DataSource getDataSource() {
-		return dataSource;
-	}
-
-	private static final class SingerWithDetailExtractor
-			implements ResultSetExtractor<List<Singer>> {
-
-		public List<Singer> extractData(ResultSet rs) throws
-				SQLException, DataAccessException {
+		String sql = "SELECT s.id, s.first_name, s.last_name, s.birth_date" +
+				", a.id AS album_id, a.title, a.release_date FROM singer s " +
+				"LEFT JOIN album a ON s.id = a.singer_id";
+		return jdbcTemplate.query(sql, rs -> {
 			Map<Long, Singer> map = new HashMap<>();
 			Singer singer;
 			while (rs.next()) {
@@ -153,7 +117,32 @@ public class JdbcSingerDao implements SingerDao {
 				}
 			}
 			return new ArrayList<>(map.values());
-		}
+		});
+	}
+
+	@Override
+	public void update(Singer singer) {
+		Map<String, Object> paramMap = new HashMap<String, Object>();
+		paramMap.put("first_name", singer.getFirstName());
+		paramMap.put("last_name", singer.getLastName());
+		paramMap.put("birth_date", singer.getBirthDate());
+		paramMap.put("id", singer.getId());
+		updateSinger.updateByNamedParam(paramMap);
+		logger.info("Existing singer updated with id: " + singer.getId());
+	}
+
+	@Resource(name = "dataSource")
+	public void setDataSource(DataSource dataSource) {
+		this.dataSource = dataSource;
+		this.selectAllSingers = new SelectAllSingers(dataSource);
+		this.selectSingerByFirstName = new SelectSingerByFirstName(dataSource);
+		this.updateSinger = new UpdateSinger(dataSource);
+		this.insertSinger = new InsertSinger(dataSource);
+		this.storedFunctionFirstNameById = new StoredFunctionFirstNameById(dataSource);
+	}
+
+	public DataSource getDataSource() {
+		return dataSource;
 	}
 
 	@Override public String findNameById(Long id) {

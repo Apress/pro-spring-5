@@ -145,21 +145,14 @@ include 'chapter06:plain-jdbc'
 findProject(':chapter06:plain-jdbc')?.name = 'plain-jdbc'
 include 'chapter06:spring-jdbc-annotations'
 findProject(':chapter06:spring-jdbc-annotations')?.name = 'spring-jdbc-annotations'
-include 'chapter06:spring-jdbc-annotations-lambda'
-findProject(':chapter06:spring-jdbc-annotations-lambda')?.name = 'spring-jdbc-annotations-lambda'
 include 'chapter06:spring-jdbc-embedded'
 findProject(':chapter06:spring-jdbc-embedded')?.name = 'spring-jdbc-embedded'
 include 'chapter06:spring-jdbc-namedparam'
 findProject(':chapter06:spring-jdbc-namedparam')?.name = 'spring-jdbc-namedparam'
 include 'chapter06:spring-jdbc-resultsetextractor'
 findProject(':chapter06:spring-jdbc-resultsetextractor')?.name = 'spring-jdbc-resultsetextractor'
-include 'chapter06:spring-jdbc-resultsetextractor-lambda'
-findProject(':chapter06:spring-jdbc-resultsetextractor-lambda')?.name = 'spring-jdbc-resultsetextractor-lambda'
 include 'chapter06:spring-jdbc-rowmapper'
 findProject(':chapter06:spring-jdbc-rowmapper')?.name = 'spring-jdbc-rowmapper'
-include 'chapter06:spring-jdbc-rowmapper-lambda'
-findProject(':chapter06:spring-jdbc-rowmapper-lambda')?.name = 'spring-jdbc-rowmapper-lambda'
-
 
 println(' This project is a collection of simple code samples. It is meant to be used together with the ' +
 		'"Spring Pro, Fifth Edition" ' +

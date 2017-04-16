@@ -126,8 +126,8 @@ public class PlainSingerDao implements SingerDao {
 		throw new NotImplementedException("findAllWithAlbums");
 	}
 
-	@Override public void insertWithAlbums(Singer singer) {
-		throw new NotImplementedException("insertWithAlbums");
+	@Override public void insertWithAlbum(Singer singer) {
+		throw new NotImplementedException("insertWithAlbum");
 	}
 
 	@Override public String findNameById(Long id) {

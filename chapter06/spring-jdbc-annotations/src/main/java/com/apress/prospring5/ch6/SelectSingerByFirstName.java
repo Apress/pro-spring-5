@@ -12,7 +12,7 @@ import org.springframework.jdbc.core.SqlParameter;
 
 public class SelectSingerByFirstName extends MappingSqlQuery<Singer> {
     private static final String SQL_FIND_BY_FIRST_NAME = 
-        "select id, first_name, last_name, birth_date from contact where first_name = :first_name";
+        "select id, first_name, last_name, birth_date from singer where first_name = :first_name";
 
     public SelectSingerByFirstName(DataSource dataSource) {
         super(dataSource, SQL_FIND_BY_FIRST_NAME);
@@ -20,13 +20,13 @@ public class SelectSingerByFirstName extends MappingSqlQuery<Singer> {
     }
 
     protected Singer mapRow(ResultSet rs, int rowNum) throws SQLException {
-        Singer contact = new Singer();
+        Singer singer = new Singer();
 
-        contact.setId(rs.getLong("id"));
-        contact.setFirstName(rs.getString("first_name"));
-        contact.setLastName(rs.getString("last_name"));
-        contact.setBirthDate(rs.getDate("birth_date"));
+        singer.setId(rs.getLong("id"));
+        singer.setFirstName(rs.getString("first_name"));
+        singer.setLastName(rs.getString("last_name"));
+        singer.setBirthDate(rs.getDate("birth_date"));
 
-        return contact;
+        return singer;
     }
 }
