@@ -20,20 +20,20 @@
       http://www.springframework.org/schema/context/spring-context.xsd">
 
     <jdbc:embedded-database id="dataSource" type="H2">
-        <jdbc:script location="classpath:META-INF/sql/schema.sql"/>
-        <jdbc:script location="classpath:META-INF/sql/test-data.sql"/>
+        <jdbc:script location="classpath:sql/schema.sql"/>
+        <jdbc:script location="classpath:sql/test-data.sql"/>
     </jdbc:embedded-database>
     
     <bean id="transactionManager"
-      class="org.springframework.orm.hibernate4.HibernateTransactionManager" 
+      class="org.springframework.orm.hibernate5.HibernateTransactionManager"
         p:sessionFactory-ref="sessionFactory"/>
     
     <tx:annotation-driven/>
 
-    <context:component-scan base-package="com.apress.prospring4.ch7"/>
+    <context:component-scan base-package="com.apress.prospring5.ch7"/>
 
     <bean id="sessionFactory"
-      class="org.springframework.orm.hibernate4.LocalSessionFactoryBean"
+      class="org.springframework.orm.hibernate5.LocalSessionFactoryBean"
           p:dataSource-ref="dataSource"
           p:packagesToScan="com.apress.prospring4.ch7"
           p:hibernateProperties-ref="hibernateProperties"/>

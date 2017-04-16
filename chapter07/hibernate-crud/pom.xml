@@ -49,7 +49,7 @@
         <configuration>
           <archive>
             <manifest>
-              <mainClass>com.apress.prospring4.ch7.SpringHibernateSample</mainClass>
+              <mainClass>SpringHibernateSample</mainClass>
               <addClasspath>true</addClasspath>
               <classpathPrefix>dependency/</classpathPrefix>
             </manifest>

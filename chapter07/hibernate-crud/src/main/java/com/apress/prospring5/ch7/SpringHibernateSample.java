@@ -1,15 +1,13 @@
-package com.apress.prospring4.ch7;
+package com.apress.prospring5.ch7;
 
 import java.util.List;
-import java.util.Date;
-import java.util.Set;
 
 import org.springframework.context.support.GenericXmlApplicationContext;
 
 public class SpringHibernateSample {
     public static void main(String[] args) {
         GenericXmlApplicationContext ctx = new GenericXmlApplicationContext();
-        ctx.load("classpath:META-INF/spring/app-context-annotation.xml");
+        ctx.load("classpath:spring/app-context-annotation.xml");
         ctx.refresh();
 
         ContactDao contactDao = ctx.getBean("contactDao", ContactDao.class);

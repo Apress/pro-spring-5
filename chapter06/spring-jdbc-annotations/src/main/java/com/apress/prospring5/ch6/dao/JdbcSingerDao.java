@@ -28,6 +28,7 @@ public class JdbcSingerDao implements SingerDao {
 	private UpdateSinger updateSinger;
 	private InsertSinger insertSinger;
 	private InsertSingerAlbum insertSingerAlbum;
+	private DeleteSinger deleteSinger;
 	private StoredFunctionFirstNameById storedFunctionFirstNameById;
 
 	@Override
@@ -122,7 +123,7 @@ public class JdbcSingerDao implements SingerDao {
 
 	@Override
 	public void update(Singer singer) {
-		Map<String, Object> paramMap = new HashMap<String, Object>();
+		Map<String, Object> paramMap = new HashMap<>();
 		paramMap.put("first_name", singer.getFirstName());
 		paramMap.put("last_name", singer.getLastName());
 		paramMap.put("birth_date", singer.getBirthDate());
@@ -139,6 +140,7 @@ public class JdbcSingerDao implements SingerDao {
 		this.updateSinger = new UpdateSinger(dataSource);
 		this.insertSinger = new InsertSinger(dataSource);
 		this.storedFunctionFirstNameById = new StoredFunctionFirstNameById(dataSource);
+		this.deleteSinger = new DeleteSinger(dataSource);
 	}
 
 	public DataSource getDataSource() {
@@ -154,6 +156,9 @@ public class JdbcSingerDao implements SingerDao {
 	}
 
 	@Override public void delete(Long singerId) {
-		throw new NotImplementedException("delete");
+		Map<String, Object> paramMap = new HashMap<>();
+		paramMap.put("id", singerId);
+		updateSinger.updateByNamedParam(paramMap);
+		logger.info("Deleting singer with id: " + singerId);
 	}
 }

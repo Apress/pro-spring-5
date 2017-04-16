@@ -1,22 +1,40 @@
 ext {
+	//spring libs
 	springVersion = '5.0.0.M4'
+	bootVersion = '2.0.0.BUILD-SNAPSHOT'
+
+	//logging libs
 	slf4jVersion = '1.7.22'
 	logbackVersion = '1.1.9'
+
 	groovyVersion = '2.4.5'
 	junitVersion = '4.12'
-	bootVersion = '2.0.0.BUILD-SNAPSHOT'
+
 	aspectjVersion = '1.9.0.BETA-5'
 	derbyVersion = '10.13.1.1'
 	dbcpVersion = '2.1'
 	mysqlVersion = '6.0.6'
 	h2Version = '1.4.194'
 
+	//persistency library
+	hibernateVersion = '5.2.1.Final'
+
 	spring = [
 			context: "org.springframework:spring-context:$springVersion",
 			tx     : "org.springframework:spring-tx:$springVersion",
 			jdbc   : "org.springframework:spring-jdbc:$springVersion",
+			contextSupport : "org.springframework:spring-context-support:$springVersion",
+			orm            : "org.springframework:spring-orm:$springVersion",
 			test   : "org.springframework:spring-test:$springVersion"
 	]
+
+	hibernate = [
+			validator: "org.hibernate:hibernate-validator:5.1.3.Final",
+			ehcache  : "org.hibernate:hibernate-ehcache:$hibernateVersion",
+			em       : "org.hibernate:hibernate-entitymanager:$hibernateVersion",
+			core     : "org.hibernate:hibernate-core:$hibernateVersion"
+	]
+
 
 	boot = [
 			springBootPlugin: "org.springframework.boot:spring-boot-gradle-plugin:$bootVersion",

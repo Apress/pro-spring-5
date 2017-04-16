@@ -156,6 +156,10 @@ findProject(':chapter06:spring-jdbc-rowmapper')?.name = 'spring-jdbc-rowmapper'
 include 'chapter06:spring-boot-jdbc'
 findProject(':chapter06:spring-boot-jdbc')?.name = 'spring-boot-jdbc'
 
+include 'chapter07'
+include 'chapter07:hibernate-crud'
+findProject(':chapter07:hibernate-crud')?.name = 'hibernate-crud'
+
 println(' This project is a collection of simple code samples. It is meant to be used together with the ' +
 		'"Spring Pro, Fifth Edition" ' +
 		' published by Apress in order to learn and practice with all Spring Web libraries. ')

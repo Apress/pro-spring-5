@@ -1,4 +1,4 @@
-package com.apress.prospring4.ch7;
+package com.apress.prospring5.ch7;
 
 import static javax.persistence.GenerationType.IDENTITY;
 
