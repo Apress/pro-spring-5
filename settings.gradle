@@ -153,6 +153,8 @@ include 'chapter06:spring-jdbc-resultsetextractor'
 findProject(':chapter06:spring-jdbc-resultsetextractor')?.name = 'spring-jdbc-resultsetextractor'
 include 'chapter06:spring-jdbc-rowmapper'
 findProject(':chapter06:spring-jdbc-rowmapper')?.name = 'spring-jdbc-rowmapper'
+include 'chapter06:spring-boot-jdbc'
+findProject(':chapter06:spring-boot-jdbc')?.name = 'spring-boot-jdbc'
 
 println(' This project is a collection of simple code samples. It is meant to be used together with the ' +
 		'"Spring Pro, Fifth Edition" ' +

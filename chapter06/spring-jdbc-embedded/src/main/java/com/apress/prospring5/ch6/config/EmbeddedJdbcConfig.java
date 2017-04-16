@@ -1,5 +1,6 @@
 package com.apress.prospring5.ch6.config;
 
+import com.apress.prospring5.ch6.CleanUp;
 import com.apress.prospring5.ch6.JdbcSingerDao;
 import com.apress.prospring5.ch6.dao.SingerDao;
 import org.slf4j.Logger;
@@ -43,5 +44,10 @@ public class EmbeddedJdbcConfig {
 		JdbcSingerDao dao = new JdbcSingerDao();
 		dao.setJdbcTemplate(jdbcTemplate());
 		return dao;
+	}
+
+	@Bean(destroyMethod = "destroy")
+	public CleanUp cleanUp() {
+		return new CleanUp(jdbcTemplate());
 	}
 }

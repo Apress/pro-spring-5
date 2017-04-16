@@ -24,7 +24,8 @@ ext {
 			starterWeb      : "org.springframework.boot:spring-boot-starter-web:$bootVersion",
 			actuator        : "org.springframework.boot:spring-boot-starter-actuator:$bootVersion",
 			starterTest     : "org.springframework.boot:spring-boot-starter-test:$bootVersion",
-			starterAop      : "org.springframework.boot:spring-boot-starter-aop:$bootVersion"
+			starterAop      : "org.springframework.boot:spring-boot-starter-aop:$bootVersion",
+			starterJdbc     : "org.springframework.boot:spring-boot-starter-jdbc:$bootVersion"
 	]
 
 	testing = [
