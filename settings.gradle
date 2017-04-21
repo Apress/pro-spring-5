@@ -159,6 +159,8 @@ findProject(':chapter06:spring-boot-jdbc')?.name = 'spring-boot-jdbc'
 include 'chapter07'
 include 'chapter07:hibernate-crud'
 findProject(':chapter07:hibernate-crud')?.name = 'hibernate-crud'
+include 'chapter07:hibernate-base'
+findProject(':chapter07:hibernate-base')?.name = 'hibernate-base'
 
 println(' This project is a collection of simple code samples. It is meant to be used together with the ' +
 		'"Spring Pro, Fifth Edition" ' +
@@ -171,5 +173,3 @@ rootProject.children.each { project ->
 	assert project.buildFile.exists()
 	assert project.buildFile.isFile()
 }
-
-
