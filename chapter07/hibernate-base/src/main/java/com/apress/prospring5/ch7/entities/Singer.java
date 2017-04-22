@@ -8,6 +8,9 @@ import java.util.Set;
 
 import static javax.persistence.GenerationType.IDENTITY;
 
+/**
+ * Created by iuliana.cosmina on 4/22/17.
+ */
 @Entity
 @Table(name = "singer")
 @NamedQueries({

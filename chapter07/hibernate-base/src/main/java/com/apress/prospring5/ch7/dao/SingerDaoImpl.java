@@ -10,11 +10,14 @@ import org.springframework.transaction.annotation.Transactional;
 import javax.annotation.Resource;
 import java.util.List;
 
+/**
+ * Created by iuliana.cosmina on 4/21/17.
+ */
 @Transactional
 @Repository("singerDao")
 public class SingerDaoImpl implements SingerDao {
 
-	private static final Log LOG = LogFactory.getLog(SingerDaoImpl.class);
+	private static final Log logger = LogFactory.getLog(SingerDaoImpl.class);
 	private SessionFactory sessionFactory;
 
 	@Transactional(readOnly = true)
@@ -37,13 +40,13 @@ public class SingerDaoImpl implements SingerDao {
 
 	public Singer save(Singer singer) {
 		sessionFactory.getCurrentSession().saveOrUpdate(singer);
-		LOG.info("Singer saved with id: " + singer.getId());
+		logger.info("Singer saved with id: " + singer.getId());
 		return singer;
 	}
 
 	public void delete(Singer singer) {
 		sessionFactory.getCurrentSession().delete(singer);
-		LOG.info("Singer deleted with id: " + singer.getId());
+		logger.info("Singer deleted with id: " + singer.getId());
 	}
 
 	public SessionFactory getSessionFactory() {

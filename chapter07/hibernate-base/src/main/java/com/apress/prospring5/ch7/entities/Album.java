@@ -6,15 +6,19 @@ import java.util.Date;
 
 import static javax.persistence.GenerationType.IDENTITY;
 
+/**
+ * Created by iuliana.cosmina on 4/21/17.
+ */
 @Entity
 @Table(name = "album")
 public class Album implements Serializable {
 
 	private Long id;
-	private Singer singer;
 	private String title;
 	private Date releaseDate;
 	private int version;
+
+	private Singer singer;
 
 	public void setId(Long id) {
 		this.id = id;
