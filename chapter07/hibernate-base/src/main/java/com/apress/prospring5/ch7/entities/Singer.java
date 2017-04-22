@@ -115,6 +115,10 @@ public class Singer implements Serializable {
 		this.instruments = instruments;
 	}
 
+	public boolean addInstrument(Instrument instrument) {
+		return getInstruments().add(instrument);
+	}
+
 	public String toString() {
 		return "Singer - Id: " + id + ", First name: " + firstName
 				+ ", Last name: " + lastName + ", Birthday: " + birthDate;

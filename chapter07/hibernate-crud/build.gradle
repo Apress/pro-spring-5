@@ -1,7 +1,4 @@
-jar {
-	manifest {
-		attributes(
-				'Main-Class': 'com.apress.prospring5.ch7.SpringHibernateSample',
-				"Class-Path": configurations.compile.collect { it.getName() }.join(' '))
-	}
+dependencies {
+	compile project(':chapter06:plain-jdbc')
+	compile db.dbcp
 }
