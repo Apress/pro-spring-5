@@ -1,6 +1,6 @@
 package com.apress.prospring5.ch7;
 
-import com.apress.prospring5.ch7.config.PopulatorConfig;
+import com.apress.prospring5.ch7.config.AdvancedConfig;
 import com.apress.prospring5.ch7.dao.SingerDao;
 import com.apress.prospring5.ch7.entities.Album;
 import com.apress.prospring5.ch7.entities.Instrument;
@@ -31,7 +31,7 @@ public class SingerDaoTest {
 
 	@Before
 	public void setUp(){
-		 ctx = new AnnotationConfigApplicationContext(PopulatorConfig.class);
+		 ctx = new AnnotationConfigApplicationContext(AdvancedConfig.class);
 		 singerDao = ctx.getBean(SingerDao.class);
 		 assertNotNull(singerDao);
 	}

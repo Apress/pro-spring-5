@@ -11,23 +11,14 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.context.support.PropertySourcesPlaceholderConfigurer;
-import org.springframework.core.io.Resource;
 import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.jdbc.datasource.SimpleDriverDataSource;
-import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseBuilder;
-import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseType;
-import org.springframework.jdbc.datasource.init.DatabasePopulator;
-import org.springframework.jdbc.datasource.init.DatabasePopulatorUtils;
-import org.springframework.jdbc.datasource.init.ResourceDatabasePopulator;
 import org.springframework.orm.hibernate5.HibernateTransactionManager;
-import org.springframework.orm.hibernate5.LocalSessionFactoryBean;
 import org.springframework.orm.hibernate5.LocalSessionFactoryBuilder;
 import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 import javax.sql.DataSource;
 import java.io.IOException;
-import java.sql.Driver;
 import java.util.Properties;
 
 /**
@@ -37,9 +28,9 @@ import java.util.Properties;
 @ComponentScan(basePackages = "com.apress.prospring5.ch7")
 @EnableTransactionManagement
 @PropertySource("classpath:db/jdbc.properties")
-public class PopulatorConfig {
+public class AdvancedConfig {
 
-	private static Logger logger = LoggerFactory.getLogger(PopulatorConfig.class);
+	private static Logger logger = LoggerFactory.getLogger(AdvancedConfig.class);
 
 	@Value("${driverClassName}")
 	private String driverClassName;

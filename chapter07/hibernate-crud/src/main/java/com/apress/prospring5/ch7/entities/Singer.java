@@ -1,7 +1,6 @@
 package com.apress.prospring5.ch7.entities;
 
 import javax.persistence.*;
-import java.io.Serializable;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashSet;

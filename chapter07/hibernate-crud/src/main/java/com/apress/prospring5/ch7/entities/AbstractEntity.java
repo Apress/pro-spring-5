@@ -2,7 +2,6 @@ package com.apress.prospring5.ch7.entities;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.text.SimpleDateFormat;
 
 /**
  * Created by iuliana.cosmina on 4/23/17.
@@ -14,7 +13,6 @@ public abstract class AbstractEntity implements Serializable {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(updatable = false)
 	protected Long id;
-
 	@Version
 	@Column(name = "VERSION")
 	private int version;
@@ -41,21 +39,15 @@ public abstract class AbstractEntity implements Serializable {
 		this.id = id;
 	}
 
-	public int getVersion() {
-		return version;
-	}
-
-	public void setVersion(int version) {
-		this.version = version;
-	}
-
 	@Override
 	public boolean equals(Object o) {
-		if (this == o) return true;
-		if (o == null || getClass() != o.getClass()) return false;
-
+		if (this == o)
+			return true;
+		if (o == null || getClass() != o.getClass())
+			return false;
 		AbstractEntity that = (AbstractEntity) o;
-		if (id != null ? !id.equals(that.id) : that.id != null) return false;
+		if (id != null ? !id.equals(that.id) : that.id != null)
+			return false;
 		return true;
 	}
 
@@ -63,6 +55,4 @@ public abstract class AbstractEntity implements Serializable {
 	public int hashCode() {
 		return id != null ? id.hashCode() : 0;
 	}
-
-
 }
