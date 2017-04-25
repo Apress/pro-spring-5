@@ -42,6 +42,7 @@ public class PopulatorJdbcConfig {
 		return new PropertySourcesPlaceholderConfigurer();
 	}
 
+	@SuppressWarnings("unchecked")
 	@Bean
 	public DataSource dataSource() {
 		try {

@@ -162,6 +162,12 @@ findProject(':chapter07:hibernate-crud')?.name = 'hibernate-crud'
 include 'chapter07:hibernate-base'
 findProject(':chapter07:hibernate-base')?.name = 'hibernate-base'
 
+include 'chapter08'
+include 'chapter08:jpa-crud'
+findProject(':chapter08:jpa-crud')?.name = 'jpa-crud'
+include 'chapter08:jpa-criteria'
+findProject(':chapter08:jpa-criteria')?.name = 'jpa-criteria'
+
 println(' This project is a collection of simple code samples. It is meant to be used together with the ' +
 		'"Spring Pro, Fifth Edition" ' +
 		' published by Apress in order to learn and practice with all Spring Web libraries. ')

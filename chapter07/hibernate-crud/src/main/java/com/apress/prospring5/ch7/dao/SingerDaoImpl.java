@@ -13,6 +13,7 @@ import java.util.List;
 /**
  * Created by iuliana.cosmina on 4/21/17.
  */
+@SuppressWarnings("unchecked")
 @Transactional
 @Repository("singerDao")
 public class SingerDaoImpl implements SingerDao {
