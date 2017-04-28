@@ -1,0 +1,13 @@
+
+dependencies {
+	compile spring.aspects, spring.data, misc.guava, misc.joda, hibernate.envers
+}
+
+
+jar {
+	manifest {
+		attributes(
+				'Main-Class': 'com.apress.prospring5.ch8.SpringJPASample',
+				"Class-Path": configurations.compile.collect { it.getName() }.join(' '))
+	}
+}

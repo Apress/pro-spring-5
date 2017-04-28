@@ -11,7 +11,7 @@
         </encoder>
     </appender>
 
-    <logger name="com.apress.prospring5.ch5" level="debug"/>
+    <logger name="com.apress.prospring5.ch6" level="debug"/>
 
     <logger name="org.springframework.jdbc" level="debug"/>
 

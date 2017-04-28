@@ -167,6 +167,13 @@ include 'chapter08:jpa-crud'
 findProject(':chapter08:jpa-crud')?.name = 'jpa-crud'
 include 'chapter08:jpa-criteria'
 findProject(':chapter08:jpa-criteria')?.name = 'jpa-criteria'
+include 'chapter08:spring-data-jpa'
+findProject(':chapter08:spring-data-jpa')?.name = 'spring-data-jpa'
+include 'chapter08:spring-data-jpa-audit'
+findProject(':chapter08:spring-data-jpa-audit')?.name = 'spring-data-jpa-audit'
+include 'chapter08:hibernate-envers'
+findProject(':chapter08:hibernate-envers')?.name = 'hibernate-envers'
+
 
 println(' This project is a collection of simple code samples. It is meant to be used together with the ' +
 		'"Spring Pro, Fifth Edition" ' +

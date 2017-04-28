@@ -1,0 +1,12 @@
+
+dependencies {
+	compile spring.aop, spring.data, misc.guava
+}
+
+jar {
+	manifest {
+		attributes(
+				'Main-Class': 'com.apress.prospring5.ch8.SpringJPASample',
+				"Class-Path": configurations.compile.collect { it.getName() }.join(' '))
+	}
+}
