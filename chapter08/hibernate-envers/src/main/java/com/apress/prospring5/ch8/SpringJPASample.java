@@ -7,9 +7,9 @@ import java.util.Set;
 import org.springframework.context.support.GenericXmlApplicationContext;
 
 public class SpringJPASample {
-    public static void main(String[] args) {
+    public static void main(String... args) {
         GenericXmlApplicationContext ctx = new GenericXmlApplicationContext();
-        ctx.load("classpath:META-INF/spring/app-context-annotation.xml");
+        ctx.load("classpath:spring/app-context-annotation.xml");
         ctx.refresh();
 
         ContactAuditService contactService = ctx.getBean(
@@ -36,6 +36,8 @@ public class SpringJPASample {
         System.out.println("");
         System.out.println("Old Contact with id 1 and rev 2:" + oldContact);
         System.out.println("");
+
+        ctx.close();
     }
 
     private static void listContacts(List<ContactAudit> contacts) {

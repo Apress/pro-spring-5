@@ -5,9 +5,9 @@ import java.util.List;
 import org.springframework.context.support.GenericXmlApplicationContext;
 
 public class SpringJPASample {
-    public static void main(String[] args) {
+    public static void main(String... args) {
         GenericXmlApplicationContext ctx = new GenericXmlApplicationContext();
-        ctx.load("classpath:META-INF/spring/app-context-annotation.xml");
+        ctx.load("classpath:spring/app-context-annotation.xml");
         ctx.refresh();
 
         ContactService contactService = ctx.getBean(

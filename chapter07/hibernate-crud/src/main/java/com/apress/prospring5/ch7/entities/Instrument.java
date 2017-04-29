@@ -11,19 +11,20 @@ import java.util.Set;
 @Entity
 @Table(name = "instrument")
 public class Instrument implements Serializable {
-	private String instrumentId;
-	private Set<Singer> singers = new HashSet<>();
-
 	@Id
 	@Column(name = "INSTRUMENT_ID")
-	public String getInstrumentId() {
-		return this.instrumentId;
-	}
+	private String instrumentId;
 
 	@ManyToMany
 	@JoinTable(name = "singer_instrument",
 			joinColumns = @JoinColumn(name = "INSTRUMENT_ID"),
 			inverseJoinColumns = @JoinColumn(name = "SINGER_ID"))
+	private Set<Singer> singers = new HashSet<>();
+
+	public String getInstrumentId() {
+		return this.instrumentId;
+	}
+
 	public Set<Singer> getSingers() {
 		return this.singers;
 	}

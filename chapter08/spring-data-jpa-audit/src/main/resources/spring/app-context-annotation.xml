@@ -59,5 +59,5 @@
 
     <jpa:auditing auditor-aware-ref="auditorAwareBean"/>
 
-    <bean id="auditorAwareBean" class="AuditorAwareBean"/>
+    <bean id="auditorAwareBean" class="com.apress.prospring5.ch8.AuditorAwareBean"/>
 </beans>

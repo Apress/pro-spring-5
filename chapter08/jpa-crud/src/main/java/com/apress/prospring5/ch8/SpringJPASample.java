@@ -2,21 +2,24 @@ package com.apress.prospring5.ch8;
 
 import java.util.List;
 
+import com.apress.prospring5.ch8.entities.Singer;
+import com.apress.prospring5.ch8.service.SingerService;
 import org.springframework.context.support.GenericXmlApplicationContext;
 
 public class SpringJPASample {
-    public static void main(String[] args) {
+    public static void main(String... args) {
         GenericXmlApplicationContext ctx = new GenericXmlApplicationContext();
-        ctx.load("classpath:META-INF/spring/app-context-annotation.xml");
+        ctx.load("classpath:spring/app-context-annotation.xml");
         ctx.refresh();
 
-        ContactService contactService = ctx.getBean(
-            "jpaContactService", ContactService.class);
+        SingerService singerService = ctx.getBean(SingerService.class);
         
-        List<Contact> contacts = contactService.findAllByNativeQuery();
+        List<Singer> singers = singerService.findAll();
 
-        for(Contact contact : contacts) {
-            System.out.println(contact);
+        for(Singer singer : singers) {
+            System.out.println(singer);
         }
+
+        ctx.close();
     }
 }

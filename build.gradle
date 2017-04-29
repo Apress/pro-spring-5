@@ -20,7 +20,7 @@ ext {
 	jodaVersion = '2.9.9'
 	utVersion = '6.0.1.GA'
 
-	//persistency library
+	//persistency libraries
 	hibernateVersion = '5.2.10.Final'
 	hibernateJpaVersion = '1.0.0.Final'
 

@@ -6,7 +6,7 @@ import java.util.Date;
 import org.springframework.context.support.GenericXmlApplicationContext;
 
 public class SpringJPASample {
-    public static void main(String[] args) {
+    public static void main(String... args) {
         GenericXmlApplicationContext ctx = new GenericXmlApplicationContext("classpath:spring/app-context-annotation.xml");
 
         ContactAuditService contactService = ctx.getBean(

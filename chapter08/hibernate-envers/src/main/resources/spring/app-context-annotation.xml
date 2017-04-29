@@ -18,8 +18,8 @@
         http://www.springframework.org/schema/tx/spring-tx.xsd">
 
     <jdbc:embedded-database id="dataSource" type="H2">
-        <jdbc:script location="classpath:META-INF/sql/schema.sql"/>
-        <jdbc:script location="classpath:META-INF/sql/test-data.sql"/>
+        <jdbc:script location="classpath:sql/schema.sql"/>
+        <jdbc:script location="classpath:sql/test-data.sql"/>
     </jdbc:embedded-database>
 
     <bean id="transactionManager"
@@ -80,5 +80,5 @@
 
     <jpa:auditing auditor-aware-ref="auditorAwareBean"/>
 
-    <bean id="auditorAwareBean" class="AuditorAwareBean"/>
+    <bean id="auditorAwareBean" class="com.apress.prospring5.ch8.AuditorAwareBean"/>
 </beans>
