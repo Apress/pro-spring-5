@@ -21,4 +21,3 @@ hs_err_pid*
 gradlew
 gradlew.bat
 .DS_Store
-generated

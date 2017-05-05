@@ -10,28 +10,29 @@ public class SpringJPASample {
         ctx.load("classpath:spring/app-context-annotation.xml");
         ctx.refresh();
 
-        ContactService contactService = ctx.getBean(
-            "jpaContactService", ContactService.class);
+        SingerService singerService = ctx.getBean(SingerService.class);
         
-        List<Contact> contacts = contactService.findByCriteriaQuery("John", "Smith");
-        listContactsWithDetail(contacts);
+        List<Singer> singers = singerService.findByCriteriaQuery("John", "Mayer");
+        listSingersWithAlbum(singers);
+
+        ctx.close();
     }
 
-    private static void listContactsWithDetail(List<Contact> contacts) {
+    private static void listSingersWithAlbum(List<Singer> singers) {
         System.out.println("");
-        System.out.println("Listing contacts with details:");
+        System.out.println("Listing singers with details:");
 
-        for (Contact contact: contacts) {
-            System.out.println(contact);
-            if (contact.getContactTelDetails() != null) {
-                for (ContactTelDetail contactTelDetail:
-                    contact.getContactTelDetails()) {
-                    System.out.println(contactTelDetail);
+        for (Singer singer: singers) {
+            System.out.println(singer);
+            if (singer.getAlbums() != null) {
+                for (Album album:
+                    singer.getAlbums()) {
+                    System.out.println(album);
                 }
             }
 
-            if (contact.getHobbies() != null) {
-                for (Hobby hobby: contact.getHobbies()) {
+            if (singer.getInstruments() != null) {
+                for (Instrument hobby: singer.getInstruments()) {
                     System.out.println(hobby);
                 }
             }
