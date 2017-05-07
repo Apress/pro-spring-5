@@ -15,7 +15,7 @@ public interface SingerDao {
 
 	Singer findById(Long id);
 
-	Singer save(Singer contact);
+	Singer save(Singer singer);
 
-	void delete(Singer contact);
+	void delete(Singer singer);
 }

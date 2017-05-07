@@ -67,7 +67,7 @@ public class JdbcSingerDao implements SingerDao, InitializingBean {
 	@Override
 	public void afterPropertiesSet() throws Exception {
 		if (namedParameterJdbcTemplate == null) {
-			throw new BeanCreationException("Null NamedParameterJdbcTemplate on ContactDao");
+			throw new BeanCreationException("Null NamedParameterJdbcTemplate on SingerDao");
 		}
 	}
 }

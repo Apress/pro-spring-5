@@ -1,6 +1,6 @@
 
 dependencies {
-	compile spring.aspects, misc.usertype, spring.data, misc.guava, misc.joda
+	compile spring.aspects, spring.data, misc.guava
 }
 
 jar {
