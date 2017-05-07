@@ -173,6 +173,8 @@ include 'chapter08:spring-data-jpa-audit'
 findProject(':chapter08:spring-data-jpa-audit')?.name = 'spring-data-jpa-audit'
 include 'chapter08:hibernate-envers'
 findProject(':chapter08:hibernate-envers')?.name = 'hibernate-envers'
+include 'chapter08:spring-data-jpa-alt'
+findProject(':chapter08:spring-data-jpa-alt')?.name = 'spring-data-jpa-alt'
 
 
 println(' This project is a collection of simple code samples. It is meant to be used together with the ' +
@@ -186,3 +188,4 @@ rootProject.children.each { project ->
 	assert project.buildFile.exists()
 	assert project.buildFile.isFile()
 }
+

@@ -5,7 +5,7 @@ import java.util.List;
 import com.apress.prospring5.ch8.entities.Singer;
 import org.springframework.context.support.GenericXmlApplicationContext;
 
-public class SpringJPASample {
+public class SpringJPADemo {
     public static void main(String... args) {
         GenericXmlApplicationContext ctx = new GenericXmlApplicationContext();
         ctx.load("classpath:spring/app-context-annotation.xml");
