@@ -1,4 +1,4 @@
-
+// this ia an alternative example for the Spring Data JPA example using JpaRepository
 dependencies {
 	compile spring.aop, spring.data, misc.guava
 }

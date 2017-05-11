@@ -88,10 +88,10 @@ subprojects {
 	repositories {
 		mavenLocal()
 		mavenCentral()
-		maven { url "http://repos.spring.io/release" }
-		maven { url "http://repos.spring.io/snapshot" }
-		maven { url "https://repos.spring.io/libs-snapshot" }
-		maven { url "http://repos.spring.io/milestone" }
+		maven { url "http://repo.spring.io/release" }
+		maven { url "http://repo.spring.io/snapshot" }
+		maven { url "https://repo.spring.io/libs-snapshot" }
+		maven { url "http://repo.spring.io/milestone" }
 	}
 }
 

@@ -13,6 +13,10 @@
 
     <logger name="com.apress.prospring5.ch8" level="debug"/>
 
+    <logger name="org.hibernate.SQL" level="off"/>
+    <logger name="org.hibernate.type" level="trace"/>
+
+
     <logger name="org.springframework" level="off"/>
 
     <root level="info">

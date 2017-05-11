@@ -61,6 +61,4 @@
                       transaction-manager-ref="transactionManager"/>
 
     <jpa:auditing auditor-aware-ref="auditorAwareBean"/>
-
-    <bean id="auditorAwareBean" class="com.apress.prospring5.ch8.AuditorAwareBean"/>
 </beans>
