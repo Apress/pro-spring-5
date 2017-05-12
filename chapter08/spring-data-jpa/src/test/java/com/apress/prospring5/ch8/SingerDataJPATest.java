@@ -49,7 +49,6 @@ public class SingerDataJPATest {
 		listSingers(singers);
 	}
 
-
 	@Before
 	public void setUp(){
 		ctx = new AnnotationConfigApplicationContext(DataJpaConfig.class);

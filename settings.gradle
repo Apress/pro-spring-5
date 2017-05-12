@@ -175,6 +175,8 @@ include 'chapter08:hibernate-envers'
 findProject(':chapter08:hibernate-envers')?.name = 'hibernate-envers'
 include 'chapter08:spring-data-jpa-alt'
 findProject(':chapter08:spring-data-jpa-alt')?.name = 'spring-data-jpa-alt'
+include 'chapter08:boot-jpa'
+findProject(':chapter08:boot-jpa')?.name = 'boot-jpa'
 
 
 println(' This project is a collection of simple code samples. It is meant to be used together with the ' +

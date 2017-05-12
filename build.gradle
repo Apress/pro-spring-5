@@ -54,7 +54,8 @@ ext {
 			actuator        : "org.springframework.boot:spring-boot-starter-actuator:$bootVersion",
 			starterTest     : "org.springframework.boot:spring-boot-starter-test:$bootVersion",
 			starterAop      : "org.springframework.boot:spring-boot-starter-aop:$bootVersion",
-			starterJdbc     : "org.springframework.boot:spring-boot-starter-jdbc:$bootVersion"
+			starterJdbc     : "org.springframework.boot:spring-boot-starter-jdbc:$bootVersion",
+			starterJpa      : "org.springframework.boot:spring-boot-starter-data-jpa:$bootVersion"
 	]
 
 	testing = [
