@@ -23,6 +23,7 @@ ext {
 	//persistency libraries
 	hibernateVersion = '5.2.10.Final'
 	hibernateJpaVersion = '1.0.0.Final'
+	atomikosVersion = '4.0.0M4'
 
 	spring = [
 			context       : "org.springframework:spring-context:$springVersion",
@@ -43,7 +44,8 @@ ext {
 			em         : "org.hibernate:hibernate-entitymanager:$hibernateVersion",
 			envers     : "org.hibernate:hibernate-envers:$hibernateVersion",
 			jpaApi     : "org.hibernate.javax.persistence:hibernate-jpa-2.1-api:$hibernateJpaVersion",
-			querydslapt: "com.mysema.querydsl:querydsl-apt:2.7.1"
+			querydslapt: "com.mysema.querydsl:querydsl-apt:2.7.1",
+			tx         : "com.atomikos:transactions-hibernate4:$atomikosVersion"
 	]
 
 

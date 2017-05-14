@@ -1,5 +1,5 @@
 subprojects {
-	group 'com.apress.prospring5.ch08'
+	group 'com.apress.prospring5.ch09'
 	apply plugin: 'java'
 
 	//Unfortunately, the runtime discovery algorithm in commons-logging, while convenient for the end-user, is problematic
@@ -23,8 +23,8 @@ subprojects {
 				exclude  module: 'spring-beans'
 				exclude  module: 'spring-core'
 			}
-			compile spring.orm, spring.context, misc.slf4jJcl, misc.logback, db.h2, misc.lang3,
-					 hibernate.em
+			compile misc.slf4jJcl, misc.logback, db.h2, misc.lang3, hibernate.em, misc.aspectjweaver,
+					misc.aspectjrt, spring.data, misc.guava
 		}
 		testCompile testing.junit
 	}

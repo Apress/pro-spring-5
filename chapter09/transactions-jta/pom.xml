@@ -124,7 +124,7 @@
         <configuration>
           <archive>
             <manifest>
-              <mainClass>com.apress.prospring4.ch9.TxJtaSample</mainClass>
+              <mainClass>TxJtaSample</mainClass>
               <addClasspath>true</addClasspath>
               <classpathPrefix>dependency/</classpathPrefix>
             </manifest>

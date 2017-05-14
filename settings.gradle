@@ -178,6 +178,15 @@ findProject(':chapter08:spring-data-jpa-alt')?.name = 'spring-data-jpa-alt'
 include 'chapter08:boot-jpa'
 findProject(':chapter08:boot-jpa')?.name = 'boot-jpa'
 
+include 'chapter09'
+include 'chapter09:transactions-xml'
+findProject(':chapter09:transactions-xml')?.name = 'transactions-xml'
+include 'chapter09:transactions-jta'
+findProject(':chapter09:transactions-jta')?.name = 'transactions-jta'
+include 'chapter09:transactions-programmatic'
+findProject(':chapter09:transactions-programmatic')?.name = 'transactions-programmatic'
+include 'chapter09:transactions-annotation'
+findProject(':chapter09:transactions-annotation')?.name = 'transactions-annotation'
 
 println(' This project is a collection of simple code samples. It is meant to be used together with the ' +
 		'"Spring Pro, Fifth Edition" ' +
