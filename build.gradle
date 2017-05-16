@@ -2,11 +2,11 @@ ext {
 	//spring libs
 	springVersion = '5.0.0.M5'
 	bootVersion = '2.0.0.BUILD-SNAPSHOT'
-	springDataVersion = '2.0.0.M2'
+	springDataVersion = '2.0.0.M3'
 
 	//logging libs
-	slf4jVersion = '1.7.22'
-	logbackVersion = '1.1.9'
+	slf4jVersion = '1.7.25'
+	logbackVersion = '1.2.3'
 
 	groovyVersion = '2.4.5'
 	guavaVersion = '21.0'
@@ -95,6 +95,7 @@ subprojects {
 		maven { url "http://repo.spring.io/snapshot" }
 		maven { url "https://repo.spring.io/libs-snapshot" }
 		maven { url "http://repo.spring.io/milestone" }
+		maven { url "https://repo.spring.io/libs-milestone" }
 	}
 }
 
@@ -103,5 +104,5 @@ tasks.withType(JavaCompile) {
 }
 
 task wrapper(type: Wrapper) {
-	gradleVersion = '3.3'
+	gradleVersion = '4.0-milestone-1'
 }

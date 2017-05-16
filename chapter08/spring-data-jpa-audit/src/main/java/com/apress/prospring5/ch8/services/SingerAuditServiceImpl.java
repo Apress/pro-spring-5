@@ -21,8 +21,13 @@ public class SingerAuditServiceImpl implements SingerAuditService {
         return Lists.newArrayList(singerAuditRepository.findAll());
     }
 
+    /**
+     * API  changed in  2.0.0.M3 findOne became findById
+     * @param id
+     * @return
+     */
     public SingerAudit findById(Long id) {
-        return singerAuditRepository.findOne(id).get();
+        return singerAuditRepository.findById(id).get();
     }
 
     public SingerAudit save(SingerAudit singer) {

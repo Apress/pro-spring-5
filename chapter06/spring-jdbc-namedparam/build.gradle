@@ -5,8 +5,8 @@ dependencies {
 
 jar {
 	manifest {
-		attributes (
-				"Class-Path": configurations.compile.collect { it.getName() }.join(' '))
+		attributes("Created-By"      : "Iuliana Cosmina",
+				"Specification-Title": "Pro Spring 5",
+				"Class-Path"         : configurations.compile.collect { it.getName() }.join(' '))
 	}
 }
-

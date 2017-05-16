@@ -21,10 +21,15 @@ public class ContactServiceImpl implements ContactService {
         return Lists.newArrayList(contactRepository.findAll());
     }
 
+    /**
+     * API  changed in  2.0.0.M3 findOne became findById
+     * @param id
+     * @return
+     */
     @Override
     @Transactional(readOnly=true)
     public Contact findById(Long id) {
-        return contactRepository.findOne(id).get();
+        return contactRepository.findById(id).get();
     }
 
     @Override

@@ -1,11 +1,12 @@
 dependencies {
 	testCompile spring.test, testing.junit
 }
+
 jar {
 	manifest {
-		attributes(
-				'Main-Class': 'com.apress.prospring5.ch4.ProfileXmlConfigDemo',
-				"Class-Path": configurations.compile.collect { it.getName() }.join(' '))
+		attributes("Created-By"      : "Iuliana Cosmina",
+				"Specification-Title": "Pro Spring 5",
+				"Main-Class"         : "com.apress.prospring5.ch4.ProfileXmlConfigDemo",
+				"Class-Path"         : configurations.compile.collect { it.getName() }.join(' '))
 	}
 }
-
