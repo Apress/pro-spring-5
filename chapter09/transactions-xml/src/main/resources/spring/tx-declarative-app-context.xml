@@ -62,7 +62,7 @@
     </bean>
 
     <context:component-scan
-            base-package="com.apress.prospring5.ch9 " />
+            base-package="com.apress.prospring5.ch9.services" />
 
     <jpa:repositories base-package="com.apress.prospring5.ch9 "
                       entity-manager-factory-ref="emf"

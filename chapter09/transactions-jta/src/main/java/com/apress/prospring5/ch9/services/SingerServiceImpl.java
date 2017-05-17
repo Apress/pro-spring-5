@@ -1,4 +1,4 @@
-package com.apress.prospring5.ch9;
+package com.apress.prospring5.ch9.services;
 
 import java.util.List;
 
@@ -11,10 +11,12 @@ import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-@Service("contactService")
+import com.apress.prospring5.ch9.entities.Singer;
+
+@Service("singerService")
 @Repository
 @Transactional
-public class ContactServiceImpl implements ContactService {
+public class SingerServiceImpl implements SingerService {
 
     @PersistenceContext(unitName="emfA")
     private EntityManager emA;
@@ -24,31 +26,31 @@ public class ContactServiceImpl implements ContactService {
 
     @Override
     @Transactional(readOnly=true)
-    public List<Contact> findAll() {
+    public List<Singer> findAll() {
         return null;
     }
 
     @Override
     @Transactional(readOnly=true)
-    public Contact findById(Long id) {
+    public Singer findById(Long id) {
         return null;
     }
 
     @Override
-    public Contact save(Contact contact) {
-        Contact contactB = new Contact();
-        contactB.setFirstName(contact.getFirstName());
-        contactB.setLastName(contact.getLastName());
-        if (contact.getId() == null) {
-            emA.persist(contact);
-            //emB.persist(contactB);
+    public Singer save(Singer singer) {
+        Singer singerB = new Singer();
+        singerB.setFirstName(singer.getFirstName());
+        singerB.setLastName(singer.getLastName());
+        if (singer.getId() == null) {
+            emA.persist(singer);
+            //emB.persist(singerB);
             throw new JpaSystemException(new PersistenceException());
         } else {
-            emA.merge(contact);
-            emB.merge(contact);
+            emA.merge(singer);
+            emB.merge(singer);
         }
 
-        return contact;
+        return singer;
     }
 
     @Override

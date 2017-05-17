@@ -1,7 +1,7 @@
 ext {
 	//spring libs
-	springVersion = '5.0.0.M5'
-	bootVersion = '2.0.0.BUILD-SNAPSHOT'
+	springVersion = '5.0.0.RC1'
+	bootVersion = '2.0.0.M1'
 	springDataVersion = '2.0.0.M3'
 
 	//logging libs

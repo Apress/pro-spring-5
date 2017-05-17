@@ -179,6 +179,8 @@ include 'chapter08:boot-jpa'
 findProject(':chapter08:boot-jpa')?.name = 'boot-jpa'
 
 include 'chapter09'
+include 'chapter09:base-dao'
+findProject(':chapter09:base-dao')?.name = 'base-dao'
 include 'chapter09:transactions-xml'
 findProject(':chapter09:transactions-xml')?.name = 'transactions-xml'
 include 'chapter09:transactions-jta'
@@ -199,4 +201,5 @@ rootProject.children.each { project ->
 	assert project.buildFile.exists()
 	assert project.buildFile.isFile()
 }
+
 

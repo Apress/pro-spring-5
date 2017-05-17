@@ -1,3 +1,7 @@
+dependencies {
+	compile project(':chapter09:base-dao')
+}
+
 jar {
 	manifest {
 		attributes("Created-By"      : "Iuliana Cosmina",

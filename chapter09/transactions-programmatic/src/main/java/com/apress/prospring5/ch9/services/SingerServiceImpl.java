@@ -1,5 +1,7 @@
-package com.apress.prospring5.ch9;
+package com.apress.prospring5.ch9.services;
 
+import com.apress.prospring5.ch9.entities.Singer;
+import com.apress.prospring5.ch9.repos.SingerRepository;
 import com.google.common.collect.Lists;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -12,18 +14,21 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import java.util.List;
 
-@Service("contactService")
+@Service("singerService")
 @Repository
-public class ContactServiceImpl implements ContactService {
-    private ContactRepository contactRepository;
+public class SingerServiceImpl implements SingerService {
+    @Autowired
+    private SingerRepository singerRepository;
+
+    @Autowired
     private TransactionTemplate transactionTemplate;
 
     @PersistenceContext
     private EntityManager em;
 
     @Override
-    public List<Contact> findAll() {
-        return Lists.newArrayList(contactRepository.findAll());
+    public List<Singer> findAll() {
+        return Lists.newArrayList(singerRepository.findAll());
     }
 
     /**
@@ -32,28 +37,28 @@ public class ContactServiceImpl implements ContactService {
      * @return
      */
     @Override
-    public Contact findById(Long id) {
-        return contactRepository.findById(id).get();
+    public Singer findById(Long id) {
+        return singerRepository.findById(id).get();
     }
 
     @Override
-    public Contact save(Contact contact) {
-        return contactRepository.save(contact);
+    public Singer save(Singer singer) {
+        return singerRepository.save(singer);
     }
 
     @Override
     public long countAll() {
         return transactionTemplate.execute(new TransactionCallback<Long>() {
             public Long doInTransaction(TransactionStatus transactionStatus) {
-                return em.createNamedQuery("Contact.countAll",
+                return em.createNamedQuery("Singer.countAll",
                         Long.class).getSingleResult();
             }
         });
     }
 
     @Autowired
-    public void setContactRepository(ContactRepository contactRepository) {
-        this.contactRepository = contactRepository;
+    public void setSingerRepository(SingerRepository singerRepository) {
+        this.singerRepository = singerRepository;
     }
 
     @Autowired
