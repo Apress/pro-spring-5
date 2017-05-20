@@ -7,12 +7,17 @@ import java.util.Date;
 import com.apress.prospring5.ch8.config.AuditConfig;
 import com.apress.prospring5.ch8.entities.SingerAudit;
 import com.apress.prospring5.ch8.services.SingerAuditService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.support.GenericApplicationContext;
 import org.springframework.context.support.GenericXmlApplicationContext;
 
 public class SpringAuditJPADemo {
+    private static Logger logger = LoggerFactory.getLogger(SpringAuditJPADemo.class);
+
     public static void main(String... args) {
+
         //GenericXmlApplicationContext ctx = new GenericXmlApplicationContext("classpath:spring/app-context-annotation.xml");
         GenericApplicationContext ctx = new AnnotationConfigApplicationContext(AuditConfig.class);
 
@@ -45,12 +50,8 @@ public class SpringAuditJPADemo {
         ctx.close();
     }
 
-    private static void listSingers(List<SingerAudit> singerAudits) {
-        System.out.println("");
-        System.out.println("Listing singers without details:");
-        for (SingerAudit audit: singerAudits) {
-            System.out.println(audit);
-            System.out.println();
-        }
+    private static void listSingers(List<SingerAudit> singers) {
+        logger.info(" ---- Listing singers:");
+        singers.forEach(s -> logger.info(s.toString()));
     }
 }

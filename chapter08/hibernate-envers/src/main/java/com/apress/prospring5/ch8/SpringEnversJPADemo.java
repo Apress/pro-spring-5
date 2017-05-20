@@ -7,11 +7,15 @@ import java.util.Date;
 import com.apress.prospring5.ch8.config.EnversConfig;
 import com.apress.prospring5.ch8.entities.SingerAudit;
 import com.apress.prospring5.ch8.services.SingerAuditService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.support.GenericApplicationContext;
 import org.springframework.context.support.GenericXmlApplicationContext;
 
 public class SpringEnversJPADemo {
+    private static Logger logger = LoggerFactory.getLogger(SpringEnversJPADemo.class);
+
     public static void main(String... args) {
         //GenericXmlApplicationContext ctx = new GenericXmlApplicationContext("classpath:spring/app-context-annotation.xml");
         GenericApplicationContext ctx = new AnnotationConfigApplicationContext(EnversConfig.class);
@@ -45,11 +49,7 @@ public class SpringEnversJPADemo {
     }
 
     private static void listSingers(List<SingerAudit> singers) {
-        System.out.println("");
-        System.out.println("Listing singers:");
-        for (SingerAudit singer: singers) {
-            System.out.println(singer);
-            System.out.println();
-        }
+        logger.info(" ---- Listing singers:");
+        singers.forEach(s -> logger.info(s.toString()));
     }
 }

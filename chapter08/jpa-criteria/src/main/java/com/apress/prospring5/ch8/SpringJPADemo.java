@@ -1,43 +1,35 @@
 package com.apress.prospring5.ch8;
 
-import java.util.List;
-
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.context.support.GenericXmlApplicationContext;
 
+import java.util.List;
+
 public class SpringJPADemo {
-    public static void main(String... args) {
-        GenericXmlApplicationContext ctx = new GenericXmlApplicationContext();
-        ctx.load("classpath:spring/app-context-annotation.xml");
-        ctx.refresh();
 
-        SingerService singerService = ctx.getBean(SingerService.class);
-        
-        List<Singer> singers = singerService.findByCriteriaQuery("John", "Mayer");
-        listSingersWithAlbum(singers);
+	private static Logger logger = LoggerFactory.getLogger(SpringJPADemo.class);
 
-        ctx.close();
-    }
+	public static void main(String... args) {
+		GenericXmlApplicationContext ctx = new GenericXmlApplicationContext();
+		ctx.load("classpath:spring/app-context-annotation.xml");
+		ctx.refresh();
+		SingerService singerService = ctx.getBean(SingerService.class);
+		List<Singer> singers = singerService.findByCriteriaQuery("John", "Mayer");
+		listSingersWithAlbum(singers);
+		ctx.close();
+	}
 
-    private static void listSingersWithAlbum(List<Singer> singers) {
-        System.out.println("");
-        System.out.println("Listing singers with details:");
-
-        for (Singer singer: singers) {
-            System.out.println(singer);
-            if (singer.getAlbums() != null) {
-                for (Album album:
-                    singer.getAlbums()) {
-                    System.out.println(album);
-                }
-            }
-
-            if (singer.getInstruments() != null) {
-                for (Instrument hobby: singer.getInstruments()) {
-                    System.out.println(hobby);
-                }
-            }
-
-            System.out.println();
-        }
-    }
+	private static void listSingersWithAlbum(List<Singer> singers) {
+		logger.info(" ---- Listing singers with instruments:");
+		singers.forEach(s -> {
+			logger.info(s.toString());
+			if (s.getAlbums() != null) {
+				s.getAlbums().forEach(a -> logger.info("\t" + a.toString()));
+			}
+			if (s.getInstruments() != null) {
+				s.getInstruments().forEach(i -> logger.info("\tInstrument: " + i.getInstrumentId()));
+			}
+		});
+	}
 }

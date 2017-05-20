@@ -122,20 +122,15 @@ public class SingerDaoTest {
 
 	private static void listSingersWithAlbum(List<Singer> singers) {
 		logger.info(" ---- Listing singers with instruments:");
-		for (Singer singer : singers) {
-			logger.info(singer.toString());
-			if (singer.getAlbums() != null) {
-				for (Album album :
-						singer.getAlbums()) {
-					logger.info("\t" + album.toString());
-				}
+		singers.forEach(s -> {
+			logger.info(s.toString());
+			if (s.getAlbums() != null) {
+				s.getAlbums().forEach(a -> logger.info("\t" + a.toString()));
 			}
-			if (singer.getInstruments() != null) {
-				for (Instrument instrument : singer.getInstruments()) {
-					logger.info("\tInstrument: " + instrument.getInstrumentId());
-				}
+			if (s.getInstruments() != null) {
+				s.getInstruments().forEach(i -> logger.info("\tInstrument: " + i.getInstrumentId()));
 			}
-		}
+		});
 	}
 
 	@After
