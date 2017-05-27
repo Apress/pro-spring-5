@@ -15,13 +15,10 @@ public class TxDeclarativeDemo {
         SingerService singerService = ctx.getBean(SingerService.class);
 
         List<Singer> singers = singerService.findAll();
-
-        for (Singer singerTemp: singers) {
-            System.out.println(singerTemp);
-        }
+        singers.forEach(s -> System.out.println(s));
 
         Singer singer = singerService.findById(1L);
-        singer.setFirstName("Peter");
+        singer.setFirstName("John Clayton");
         singerService.save(singer);
         System.out.println("Singer saved successfully: " + singer);
         System.out.println("Singer count: " + singerService.countAll());

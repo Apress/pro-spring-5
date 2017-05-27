@@ -10,6 +10,7 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 import org.springframework.context.support.GenericApplicationContext;
 
 public class TxAnnotationDemo {
+
     public static void main(String... args) {
         GenericApplicationContext ctx = new AnnotationConfigApplicationContext(ServicesConfig.class,
                 DataJpaConfig.class);

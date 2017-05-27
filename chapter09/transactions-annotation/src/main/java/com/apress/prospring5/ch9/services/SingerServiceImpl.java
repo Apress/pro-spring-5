@@ -15,12 +15,8 @@ import java.util.List;
 @Transactional
 public class SingerServiceImpl implements SingerService {
 
-	private SingerRepository singerRepository;
-
 	@Autowired
-	public void setSingerRepository(SingerRepository singerRepository) {
-		this.singerRepository = singerRepository;
-	}
+	private SingerRepository singerRepository;
 
 	@Override
 	@Transactional(readOnly = true)
