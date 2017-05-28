@@ -189,6 +189,8 @@ include 'chapter09:transactions-programmatic'
 findProject(':chapter09:transactions-programmatic')?.name = 'transactions-programmatic'
 include 'chapter09:transactions-annotation'
 findProject(':chapter09:transactions-annotation')?.name = 'transactions-annotation'
+include 'chapter09:boot-jta'
+findProject(':chapter09:boot-jta')?.name = 'boot-jta'
 
 println(' This project is a collection of simple code samples. It is meant to be used together with the ' +
 		'"Spring Pro, Fifth Edition" ' +

@@ -57,7 +57,9 @@ ext {
 			starterTest     : "org.springframework.boot:spring-boot-starter-test:$bootVersion",
 			starterAop      : "org.springframework.boot:spring-boot-starter-aop:$bootVersion",
 			starterJdbc     : "org.springframework.boot:spring-boot-starter-jdbc:$bootVersion",
-			starterJpa      : "org.springframework.boot:spring-boot-starter-data-jpa:$bootVersion"
+			starterJpa      : "org.springframework.boot:spring-boot-starter-data-jpa:$bootVersion",
+			starterJta      : "org.springframework.boot:spring-boot-starter-jta-atomikos:$bootVersion",
+			starterJms      : "org.springframework.boot:spring-boot-starter-artemis:$bootVersion"
 	]
 
 	testing = [
@@ -74,7 +76,8 @@ ext {
 			lang3        : "org.apache.commons:commons-lang3:3.5",
 			guava        : "com.google.guava:guava:$guavaVersion",
 			joda         : "joda-time:joda-time:$jodaVersion",
-			usertype     : "org.jadira.usertype:usertype.core:$utVersion"
+			usertype     : "org.jadira.usertype:usertype.core:$utVersion",
+			artemis      : "org.apache.activemq:artemis-jms-server:2.1.0"
 	]
 
 	db = [
