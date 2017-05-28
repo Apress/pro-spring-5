@@ -11,6 +11,7 @@ import org.springframework.context.support.GenericApplicationContext;
 
 import java.util.Date;
 import java.util.GregorianCalendar;
+import java.util.List;
 
 public class TxJtaDemo {
 	private static Logger logger = LoggerFactory.getLogger(TxJtaDemo.class);
@@ -28,7 +29,15 @@ public class TxJtaDemo {
 		if (singer.getId() != null) {
 			logger.info("--> Singer saved successfully");
 		}  else {
-			logger.info("--> Singer was not saved, check the configuration!!");
+			logger.error("--> Singer was not saved, check the configuration!!");
+		}
+
+		// check saving in both databases
+		List<Singer> singers = singerService.findAll();
+		if (singers.size()!= 2) {
+			logger.error("--> Something went wrong.");
+		} else {
+			logger.info("--> Singers form both DBs: " + singers);
 		}
 		ctx.close();
 	}

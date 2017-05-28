@@ -1,6 +1,7 @@
 package com.apress.prospring5.ch9.config;
 
 import com.atomikos.jdbc.AtomikosDataSourceBean;
+import com.mysql.cj.jdbc.MysqlXADataSource;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.annotation.Bean;
@@ -15,6 +16,8 @@ import javax.persistence.EntityManagerFactory;
 import javax.sql.DataSource;
 import java.sql.Driver;
 import java.util.Properties;
+
+import static org.hibernate.cfg.AvailableSettings.*;
 
 /**
  * Created by iuliana.cosmina on 4/29/17.
@@ -80,16 +83,20 @@ public class XAJpaConfig {
 	public Properties hibernateProperties() {
 		Properties hibernateProp = new Properties();
 		hibernateProp.put("hibernate.transaction.factory_class", "org.hibernate.transaction.JTATransactionFactory");
-		hibernateProp.put("hibernate.transaction.jta.platform", "com.atomikos.icatch.jta.hibernate4.AtomikosPlatform");
+		hibernateProp.put(JTA_PLATFORM, "com.atomikos.icatch.jta.hibernate4.AtomikosPlatform");
 		// required by Hibernate 5
-		hibernateProp.put("hibernate.transaction.coordinator_class", "jta");
-		hibernateProp.put("hibernate.dialect", "org.hibernate.dialect.MySQL5Dialect");
+		hibernateProp.put(TRANSACTION_COORDINATOR_STRATEGY, "jta");
+		hibernateProp.put(CURRENT_SESSION_CONTEXT_CLASS, "jta");
+
+		hibernateProp.put(AUTOCOMMIT, false);
+		hibernateProp.put(FLUSH_BEFORE_COMPLETION, false);
+		hibernateProp.put(DIALECT, "org.hibernate.dialect.MySQL5Dialect");
 		// this will work only if users/schemas are created first, use ddl.sql script for this
-		hibernateProp.put("hibernate.hbm2ddl.auto", "update");
-		hibernateProp.put("hibernate.show_sql", true);
-		hibernateProp.put("hibernate.max_fetch_depth", 3);
-		hibernateProp.put("hibernate.jdbc.batch_size", 10);
-		hibernateProp.put("hibernate.jdbc.fetch_size", 50);
+		hibernateProp.put(HBM2DDL_AUTO, "create-drop");
+		hibernateProp.put(SHOW_SQL, true);
+		hibernateProp.put(MAX_FETCH_DEPTH, 3);
+		hibernateProp.put(STATEMENT_BATCH_SIZE, 10);
+		hibernateProp.put(STATEMENT_FETCH_SIZE, 50);
 		return hibernateProp;
 	}
 
