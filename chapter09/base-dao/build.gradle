@@ -1,3 +1,10 @@
+dependencies {
+	 compile db.mysql
+	compile (hibernate.tx) {
+		exclude group: 'org.hibernate', module: 'hibernate'
+	}
+}
+
 jar {
 	manifest {
 		attributes("Created-By"      : "Iuliana Cosmina",

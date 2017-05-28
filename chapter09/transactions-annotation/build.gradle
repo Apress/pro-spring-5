@@ -3,6 +3,7 @@ dependencies {
 	compile (hibernate.tx) {
 		exclude group: 'org.hibernate', module: 'hibernate'
 	}
+
 }
 
 jar {

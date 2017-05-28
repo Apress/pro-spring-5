@@ -23,7 +23,7 @@ ext {
 	//persistency libraries
 	hibernateVersion = '5.2.10.Final'
 	hibernateJpaVersion = '1.0.0.Final'
-	atomikosVersion = '4.0.0M4'
+	atomikosVersion = '4.0.4'
 
 	spring = [
 			context       : "org.springframework:spring-context:$springVersion",

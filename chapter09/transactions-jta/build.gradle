@@ -1,8 +1,5 @@
 dependencies {
 	compile project(':chapter09:base-dao')
-	compile (hibernate.tx) {
-		exclude group: 'org.hibernate', module: 'hibernate'
-	}
 }
 
 jar {
