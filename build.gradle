@@ -19,10 +19,14 @@ ext {
 	h2Version = '1.4.194'
 	jodaVersion = '2.9.9'
 	utVersion = '6.0.1.GA'
+	javaxValidationVersion = '2.0.0.Beta2' //1.1.0.Final
+	javaElVersion = '3.0.1-b04' // 3.0.0
+	glasshfishELVersion = '2.2.1-b05' // 2.2
 
 	//persistency libraries
 	hibernateVersion = '5.2.10.Final'
 	hibernateJpaVersion = '1.0.0.Final'
+	hibernateValidatorVersion = '6.0.0.Beta2' //5.4.1.Final
 	atomikosVersion = '4.0.4'
 
 	spring = [
@@ -38,7 +42,7 @@ ext {
 	]
 
 	hibernate = [
-			validator  : "org.hibernate:hibernate-validator:$hibernateVersion",
+			validator  : "org.hibernate:hibernate-validator:$hibernateValidatorVersion",
 			jpaModelGen: "org.hibernate:hibernate-jpamodelgen:$hibernateVersion",
 			ehcache    : "org.hibernate:hibernate-ehcache:$hibernateVersion",
 			em         : "org.hibernate:hibernate-entitymanager:$hibernateVersion",
@@ -71,13 +75,16 @@ ext {
 			logback      : "ch.qos.logback:logback-classic:$logbackVersion",
 			groovy       : "org.codehaus.groovy:groovy-all:$groovyVersion",
 			inject       : "javax.inject:javax.inject:1",
+			validation   : "javax.validation:validation-api:$javaxValidationVersion",
 			aspectjweaver: "org.aspectj:aspectjweaver:$aspectjVersion",
 			aspectjrt    : "org.aspectj:aspectjrt:$aspectjVersion",
 			lang3        : "org.apache.commons:commons-lang3:3.5",
 			guava        : "com.google.guava:guava:$guavaVersion",
 			joda         : "joda-time:joda-time:$jodaVersion",
 			usertype     : "org.jadira.usertype:usertype.core:$utVersion",
-			artemis      : "org.apache.activemq:artemis-jms-server:2.1.0"
+			artemis      : "org.apache.activemq:artemis-jms-server:2.1.0",
+			javaEl       : "javax.el:javax.el-api:$javaElVersion",
+			glassfishEl  : "org.glassfish.web:el-impl:$glasshfishELVersion"
 	]
 
 	db = [

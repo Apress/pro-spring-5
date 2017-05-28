@@ -1,7 +1,7 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
-  <groupId>com.apress.prospring4.ch10</groupId>
+  <groupId>com.apress.prospring5.ch10</groupId>
   <artifactId>converter-multiple-types</artifactId>
   <packaging>jar</packaging>
   <version>4.0-SNAPSHOT</version>
@@ -32,11 +32,11 @@
         <configuration>
           <archive>
             <manifest>
-              <mainClass>com.apress.prospring4.ch10.ConvServExample</mainClass>
+              <mainClass>com.apress.prospring5.ch10.ConvServExample</mainClass>
               <addClasspath>true</addClasspath>
               <classpathPrefix>dependency/</classpathPrefix>
             </manifest>
-            <manifestFile>src/main/resources/META-INF/MANIFEST.MF</manifestFile>
+            <manifestFile>src/main/resources/MANIFEST.MF</manifestFile>
           </archive>
         </configuration>
       </plugin>

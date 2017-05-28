@@ -192,6 +192,24 @@ findProject(':chapter09:transactions-annotation')?.name = 'transactions-annotati
 include 'chapter09:boot-jta'
 findProject(':chapter09:boot-jta')?.name = 'boot-jta'
 
+include 'chapter10'
+include 'chapter10:converter'
+findProject(':chapter10:converter')?.name = 'converter'
+include 'chapter10:converter-multiple-types'
+findProject(':chapter10:converter-multiple-types')?.name = 'converter-multiple-types'
+include 'chapter10:custom-formatter'
+findProject(':chapter10:custom-formatter')?.name = 'custom-formatter'
+include 'chapter10:jsr349'
+findProject(':chapter10:jsr349')?.name = 'jsr349'
+include 'chapter10:jsr349-assertTrue'
+findProject(':chapter10:jsr349-assertTrue')?.name = 'jsr349-assertTrue'
+include 'chapter10:jsr349-custom'
+findProject(':chapter10:jsr349-custom')?.name = 'jsr349-custom'
+include 'chapter10:property-editor'
+findProject(':chapter10:property-editor')?.name = 'property-editor'
+include 'chapter10:spring-validator'
+findProject(':chapter10:spring-validator')?.name = 'spring-validator'
+
 println(' This project is a collection of simple code samples. It is meant to be used together with the ' +
 		'"Spring Pro, Fifth Edition" ' +
 		' published by Apress in order to learn and practice with all Spring Web libraries. ')
