@@ -25,15 +25,15 @@
         </bean>
     </util:list>
 
-    <bean id="chris" class="com.apress.prospring5.ch10.Contact"
-          p:firstName="Chris"
-          p:lastName="Schaefer"
-          p:birthDate="1981-05-03"
-          p:personalSite="http://www.dtzq.com"/>
+    <bean id="eric" class="com.apress.prospring5.ch10.Singer"
+          p:firstName="Eric"
+          p:lastName="Clapton"
+          p:birthDate="1945-03-30"
+          p:personalSite="http://www.ericclapton.com"/>
 
-    <bean id="myContact" class="com.apress.prospring5.ch10.Contact"
-          p:firstName="${myContact.firstName}"
-          p:lastName="${myContact.lastName}"
-          p:birthDate="${myContact.birthDate}"
-          p:personalSite="${myContact.personalSite}"/>
+    <bean id="countrySinger" class="com.apress.prospring5.ch10.Singer"
+          p:firstName="${countrySinger.firstName}"
+          p:lastName="${countrySinger.lastName}"
+          p:birthDate="${countrySinger.birthDate}"
+          p:personalSite="${countrySinger.personalSite}"/>
 </beans>

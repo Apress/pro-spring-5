@@ -18,7 +18,6 @@ public class StringToDateTimeConverter implements Converter<String, DateTime> {
         return datePattern;
     }
 
-    @Autowired(required=false)
     public void setDatePattern(String datePattern) {
         this.datePattern = datePattern;
     }

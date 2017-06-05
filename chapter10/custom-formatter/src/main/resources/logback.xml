@@ -11,11 +11,9 @@
         </encoder>
     </appender>
 
-    <logger name="com.apress.prospring5.ch8" level="debug"/>
+    <logger name="com.apress.prospring5.ch10" level="debug"/>
 
-    <logger name="org.springframework.transaction" level="info"/>
-
-    <logger name="org.hibernate.SQL" level="debug"/>
+    <logger name="org.springframework" level="off"/>
 
     <root level="info">
         <appender-ref ref="console" />

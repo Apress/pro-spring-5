@@ -33,12 +33,12 @@ public class SingerServiceImpl implements SingerService {
 		List<Singer> singersFromA = findAllInA();
 		List<Singer> singersFromB = findAllInB();
 		if (singersFromA.size()!= singersFromB.size()){
-			throw new AsyncXAResourcesException("XA resources do not contain the same expected data.");
+			throw new AsyncXAResourcesException("XA resources obj not contain the same expected data.");
 		}
 		Singer sA = singersFromA.get(0);
 		Singer sB = singersFromB.get(0);
 		if (!sA.getFirstName().equals(sB.getFirstName()))  {
-			throw new AsyncXAResourcesException("XA resources do not contain the same expected data.");
+			throw new AsyncXAResourcesException("XA resources obj not contain the same expected data.");
 		}
 		List<Singer> singersFromBoth = new ArrayList<>();
 		singersFromBoth.add(sA);

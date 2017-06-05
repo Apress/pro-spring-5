@@ -5,7 +5,6 @@ import javax.annotation.PostConstruct;
 import org.joda.time.DateTime;
 import org.joda.time.format.DateTimeFormat;
 import org.joda.time.format.DateTimeFormatter;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.convert.converter.Converter;
 
 public class StringToDateTimeConverter implements Converter<String, DateTime> {
@@ -18,7 +17,7 @@ public class StringToDateTimeConverter implements Converter<String, DateTime> {
         return datePattern;
     }
 
-    @Autowired(required=false)
+
     public void setDatePattern(String datePattern) {
         this.datePattern = datePattern;
     }

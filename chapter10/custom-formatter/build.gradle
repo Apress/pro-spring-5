@@ -2,7 +2,7 @@ jar {
 	manifest {
 		attributes("Created-By"      : "Iuliana Cosmina",
 				"Specification-Title": "Pro Spring 5",
-				"Main-Class"         : "com.apress.prospring5.ch10.ConvFormatServExample",
+				"Main-Class"         : "com.apress.prospring5.ch10.ConvFormatServDemo",
 				"Class-Path"         : configurations.compile.collect { it.getName() }.join(' '))
 	}
 }
