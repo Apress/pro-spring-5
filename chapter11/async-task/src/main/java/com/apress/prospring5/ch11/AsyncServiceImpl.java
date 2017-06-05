@@ -20,7 +20,7 @@ public class AsyncServiceImpl implements AsyncService {
         try {
             Thread.sleep(10000);
         } catch (Exception ex) {
-            ex.printStackTrace();
+            logger.error("Task Interruption", ex);
         }
 
         logger.info("Complete execution of async. task");
@@ -29,16 +29,16 @@ public class AsyncServiceImpl implements AsyncService {
     @Async
     @Override
     public Future<String> asyncWithReturn(String name) {
-        logger.info("Start execution of async. task with return");
+        logger.info("Start execution of async. task with return for "+ name);
 
         try {
             Thread.sleep(5000);
         } catch (Exception ex) {
-            ex.printStackTrace();
+            logger.error("Task Interruption", ex);
         }
 
-        logger.info("Complete execution of async. task with return");
+        logger.info("Complete execution of async. task with return for " + name);
 
-        return new AsyncResult<String>("Hello: " + name);
+        return new AsyncResult<>("Hello: " + name);
     }
 }

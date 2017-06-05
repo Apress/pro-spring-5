@@ -1,8 +1,6 @@
 package com.apress.prospring5.ch11.services;
 
-import com.apress.prospring5.ch11.ents.Car;
-import com.apress.prospring5.ch11.repos.CarRepository;
-import com.google.common.collect.Lists;
+import com.apress.prospring5.ch11.entities.Car;
 import org.joda.time.DateTime;
 import org.joda.time.Years;
 import org.slf4j.Logger;
@@ -21,7 +19,6 @@ import java.util.List;
 @Repository
 @Transactional
 public class ScheduledCarServiceImpl extends CarServiceImpl{
-	final Logger logger = LoggerFactory.getLogger(ScheduledCarServiceImpl.class);
 
 	@Override
 	@Scheduled(fixedDelay=10000)
@@ -31,13 +28,13 @@ public class ScheduledCarServiceImpl extends CarServiceImpl{
 		DateTime currentDate = DateTime.now();
 		logger.info("Car age update job started");
 
-		for (Car car: cars) {
+		cars.forEach(car -> {
 			int age = Years.yearsBetween(car.getManufactureDate(), currentDate).getYears();
 
 			car.setAge(age);
 			save(car);
 			logger.info("Car age update --> " + car);
-		}
+		});
 
 		logger.info("Car age update job completed successfully");
 	}

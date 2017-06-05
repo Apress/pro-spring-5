@@ -1,3 +1,7 @@
+dependencies {
+	compile spring.context
+}
+
 jar {
 	manifest {
 		attributes("Created-By"      : "Iuliana Cosmina",

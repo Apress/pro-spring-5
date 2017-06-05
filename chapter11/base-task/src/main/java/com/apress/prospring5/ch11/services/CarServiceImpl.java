@@ -1,6 +1,6 @@
 package com.apress.prospring5.ch11.services;
 
-import com.apress.prospring5.ch11.ents.Car;
+import com.apress.prospring5.ch11.entities.Car;
 import com.apress.prospring5.ch11.repos.CarRepository;
 import com.google.common.collect.Lists;
 import org.joda.time.DateTime;
@@ -18,6 +18,8 @@ import java.util.List;
 @Repository
 @Transactional
 public class CarServiceImpl implements CarService {
+    public boolean done;
+
     final Logger logger = LoggerFactory.getLogger(CarServiceImpl.class);
 
     @Autowired
@@ -41,14 +43,20 @@ public class CarServiceImpl implements CarService {
         DateTime currentDate = DateTime.now();
         logger.info("Car age update job started");
 
-        for (Car car: cars) {
+        cars.forEach(car -> {
             int age = Years.yearsBetween(car.getManufactureDate(), currentDate).getYears();
 
             car.setAge(age);
             save(car);
             logger.info("Car age update --> " + car);
-        }
+        });
 
         logger.info("Car age update job completed successfully");
+        done = true;
+    }
+
+    @Override
+    public boolean isDone() {
+        return done;
     }
 }

@@ -7,11 +7,10 @@
         http://www.springframework.org/schema/task
         http://www.springframework.org/schema/task/spring-task.xsd">
 
-    <import resource="car-job-app-context.xml"/>
+    <task:scheduler id="carScheduler" pool-size="10"/>
 
-    <task:scheduler id="myScheduler" pool-size="10"/>
-
-    <task:scheduled-tasks scheduler="myScheduler">
-        <task:scheduled ref="carService" method="updateCarAgeJob" fixed-delay="10000"/>
+    <task:scheduled-tasks scheduler="carScheduler">
+        <!-- <task:scheduled ref="carService" method="updateCarAgeJob" fixed-delay="10000"/> -->
+        <task:scheduled ref="carService" method="updateCarAgeJob" cron="0 * * * * *"/>
     </task:scheduled-tasks>
 </beans>

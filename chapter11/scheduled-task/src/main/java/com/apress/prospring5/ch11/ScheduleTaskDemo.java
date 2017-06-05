@@ -1,15 +1,15 @@
 package com.apress.prospring5.ch11;
 
-import org.springframework.context.support.GenericXmlApplicationContext;
+import com.apress.prospring5.ch11.config.AppConfig;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.springframework.context.support.GenericApplicationContext;
 
 public class ScheduleTaskDemo {
 
-    public static void main(String... args) {
-        GenericXmlApplicationContext ctx = new GenericXmlApplicationContext();
-        ctx.load("classpath:spring/task-namespace-app-context.xml");
-        ctx.refresh();
+	public static void main(String... args) throws Exception {
+		GenericApplicationContext ctx = new AnnotationConfigApplicationContext(AppConfig.class);
 
-        while (true) {
-        }
-    }
+		System.in.read();
+		ctx.close();
+	}
 }

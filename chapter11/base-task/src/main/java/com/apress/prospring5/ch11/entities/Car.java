@@ -1,4 +1,4 @@
-package com.apress.prospring5.ch11.ents;
+package com.apress.prospring5.ch11.entities;
 
 import static javax.persistence.GenerationType.IDENTITY;
 
