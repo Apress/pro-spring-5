@@ -28,7 +28,7 @@ public class IsModifiedMixin extends DelegatingIntroductionInterceptor
 
                 if (getter != null) {
                     Object newVal = invocation.getArguments()[0];
-                    Object oldVal = getter.invoke(invocation.getThis(), null);
+                    Object oldVal = getter.invoke(invocation.getThis(),null);
 
                     if((newVal == null) && (oldVal == null)) {
                         isModified = false;

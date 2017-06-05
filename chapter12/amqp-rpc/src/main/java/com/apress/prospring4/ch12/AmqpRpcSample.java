@@ -3,7 +3,7 @@ package com.apress.prospring4.ch12;
 import org.springframework.context.support.GenericXmlApplicationContext;
 
 public class AmqpRpcSample {
-    public static void main(String[] args) {
+    public static void main(String... args) {
         GenericXmlApplicationContext ctx = new GenericXmlApplicationContext();
         ctx.load("classpath:META-INF/spring/amqp-rpc-app-context.xml");
         ctx.refresh();

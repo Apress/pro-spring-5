@@ -17,6 +17,7 @@ import java.util.List;
 @Service("singerService")
 @Repository
 @Transactional
+@SuppressWarnings("unchecked")
 public class SingerServiceImpl implements SingerService {
 
 	private static final String FIND_ALL= "select s from Singer s";

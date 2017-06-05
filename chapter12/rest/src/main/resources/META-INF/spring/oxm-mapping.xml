@@ -1,11 +1,11 @@
 <mapping>
     <class name="com.apress.prospring4.ch12.Contacts">
-        <field name="contacts" type="com.apress.prospring4.ch12.Contact" collection="arraylist">
+        <field name="contacts" type="Singer" collection="arraylist">
             <bind-xml name="contact"/>
         </field>
     </class>
 
-    <class name="com.apress.prospring4.ch12.Contact" identity="id">
+    <class name="Singer" identity="id">
         <map-to xml="contact" />
 
         <field name="id" type="long">

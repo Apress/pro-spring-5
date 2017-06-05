@@ -1,11 +1,18 @@
+apply plugin: 'war'
+
 dependencies {
-	compile spring.data, misc.joda, db.h2
+	compile project(':chapter12:base-remote')
+	compile spring.webmvc, misc.servlet
+	testCompile spring.test
 }
 
-jar {
+
+war {
+	archiveName = 'remoting.war'
 	manifest {
 		attributes("Created-By"      : "Iuliana Cosmina",
 				"Specification-Title": "Pro Spring 5",
 				"Class-Path"         : configurations.compile.collect { it.getName() }.join(' '))
 	}
 }
+

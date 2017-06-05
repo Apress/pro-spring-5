@@ -13,6 +13,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+@SuppressWarnings("unchecked")
 public class MultipleConvServDemo {
     private static Logger logger = LoggerFactory.getLogger(MultipleConvServDemo.class);
 
@@ -39,7 +40,6 @@ public class MultipleConvServDemo {
 
         Set<String> setString = conversionService.convert(listString, HashSet.class);
 
-        for (String string: setString)
-            System.out.println("Set: " + string);
+        setString.forEach(s -> logger.info("Set: " + s));
     }
 }

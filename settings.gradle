@@ -223,6 +223,13 @@ findProject(':chapter11:scheduled-task-annotation')?.name = 'scheduled-task-anno
 include 'chapter11:task-executor'
 findProject(':chapter11:task-executor')?.name = 'task-executor'
 
+
+include 'chapter12'
+include 'chapter12:base-remote'
+findProject(':chapter12:base-remote')?.name = 'base-remote'
+include 'chapter12:spring-invoker'
+findProject(':chapter12:spring-invoker')?.name = 'spring-invoker'
+
 println(' This project is a collection of simple code samples. It is meant to be used together with the ' +
 		'"Spring Pro, Fifth Edition" ' +
 		' published by Apress in order to learn and practice with all Spring Web libraries. ')

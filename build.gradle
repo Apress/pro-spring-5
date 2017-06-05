@@ -31,6 +31,7 @@ ext {
 
 	spring = [
 			context       : "org.springframework:spring-context:$springVersion",
+			webmvc        : "org.springframework:spring-webmvc:$springVersion",
 			aop           : "org.springframework:spring-aop:$springVersion",
 			aspects       : "org.springframework:spring-aspects:$springVersion",
 			tx            : "org.springframework:spring-tx:$springVersion",
@@ -84,7 +85,8 @@ ext {
 			usertype     : "org.jadira.usertype:usertype.core:$utVersion",
 			artemis      : "org.apache.activemq:artemis-jms-server:2.1.0",
 			javaEl       : "javax.el:javax.el-api:$javaElVersion",
-			glassfishEl  : "org.glassfish.web:el-impl:$glasshfishELVersion"
+			glassfishEl  : "org.glassfish.web:el-impl:$glasshfishELVersion",
+			servlet      : "javax.servlet:javax.servlet-api:3.1.0"
 	]
 
 	db = [

@@ -16,7 +16,7 @@ public class RestfulClientSample {
     private static final String URL_DELETE_CONTACT =
             "http://localhost:8080/ch12/restful/contact/{id}";
 
-    public static void main(String[] args) {
+    public static void main(String... args) {
         GenericXmlApplicationContext ctx = new GenericXmlApplicationContext();
         ctx.load("classpath:META-INF/spring/restful-client-app-context.xml");
         ctx.refresh();

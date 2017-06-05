@@ -14,6 +14,7 @@ import com.google.common.collect.Lists;
 @Service("springJpaSingerService")
 @Repository
 @Transactional
+@SuppressWarnings("unchecked")
 public class SingerServiceImpl implements SingerService {
     @Autowired
     private SingerRepository singerRepository;

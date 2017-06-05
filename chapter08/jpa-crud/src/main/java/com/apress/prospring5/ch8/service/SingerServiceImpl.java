@@ -16,6 +16,7 @@ import javax.persistence.TypedQuery;
 @Service("jpaSingerService")
 @Repository
 @Transactional
+@SuppressWarnings("unchecked")
 public class SingerServiceImpl implements SingerService {
     final static String ALL_SINGER_NATIVE_QUERY =
         "select id, first_name, last_name, birth_date, version from singer";
