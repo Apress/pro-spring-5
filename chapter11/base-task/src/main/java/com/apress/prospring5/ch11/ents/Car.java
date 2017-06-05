@@ -1,4 +1,4 @@
-package com.apress.prospring5.ch11;
+package com.apress.prospring5.ch11.ents;
 
 import static javax.persistence.GenerationType.IDENTITY;
 
@@ -12,45 +12,56 @@ import javax.persistence.Version;
 import org.hibernate.annotations.Type;
 import org.joda.time.DateTime;
 
+import java.text.SimpleDateFormat;
+
 @Entity
 @Table(name="car")
 public class Car {
-    private Long id;
-    private String licensePlate;
-    private String manufacturer;
-    private DateTime manufactureDate;
-    private int age;
-    private int version;
-
     @Id
     @GeneratedValue(strategy = IDENTITY)
     @Column(name = "ID")
+    private Long id;
+
+    @Column(name="LICENSE_PLATE")
+    private String licensePlate;
+
+    @Column(name="MANUFACTURER")
+    private String manufacturer;
+
+    @Column(name="MANUFACTURE_DATE")
+    @Type(type="org.jadira.usertype.dateandtime.joda.PersistentDateTime")
+    private DateTime manufactureDate;
+    @Column(name="AGE")
+    private int age;
+
+    @Version
+    private int version;
+
     public Long getId() {
         return id;
     }
 
-    @Column(name="LICENSE_PLATE")
+
     public String getLicensePlate() {
         return licensePlate;
     }
 
-    @Column(name="MANUFACTURER")
+
     public String getManufacturer() {
         return manufacturer;
     }
 
-    @Column(name="MANUFACTURE_DATE")
-    @Type(type="org.jadira.usertype.dateandtime.joda.PersistentDateTime")
+
     public DateTime getManufactureDate() {
         return manufactureDate;
     }
 
-    @Column(name="AGE")
+
     public int getAge() {
         return age;
     }
 
-    @Version
+
     public int getVersion() {
         return version;
     }
@@ -81,7 +92,8 @@ public class Car {
 
     @Override
     public String toString() {
-        return "License: " + licensePlate + " - Manufacturer: " + manufacturer
-                + " - Manufacture Date: " + manufactureDate + " - Age: " + age;
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        return String.format("{License: %s, Manufacturer: %s, Manufacture Date: %s, Age: %d}",
+                licensePlate, manufacturer, sdf.format(manufactureDate.toDate()), age);
     }
 }

@@ -1,0 +1,3 @@
+dependencies {
+	compile spring.data, misc.joda, db.h2
+}

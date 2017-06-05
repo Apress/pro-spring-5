@@ -1,3 +1,7 @@
+dependencies {
+	compile project(':chapter11:base-task')
+}
+
 jar {
 	manifest {
 		attributes("Created-By"      : "Iuliana Cosmina",

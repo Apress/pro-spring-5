@@ -1,4 +1,6 @@
-package com.apress.prospring5.ch11;
+package com.apress.prospring5.ch11.services;
+
+import com.apress.prospring5.ch11.ents.Car;
 
 import java.util.List;
 

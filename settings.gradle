@@ -212,6 +212,8 @@ findProject(':chapter10:spring-validator')?.name = 'spring-validator'
 
 
 include 'chapter11'
+include 'chapter11:base-task'
+findProject(':chapter11:base-task')?.name = 'base-task'
 include 'chapter11:async-task'
 findProject(':chapter11:async-task')?.name = 'async-task'
 include 'chapter11:scheduled-task'
