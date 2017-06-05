@@ -210,6 +210,17 @@ findProject(':chapter10:property-editor')?.name = 'property-editor'
 include 'chapter10:spring-validator'
 findProject(':chapter10:spring-validator')?.name = 'spring-validator'
 
+
+include 'chapter11'
+include 'chapter11:async-task'
+findProject(':chapter11:async-task')?.name = 'async-task'
+include 'chapter11:scheduled-task'
+findProject(':chapter11:scheduled-task')?.name = 'scheduled-task'
+include 'chapter11:scheduled-task-annotation'
+findProject(':chapter11:scheduled-task-annotation')?.name = 'scheduled-task-annotation'
+include 'chapter11:task-executor'
+findProject(':chapter11:task-executor')?.name = 'task-executor'
+
 println(' This project is a collection of simple code samples. It is meant to be used together with the ' +
 		'"Spring Pro, Fifth Edition" ' +
 		' published by Apress in order to learn and practice with all Spring Web libraries. ')
