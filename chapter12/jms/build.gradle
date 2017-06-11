@@ -1,5 +1,5 @@
 dependencies {
-	compile spring.jms, misc.jms, misc.artemis
+	compile spring.jms, misc.jms, misc.hornetq
 	testCompile spring.test
 }
 

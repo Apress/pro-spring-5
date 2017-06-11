@@ -24,6 +24,7 @@ ext {
 	glasshfishELVersion = '2.2.1-b05' // 2.2
 	jmsVersion = '2.0'
 	artemisVersion = '2.1.0'
+	hornetqVersion = '2.4.0.Final'
 
 	//persistency libraries
 	hibernateVersion = '5.2.10.Final'
@@ -91,7 +92,8 @@ ext {
 			glassfishEl  : "org.glassfish.web:el-impl:$glasshfishELVersion",
 			servlet      : "javax.servlet:javax.servlet-api:3.1.0",
 			jms          : "javax.jms:javax.jms-api:$jmsVersion",
-			artemis      : "org.apache.activemq:artemis-jms-client:$artemisVersion"
+			artemis      : "org.apache.activemq:artemis-jms-client:$artemisVersion",
+			hornetq      : "org.hornetq:hornetq-jms-client:$hornetqVersion"
 	]
 
 	db = [

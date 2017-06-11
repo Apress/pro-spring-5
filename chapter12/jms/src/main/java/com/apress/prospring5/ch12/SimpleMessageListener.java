@@ -7,7 +7,9 @@ import javax.jms.TextMessage;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.stereotype.Component;
 
+@Component("messageListener")
 public class SimpleMessageListener implements MessageListener {
     private static final Logger logger = LoggerFactory.getLogger(SimpleMessageListener.class);
 
@@ -16,7 +18,7 @@ public class SimpleMessageListener implements MessageListener {
         TextMessage textMessage = (TextMessage) message;
 
         try {
-            logger.info("Message received: " + textMessage.getText());
+            logger.info(">>> Received: " + textMessage.getText());
         } catch (JMSException ex) {
             logger.error("JMS error", ex);
         }
