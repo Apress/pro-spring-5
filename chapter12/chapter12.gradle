@@ -23,7 +23,7 @@ subprojects {
 				exclude  module: 'spring-beans'
 				exclude  module: 'spring-core'
 			}
-			compile misc.slf4jJcl, misc.logback, misc.lang3, hibernate.em, misc.aspectjweaver, misc.guava
+			compile misc.slf4jJcl, misc.logback, misc.lang3, hibernate.em, misc.guava
 		}
 		testCompile testing.junit
 	}

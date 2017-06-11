@@ -1,4 +1,4 @@
-package com.apress.prospring4.ch12;
+package com.apress.prospring5.ch12;
 
 import org.joda.time.DateTime;
 import org.springframework.context.support.GenericXmlApplicationContext;

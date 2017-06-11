@@ -44,7 +44,6 @@ public class DataServiceConfig {
 		Properties hibernateProp = new Properties();
 		hibernateProp.put("hibernate.dialect", "org.hibernate.dialect.H2Dialect");
 		hibernateProp.put("hibernate.hbm2ddl.auto", "create-drop");
-		//hibernateProp.put("hibernate.format_sql", true);
 		hibernateProp.put("hibernate.show_sql", true);
 		hibernateProp.put("hibernate.max_fetch_depth", 3);
 		hibernateProp.put("hibernate.jdbc.batch_size", 10);

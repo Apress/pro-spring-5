@@ -1,4 +1,4 @@
-package com.apress.prospring4.ch12;
+package com.apress.prospring5.ch12;
 
 import java.io.Serializable;
 import java.util.List;

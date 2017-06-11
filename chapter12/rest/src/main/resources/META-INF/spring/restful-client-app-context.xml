@@ -34,7 +34,7 @@
         <constructor-arg>
             <bean class="org.apache.http.impl.client.DefaultHttpClient">
                 <property name="credentialsProvider">
-                    <bean class="com.apress.prospring4.ch12.CustomCredentialsProvider">
+                    <bean class="com.apress.prospring5.ch12.CustomCredentialsProvider">
                         <property name="credentials">
                             <bean class="org.apache.http.auth.UsernamePasswordCredentials">
                                 <constructor-arg name="userName" value="remote"/>

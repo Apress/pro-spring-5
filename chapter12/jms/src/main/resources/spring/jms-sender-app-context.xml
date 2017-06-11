@@ -7,12 +7,12 @@
         http://www.springframework.org/schema/context
         http://www.springframework.org/schema/context/spring-context.xsd">
 
-    <bean id="connectionFactory" class="org.hornetq.jms.client.HornetQJMSConnectionFactory">
+    <bean id="connectionFactory" class="org.apache.activemq.artemis.jms.client.ActiveMQConnectionFactory">
         <constructor-arg name="ha" value="false" />
         <constructor-arg>
-            <bean class="org.hornetq.api.core.TransportConfiguration">
+            <bean class="org.apache.activemq.artemis.api.core.TransportConfiguration">
                 <constructor-arg
-                        value="org.hornetq.core.remoting.impl.netty.NettyConnectorFactory" />
+                        value="org.apache.activemq.artemis.core.remoting.impl.netty.NettyConnectorFactory" />
                 <constructor-arg>
                     <map key-type="java.lang.String" value-type="java.lang.Object">
                         <entry key="host" value="127.0.0.1"/>
@@ -25,8 +25,8 @@
 
     <bean id="jmsTemplate" class="org.springframework.jms.core.JmsTemplate">
         <constructor-arg name="connectionFactory" ref="connectionFactory"/>
-        <property name="defaultDestinationName" value="prospring4"/>
+        <property name="defaultDestinationName" value="prospring5"/>
     </bean>
 
-    <context:component-scan base-package="com.apress.prospring4.ch12"/>
+    <context:component-scan base-package="com.apress.prospring5.ch12"/>
 </beans>

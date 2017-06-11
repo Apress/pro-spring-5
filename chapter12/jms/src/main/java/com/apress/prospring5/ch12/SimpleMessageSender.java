@@ -1,4 +1,4 @@
-package com.apress.prospring4.ch12;
+package com.apress.prospring5.ch12;
 
 import javax.jms.JMSException;
 import javax.jms.Message;

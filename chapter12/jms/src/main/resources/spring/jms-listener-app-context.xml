@@ -7,12 +7,12 @@
         http://www.springframework.org/schema/jms
         http://www.springframework.org/schema/jms/spring-jms.xsd">
 
-    <bean id="connectionFactory" class="org.hornetq.jms.client.HornetQJMSConnectionFactory">
+    <bean id="connectionFactory" class="org.apache.activemq.artemis.jms.client.ActiveMQConnectionFactory">
         <constructor-arg name="ha" value="false" />
         <constructor-arg>
-            <bean class="org.hornetq.api.core.TransportConfiguration">
+            <bean class="org.apache.activemq.artemis.api.core.TransportConfiguration">
                 <constructor-arg
-                        value="org.hornetq.core.remoting.impl.netty.NettyConnectorFactory" />
+                        value="org.apache.activemq.artemis.core.remoting.impl.netty.NettyConnectorFactory" />
                 <constructor-arg>
                     <map key-type="java.lang.String" value-type="java.lang.Object">
                         <entry key="host" value="127.0.0.1"/>
@@ -23,10 +23,10 @@
         </constructor-arg>
     </bean>
 
-    <bean id="simpleMessageListener" class="com.apress.prospring4.ch12.SimpleMessageListener"/>
+    <bean id="simpleMessageListener" class="com.apress.prospring5.ch12.SimpleMessageListener"/>
 
     <jms:listener-container container-type="default"
                             connection-factory="connectionFactory" acknowledge="auto">
-        <jms:listener destination="prospring4" ref="simpleMessageListener" method="onMessage" />
+        <jms:listener destination="prospring5" ref="simpleMessageListener" method="onMessage" />
     </jms:listener-container>
 </beans>

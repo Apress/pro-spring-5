@@ -168,7 +168,7 @@
           <configuration>
             <archive>
               <manifest>
-                <mainClass>com.apress.prospring4.ch12.RestfulClientSample</mainClass>
+                <mainClass>RestfulClientSample</mainClass>
                 <addClasspath>true</addClasspath>
                 <classpathPrefix>ch12/WEB-INF/lib</classpathPrefix>
               </manifest>

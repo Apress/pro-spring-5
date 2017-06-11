@@ -2,15 +2,16 @@
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.apress.prospring4.ch12</groupId>
-  <artifactId>jms</artifactId>
+  <artifactId>jms-2.0</artifactId>
   <packaging>jar</packaging>
   <version>4.0-SNAPSHOT</version>
-  <name>jms</name>
+  <name>jms-2.0</name>
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <spring.version>4.0.2.RELEASE</spring.version>
-    <activemq.version>5.7.0</activemq.version>
-    <jms.api>1.1</jms.api>
+    <jms.api>2.0</jms.api>
+    <slf4j.log4j.version>1.7.6</slf4j.log4j.version>
+    <hornetq.version>2.4.0.Final</hornetq.version>
   </properties>
   <dependencies>
       <dependency>
@@ -24,14 +25,19 @@
           <version>${spring.version}</version>
       </dependency>
       <dependency>
-          <groupId>org.apache.activemq</groupId>
-          <artifactId>activemq-all</artifactId>
-          <version>${activemq.version}</version>
+          <groupId>org.slf4j</groupId>
+          <artifactId>slf4j-log4j12</artifactId>
+          <version>${slf4j.log4j.version}</version>
       </dependency>
       <dependency>
           <groupId>javax.jms</groupId>
-          <artifactId>jms</artifactId>
+          <artifactId>javax.jms-api</artifactId>
           <version>${jms.api}</version>
+      </dependency>
+      <dependency>
+          <groupId>org.hornetq</groupId>
+          <artifactId>hornetq-jms-client</artifactId>
+          <version>${hornetq.version}</version>
       </dependency>
   </dependencies>
   <build>
@@ -43,7 +49,7 @@
         <configuration>
           <archive>
             <manifest>
-              <mainClass>com.apress.prospring4.ch12.JmsSample</mainClass>
+              <mainClass>Jms2Sample</mainClass>
               <addClasspath>true</addClasspath>
               <classpathPrefix>dependency/</classpathPrefix>
             </manifest>
@@ -51,14 +57,6 @@
           </archive>
         </configuration>
       </plugin>
-        <plugin>
-            <groupId>org.apache.activemq.tooling</groupId>
-            <artifactId>maven-activemq-plugin</artifactId>
-            <version>${activemq.version}</version>
-            <configuration>
-                <fork>false</fork>
-            </configuration>
-        </plugin>
     </plugins>
   </build>  
 </project>
