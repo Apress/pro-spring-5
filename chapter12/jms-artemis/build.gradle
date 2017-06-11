@@ -1,0 +1,15 @@
+dependencies {
+	compile spring.jms, misc.jms, misc.artemis
+
+	testCompile spring.test
+}
+
+jar {
+	manifest {
+		attributes("Created-By"      : "Iuliana Cosmina",
+				"Specification-Title": "Pro Spring 5",
+				"Main-Class"         : "com.apress.prospring5.ch12.Jms2Sample",
+				"Class-Path"         : configurations.compile.collect { it.getName() }.join(' '))
+	}
+}
+

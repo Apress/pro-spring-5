@@ -1,5 +1,6 @@
 dependencies {
 	compile spring.jms, misc.jms, misc.hornetq
+
 	testCompile spring.test
 }
 
@@ -7,7 +8,7 @@ jar {
 	manifest {
 		attributes("Created-By"      : "Iuliana Cosmina",
 				"Specification-Title": "Pro Spring 5",
-				"Main-Class"         : "com.apress.prospring5.ch12.Jms2Sample",
+				"Main-Class"         : "com.apress.prospring5.ch12.JmsHornetQSample",
 				"Class-Path"         : configurations.compile.collect { it.getName() }.join(' '))
 	}
 }

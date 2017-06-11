@@ -4,7 +4,7 @@ import org.springframework.context.support.GenericXmlApplicationContext;
 
 import java.util.Arrays;
 
-public class Jms2Sample {
+public class JmsHornetQSample {
     public static void main(String... args) throws Exception{
         GenericXmlApplicationContext ctx = new GenericXmlApplicationContext();
         ctx.load("classpath:spring/jms-common.xml", "classpath:spring/jms-sender-app-context.xml",
@@ -12,7 +12,7 @@ public class Jms2Sample {
         ctx.refresh();
 
         MessageSender messageSender = ctx.getBean("messageSender", MessageSender.class);
-        Arrays.toString(ctx.getBeanDefinitionNames());
+        System.out.println(Arrays.toString(ctx.getBeanDefinitionNames()));
 
         for(int i=0; i < 10; ++i) {
             messageSender.sendMessage("Test message: " + i);

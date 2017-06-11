@@ -231,8 +231,10 @@ include 'chapter12:spring-invoker'
 findProject(':chapter12:spring-invoker')?.name = 'spring-invoker'
 include 'chapter12:rest'
 findProject(':chapter12:rest')?.name = 'rest'
-include 'chapter12:jms'
-findProject(':chapter12:jms')?.name = 'jms'
+include 'chapter12:jms-artemis'
+findProject(':chapter12:jms-artemis')?.name = 'jms-artemis'
+include 'chapter12:jms-hornetq'
+findProject(':chapter12:jms-hornetq')?.name = 'jms-hornetq'
 
 println(' This project is a collection of simple code samples. It is meant to be used together with the ' +
 		'"Spring Pro, Fifth Edition" ' +
