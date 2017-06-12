@@ -1,19 +1,20 @@
 package com.apress.prospring5.ch12;
 
-import javax.jms.JMSException;
-import javax.jms.Message;
-import javax.jms.MessageListener;
-import javax.jms.TextMessage;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.jms.annotation.JmsListener;
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
-@Component("messageListener")
-public class SimpleMessageListener implements MessageListener {
+import javax.jms.JMSException;
+import javax.jms.Message;
+import javax.jms.TextMessage;
+
+@Service("messageListener")
+public class SimpleMessageListener{
     private static final Logger logger = LoggerFactory.getLogger(SimpleMessageListener.class);
 
-    @Override
+    @JmsListener(destination = "prospring5", containerFactory = "jmsListenerContainerFactory")
     public void onMessage(Message message) {
         TextMessage textMessage = (TextMessage) message;
 

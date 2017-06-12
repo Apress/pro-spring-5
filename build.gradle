@@ -92,7 +92,8 @@ ext {
 			glassfishEl  : "org.glassfish.web:el-impl:$glasshfishELVersion",
 			servlet      : "javax.servlet:javax.servlet-api:3.1.0",
 			jms          : "javax.jms:javax.jms-api:$jmsVersion",
-			artemis      : "org.apache.activemq:artemis-jms-client:$artemisVersion",
+			artemisClient      : "org.apache.activemq:artemis-jms-client:$artemisVersion",
+			artemisServer      : "org.apache.activemq:artemis-jms-server:$artemisVersion",
 			hornetq      : "org.hornetq:hornetq-jms-client:$hornetqVersion"
 	]
 

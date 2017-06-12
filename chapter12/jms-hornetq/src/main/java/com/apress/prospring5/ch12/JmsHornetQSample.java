@@ -1,15 +1,15 @@
 package com.apress.prospring5.ch12;
 
+import com.apress.prospring5.ch12.config.AppConfig;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.springframework.context.support.GenericApplicationContext;
 import org.springframework.context.support.GenericXmlApplicationContext;
 
 import java.util.Arrays;
 
 public class JmsHornetQSample {
     public static void main(String... args) throws Exception{
-        GenericXmlApplicationContext ctx = new GenericXmlApplicationContext();
-        ctx.load("classpath:spring/jms-common.xml", "classpath:spring/jms-sender-app-context.xml",
-                "classpath:spring/jms-listener-app-context.xml");
-        ctx.refresh();
+        GenericApplicationContext ctx = new AnnotationConfigApplicationContext(AppConfig.class);
 
         MessageSender messageSender = ctx.getBean("messageSender", MessageSender.class);
         System.out.println(Arrays.toString(ctx.getBeanDefinitionNames()));
