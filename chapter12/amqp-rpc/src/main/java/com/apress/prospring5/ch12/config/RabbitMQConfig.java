@@ -3,6 +3,8 @@ package com.apress.prospring5.ch12.config;
 import com.apress.prospring5.ch12.WeatherService;
 import com.apress.prospring5.ch12.WeatherServiceImpl;
 import org.springframework.amqp.core.*;
+import org.springframework.amqp.rabbit.annotation.EnableRabbit;
+import org.springframework.amqp.rabbit.config.SimpleRabbitListenerContainerFactory;
 import org.springframework.amqp.rabbit.connection.CachingConnectionFactory;
 import org.springframework.amqp.rabbit.core.RabbitAdmin;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
@@ -19,6 +21,7 @@ import org.springframework.context.annotation.Configuration;
  */
 @Configuration
 @ComponentScan("com.apress.prospring5.ch12")
+@EnableRabbit
 public class RabbitMQConfig {
 
 	final static String queueName = "forecasts";
@@ -72,8 +75,12 @@ public class RabbitMQConfig {
 		return exporter;
 	}
 
-	@Bean SimpleMessageListenerContainer container() {
-		return new SimpleMessageListenerContainer(connectionFactory());
+	@Bean
+	public SimpleRabbitListenerContainerFactory rabbitListenerContainerFactory() {
+		SimpleRabbitListenerContainerFactory factory = new SimpleRabbitListenerContainerFactory();
+		factory.setConnectionFactory(connectionFactory());
+		factory.setMaxConcurrentConsumers(5);
+		return factory;
 	}
 
 }
