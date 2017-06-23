@@ -1,7 +1,5 @@
 package com.apress.prospring5.ch12.config;
 
-import com.apress.prospring5.ch12.WeatherService;
-import com.apress.prospring5.ch12.WeatherServiceImpl;
 import org.springframework.amqp.core.*;
 import org.springframework.amqp.rabbit.annotation.EnableRabbit;
 import org.springframework.amqp.rabbit.config.SimpleRabbitListenerContainerFactory;
@@ -57,22 +55,6 @@ public class RabbitMQConfig {
 
 	@Bean DirectExchange weather() {
 		return new DirectExchange(exchangeName, true, false);
-	}
-
-	@Bean WeatherService weatherServiceProxy() throws Exception {
-		AmqpProxyFactoryBean fact = new AmqpProxyFactoryBean();
-		fact.setAmqpTemplate(amqpTemplate());
-		fact.setServiceInterface(WeatherService.class);
-		fact.afterPropertiesSet();
-		return (WeatherService)fact.getObject();
-	}
-
-	@Bean AmqpInvokerServiceExporter weatherServiceExporter(){
-		AmqpInvokerServiceExporter exporter = new AmqpInvokerServiceExporter();
-		exporter.setServiceInterface(WeatherService.class);
-		exporter.setAmqpTemplate(amqpTemplate());
-		exporter.setService(new WeatherServiceImpl());
-		return exporter;
 	}
 
 	@Bean

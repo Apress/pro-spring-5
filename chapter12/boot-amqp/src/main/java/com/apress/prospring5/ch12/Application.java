@@ -1,14 +1,15 @@
 package com.apress.prospring5.ch12;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.amqp.core.Binding;
 import org.springframework.amqp.core.BindingBuilder;
 import org.springframework.amqp.core.DirectExchange;
 import org.springframework.amqp.core.Queue;
+import org.springframework.amqp.rabbit.connection.CachingConnectionFactory;
+import org.springframework.amqp.rabbit.core.RabbitTemplate;
+import org.springframework.amqp.rabbit.listener.SimpleMessageListenerContainer;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.context.ApplicationContext;
+import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.annotation.Bean;
 
 /**
@@ -16,7 +17,6 @@ import org.springframework.context.annotation.Bean;
  */
 @SpringBootApplication
 public class Application {
-	private static Logger logger = LoggerFactory.getLogger(Application.class);
 
 	final static String queueName = "forecasts";
 	final static String exchangeName = "weather";
@@ -33,14 +33,27 @@ public class Application {
 		return BindingBuilder.bind(queue).to(directExchange).with(queueName);
 	}
 
-	public static void main(String[] args) throws InterruptedException {
-		ApplicationContext ctx = SpringApplication.run(Application.class, args);
-
-		WeatherService weatherService = ctx.getBean(WeatherService.class);
-		logger.info("Forecast for FL: " + weatherService.getForecast("FL"));
-		logger.info("Forecast for MA: " + weatherService.getForecast("MA"));
-		logger.info("Forecast for CA: " + weatherService.getForecast("CA"));
-
+	@Bean CachingConnectionFactory connectionFactory() {
+		return new CachingConnectionFactory("127.0.0.1");
 	}
 
+	@Bean
+	SimpleMessageListenerContainer messageListenerContainer() {
+		SimpleMessageListenerContainer container = new SimpleMessageListenerContainer();
+		container.setConnectionFactory(connectionFactory());
+		container.setQueueNames(queueName);
+		return container;
+	}
+
+	public static void main(String... args) throws java.lang.Exception {
+		ConfigurableApplicationContext ctx = SpringApplication.run(Application.class, args);
+
+		RabbitTemplate rabbitTemplate = ctx.getBean(RabbitTemplate.class);
+		rabbitTemplate.convertAndSend(Application.queueName, "FL");
+		rabbitTemplate.convertAndSend(Application.queueName, "MA");
+		rabbitTemplate.convertAndSend(Application.queueName, "CA");
+
+		System.in.read();
+		ctx.close();
+	}
 }

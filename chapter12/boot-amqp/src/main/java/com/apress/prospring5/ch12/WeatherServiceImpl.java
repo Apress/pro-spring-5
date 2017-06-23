@@ -1,16 +1,24 @@
 package com.apress.prospring5.ch12;
 
-import org.springframework.stereotype.Component;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.amqp.rabbit.annotation.RabbitListener;
+import org.springframework.stereotype.Service;
 
-public class WeatherServiceImpl implements WeatherService {
-    @Override
-    public String getForecast(String stateCode) {
+@Service
+public class WeatherServiceImpl {
+
+    private static Logger logger = LoggerFactory.getLogger(WeatherServiceImpl.class);
+
+    @RabbitListener(queues="forecasts")
+    public void getForecast(String stateCode) {
+
         if ("FL".equals(stateCode)) {
-            return "Hot";
+            logger.info("Hot");
         } else if ("MA".equals(stateCode)) {
-            return "Cold";
+            logger.info("Cold");
+        } else {
+            logger.info("Not available at this time");
         }
-
-        return "Not available at this time";
     }
 }
