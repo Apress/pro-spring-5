@@ -2,13 +2,13 @@ apply plugin: 'war'
 
 dependencies {
 	compile project(':chapter12:base-remote')
-	compile spring.webmvc, misc.servlet
+	compile spring.oxm, spring.webmvc, misc.servlet, misc.castor, misc.jacksonDatabind, misc.httpclient
 	testCompile spring.test
 }
 
 
 war {
-	archiveName = 'remoting.war'
+	archiveName = 'rest.war'
 	manifest {
 		attributes("Created-By"      : "Iuliana Cosmina",
 				"Specification-Title": "Pro Spring 5",

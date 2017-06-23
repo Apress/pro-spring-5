@@ -6,7 +6,7 @@ import org.springframework.context.support.GenericApplicationContext;
 
 import java.util.Arrays;
 
-public class JmsArtemisSample {
+public class JmsArtemisDemo {
 
 	public static void main(String... args) throws Exception {
 		GenericApplicationContext ctx = new AnnotationConfigApplicationContext(AppConfig.class);

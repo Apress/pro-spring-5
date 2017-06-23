@@ -19,18 +19,19 @@ public class SingerController {
 	private SingerService singerService;
 
 	@ResponseStatus(HttpStatus.OK)
-	@RequestMapping(value = "/listdata", method = RequestMethod.GET)
+	@GetMapping(value = "/listdata")
 	public List<Singer> listData() {
 		return singerService.findAll();
 	}
 
 	@ResponseStatus(HttpStatus.OK)
-	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
+	@GetMapping(value = "/{id}")
 	public Singer findSingerById(@PathVariable Long id) {
 		return singerService.findById(id);
 	}
 
-	@RequestMapping(value = "/", method = RequestMethod.POST)
+	@ResponseStatus(HttpStatus.CREATED)
+	@PostMapping(value="/")
 	public Singer create(@RequestBody Singer singer) {
 		logger.info("Creating singer: " + singer);
 		singerService.save(singer);
@@ -38,7 +39,8 @@ public class SingerController {
 		return singer;
 	}
 
-	@RequestMapping(value = "/{id}", method = RequestMethod.PUT)
+	@ResponseStatus(HttpStatus.OK)
+	@PutMapping(value="/{id}")
 	public void update(@RequestBody Singer singer,
 			@PathVariable Long id) {
 		logger.info("Updating singer: " + singer);
@@ -46,7 +48,8 @@ public class SingerController {
 		logger.info("Singer updated successfully with info: " + singer);
 	}
 
-	@RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
+	@ResponseStatus(HttpStatus.NO_CONTENT)
+	@DeleteMapping(value="/{id}")
 	public void delete(@PathVariable Long id) {
 		logger.info("Deleting singer with id: " + id);
 		Singer singer = singerService.findById(id);

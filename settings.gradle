@@ -235,6 +235,17 @@ include 'chapter12:jms-artemis'
 findProject(':chapter12:jms-artemis')?.name = 'jms-artemis'
 include 'chapter12:jms-hornetq'
 findProject(':chapter12:jms-hornetq')?.name = 'jms-hornetq'
+include 'chapter12:boot-jms'
+findProject(':chapter12:boot-jms')?.name = 'boot-jms'
+include 'chapter12:boot-rest'
+findProject(':chapter12:boot-rest')?.name = 'boot-rest'
+include 'chapter12:secure-rest'
+findProject(':chapter12:secure-rest')?.name = 'secure-rest'
+include 'chapter12:amqp-rpc'
+findProject(':chapter12:amqp-rpc')?.name = 'amqp-rpc'
+include 'chapter12:boot-amqp'
+findProject(':chapter12:boot-amqp')?.name = 'boot-amqp'
+
 
 println(' This project is a collection of simple code samples. It is meant to be used together with the ' +
 		'"Spring Pro, Fifth Edition" ' +
@@ -247,6 +258,4 @@ rootProject.children.each { project ->
 	assert project.buildFile.exists()
 	assert project.buildFile.isFile()
 }
-include 'chapter12:boot-jms'
-findProject(':chapter12:boot-jms')?.name = 'boot-jms'
 

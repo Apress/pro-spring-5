@@ -7,7 +7,7 @@ import org.springframework.context.support.GenericXmlApplicationContext;
 
 import java.util.Arrays;
 
-public class JmsHornetQSample {
+public class JmsHornetQDemo {
     public static void main(String... args) throws Exception{
         GenericApplicationContext ctx = new AnnotationConfigApplicationContext(AppConfig.class);
 

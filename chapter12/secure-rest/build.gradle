@@ -1,0 +1,19 @@
+apply plugin: 'war'
+
+dependencies {
+	compile project(':chapter12:base-remote')
+	compile spring.oxm, spring.webmvc, misc.servlet, misc.castor, misc.jacksonDatabind, misc.httpclient,
+			spring.securityWeb, spring.securityConfig
+	testCompile spring.test
+}
+
+
+war {
+	archiveName = 'secure-rest.war'
+	manifest {
+		attributes("Created-By"      : "Iuliana Cosmina",
+				"Specification-Title": "Pro Spring 5",
+				"Class-Path"         : configurations.compile.collect { it.getName() }.join(' '))
+	}
+}
+

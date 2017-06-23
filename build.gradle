@@ -3,6 +3,8 @@ ext {
 	springVersion = '5.0.0.RC1'
 	bootVersion = '2.0.0.M1'
 	springDataVersion = '2.0.0.M3'
+	springAmqpVersion = '2.0.0.M4'
+	springSecurityVersion = '5.0.0.M2'
 
 	//logging libs
 	slf4jVersion = '1.7.25'
@@ -25,6 +27,9 @@ ext {
 	jmsVersion = '2.0'
 	artemisVersion = '2.1.0'
 	hornetqVersion = '2.4.0.Final'
+	castorVersion = '1.4.1'
+	jacksonVersion = '2.9.0.pr3'
+	httpclientVersion = '4.5.3'
 
 	//persistency libraries
 	hibernateVersion = '5.2.10.Final'
@@ -43,7 +48,12 @@ ext {
 			orm           : "org.springframework:spring-orm:$springVersion",
 			data          : "org.springframework.data:spring-data-jpa:$springDataVersion",
 			test          : "org.springframework:spring-test:$springVersion",
-			jms           : "org.springframework:spring-jms:$springVersion"
+			jms           : "org.springframework:spring-jms:$springVersion",
+			oxm           : "org.springframework:spring-oxm:$springVersion",
+			securityWeb   : "org.springframework.security:spring-security-web:$springSecurityVersion",
+			securityConfig: "org.springframework.security:spring-security-config:$springSecurityVersion",
+			rabbit        : "org.springframework.amqp:spring-rabbit:$springAmqpVersion"
+
 	]
 
 	hibernate = [
@@ -68,7 +78,8 @@ ext {
 			starterJdbc     : "org.springframework.boot:spring-boot-starter-jdbc:$bootVersion",
 			starterJpa      : "org.springframework.boot:spring-boot-starter-data-jpa:$bootVersion",
 			starterJta      : "org.springframework.boot:spring-boot-starter-jta-atomikos:$bootVersion",
-			starterJms      : "org.springframework.boot:spring-boot-starter-artemis:$bootVersion"
+			starterJms      : "org.springframework.boot:spring-boot-starter-artemis:$bootVersion",
+			starterRabbitmq      : "org.springframework.boot:spring-boot-starter-amqp:$bootVersion"
 	]
 
 	testing = [
@@ -76,25 +87,28 @@ ext {
 	]
 
 	misc = [
-			slf4jJcl     : "org.slf4j:jcl-over-slf4j:$slf4jVersion",
-			logback      : "ch.qos.logback:logback-classic:$logbackVersion",
-			groovy       : "org.codehaus.groovy:groovy-all:$groovyVersion",
-			inject       : "javax.inject:javax.inject:1",
-			validation   : "javax.validation:validation-api:$javaxValidationVersion",
-			aspectjweaver: "org.aspectj:aspectjweaver:$aspectjVersion",
-			aspectjrt    : "org.aspectj:aspectjrt:$aspectjVersion",
-			lang3        : "org.apache.commons:commons-lang3:3.5",
-			guava        : "com.google.guava:guava:$guavaVersion",
-			joda         : "joda-time:joda-time:$jodaVersion",
-			usertype     : "org.jadira.usertype:usertype.core:$utVersion",
-			artemis      : "org.apache.activemq:artemis-jms-server:2.1.0",
-			javaEl       : "javax.el:javax.el-api:$javaElVersion",
-			glassfishEl  : "org.glassfish.web:el-impl:$glasshfishELVersion",
-			servlet      : "javax.servlet:javax.servlet-api:3.1.0",
-			jms          : "javax.jms:javax.jms-api:$jmsVersion",
-			artemisClient      : "org.apache.activemq:artemis-jms-client:$artemisVersion",
-			artemisServer      : "org.apache.activemq:artemis-jms-server:$artemisVersion",
-			hornetq      : "org.hornetq:hornetq-jms-client:$hornetqVersion"
+			slf4jJcl       : "org.slf4j:jcl-over-slf4j:$slf4jVersion",
+			logback        : "ch.qos.logback:logback-classic:$logbackVersion",
+			groovy         : "org.codehaus.groovy:groovy-all:$groovyVersion",
+			inject         : "javax.inject:javax.inject:1",
+			validation     : "javax.validation:validation-api:$javaxValidationVersion",
+			aspectjweaver  : "org.aspectj:aspectjweaver:$aspectjVersion",
+			aspectjrt      : "org.aspectj:aspectjrt:$aspectjVersion",
+			lang3          : "org.apache.commons:commons-lang3:3.5",
+			guava          : "com.google.guava:guava:$guavaVersion",
+			joda           : "joda-time:joda-time:$jodaVersion",
+			usertype       : "org.jadira.usertype:usertype.core:$utVersion",
+			artemis        : "org.apache.activemq:artemis-jms-server:2.1.0",
+			javaEl         : "javax.el:javax.el-api:$javaElVersion",
+			glassfishEl    : "org.glassfish.web:el-impl:$glasshfishELVersion",
+			servlet        : "javax.servlet:javax.servlet-api:3.1.0",
+			jms            : "javax.jms:javax.jms-api:$jmsVersion",
+			artemisClient  : "org.apache.activemq:artemis-jms-client:$artemisVersion",
+			artemisServer  : "org.apache.activemq:artemis-jms-server:$artemisVersion",
+			hornetq        : "org.hornetq:hornetq-jms-client:$hornetqVersion",
+			castor         : "org.codehaus.castor:castor-xml:$castorVersion",
+			jacksonDatabind: "com.fasterxml.jackson.core:jackson-databind:$jacksonVersion",
+			httpclient     : "org.apache.httpcomponents:httpclient:$httpclientVersion"
 	]
 
 	db = [

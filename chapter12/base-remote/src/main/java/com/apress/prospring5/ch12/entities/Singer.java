@@ -67,6 +67,10 @@ public class Singer implements Serializable {
         this.birthDate = birthDate;
     }
 
+    public Date getBirthDate() {
+        return birthDate;
+    }
+
     @Override
     public String toString() {
         return "Singer - Id: " + id + ", First name: " + firstName

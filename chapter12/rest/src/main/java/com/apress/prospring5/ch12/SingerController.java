@@ -1,59 +1,64 @@
 package com.apress.prospring5.ch12;
 
+import com.apress.prospring5.ch12.entities.Singer;
+import com.apress.prospring5.ch12.services.SingerService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
-@RequestMapping(value="/contact")
-public class ContactController {
-    final Logger logger = LoggerFactory.getLogger(ContactController.class);
+@RequestMapping(value="/singer")
+public class SingerController {
+    final Logger logger = LoggerFactory.getLogger(SingerController.class);
 
     @Autowired
-    private ContactService contactService;
+    private SingerService singerService;
 
-    @RequestMapping(value = "/listdata", method = RequestMethod.GET)
+    @ResponseStatus(HttpStatus.OK)
+    //@RequestMapping(value = "/listdata", method = RequestMethod.GET)
     @ResponseBody
-    public Contacts listData() {
-        return new Contacts(contactService.findAll());
+    @GetMapping(value = "/listdata")
+    public Singers listData() {
+        return new Singers(singerService.findAll());
     }
 
-    @RequestMapping(value="/{id}", method=RequestMethod.GET)
+    //@RequestMapping(value="/{id}", method=RequestMethod.GET)
     @ResponseBody
-    public Contact findContactById(@PathVariable Long id) {
-        return contactService.findById(id);
+    @GetMapping(value = "/{id}")
+    public Singer findSingerById(@PathVariable Long id) {
+        return singerService.findById(id);
     }
 
-    @RequestMapping(value="/", method=RequestMethod.POST)
+    //@RequestMapping(value="/", method=RequestMethod.POST)
     @ResponseBody
-    public Contact create(@RequestBody Contact contact) {
-        logger.info("Creating contact: " + contact);
-        contactService.save(contact);
-        logger.info("Contact created successfully with info: " + contact);
-        return contact;
+    @PostMapping(value="/")
+    public Singer create(@RequestBody Singer singer) {
+        logger.info("Creating singer: " + singer);
+        singerService.save(singer);
+        logger.info("Singer created successfully with info: " + singer);
+        return singer;
     }
 
-    @RequestMapping(value="/{id}", method=RequestMethod.PUT)
+    //@RequestMapping(value="/{id}", method=RequestMethod.PUT)
     @ResponseBody
-    public void update(@RequestBody Contact contact,
+    @PutMapping(value="/{id}")
+    public void update(@RequestBody Singer singer,
                        @PathVariable Long id) {
-        logger.info("Updating contact: " + contact);
-        contactService.save(contact);
-        logger.info("Contact updated successfully with info: " + contact);
+        logger.info("Updating singer: " + singer);
+        singerService.save(singer);
+        logger.info("Singer updated successfully with info: " + singer);
     }
 
-    @RequestMapping(value="/{id}", method=RequestMethod.DELETE)
+    //@RequestMapping(value="/{id}", method=RequestMethod.DELETE)
     @ResponseBody
+    @DeleteMapping(value="/{id}")
     public void delete(@PathVariable Long id) {
-        logger.info("Deleting contact with id: " + id);
-        Contact contact = contactService.findById(id);
-        contactService.delete(contact);
-        logger.info("Contact deleted successfully");
+        logger.info("Deleting singer with id: " + id);
+        Singer singer = singerService.findById(id);
+        singerService.delete(singer);
+        logger.info("Singer deleted successfully");
     }
 }

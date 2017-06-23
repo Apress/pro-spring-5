@@ -2,16 +2,16 @@
 <!DOCTYPE tiles-definitions PUBLIC "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN"
         "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
 <tiles-definitions>
-    <definition extends="default" name="contacts/list">
-        <put-attribute name="body" value="/WEB-INF/views/contacts/list.jspx" />
+    <definition extends="default" name="singers/list">
+        <put-attribute name="body" value="/WEB-INF/views/singers/list.jspx" />
     </definition>
-    <definition extends="default" name="contacts/show">
-        <put-attribute name="body" value="/WEB-INF/views/contacts/show.jspx" />
+    <definition extends="default" name="singers/show">
+        <put-attribute name="body" value="/WEB-INF/views/singers/show.jspx" />
     </definition>
-    <definition extends="default" name="contacts/update">
-        <put-attribute name="body" value="/WEB-INF/views/contacts/edit.jspx" />
+    <definition extends="default" name="singers/update">
+        <put-attribute name="body" value="/WEB-INF/views/singers/edit.jspx" />
     </definition>
-    <definition extends="default" name="contacts/create">
-        <put-attribute name="body" value="/WEB-INF/views/contacts/edit.jspx" />
+    <definition extends="default" name="singers/create">
+        <put-attribute name="body" value="/WEB-INF/views/singers/edit.jspx" />
     </definition>
 </tiles-definitions>

@@ -17,8 +17,8 @@
     <spring:message code="date_format_pattern" var="dateFormatPattern"/>
     <spring:message code="label_contact_photo" var="labelContactPhoto"/>
 
-    <spring:url value="/contacts/photo" var="contactPhotoUrl"/>
-    <spring:url value="/contacts" var="editContactUrl"/>
+    <spring:url value="/singers/photo" var="contactPhotoUrl"/>
+    <spring:url value="/singers" var="editContactUrl"/>
 
     <h1>${labelContactInfo}</h1>
 

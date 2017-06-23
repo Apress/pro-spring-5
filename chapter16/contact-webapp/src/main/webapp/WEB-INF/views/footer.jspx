@@ -7,7 +7,7 @@
     <spring:message code="home_text" var="homeText"/>
     <spring:message code="label_en_US" var="labelEnUs"/>
     <spring:message code="label_zh_HK" var="labelZhHk"/>
-    <spring:url value="/contacts" var="homeUrl"/>
+    <spring:url value="/singers" var="homeUrl"/>
 
     <a href="${homeUrl}">${homeText}</a> |
     <a href="${homeUrl}?lang=en_US">${labelEnUs}</a> |

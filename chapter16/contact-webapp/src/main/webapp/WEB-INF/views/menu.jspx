@@ -9,7 +9,7 @@
 
     <spring:message code="menu_header_text" var="menuHeaderText"/>
     <spring:message code="menu_add_contact" var="menuAddContact"/>
-    <spring:url value="/contacts?form" var="addContactUrl"/>
+    <spring:url value="/singers?form" var="addContactUrl"/>
 
     <spring:message code="label_login" var="labelLogin"/>
     <spring:url var="loginUrl" value="/j_spring_security_check" />

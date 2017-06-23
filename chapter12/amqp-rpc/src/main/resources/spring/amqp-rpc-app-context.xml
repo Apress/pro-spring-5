@@ -26,7 +26,7 @@
     <bean id="weatherServiceProxy"
           class="org.springframework.amqp.remoting.client.AmqpProxyFactoryBean">
         <property name="amqpTemplate" ref="amqpTemplate" />
-        <property name="serviceInterface" value="com.apress.prospring4.ch12.WeatherService" />
+        <property name="serviceInterface" value="com.apress.prospring5.ch12.WeatherService" />
     </bean>
 
     <rabbit:listener-container connection-factory="connectionFactory">
@@ -36,9 +36,9 @@
     <bean id="weatherServiceExporter"
           class="org.springframework.amqp.remoting.service.AmqpInvokerServiceExporter">
         <property name="amqpTemplate" ref="amqpTemplate" />
-        <property name="serviceInterface" value="com.apress.prospring4.ch12.WeatherService" />
+        <property name="serviceInterface" value="com.apress.prospring5.ch12.WeatherService" />
         <property name="service">
-            <bean class="com.apress.prospring4.ch12.WeatherServiceImpl"/>
+            <bean class="com.apress.prospring5.ch12.WeatherServiceImpl"/>
         </property>
     </bean>
 </beans>

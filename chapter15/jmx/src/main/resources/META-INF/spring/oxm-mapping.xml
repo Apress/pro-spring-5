@@ -1,6 +1,6 @@
 <mapping>
     <class name="com.apress.prospring4.ch15.Contacts">
-        <field name="contacts" type="com.apress.prospring4.ch15.Contact" collection="arraylist">
+        <field name="singers" type="com.apress.prospring4.ch15.Contact" collection="arraylist">
             <bind-xml name="contact"/>
         </field>
     </class>
