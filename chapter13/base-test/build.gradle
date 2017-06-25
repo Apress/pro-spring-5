@@ -1,0 +1,11 @@
+dependencies {
+    compile spring.data, db.h2, hibernate.em
+}
+
+jar {
+    manifest {
+        attributes("Created-By"      : "Iuliana Cosmina",
+                "Specification-Title": "Pro Spring 5",
+                "Class-Path"         : configurations.compile.collect { it.getName() }.join(' '))
+    }
+}

@@ -1,7 +1,6 @@
 dependencies {
-	compile spring.data,
-			misc.slf4jJcl, misc.logback, misc.lang3, hibernate.em, misc.guava,
-			hibernate.validator, misc.validation, misc.javaEl, misc.glassfishEl
+	compile project(':chapter13:integration-test')
+	testCompile testing.jmock
 }
 
 jar {

@@ -1,7 +1,7 @@
 dependencies {
-	compile spring.data,
-	misc.slf4jJcl, misc.logback, misc.lang3, hibernate.em, misc.guava, misc.poi,
-	hibernate.validator, misc.validation, misc.javaEl, misc.glassfishEl
+	compile project(':chapter13:base-test')
+	compile  misc.poi,
+		hibernate.validator, misc.validation, misc.javaEl, misc.glassfishEl
 }
 
 jar {

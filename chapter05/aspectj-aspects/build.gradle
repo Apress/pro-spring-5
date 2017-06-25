@@ -16,6 +16,12 @@ buildscript {
 }
 apply plugin: 'aspectj'
 
+sourceSets {
+	aspects
+}
+
+sourceSets.aspects.java.srcDirs = ['src/main/aspects']
+
 jar {
 	manifest {
 		attributes(

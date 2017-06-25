@@ -247,10 +247,14 @@ findProject(':chapter12:boot-amqp')?.name = 'boot-amqp'
 
 
 include 'chapter13'
+include 'chapter13:base-test'
+findProject(':chapter13:base-test')?.name = 'base-test'
 include 'chapter13:integration-test'
 findProject(':chapter13:integration-test')?.name = 'integration-test'
 include 'chapter13:mvc-unit-test'
 findProject(':chapter13:mvc-unit-test')?.name = 'mvc-unit-test'
+include 'chapter13:junit5-test'
+findProject(':chapter13:junit5-test')?.name = 'junit5-test'
 
 println(' This project is a collection of simple code samples. It is meant to be used together with the ' +
 		'"Spring Pro, Fifth Edition" ' +
@@ -263,4 +267,3 @@ rootProject.children.each { project ->
 	assert project.buildFile.exists()
 	assert project.buildFile.isFile()
 }
-

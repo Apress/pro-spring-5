@@ -2,6 +2,7 @@ package com.apress.prospring5.ch13;
 
 import com.apress.prospring5.ch13.entities.Singer;
 import com.apress.prospring5.ch13.entities.Singers;
+import com.apress.prospring5.ch13.services.SingerService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,7 +19,7 @@ public class SingerController {
     final Logger logger = LoggerFactory.getLogger(SingerController.class);
 
     @Autowired
-    private singerService singerService;
+    private SingerService singerService;
 
     @RequestMapping(value = "/listdata", method = RequestMethod.GET)
     @ResponseBody
