@@ -38,7 +38,7 @@
         <configuration>
           <archive>
             <manifest>
-              <mainClass>com.apress.prospring4.ch14.RuleEngineTest</mainClass>
+              <mainClass>RuleEngineTest</mainClass>
               <addClasspath>true</addClasspath>
               <classpathPrefix>dependency/</classpathPrefix>
             </manifest>

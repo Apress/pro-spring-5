@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:lang="http://www.springframework.org/schema/lang"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd
+        http://www.springframework.org/schema/lang
+        http://www.springframework.org/schema/lang/spring-lang.xsd">
+
+    <context:component-scan base-package="com.apress.prospring5.ch14"/>
+
+    <lang:groovy id="ruleFactory" refresh-check-delay="5000">
+        <lang:inline-script>
+            <![CDATA[
+            package com.apress.prospring5.ch14
+
+            import org.joda.time.DateTime
+            import org.joda.time.Years
+            import org.springframework.stereotype.Component;
+
+            @Component
+            class RuleFactoryImpl implements RuleFactory {
+                Closure age = { birthDate -> return Years.yearsBetween(birthDate, new DateTime()).getYears() }
+
+                Rule getAgeCategoryRule() {
+                    Rule rule = new Rule()
+
+                    rule.singlehit = true
+
+                    rule.conditions = [{ object, param -> age(object.birthDate) >= param },
+                                       { object, param -> age(object.birthDate) <= param }]
+
+                    rule.actions = [{ object, param -> object.ageCategory = param }]
+
+
+                    rule.parameters = [
+                            [0, 10, 'Kid'],
+                            [11, 20, 'Youth'],
+                            [21, 40, 'Adult'],
+                            [41, 60, 'Matured'],
+                            [61, 80, 'Middle-aged'],
+                            [81, 120, 'Old']
+                    ]
+
+                    return rule
+                }
+            }
+            ]]>
+        </lang:inline-script>
+    </lang:groovy>
+</beans>
