@@ -223,7 +223,6 @@ findProject(':chapter11:scheduled-task-annotation')?.name = 'scheduled-task-anno
 include 'chapter11:task-executor'
 findProject(':chapter11:task-executor')?.name = 'task-executor'
 
-
 include 'chapter12'
 include 'chapter12:base-remote'
 findProject(':chapter12:base-remote')?.name = 'base-remote'
@@ -246,6 +245,12 @@ findProject(':chapter12:amqp-rpc')?.name = 'amqp-rpc'
 include 'chapter12:boot-amqp'
 findProject(':chapter12:boot-amqp')?.name = 'boot-amqp'
 
+
+include 'chapter13'
+include 'chapter13:integration-test'
+findProject(':chapter13:integration-test')?.name = 'integration-test'
+include 'chapter13:mvc-unit-test'
+findProject(':chapter13:mvc-unit-test')?.name = 'mvc-unit-test'
 
 println(' This project is a collection of simple code samples. It is meant to be used together with the ' +
 		'"Spring Pro, Fifth Edition" ' +

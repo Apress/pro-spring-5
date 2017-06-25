@@ -1,0 +1,13 @@
+dependencies {
+	compile spring.data,
+			misc.slf4jJcl, misc.logback, misc.lang3, hibernate.em, misc.guava,
+			hibernate.validator, misc.validation, misc.javaEl, misc.glassfishEl
+}
+
+jar {
+	manifest {
+		attributes("Created-By"      : "Iuliana Cosmina",
+				"Specification-Title": "Pro Spring 5",
+				"Class-Path"         : configurations.compile.collect { it.getName() }.join(' '))
+	}
+}

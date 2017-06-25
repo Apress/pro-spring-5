@@ -12,7 +12,6 @@ ext {
 
 	groovyVersion = '2.4.5'
 	guavaVersion = '21.0'
-	junitVersion = '4.12'
 
 	aspectjVersion = '1.9.0.BETA-5'
 	derbyVersion = '10.13.1.1'
@@ -21,21 +20,28 @@ ext {
 	h2Version = '1.4.194'
 	jodaVersion = '2.9.9'
 	utVersion = '6.0.1.GA'
-	javaxValidationVersion = '2.0.0.Beta2' //1.1.0.Final
-	javaElVersion = '3.0.1-b04' // 3.0.0
-	glasshfishELVersion = '2.2.1-b05' // 2.2
+	javaxValidationVersion = '2.0.0.Beta2'
+	javaElVersion = '3.0.1-b04'
+	glasshfishELVersion = '2.2.1-b05'
 	jmsVersion = '2.0'
 	artemisVersion = '2.1.0'
 	hornetqVersion = '2.4.0.Final'
 	castorVersion = '1.4.1'
 	jacksonVersion = '2.9.0.pr3'
 	httpclientVersion = '4.5.3'
+	poiVersion = '3.16'
 
 	//persistency libraries
 	hibernateVersion = '5.2.10.Final'
 	hibernateJpaVersion = '1.0.0.Final'
-	hibernateValidatorVersion = '6.0.0.Beta2' //5.4.1.Final
+	hibernateValidatorVersion = '6.0.0.Beta2'
 	atomikosVersion = '4.0.4'
+
+	//testing libs
+	mockitoVersion = '2.0.2-beta'
+	junitVersion = '4.12'
+	hamcrestVersion = '1.3'
+	dbunitVersion = '2.5.3'
 
 	spring = [
 			context       : "org.springframework:spring-context:$springVersion",
@@ -79,11 +85,17 @@ ext {
 			starterJpa      : "org.springframework.boot:spring-boot-starter-data-jpa:$bootVersion",
 			starterJta      : "org.springframework.boot:spring-boot-starter-jta-atomikos:$bootVersion",
 			starterJms      : "org.springframework.boot:spring-boot-starter-artemis:$bootVersion",
-			starterRabbitmq      : "org.springframework.boot:spring-boot-starter-amqp:$bootVersion"
+			starterRabbitmq : "org.springframework.boot:spring-boot-starter-amqp:$bootVersion"
 	]
 
 	testing = [
-			junit: "junit:junit:$junitVersion"
+			junit       : "junit:junit:$junitVersion",
+			mockito     : "org.mockito:mockito-all:$mockitoVersion",
+			easymock    : "org.easymock:easymock:3.4",
+			jmock       : "org.jmock:jmock:2.8.2",
+			hamcrestCore: "org.hamcrest:hamcrest-core:$hamcrestVersion",
+			hamcrestLib : "org.hamcrest:hamcrest-library:$hamcrestVersion",
+			dbunit      : "org.dbunit:dbunit:$dbunitVersion"
 	]
 
 	misc = [
@@ -108,7 +120,8 @@ ext {
 			hornetq        : "org.hornetq:hornetq-jms-client:$hornetqVersion",
 			castor         : "org.codehaus.castor:castor-xml:$castorVersion",
 			jacksonDatabind: "com.fasterxml.jackson.core:jackson-databind:$jacksonVersion",
-			httpclient     : "org.apache.httpcomponents:httpclient:$httpclientVersion"
+			httpclient     : "org.apache.httpcomponents:httpclient:$httpclientVersion",
+			poi            : "org.apache.poi:poi:$poiVersion"
 	]
 
 	db = [
