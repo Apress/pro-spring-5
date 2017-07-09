@@ -1,6 +1,6 @@
 package com.apress.prosring5.ch12.test;
 
-import com.apress.prospring5.ch12.Singers;
+import com.apress.prospring5.ch12.entities.Singers;
 import com.apress.prospring5.ch12.entities.Singer;
 import com.apress.prosring5.ch12.RestClientConfig;
 import org.junit.Before;
@@ -11,7 +11,6 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
-import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.web.client.RestTemplate;
 
 import java.util.Date;

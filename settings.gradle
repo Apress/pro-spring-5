@@ -256,6 +256,21 @@ findProject(':chapter13:mvc-unit-test')?.name = 'mvc-unit-test'
 include 'chapter13:junit5-test'
 findProject(':chapter13:junit5-test')?.name = 'junit5-test'
 
+
+include 'chapter14'
+include 'chapter14:base-groovy'
+findProject(':chapter14:base-groovy')?.name = 'base-groovy'
+include 'chapter14:script-engines'
+findProject(':chapter14:script-engines')?.name = 'script-engines'
+include 'chapter14:groovy-spring'
+findProject(':chapter14:groovy-spring')?.name = 'groovy-spring'
+
+include 'chapter15'
+include 'chapter15:jmx'
+findProject(':chapter15:jmx')?.name = 'jmx'
+include 'chapter15:boot-jmx'
+findProject(':chapter15:boot-jmx')?.name = 'boot-jmx'
+
 println(' This project is a collection of simple code samples. It is meant to be used together with the ' +
 		'"Spring Pro, Fifth Edition" ' +
 		' published by Apress in order to learn and practice with all Spring Web libraries. ')

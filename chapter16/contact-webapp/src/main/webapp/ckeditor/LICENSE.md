@@ -981,7 +981,7 @@ Version 1.1
           Contributor must include a text file with the Source Code
           distribution titled "LEGAL" which describes the claim and the
           party making the claim in sufficient detail that a recipient will
-          know whom to contact. If Contributor obtains such knowledge after
+          know whom to singer. If Contributor obtains such knowledge after
           the Modification is made available as described in Section 3.2,
           Contributor shall promptly modify the LEGAL file in all copies
           Contributor makes available thereafter and shall take other steps

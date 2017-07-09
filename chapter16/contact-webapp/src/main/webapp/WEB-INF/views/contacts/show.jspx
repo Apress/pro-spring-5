@@ -31,26 +31,26 @@
         <table>
             <tr>
                 <td>${labelContactFirstName}</td>
-                <td>${contact.firstName}</td>
+                <td>${singer.firstName}</td>
             </tr>
             <tr>
                 <td>${labelContactLastName}</td>
-                <td>${contact.lastName}</td>
+                <td>${singer.lastName}</td>
             </tr>
             <tr>
                 <td>${labelContactBirthDate}</td>
-                <td><joda:format value="${contact.birthDate}" pattern="${dateFormatPattern}"/></td>
+                <td><joda:format value="${singer.birthDate}" pattern="${dateFormatPattern}"/></td>
             </tr>
             <tr>
                 <td>${labelContactDescription}</td>
-                <td>${contact.description}</td>
+                <td>${singer.description}</td>
             </tr>
             <tr>
                 <td>${labelContactPhoto}</td>
-                <td><img src="${contactPhotoUrl}/${contact.id}"></img></td>
+                <td><img src="${contactPhotoUrl}/${singer.id}"></img></td>
             </tr>
         </table>
 
-        <a href="${editContactUrl}/${contact.id}?form">${labelContactUpdate}</a>
+        <a href="${editContactUrl}/${singer.id}?form">${labelContactUpdate}</a>
     </div>
 </div>

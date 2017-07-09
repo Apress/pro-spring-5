@@ -1,5 +1,5 @@
 subprojects {
-	group 'com.apress.prospring5.ch14'
+	group 'com.apress.prospring5.ch17'
 	apply plugin: 'java'
 
 	//Unfortunately, the runtime discovery algorithm in commons-logging, while convenient for the end-user, is problematic

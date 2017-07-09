@@ -1,4 +1,4 @@
-package com.apress.prospring5.ch12;
+package com.apress.prospring5.ch15;
 
 import com.apress.prospring5.ch12.entities.Singer;
 import com.apress.prospring5.ch12.entities.Singers;
@@ -6,9 +6,12 @@ import com.apress.prospring5.ch12.services.SingerService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
 @RequestMapping(value="/singer")
@@ -18,24 +21,20 @@ public class SingerController {
     @Autowired
     private SingerService singerService;
 
-    @ResponseStatus(HttpStatus.OK)
-    //@RequestMapping(value = "/listdata", method = RequestMethod.GET)
+    @RequestMapping(value = "/listdata", method = RequestMethod.GET)
     @ResponseBody
-    @GetMapping(value = "/listdata")
     public Singers listData() {
         return new Singers(singerService.findAll());
     }
 
-    //@RequestMapping(value="/{id}", method=RequestMethod.GET)
+    @RequestMapping(value="/{id}", method=RequestMethod.GET)
     @ResponseBody
-    @GetMapping(value = "/{id}")
     public Singer findSingerById(@PathVariable Long id) {
         return singerService.findById(id);
     }
 
-    //@RequestMapping(value="/", method=RequestMethod.POST)
+    @RequestMapping(value="/", method=RequestMethod.POST)
     @ResponseBody
-    @PostMapping(value="/")
     public Singer create(@RequestBody Singer singer) {
         logger.info("Creating singer: " + singer);
         singerService.save(singer);
@@ -43,9 +42,8 @@ public class SingerController {
         return singer;
     }
 
-    //@RequestMapping(value="/{id}", method=RequestMethod.PUT)
+    @RequestMapping(value="/{id}", method=RequestMethod.PUT)
     @ResponseBody
-    @PutMapping(value="/{id}")
     public void update(@RequestBody Singer singer,
                        @PathVariable Long id) {
         logger.info("Updating singer: " + singer);
@@ -53,9 +51,8 @@ public class SingerController {
         logger.info("Singer updated successfully with info: " + singer);
     }
 
-    //@RequestMapping(value="/{id}", method=RequestMethod.DELETE)
+    @RequestMapping(value="/{id}", method=RequestMethod.DELETE)
     @ResponseBody
-    @DeleteMapping(value="/{id}")
     public void delete(@PathVariable Long id) {
         logger.info("Deleting singer with id: " + id);
         Singer singer = singerService.findById(id);

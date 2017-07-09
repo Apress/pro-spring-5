@@ -1,5 +1,5 @@
 <mapping>
-    <class name="com.apress.prospring5.ch12.Singers">
+    <class name="com.apress.prospring5.ch12.entities.Singers">
         <field name="singers" type="com.apress.prospring5.ch12.entities.Singer" collection="arraylist">
             <bind-xml name="singer"/>
         </field>

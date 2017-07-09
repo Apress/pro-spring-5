@@ -1,0 +1,32 @@
+buildscript {
+    repositories {
+        mavenLocal()
+        mavenCentral()
+        maven { url "http://repo.spring.io/release" }
+        maven { url "http://repo.spring.io/snapshot" }
+        maven { url "https://repo.spring.io/libs-snapshot" }
+        maven { url "http://repo.spring.io/milestone" }
+        maven { url "https://repo.spring.io/libs-milestone" }
+    }
+
+    dependencies {
+        classpath boot.springBootPlugin
+    }
+}
+
+apply plugin: 'org.springframework.boot'
+
+dependencies {
+    compile boot.starterJpa, boot.starterJta, boot.starterJms, db.h2
+    compile(misc.artemis) {
+        exclude group: 'org.apache.geronimo.specs', module: 'geronimo-jms_2.0_spec'
+    }
+}
+
+jar {
+    manifest {
+        attributes("Created-By": "Iuliana Cosmina",
+                "Specification-Title": "Pro Spring 5",
+                "Class-Path": configurations.compile.collect { it.getName() }.join(' '))
+    }
+}

@@ -1,14 +1,16 @@
+apply plugin: 'war'
+
 dependencies {
-	compile db.mysql
-	compile (hibernate.tx) {
-		exclude group: 'org.hibernate', module: 'hibernate'
-	}
+	compile project(':chapter12:base-remote')
 }
 
-jar {
+
+war {
+	archiveName = 'jmx.war'
 	manifest {
 		attributes("Created-By"      : "Iuliana Cosmina",
 				"Specification-Title": "Pro Spring 5",
 				"Class-Path"         : configurations.compile.collect { it.getName() }.join(' '))
 	}
 }
+

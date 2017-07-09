@@ -25,7 +25,7 @@
         </field>
     </class>
 
-    <field-handler name="dateHandler" class="com.apress.prospring5.ch12.DateTimeFieldHandler">
+    <field-handler name="dateHandler" class="com.apress.prospring5.ch15.DateTimeFieldHandler">
         <param name="date-format" value="yyyy-MM-dd"/>
     </field-handler>
 </mapping>
