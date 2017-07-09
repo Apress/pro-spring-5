@@ -18,7 +18,6 @@ apply plugin: 'org.springframework.boot'
 
 dependencies {
     compile boot.starterJpa, boot.starterJta, boot.starterWeb, db.h2, misc.guava
-
 }
 
 jar {

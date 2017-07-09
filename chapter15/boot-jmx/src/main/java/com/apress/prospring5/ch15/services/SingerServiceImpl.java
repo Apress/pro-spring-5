@@ -28,6 +28,10 @@ public class SingerServiceImpl implements SingerService {
 		return singerRepository.findByFirstName(firstName);
 	}
 
+	@Override public List<Singer> findByFirstNameAndLastName(String firstName, String lastName) {
+		return singerRepository.findByFirstNameAndLastName(firstName,lastName);
+	}
+
 	@Override
 	@Transactional(readOnly = true)
 	public Singer findById(Long id) {

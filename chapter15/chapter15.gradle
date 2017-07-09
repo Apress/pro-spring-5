@@ -24,7 +24,7 @@ subprojects {
 				exclude  module: 'spring-core'
 			}
 			compile  misc.slf4jJcl, misc.logback, misc.lang3, hibernate.em, hibernate.jpaApi, misc.guava, db.h2,
-					spring.data, spring.webmvc, misc.castor,
+					spring.data, spring.webmvc,  misc.servlet, spring.oxm, misc.castor,
 					misc.jacksonDatabind, misc.httpclient
 		}
 		testCompile testing.junit

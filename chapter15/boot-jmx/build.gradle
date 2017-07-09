@@ -17,10 +17,7 @@ buildscript {
 apply plugin: 'org.springframework.boot'
 
 dependencies {
-    compile boot.starterJpa, boot.starterJta, boot.starterJms, db.h2
-    compile(misc.artemis) {
-        exclude group: 'org.apache.geronimo.specs', module: 'geronimo-jms_2.0_spec'
-    }
+    compile boot.starterJpa, boot.starterJta, boot.starterWeb, db.h2, misc.guava, boot.actuator
 }
 
 jar {

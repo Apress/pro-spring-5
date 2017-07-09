@@ -86,7 +86,8 @@ ext {
 			starterJpa      : "org.springframework.boot:spring-boot-starter-data-jpa:$bootVersion",
 			starterJta      : "org.springframework.boot:spring-boot-starter-jta-atomikos:$bootVersion",
 			starterJms      : "org.springframework.boot:spring-boot-starter-artemis:$bootVersion",
-			starterRabbitmq : "org.springframework.boot:spring-boot-starter-amqp:$bootVersion"
+			starterRabbitmq : "org.springframework.boot:spring-boot-starter-amqp:$bootVersion",
+			actuator        : "org.springframework.boot:spring-boot-starter-actuator:$bootVersion"
 	]
 
 	testing = [
