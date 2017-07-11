@@ -271,6 +271,11 @@ findProject(':chapter15:jmx')?.name = 'jmx'
 include 'chapter15:boot-jmx'
 findProject(':chapter15:boot-jmx')?.name = 'boot-jmx'
 
+
+include 'chapter16'
+include 'chapter16:singer-webapp'
+findProject(':chapter16:singer-webapp')?.name = 'singer-webapp'
+
 println(' This project is a collection of simple code samples. It is meant to be used together with the ' +
 		'"Spring Pro, Fifth Edition" ' +
 		' published by Apress in order to learn and practice with all Spring Web libraries. ')

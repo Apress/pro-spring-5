@@ -1,6 +1,6 @@
 ext {
 	//spring libs
-	springVersion = '5.0.0.RC1'
+	springVersion = '5.0.0.RC2'
 	bootVersion = '2.0.0.M1'
 	springDataVersion = '2.0.0.M3'
 	springAmqpVersion = '2.0.0.M4'
@@ -30,11 +30,12 @@ ext {
 	jacksonVersion = '2.9.0.pr3'
 	httpclientVersion = '4.5.3'
 	poiVersion = '3.16'
+	tilesVersion = '3.0.7'
 
 	//persistency libraries
 	hibernateVersion = '5.2.10.Final'
 	hibernateJpaVersion = '1.0.0.Final'
-	hibernateValidatorVersion = '6.0.0.Beta2'
+	hibernateValidatorVersion = '5.4.1.Final' //6.0.0.Beta2
 	atomikosVersion = '4.0.4'
 
 	//testing libs
@@ -125,7 +126,10 @@ ext {
 			castor         : "org.codehaus.castor:castor-xml:$castorVersion",
 			jacksonDatabind: "com.fasterxml.jackson.core:jackson-databind:$jacksonVersion",
 			httpclient     : "org.apache.httpcomponents:httpclient:$httpclientVersion",
-			poi            : "org.apache.poi:poi:$poiVersion"
+			poi            : "org.apache.poi:poi:$poiVersion",
+			io             : "commons-io:commons-io:2.5",
+			tiles          : "org.apache.tiles:tiles-jsp:$tilesVersion",
+			jstl           : "jstl:jstl:1.2"
 	]
 
 	db = [

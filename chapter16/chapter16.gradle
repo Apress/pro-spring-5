@@ -23,9 +23,21 @@ subprojects {
 				exclude  module: 'spring-beans'
 				exclude  module: 'spring-core'
 			}
-			compile  misc.slf4jJcl, misc.logback, misc.lang3, hibernate.em, misc.guava, db.h2,
-					spring.data, spring.webmvc, spring.securityWeb, spring.securityConfig, misc.castor,
-					misc.jacksonDatabind, misc.httpclient
+			compile (spring.securityWeb) {
+				exclude  module: 'spring-web'
+				exclude  module: 'spring-context'
+				exclude  module: 'spring-beans'
+				exclude  module: 'spring-core'
+			}
+			compile (spring.securityConfig) {
+				exclude  module: 'spring-security-core'
+				exclude  module: 'spring-context'
+				exclude  module: 'spring-beans'
+				exclude  module: 'spring-core'
+			}
+			compile  misc.slf4jJcl, misc.logback, misc.lang3, hibernate.em, hibernate.validator, misc.guava, db.h2,
+					spring.data, spring.webmvc, misc.castor, misc.validation, misc.tiles, misc.jstl,
+					misc.jacksonDatabind, misc.httpclient, misc.servlet, misc.io
 		}
 		testCompile testing.junit
 	}

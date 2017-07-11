@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<div xmlns:jsp="http://java.sun.com/JSP/Page"
+     xmlns:c="http://java.sun.com/jsp/jstl/core"
+     xmlns:spring="http://www.springframework.org/tags"
+     xmlns:form="http://www.springframework.org/tags/form"
+     version="2.0">
+
+    <script type="text/javascript">
+        $(function(){
+            $('#birthDate').datepicker({
+                dateFormat: 'yy-mm-dd',
+                changeYear: true
+            });
+
+            $("#singerDescription").ckeditor(
+                    {
+                        toolbar : 'Basic',
+                        uiColor : '#CCCCCC'
+                    }
+            );
+        });
+    </script>
+
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+
+    <spring:message code="label_singer_new" var="labelSingerNew"/>
+    <spring:message code="label_singer_update" var="labelSingerUpdate"/>
+    <spring:message code="label_singer_first_name" var="labelSingerFirstName"/>
+    <spring:message code="label_singer_last_name" var="labelSingerLastName"/>
+    <spring:message code="label_singer_birth_date" var="labelSingerBirthDate"/>
+    <spring:message code="label_singer_description" var="labelSingerDescription"/>
+    <spring:message code="label_singer_photo" var="labelSingerPhoto"/>
+
+    <spring:eval expression="singer.id == null ? labelSingerNew:labelSingerUpdate"
+                 var="formTitle"/>
+
+    <h1>${formTitle}</h1>
+
+    <div id="singerUpdate">
+        <form:form modelAttribute="singer" id="singerUpdateForm" method="post"
+                   enctype="multipart/form-data">
+
+        <c:if test="${not empty message}">
+                <div id="message" class="${message.type}">${message.message}</div>
+            </c:if>
+
+            <form:label path="firstName">
+                ${labelSingerFirstName}*
+            </form:label>
+            <form:input path="firstName" />
+            <div>
+                <form:errors path="firstName" cssClass="error" />
+            </div>
+            <p/>
+
+            <form:label path="lastName">
+                ${labelSingerLastName}*
+            </form:label>
+            <form:input path="lastName" />
+            <div>
+                <form:errors path="lastName" cssClass="error" />
+            </div>
+            <p/>
+
+            <form:label path="birthDate">
+                ${labelSingerBirthDate}
+            </form:label>
+            <form:input path="birthDate" id="birthDate"/>
+            <div>
+                <form:errors path="birthDate" cssClass="error" />
+            </div>
+            <p/>
+
+            <form:label path="description">
+                ${labelSingerDescription}
+            </form:label>
+            <form:textarea cols="60" rows="8" path="description" id="singerDescription"/>
+            <div>
+                <form:errors path="description" cssClass="error" />
+            </div>
+            <p/>
+
+            <label for="file">
+                ${labelSingerPhoto}
+            </label>
+            <input name="file" type="file"/>
+            <p/>
+
+            <form:hidden path="version" />
+
+            <button type="submit" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only">
+                <span class="ui-button-text">Save</span>
+            </button>
+            <button type="reset" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only">
+                <span class="ui-button-text">Reset</span>
+            </button>
+        </form:form>
+    </div>
+</div>
