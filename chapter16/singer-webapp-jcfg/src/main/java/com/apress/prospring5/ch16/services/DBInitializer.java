@@ -1,6 +1,6 @@
 package com.apress.prospring5.ch16.services;
 
-import com.apress.prospring5.ch16.entitites.Singer;
+import com.apress.prospring5.ch16.entities.Singer;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -1,0 +1,34 @@
+/* Friendly CSS Error Messages
+   Original idea by http://www.richardoneill.com.au/tags/web_design
+   Improved by IdleWorx @ http://blog.idleworx.com
+   http://blog.idleworx.com/2010/11/friendly-css-error-messages-for-java.html
+   Customized by Iuliana Cosmina
+*/
+
+.success{
+    color:#69A150;
+    font-size:1.2em;
+    font-family: 'helvetica', Georgia, arial, sans-serif;
+    font-weight:bold;
+}
+
+.info{
+    color:#5C7CA0;
+    font-size:1.2em;
+    font-family: 'helvetica', Georgia, arial, sans-serif;
+    font-weight:bold;
+}
+
+.warn{
+    color:#BF9E1B;
+    font-size:1.2em;
+    font-family: 'helvetica', Georgia, arial, sans-serif;
+    font-weight:bold;
+}
+
+.error{
+    color:#AD5E5C;
+    font-size:1.2em;
+    font-family: 'helvetica', Georgia, arial, sans-serif;
+    font-weight:bold;
+}

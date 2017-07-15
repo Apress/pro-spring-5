@@ -8,7 +8,7 @@ import java.util.Locale;
 import com.apress.prospring5.ch16.util.Message;
 import com.apress.prospring5.ch16.util.SingerGrid;
 import com.apress.prospring5.ch16.util.UrlUtil;
-import com.apress.prospring5.ch16.entitites.Singer;
+import com.apress.prospring5.ch16.entities.Singer;
 import com.apress.prospring5.ch16.services.SingerService;
 import com.google.common.collect.Lists;
 import org.apache.commons.io.IOUtils;
@@ -88,7 +88,9 @@ public class SingerController {
     }
 
     @RequestMapping(method = RequestMethod.POST)
-    public String create(@Valid Singer singer, BindingResult bindingResult, Model uiModel, HttpServletRequest httpServletRequest, RedirectAttributes redirectAttributes, Locale locale, @RequestParam(value="file", required=false) Part file) {
+    public String create(@Valid Singer singer, BindingResult bindingResult, Model uiModel,
+            HttpServletRequest httpServletRequest, RedirectAttributes redirectAttributes,
+            Locale locale, @RequestParam(value="file", required=false) Part file) {
         logger.info("Creating singer");
         if (bindingResult.hasErrors()) {
             uiModel.addAttribute("message", new Message("error",
@@ -173,9 +175,9 @@ public class SingerController {
         PageRequest pageRequest = null;
 
         if (sort != null) {
-            pageRequest = new PageRequest(page - 1, rows, sort);
+            pageRequest =  PageRequest.of(page - 1, rows, sort);
         } else {
-            pageRequest = new PageRequest(page - 1, rows);
+            pageRequest = PageRequest.of(page - 1, rows);
         }
 
         Page<Singer> singerPage = singerService.findAllByPage(pageRequest);

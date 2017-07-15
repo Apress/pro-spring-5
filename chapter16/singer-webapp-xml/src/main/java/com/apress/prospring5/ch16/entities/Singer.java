@@ -1,4 +1,4 @@
-package com.apress.prospring5.ch16.entitites;
+package com.apress.prospring5.ch16.entities;
 
 
 import org.hibernate.validator.constraints.NotBlank;

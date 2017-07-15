@@ -37,7 +37,7 @@ subprojects {
 			}
 			compile  misc.slf4jJcl, misc.logback, misc.lang3, hibernate.em, hibernate.validator, misc.guava, db.h2,
 					spring.data, spring.webmvc, misc.castor, misc.validation, misc.tiles, misc.jstl,
-					misc.jacksonDatabind, misc.httpclient, misc.servlet, misc.io
+					misc.jacksonDatabind, misc.servlet, misc.io
 		}
 		testCompile testing.junit
 	}

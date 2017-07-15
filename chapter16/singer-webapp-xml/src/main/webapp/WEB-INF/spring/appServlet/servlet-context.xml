@@ -21,6 +21,9 @@
 
     <security:global-method-security pre-post-annotations="enabled"/>
 
+    <resources location="/" mapping="/resources/**"/>
+
+    <default-servlet-handler/>
 
     <beans:bean class="org.springframework.web.servlet.view.UrlBasedViewResolver"
                 id="tilesViewResolver">
@@ -36,9 +39,25 @@
         </beans:property>
     </beans:bean>
 
+    <context:component-scan base-package="com.apress.prospring5.ch16" />
+
+    <interceptors>
+        <beans:bean class="org.springframework.web.servlet.theme.ThemeChangeInterceptor"/>
+        <beans:bean class="org.springframework.web.servlet.i18n.LocaleChangeInterceptor"
+                    p:paramName="lang"/>
+    </interceptors>
+
     <beans:bean class="org.springframework.context.support.ReloadableResourceBundleMessageSource"
                 id="messageSource" p:basenames="WEB-INF/i18n/messages,WEB-INF/i18n/application"
                 p:fallbackToSystemLocale="false"/>
+
+    <beans:bean class="org.springframework.web.servlet.i18n.CookieLocaleResolver"
+                id="localeResolver" p:cookieName="locale"/>
+
+    <beans:bean class="org.springframework.ui.context.support.ResourceBundleThemeSource" id="themeSource"/>
+
+    <beans:bean class="org.springframework.web.servlet.theme.CookieThemeResolver"
+                id="themeResolver" p:cookieName="theme" p:defaultThemeName="standard"/>
 
     <beans:bean id="validator" class="org.springframework.validation.beanvalidation.LocalValidatorFactoryBean">
         <beans:property name="validationMessageSource" ref="messageSource"/>
@@ -59,5 +78,6 @@
     <!-- Defines basic MVC defaults (handler adapter, mapping, date formatting, etc) -->
     <annotation-driven conversion-service="typeConversionService" validator="validator"/>
 
+    <view-controller path="/" view-name="singers/list"/>
 
 </beans:beans>

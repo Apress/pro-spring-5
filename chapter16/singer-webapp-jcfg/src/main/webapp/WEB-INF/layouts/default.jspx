@@ -17,10 +17,10 @@
     <spring:url value="/${app_css}" var="app_css_url" />
     <link rel="stylesheet" type="text/css" media="screen" href="${app_css_url}" />
 
-    <spring:url value="/resources/scripts/jquery-1.11.1.js" var="jquery_url" />
-    <spring:url value="/resources/scripts/jquery-ui-1.10.4.custom.min.js"
+    <spring:url value="/resources/scripts/jquery-1.12.4.js" var="jquery_url" />
+    <spring:url value="/resources/scripts/jquery-ui.min.js"
                 var="jquery_ui_url" />
-    <spring:url value="/resources/styles/custom-theme/jquery-ui-1.10.4.custom.css"
+    <spring:url value="/resources/styles/custom-theme/jquery-ui.theme.min.css"
                 var="jquery_ui_theme_css" />
     <link rel="stylesheet" type="text/css" media="screen" href="${jquery_ui_theme_css}" />
     <script src="${jquery_url}" type="text/javascript"><jsp:text/></script>

@@ -1,6 +1,6 @@
 package com.apress.prospring5.ch16.util;
 
-import com.apress.prospring5.ch16.entitites.Singer;
+import com.apress.prospring5.ch16.entities.Singer;
 
 import java.util.List;
 

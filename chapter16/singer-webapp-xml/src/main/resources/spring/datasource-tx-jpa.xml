@@ -32,7 +32,7 @@
         <property name="jpaVendorAdapter">
             <bean class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter" />
         </property>
-        <property name="packagesToScan" value="com.apress.prospring5.ch16.entitites"/>
+        <property name="packagesToScan" value="com.apress.prospring5.ch16.entities"/>
         <property name="jpaProperties">
             <props>
                 <prop key="hibernate.dialect">

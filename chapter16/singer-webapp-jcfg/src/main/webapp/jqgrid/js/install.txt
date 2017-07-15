@@ -9,7 +9,7 @@ Download the desired theme (or build a custom one) from jQueryUI site
 (www.jqueryui.com) and point in your link tag in head section the path to the
 theme css
 
-<link rel="stylesheet" type="text/css" media="screen" href="path_to_ui_css_file/jquery-ui-1.7.1.custom.css" />
+<link rel="stylesheet" type="text/css" media="screen" href="path_to_ui_css_file/jquery-ui.theme.min.css" />
 
 where the path_to_ui_css_file is a valid path to the ui theme file
 

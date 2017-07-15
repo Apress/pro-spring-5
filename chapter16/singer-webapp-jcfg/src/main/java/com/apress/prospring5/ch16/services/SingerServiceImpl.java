@@ -3,7 +3,7 @@ package com.apress.prospring5.ch16.services;
 import java.util.List;
 
 import com.apress.prospring5.ch16.repos.SingerRepository;
-import com.apress.prospring5.ch16.entitites.Singer;
+import com.apress.prospring5.ch16.entities.Singer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;

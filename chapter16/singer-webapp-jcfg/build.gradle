@@ -1,7 +1,7 @@
 apply plugin: 'war'
 
 war {
-    archiveName = 'singer-webapp.war'
+    archiveName = 'singer-webapp-jcfg.war'
     manifest {
         attributes("Created-By"      : "Iuliana Cosmina",
                 "Specification-Title": "Pro Spring 5",

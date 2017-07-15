@@ -8,7 +8,7 @@
     <spring:message code="header_text" var="headerText"/>
     <spring:message code="label_logout" var="labelLogout"/>
     <spring:message code="label_welcome" var="labelWelcome"/>
-    <spring:url var="logoutUrl" value="/j_spring_security_logout" />
+    <spring:url var="logoutUrl" value="/logout" />
 
     <div id="appname">
         <h1>${headerText}</h1>
