@@ -8,7 +8,7 @@
         http://www.springframework.org/schema/security/spring-security.xsd">
 
     <http use-expressions="true">
-        <intercept-url pattern='/WEB-INF' access='permitAll' />
+        <intercept-url pattern='/*' access='permitAll' />
         <form-login login-page="/singers" authentication-failure-url="/security/loginfail"
                     default-target-url="/singers" />
         <csrf disabled="true"/>

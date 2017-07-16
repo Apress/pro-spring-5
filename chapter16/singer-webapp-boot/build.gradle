@@ -17,14 +17,15 @@ buildscript {
 apply plugin: 'org.springframework.boot'
 
 dependencies {
-    compile boot.starterJpa, db.h2
+    compile boot.starterJpa, boot.starterJta, db.h2, boot.starterWeb, boot.starterThyme, boot.starterSecurity
+    testCompile boot.starterTest
 }
 
 jar {
     manifest {
-        attributes( "Created-By"         : "Iuliana Cosmina",
+        attributes("Created-By": "Iuliana Cosmina",
                 "Specification-Title": "Pro Spring 5",
-                "Main-Class"         : "com.apress.prospring5.ch8.Application",
-                "Class-Path"         : configurations.compile.collect { it.getName() }.join(' '))
+                "Main-Class"         : "com.apress.prospring5.ch16.SingerApplication",
+                "Class-Path": configurations.compile.collect { it.getName() }.join(' '))
     }
 }

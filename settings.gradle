@@ -277,6 +277,8 @@ include 'chapter16:singer-webapp-xml'
 findProject(':chapter16:singer-webapp-xml')?.name = 'singer-webapp-xml'
 include 'chapter16:singer-webapp-jcfg'
 findProject(':chapter16:singer-webapp-jcfg')?.name = 'singer-webapp-jcfg'
+include 'chapter16:singer-webapp-boot'
+findProject(':chapter16:singer-webapp-boot')?.name = 'singer-webapp-boot'
 
 println(' This project is a collection of simple code samples. It is meant to be used together with the ' +
 		'"Spring Pro, Fifth Edition" ' +

@@ -17,13 +17,14 @@ subprojects {
 
 	dependencies {
 		//we specify these dependencies for all submodules, except the boot module, that defines its own
+		compile misc.guava
 		if (!project.name.contains("boot")) {
 			compile (spring.contextSupport) {
 				exclude  module: 'spring-context'
 				exclude  module: 'spring-beans'
 				exclude  module: 'spring-core'
 			}
-			compile (spring.securityWeb) {
+			compile (spring.securityTaglibs) {
 				exclude  module: 'spring-web'
 				exclude  module: 'spring-context'
 				exclude  module: 'spring-beans'
@@ -35,7 +36,7 @@ subprojects {
 				exclude  module: 'spring-beans'
 				exclude  module: 'spring-core'
 			}
-			compile  misc.slf4jJcl, misc.logback, misc.lang3, hibernate.em, hibernate.validator, misc.guava, db.h2,
+			compile  misc.slf4jJcl, misc.logback, misc.lang3, hibernate.em, hibernate.validator, db.h2,
 					spring.data, spring.webmvc, misc.castor, misc.validation, misc.tiles, misc.jstl,
 					misc.jacksonDatabind, misc.servlet, misc.io
 		}

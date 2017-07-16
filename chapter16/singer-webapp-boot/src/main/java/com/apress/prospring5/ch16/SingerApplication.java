@@ -1,27 +1,23 @@
-package com.apress.prospring5.ch4;
+package com.apress.prospring5.ch16;
 
-import com.apress.prospring5.ch4.ctrl.HelloWorld;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;
 
-import java.util.Arrays;
-
 /**
- * Created by iuliana.cosmina on 3/19/17.
+ * Created by iuliana.cosmina on 7/16/17.
  */
-@SpringBootApplication(scanBasePackageClasses = HelloWorld.class)
-public class WebApplication {
+@SpringBootApplication(scanBasePackages = {"com.apress.prospring5.ch16.web", "com.apress.prospring5.ch16.services"})
+public class SingerApplication {
 
-	private static Logger logger = LoggerFactory.getLogger(WebApplication.class);
+	private static Logger logger = LoggerFactory.getLogger(SingerApplication.class);
 
 	public static void main(String... args) throws Exception {
-		ConfigurableApplicationContext ctx = SpringApplication.run(WebApplication.class, args);
+		ConfigurableApplicationContext ctx = SpringApplication.run(SingerApplication.class, args);
 		assert (ctx != null);
 		logger.info("Application started...");
-
 		System.in.read();
 		ctx.close();
 	}

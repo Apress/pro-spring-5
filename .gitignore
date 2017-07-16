@@ -6,6 +6,7 @@ build
 gradle
 gradlew*
 *.class
+transaction-logs
 
 # Mobile Tools for Java (J2ME)
 .mtj.tmp/

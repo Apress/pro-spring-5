@@ -46,21 +46,22 @@ ext {
 	junit5Version = '5.0.0-M4'
 
 	spring = [
-			context       : "org.springframework:spring-context:$springVersion",
-			webmvc        : "org.springframework:spring-webmvc:$springVersion",
-			aop           : "org.springframework:spring-aop:$springVersion",
-			aspects       : "org.springframework:spring-aspects:$springVersion",
-			tx            : "org.springframework:spring-tx:$springVersion",
-			jdbc          : "org.springframework:spring-jdbc:$springVersion",
-			contextSupport: "org.springframework:spring-context-support:$springVersion",
-			orm           : "org.springframework:spring-orm:$springVersion",
-			data          : "org.springframework.data:spring-data-jpa:$springDataVersion",
-			test          : "org.springframework:spring-test:$springVersion",
-			jms           : "org.springframework:spring-jms:$springVersion",
-			oxm           : "org.springframework:spring-oxm:$springVersion",
-			securityWeb   : "org.springframework.security:spring-security-web:$springSecurityVersion",
-			securityConfig: "org.springframework.security:spring-security-config:$springSecurityVersion",
-			rabbit        : "org.springframework.amqp:spring-rabbit:$springAmqpVersion"
+			context        : "org.springframework:spring-context:$springVersion",
+			webmvc         : "org.springframework:spring-webmvc:$springVersion",
+			aop            : "org.springframework:spring-aop:$springVersion",
+			aspects        : "org.springframework:spring-aspects:$springVersion",
+			tx             : "org.springframework:spring-tx:$springVersion",
+			jdbc           : "org.springframework:spring-jdbc:$springVersion",
+			contextSupport : "org.springframework:spring-context-support:$springVersion",
+			orm            : "org.springframework:spring-orm:$springVersion",
+			data           : "org.springframework.data:spring-data-jpa:$springDataVersion",
+			test           : "org.springframework:spring-test:$springVersion",
+			jms            : "org.springframework:spring-jms:$springVersion",
+			oxm            : "org.springframework:spring-oxm:$springVersion",
+			securityWeb    : "org.springframework.security:spring-security-web:$springSecurityVersion",
+			securityConfig : "org.springframework.security:spring-security-config:$springSecurityVersion",
+			securityTaglibs: "org.springframework.security:spring-security-taglibs:$springSecurityVersion",
+			rabbit         : "org.springframework.amqp:spring-rabbit:$springAmqpVersion"
 
 	]
 
@@ -88,7 +89,9 @@ ext {
 			starterJta      : "org.springframework.boot:spring-boot-starter-jta-atomikos:$bootVersion",
 			starterJms      : "org.springframework.boot:spring-boot-starter-artemis:$bootVersion",
 			starterRabbitmq : "org.springframework.boot:spring-boot-starter-amqp:$bootVersion",
-			actuator        : "org.springframework.boot:spring-boot-starter-actuator:$bootVersion"
+			starterThyme    : "org.springframework.boot:spring-boot-starter-thymeleaf:$bootVersion",
+			starterSecurity : "org.springframework.boot:spring-boot-starter-security:$bootVersion"
+
 	]
 
 	testing = [

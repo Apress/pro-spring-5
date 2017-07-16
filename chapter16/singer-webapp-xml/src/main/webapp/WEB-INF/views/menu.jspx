@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <div id="menu" xmlns:jsp="http://java.sun.com/JSP/Page"
-     xmlns:c="http://java.sun.com/jsp/jstl/core"
      xmlns:spring="http://www.springframework.org/tags"
      xmlns:sec="http://www.springframework.org/security/tags"
      version="2.0">
@@ -8,15 +7,15 @@
     <jsp:output omit-xml-declaration="yes" />
 
     <spring:message code="menu_header_text" var="menuHeaderText"/>
-    <spring:message code="menu_add_singer" var="menuAddsinger"/>
-    <spring:url value="/singers?form" var="addsingerUrl"/>
+    <spring:message code="menu_add_singer" var="menuAddSinger"/>
+    <spring:url value="/singers?form" var="addSingerUrl"/>
 
     <spring:message code="label_login" var="labelLogin"/>
     <spring:url var="loginUrl" value="/login" />
 
     <h3>${menuHeaderText}</h3>
     <sec:authorize access="hasRole('ROLE_USER')">
-        <a href="${addsingerUrl}"><h3>${menuAddsinger}</h3></a>
+        <a href="${addSingerUrl}"><h3>${menuAddSinger}</h3></a>
     </sec:authorize>
 
     <sec:authorize access="isAnonymous()">
