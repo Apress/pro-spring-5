@@ -53,7 +53,15 @@
 
 <body class="tundra spring">
 <div id="headerWrapper">
-    <tiles:insertAttribute name="header" ignore="true" />
+    <table>
+        <tr>
+            <td width="55">
+                <div class="banner"></div>
+            </td>
+            <td>
+                <tiles:insertAttribute name="header" ignore="true"/></td>
+        </tr>
+    </table>
 </div>
 <div id="wrapper">
     <tiles:insertAttribute name="menu" ignore="true" />

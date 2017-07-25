@@ -1,6 +1,9 @@
 @import url("messages/messages.css");
 
-/* main elements */
+.banner {
+    background: url("../images/banner.png") no-repeat 0px center;
+    height: 90px;
+}
 
 body,div,td {
     font-family: Arial, Helvetica, sans-serif;

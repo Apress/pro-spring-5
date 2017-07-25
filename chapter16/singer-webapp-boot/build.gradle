@@ -17,8 +17,9 @@ buildscript {
 apply plugin: 'org.springframework.boot'
 
 dependencies {
-    compile boot.starterJpa, boot.starterJta, db.h2, boot.starterWeb, boot.starterThyme, boot.starterSecurity
-    testCompile boot.starterTest
+    compile boot.starterJpa, boot.starterJta, db.h2, boot.starterWeb, boot.starterThyme, boot.starterSecurity,
+            misc.thymeSecurity, misc.bootstrap
+    testCompile boot.starterTest, spring.springSecurityTest
 }
 
 jar {

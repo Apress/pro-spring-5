@@ -9,7 +9,7 @@ import org.springframework.context.ConfigurableApplicationContext;
 /**
  * Created by iuliana.cosmina on 7/16/17.
  */
-@SpringBootApplication(scanBasePackages = {"com.apress.prospring5.ch16.web", "com.apress.prospring5.ch16.services"})
+@SpringBootApplication
 public class SingerApplication {
 
 	private static Logger logger = LoggerFactory.getLogger(SingerApplication.class);
@@ -18,6 +18,7 @@ public class SingerApplication {
 		ConfigurableApplicationContext ctx = SpringApplication.run(SingerApplication.class, args);
 		assert (ctx != null);
 		logger.info("Application started...");
+
 		System.in.read();
 		ctx.close();
 	}

@@ -1,29 +1,24 @@
-<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-spring4-4.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:th="http://www.thymeleaf.org">
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
 
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link href="../../public/css/bootstrap.min.css"
+          th:href="@{/webjars/bootstrap/4.0.0-alpha.6-1/css/bootstrap.min.css}"
+          rel="stylesheet" media="screen" />
+    <link href="../../public/css/general.css"
+          th:href="@{css/general.css}" rel="stylesheet" media="screen"/>
+
     <title>
         ProSpring5 Singer Boot Application
     </title>
-    <link type="text/css" rel="stylesheet" href="/general.css"/>
+
 </head>
 
 <body>
-<div class="page">
-    <h2>ProSpring5 Singer Boot Application</h2>
-    <h3>Overview</h3>
-    <ul>
-        <li>This is a simple web application that manages a singer database. It does the following:</li>
-        <li>List Singers</li>
-        <li>Create Singer</li>
-        <li>Edit Singer</li>
-    </ul>
-
-    <div class="footer">
-        <p>Copyright © 2017 by Iuliana Cosmina and Apress. All rights reserved.</p>
-    </div>
+<div th:replace="~{fragments/header :: header}">Header</div>
+<div class="container">
+    <div th:insert="~{fragments/footer :: footer}">&copy; 2017 The Static Templates</div>
 </div>
 </body>
 </html>

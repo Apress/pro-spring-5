@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <title>
+        ProSpring5 Singer Boot Application
+    </title>
+    <link href="../../public/css/general.css"
+          th:href="@{css/general.css}" rel="stylesheet" media="screen"/>
+</head>
+
+<body>
+<div class="page">
+    <h2>Singer Details</h2>
+
+    <table class="table table-striped">
+        <tr>
+            <td>First Name:</td>
+            <td><p th:text="${singer.firstName}">Singer First Name</p></td>
+        </tr>
+        <tr>
+            <td>Last Name:</td>
+            <td><p th:text="${singer.lastName}">Singer Last Name</p></td>
+        </tr>
+        <tr>
+            <td>Description:</td>
+            <td><p th:text="${singer.description}">Singer Description</p></td>
+        </tr>
+    </table>
+
+    <div class="footer">
+        <p>Copyright © 2017 by Iuliana Cosmina and Apress. All rights reserved.</p>
+    </div>
+</div>
+</body>
+</html>

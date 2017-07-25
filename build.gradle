@@ -31,6 +31,8 @@ ext {
 	httpclientVersion = '4.5.3'
 	poiVersion = '3.16'
 	tilesVersion = '3.0.7'
+	bootstrapVersion = '4.0.0-alpha.6-1'
+	thymeSecurityVersion= '3.0.2.RELEASE'
 
 	//persistency libraries
 	hibernateVersion = '5.2.10.Final'
@@ -46,22 +48,23 @@ ext {
 	junit5Version = '5.0.0-M4'
 
 	spring = [
-			context        : "org.springframework:spring-context:$springVersion",
-			webmvc         : "org.springframework:spring-webmvc:$springVersion",
-			aop            : "org.springframework:spring-aop:$springVersion",
-			aspects        : "org.springframework:spring-aspects:$springVersion",
-			tx             : "org.springframework:spring-tx:$springVersion",
-			jdbc           : "org.springframework:spring-jdbc:$springVersion",
-			contextSupport : "org.springframework:spring-context-support:$springVersion",
-			orm            : "org.springframework:spring-orm:$springVersion",
-			data           : "org.springframework.data:spring-data-jpa:$springDataVersion",
-			test           : "org.springframework:spring-test:$springVersion",
-			jms            : "org.springframework:spring-jms:$springVersion",
-			oxm            : "org.springframework:spring-oxm:$springVersion",
-			securityWeb    : "org.springframework.security:spring-security-web:$springSecurityVersion",
-			securityConfig : "org.springframework.security:spring-security-config:$springSecurityVersion",
-			securityTaglibs: "org.springframework.security:spring-security-taglibs:$springSecurityVersion",
-			rabbit         : "org.springframework.amqp:spring-rabbit:$springAmqpVersion"
+			context           : "org.springframework:spring-context:$springVersion",
+			webmvc            : "org.springframework:spring-webmvc:$springVersion",
+			aop               : "org.springframework:spring-aop:$springVersion",
+			aspects           : "org.springframework:spring-aspects:$springVersion",
+			tx                : "org.springframework:spring-tx:$springVersion",
+			jdbc              : "org.springframework:spring-jdbc:$springVersion",
+			contextSupport    : "org.springframework:spring-context-support:$springVersion",
+			orm               : "org.springframework:spring-orm:$springVersion",
+			data              : "org.springframework.data:spring-data-jpa:$springDataVersion",
+			test              : "org.springframework:spring-test:$springVersion",
+			jms               : "org.springframework:spring-jms:$springVersion",
+			oxm               : "org.springframework:spring-oxm:$springVersion",
+			securityWeb       : "org.springframework.security:spring-security-web:$springSecurityVersion",
+			securityConfig    : "org.springframework.security:spring-security-config:$springSecurityVersion",
+			securityTaglibs   : "org.springframework.security:spring-security-taglibs:$springSecurityVersion",
+			rabbit            : "org.springframework.amqp:spring-rabbit:$springAmqpVersion",
+			springSecurityTest: "org.springframework.security:spring-security-test:$springSecurityVersion"
 
 	]
 
@@ -132,7 +135,9 @@ ext {
 			poi            : "org.apache.poi:poi:$poiVersion",
 			io             : "commons-io:commons-io:2.5",
 			tiles          : "org.apache.tiles:tiles-jsp:$tilesVersion",
-			jstl           : "jstl:jstl:1.2"
+			jstl           : "jstl:jstl:1.2",
+			bootstrap     : "org.webjars:bootstrap:$bootstrapVersion",
+			thymeSecurity  : "org.thymeleaf.extras:thymeleaf-extras-springsecurity4:$thymeSecurityVersion"
 	]
 
 	db = [
