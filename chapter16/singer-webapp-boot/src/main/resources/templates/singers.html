@@ -3,40 +3,46 @@
 
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link href="../../public/css/bootstrap.min.css"
+          th:href="@{/webjars/bootstrap/3.3.7-1/css/bootstrap.min.css}"
+          rel="stylesheet" media="screen"/>
+    <script src="http://cdn.jsdelivr.net/webjars/jquery/3.2.1/jquery.min.js"
+            th:src="@{/webjars/jquery/3.2.1/jquery.min.js}"></script>
+
     <title>
         ProSpring5 Singer Boot Application
     </title>
-    <link href="../../public/css/general.css"
-          th:href="@{css/general.css}" rel="stylesheet" media="screen"/>
-</head>
 
+</head>
 <body>
-<div class="page">
-    <div th:if="${not #lists.isEmpty(singers)}">
-        <h2>Singer List</h2>
-        <table class="table table-striped">
-            <tr>
-                <th>First Name</th>
-                <th>Last Name</th>
-                <th>Description</th>
-                <th>View</th>
-                <th>Edit</th>
-            </tr>
-            <tr th:each="singer : ${singers}">
-                <td th:text="${singer.firstName}"><a href="/singers/${singer.id}">Singer First Name</a></td>
-                <td th:text="${singer.lastName}">Singer Last Name</td>
-                <td th:text="${singer.description}">Singer Description</td>
-                <td><a th:href="${ '/singers/' + singer.id}">View</a></td>
-                <td><a th:href="${'/singers/edit/' + singer.id}">Edit</a></td>
-            </tr>
-        </table>
+<div th:replace="~{fragments/header :: header}">Header</div>
+<div class="container">
+    <div class="text-left" th:if="${not #lists.isEmpty(singers)}">
+
+        <h1>Singer List</h1>
+
+        <div class="lead">
+            <table class="table table-striped">
+                <tr>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Description</th>
+                    <th>View</th>
+                    <th>Edit</th>
+                </tr>
+                <tr th:each="singer : ${singers}">
+                    <td th:text="${singer.firstName}">Singer First Name</td>
+                    <td th:text="${singer.lastName}">Singer Last Name</td>
+                    <td th:text="${singer.description}">Singer Description</td>
+                    <td><a th:href="${ '/singers/' + singer.id}">View</a></td>
+                    <td><a th:href="${'/singers/edit/' + singer.id}">Edit</a></td>
+                </tr>
+            </table>
+        </div>
+
+        <div th:insert="~{fragments/footer :: footer}">&copy; 2017 Iuliana Cosmina & Apress</div>
     </div>
 </div>
-<form th:action="@{/logout}" method="post">
-    <input type="submit" value="Sign Out"/>
-</form>
-<div class="footer">
-    <p>Copyright © 2017 by Iuliana Cosmina and Apress. All rights reserved.</p>
-</div>
+
 </body>
 </html>

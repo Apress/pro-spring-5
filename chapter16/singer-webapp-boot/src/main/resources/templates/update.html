@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link href="../../public/css/bootstrap.min.css"
+          th:href="@{/webjars/bootstrap/3.3.7-1/css/bootstrap.min.css}"
+          rel="stylesheet" media="screen"/>
+    <script src="http://cdn.jsdelivr.net/webjars/jquery/3.2.1/jquery.min.js"
+            th:src="@{/webjars/jquery/3.2.1/jquery.min.js}"></script>
+
+    <title>
+        ProSpring5 Singer Boot Application
+    </title>
+
+</head>
+
+<body>
+<div th:replace="~{fragments/header :: header}">Header</div>
+<div class="container">
+
+    <h1>Singer Details</h1>
+
+    <div>
+        <form class="form-horizontal" th:object="${singer}" th:action="@{/singers}" method="post">
+            <input type="hidden" th:field="*{id}"/>
+            <input type="hidden" th:field="*{version}"/>
+            <div class="form-group">
+                <label class="col-sm-2 control-label">First Name</label>
+                <div class="col-sm-10">
+                    <input class="form-control" th:field="*{firstName}"/>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-2 control-label">Last Name</label>
+                <div class="col-sm-10">
+                    <input class="form-control" th:field="*{lastName}"/>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-2 control-label">Description:</label>
+                <div class="col-sm-10">
+                    <input class="form-control" th:field="*{description}"/>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-2 control-label">BirthDate:</label>
+                <div class="col-sm-10">
+                    <input class="form-control" th:field="*{{birthDate}}"> <p>*Accepted Format:'YYYY-MM-DD'</p>
+                </div>
+            </div>
+
+            <div class="row">
+                <button class="btn btn-default">Save</button>
+            </div>
+        </form>
+    </div>
+    <div th:insert="~{fragments/footer :: footer}">&copy; 2017 Iuliana Cosmina & Apress</div>
+</div>
+
+</body>
+</html>

@@ -3,42 +3,44 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <link href="../../public/css/bootstrap.min.css"
-          th:href="@{/webjars/bootstrap/4.0.0-alpha.6-1/css/bootstrap.min.css}"
+          th:href="@{/webjars/bootstrap/3.3.7-1/css/bootstrap.min.css}"
           rel="stylesheet" media="screen"/>
-    <link href="../../public/css/general.css"
-          th:href="@{css/general.css}" rel="stylesheet" media="screen"/>
+    <script src="http://cdn.jsdelivr.net/webjars/jquery/3.2.1/jquery.min.js"
+            th:src="@{/webjars/jquery/3.2.1/jquery.min.js}"></script>
     <title>
         ProSpring5 Singer Boot Application
     </title>
 </head>
 <body>
-<nav class="navbar navbar-inverse navbar-fixed-top" th:fragment="header">
-    <div class="container">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <h2>ProSpring5 Singer Boot Application</h2>
-            <h3>Overview</h3>
-        </div>
-        <div class="navbar-collapse collapse">
-            <ul class="nav navbar-nav">
-                <li>This is a simple web application that manages a singer database. It does the following:</li>
-                <li><a href="#" th:href="@{/singers}">List Singers</a></li>
-                <li><a href="#" th:href="@{/singers/new}">New Singer</a></li>
-                <li th:if="${#authorization.expression('isAuthenticated()')}"><a href="#" th:href="@{/}">Home/a></li>
-                <li th:if="${#authorization.expression('isAuthenticated()')}">
-                    <a href="/logout" th:href="@{#}" onclick="$('#form').submit();">
-                        <span class="glyphicon glyphicon-log-out" aria-hidden="true"></span>&nbsp;Logout
-                    </a>
-                    <form style="visibility: hidden" id="form" method="post" action="#" th:action="@{/logout}"></form>
-                </li>
-            </ul>
-        </div>
-        <!--/.nav-collapse -->
+<div class="container">
+    <div th:fragment="header">
+        <nav class="navbar navbar-inverse">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="#" th:href="@{/}">ProSpring 5</a>
+                </div>
+                <ul class="nav navbar-nav">
+                    <li><a href="#" th:href="@{/singers}">Singers</a></li>
+                    <li><a href="#" th:href="@{/singers/new}">Add Singer</a></li>
+                </ul>
+
+                <ul class="nav navbar-nav navbar-right" >
+                    <li th:if="${#authorization.expression('!isAuthenticated()')}">
+                        <a href="/login" th:href="@{/login}">
+                            <span class="glyphicon glyphicon-log-in"></span>&nbsp;Log in
+                        </a>
+                    </li>
+                    <li th:if="${#authorization.expression('isAuthenticated()')}">
+                        <a href="/logout" th:href="@{#}" onclick="$('#form').submit();">
+                            <span class="glyphicon glyphicon-log-out"></span>&nbsp;Logout
+                        </a>
+                        <form style="visibility: hidden" id="form" method="post" action="#" th:action="@{/logout}"></form>
+                    </li>
+                </ul>
+
+            </div>
+        </nav>
     </div>
-</nav>
+</div>
 </body>
 </html>

@@ -4,10 +4,10 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <link href="../../public/css/bootstrap.min.css"
-          th:href="@{/webjars/bootstrap/4.0.0-alpha.6-1/css/bootstrap.min.css}"
-          rel="stylesheet" media="screen" />
-    <link href="../../public/css/general.css"
-          th:href="@{css/general.css}" rel="stylesheet" media="screen"/>
+          th:href="@{/webjars/bootstrap/3.3.7-1/css/bootstrap.min.css}"
+          rel="stylesheet" media="screen"/>
+    <script src="http://cdn.jsdelivr.net/webjars/jquery/3.2.1/jquery.min.js"
+            th:src="@{/webjars/jquery/3.2.1/jquery.min.js}"></script>
 
     <title>
         ProSpring5 Singer Boot Application
@@ -18,7 +18,17 @@
 <body>
 <div th:replace="~{fragments/header :: header}">Header</div>
 <div class="container">
-    <div th:insert="~{fragments/footer :: footer}">&copy; 2017 The Static Templates</div>
+    <div class="text-left">
+
+        <h1>ProSpring5 Singer Management Boot & Thymeleaf Application</h1>
+
+        <div class="lead">
+           Welcome to ProSpring, 5th edition. Maybe not everything that is covered in the book is of interest to you,
+            but time spending reading this book and analysing the examples will surely be time well spent.
+        </div>
+
+        <div th:insert="~{fragments/footer :: footer}">&copy; 2017 Iuliana Cosmina & Apress</div>
+    </div>
 </div>
 </body>
 </html>

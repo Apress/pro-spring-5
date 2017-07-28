@@ -1,7 +1,7 @@
 ext {
 	//spring libs
-	springVersion = '5.0.0.RC2'
-	bootVersion = '2.0.0.M1'
+	springVersion = '5.0.0.RC3'
+	bootVersion = '2.0.0.M3'
 	springDataVersion = '2.0.0.M3'
 	springAmqpVersion = '2.0.0.M4'
 	springSecurityVersion = '5.0.0.M2'
@@ -31,8 +31,9 @@ ext {
 	httpclientVersion = '4.5.3'
 	poiVersion = '3.16'
 	tilesVersion = '3.0.7'
-	bootstrapVersion = '4.0.0-alpha.6-1'
-	thymeSecurityVersion= '3.0.2.RELEASE'
+	bootstrapVersion = '3.3.7-1'
+	thymeSecurityVersion = '3.0.2.RELEASE'
+	jQueryVersion = '3.2.1'
 
 	//persistency libraries
 	hibernateVersion = '5.2.10.Final'
@@ -135,9 +136,13 @@ ext {
 			poi            : "org.apache.poi:poi:$poiVersion",
 			io             : "commons-io:commons-io:2.5",
 			tiles          : "org.apache.tiles:tiles-jsp:$tilesVersion",
-			jstl           : "jstl:jstl:1.2",
-			bootstrap     : "org.webjars:bootstrap:$bootstrapVersion",
-			thymeSecurity  : "org.thymeleaf.extras:thymeleaf-extras-springsecurity4:$thymeSecurityVersion"
+			jstl           : "jstl:jstl:1.2"
+	]
+
+	web = [
+			bootstrap    : "org.webjars:bootstrap:$bootstrapVersion",
+			jQuery       : "org.webjars:jquery:$jQueryVersion",
+			thymeSecurity: "org.thymeleaf.extras:thymeleaf-extras-springsecurity4:$thymeSecurityVersion"
 	]
 
 	db = [

@@ -3,35 +3,53 @@
 
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link href="../../public/css/bootstrap.min.css"
+          th:href="@{/webjars/bootstrap/3.3.7-1/css/bootstrap.min.css}"
+          rel="stylesheet" media="screen"/>
+    <script src="http://cdn.jsdelivr.net/webjars/jquery/3.2.1/jquery.min.js"
+            th:src="@{/webjars/jquery/3.2.1/jquery.min.js}"></script>
+
     <title>
         ProSpring5 Singer Boot Application
     </title>
-    <link href="../../public/css/general.css"
-          th:href="@{css/general.css}" rel="stylesheet" media="screen"/>
+
 </head>
 
 <body>
-<div class="page">
-    <h2>Singer Details</h2>
+<div th:replace="~{fragments/header :: header}">Header</div>
+<div class="container">
 
-    <table class="table table-striped">
-        <tr>
-            <td>First Name:</td>
-            <td><p th:text="${singer.firstName}">Singer First Name</p></td>
-        </tr>
-        <tr>
-            <td>Last Name:</td>
-            <td><p th:text="${singer.lastName}">Singer Last Name</p></td>
-        </tr>
-        <tr>
-            <td>Description:</td>
-            <td><p th:text="${singer.description}">Singer Description</p></td>
-        </tr>
-    </table>
+    <h1>Singer Details</h1>
 
-    <div class="footer">
-        <p>Copyright © 2017 by Iuliana Cosmina and Apress. All rights reserved.</p>
+    <div>
+        <form class="form-horizontal">
+            <div class="form-group">
+                <label class="col-sm-2 control-label">First Name:</label>
+                <div class="col-sm-10">
+                    <p class="form-control-static" th:text="${singer.firstName}">Singer First Name</p></div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-2 control-label">Last Name:</label>
+                <div class="col-sm-10">
+                    <p class="form-control-static" th:text="${singer.lastName}">Singer Last Name</p>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-2 control-label">Description:</label>
+                <div class="col-sm-10">
+                    <p class="form-control-static" th:text="${singer.description}">Singer Description</p>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-2 control-label">BirthDate:</label>
+                <div class="col-sm-10">
+                    <p class="form-control-static" th:text="${{singer.birthDate}}">Singer BirthDate</p>
+                </div>
+            </div>
+        </form>
     </div>
+    <div th:insert="~{fragments/footer :: footer}">&copy; 2017 Iuliana Cosmina & Apress</div>
 </div>
+
 </body>
 </html>
