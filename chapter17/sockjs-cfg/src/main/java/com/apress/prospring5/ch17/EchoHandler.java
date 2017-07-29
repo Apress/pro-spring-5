@@ -1,4 +1,4 @@
-package com.apress.prospring4.ch17;
+package com.apress.prospring5.ch17;
 
 import org.springframework.web.socket.TextMessage;
 import org.springframework.web.socket.WebSocketSession;

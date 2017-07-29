@@ -1,4 +1,4 @@
-package com.apress.prospring4.ch17;
+package com.apress.prospring5.ch17;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.messaging.handler.annotation.MessageMapping;

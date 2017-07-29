@@ -1,0 +1,10 @@
+apply plugin: 'war'
+
+war {
+    archiveName = 'websocket-echo2.war'
+    manifest {
+        attributes("Created-By"      : "Iuliana Cosmina",
+                "Specification-Title": "Pro Spring 5",
+                "Class-Path"         : configurations.compile.collect { it.getName() }.join(' '))
+    }
+}

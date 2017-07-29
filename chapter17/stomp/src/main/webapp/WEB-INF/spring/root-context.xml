@@ -15,9 +15,11 @@
 
     <mvc:annotation-driven />
 
-    <mvc:resources mapping="/index.html" location="/static/" />
+    <mvc:default-servlet-handler/>
 
-    <context:component-scan base-package="com.apress.prospring4.ch17" />
+    <mvc:view-controller  path= "/" view-name="/static/index.html" />
+
+    <context:component-scan base-package="com.apress.prospring5.ch17" />
 
     <websocket:message-broker application-destination-prefix="/app">
         <websocket:stomp-endpoint path="/ws">

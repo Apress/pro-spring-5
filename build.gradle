@@ -34,6 +34,7 @@ ext {
 	bootstrapVersion = '3.3.7-1'
 	thymeSecurityVersion = '3.0.2.RELEASE'
 	jQueryVersion = '3.2.1'
+	twsVersion = '9.0.0.M22'
 
 	//persistency libraries
 	hibernateVersion = '5.2.10.Final'
@@ -65,7 +66,9 @@ ext {
 			securityConfig    : "org.springframework.security:spring-security-config:$springSecurityVersion",
 			securityTaglibs   : "org.springframework.security:spring-security-taglibs:$springSecurityVersion",
 			rabbit            : "org.springframework.amqp:spring-rabbit:$springAmqpVersion",
-			springSecurityTest: "org.springframework.security:spring-security-test:$springSecurityVersion"
+			springSecurityTest: "org.springframework.security:spring-security-test:$springSecurityVersion",
+			webSocket         : "org.springframework:spring-websocket:$springVersion",
+			messaging         : "org.springframework:spring-messaging:$springVersion"
 
 	]
 
@@ -110,6 +113,7 @@ ext {
 			dbunit      : "org.dbunit:dbunit:$dbunitVersion"
 	]
 
+
 	misc = [
 			slf4jJcl       : "org.slf4j:jcl-over-slf4j:$slf4jVersion",
 			logback        : "ch.qos.logback:logback-classic:$logbackVersion",
@@ -125,24 +129,26 @@ ext {
 			artemis        : "org.apache.activemq:artemis-jms-server:2.1.0",
 			javaEl         : "javax.el:javax.el-api:$javaElVersion",
 			glassfishEl    : "org.glassfish.web:el-impl:$glasshfishELVersion",
-			servlet        : "javax.servlet:javax.servlet-api:3.1.0",
 			jms            : "javax.jms:javax.jms-api:$jmsVersion",
 			artemisClient  : "org.apache.activemq:artemis-jms-client:$artemisVersion",
 			artemisServer  : "org.apache.activemq:artemis-jms-server:$artemisVersion",
 			hornetq        : "org.hornetq:hornetq-jms-client:$hornetqVersion",
 			castor         : "org.codehaus.castor:castor-xml:$castorVersion",
 			jacksonDatabind: "com.fasterxml.jackson.core:jackson-databind:$jacksonVersion",
-			httpclient     : "org.apache.httpcomponents:httpclient:$httpclientVersion",
 			poi            : "org.apache.poi:poi:$poiVersion",
 			io             : "commons-io:commons-io:2.5",
-			tiles          : "org.apache.tiles:tiles-jsp:$tilesVersion",
-			jstl           : "jstl:jstl:1.2"
 	]
-
 	web = [
+			tiles        : "org.apache.tiles:tiles-jsp:$tilesVersion",
+			jstl         : "jstl:jstl:1.2",
 			bootstrap    : "org.webjars:bootstrap:$bootstrapVersion",
 			jQuery       : "org.webjars:jquery:$jQueryVersion",
-			thymeSecurity: "org.thymeleaf.extras:thymeleaf-extras-springsecurity4:$thymeSecurityVersion"
+			thymeSecurity: "org.thymeleaf.extras:thymeleaf-extras-springsecurity4:$thymeSecurityVersion",
+			tomcatWsApi  : "org.apache.tomcat:tomcat-websocket-api:$twsVersion",
+			tomcatWsEmbed: "org.apache.tomcat.embed:tomcat-embed-websocket:$twsVersion",
+			httpclient   : "org.apache.httpcomponents:httpclient:$httpclientVersion",
+			websocket    : "javax.websocket:javax.websocket-api:1.1",
+			servlet        : "javax.servlet:javax.servlet-api:3.1.0",
 	]
 
 	db = [

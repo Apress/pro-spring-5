@@ -16,6 +16,16 @@ subprojects {
 	}
 
 	dependencies {
-		compile spring.webmvc, misc.slf4jJcl, misc.logback, misc.lang3
+		if (!project.name.contains("boot")) {
+			compile (web.tomcatWsApi) {
+				exclude  module: 'tomcat-embed-core'
+			}
+			compile (web.tomcatWsEmbed) {
+				exclude  module: 'tomcat-embed-core'
+			}
+			compile spring.context, spring.webSocket, spring.messaging, spring.webmvc, web.websocket, misc.slf4jJcl,
+					misc.logback, misc.lang3, misc.jacksonDatabind, web.servlet, web.jstl
+		}
+		testCompile testing.junit
 	}
 }

@@ -280,6 +280,20 @@ findProject(':chapter16:singer-webapp-jcfg')?.name = 'singer-webapp-jcfg'
 include 'chapter16:singer-webapp-boot'
 findProject(':chapter16:singer-webapp-boot')?.name = 'singer-webapp-boot'
 
+include 'chapter17'
+include 'chapter17:sockjs'
+findProject(':chapter17:sockjs')?.name = 'sockjs'
+include 'chapter17:sockjs-cfg'
+findProject(':chapter17:sockjs-cfg')?.name = 'sockjs-cfg'
+include 'chapter17:stomp'
+findProject(':chapter17:stomp')?.name = 'stomp'
+include 'chapter17:stomp-cfg'
+findProject(':chapter17:stomp-cfg')?.name = 'stomp-cfg'
+include 'chapter17:websocket-api'
+findProject(':chapter17:websocket-api')?.name = 'websocket-api'
+include 'chapter17:websocket-api-cfg'
+findProject(':chapter17:websocket-api-cfg')?.name = 'websocket-api-cfg'
+
 println(' This project is a collection of simple code samples. It is meant to be used together with the ' +
 		'"Spring Pro, Fifth Edition" ' +
 		' published by Apress in order to learn and practice with all Spring Web libraries. ')

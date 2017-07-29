@@ -2,7 +2,7 @@ apply plugin: 'war'
 
 dependencies {
 	compile project(':chapter12:base-remote')
-	compile spring.oxm, spring.webmvc, misc.servlet, misc.castor, misc.jacksonDatabind, misc.httpclient,
+	compile spring.oxm, spring.webmvc, web.servlet, misc.castor, misc.jacksonDatabind, web.httpclient,
 			spring.securityWeb, spring.securityConfig
 	testCompile spring.test
 }

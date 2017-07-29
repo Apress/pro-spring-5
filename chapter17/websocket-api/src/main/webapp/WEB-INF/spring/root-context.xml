@@ -10,11 +10,13 @@
         http://www.springframework.org/schema/mvc
         http://www.springframework.org/schema/mvc/spring-mvc.xsd">
 
-    <mvc:resources mapping="/index.html" location="/static/" />
-
     <websocket:handlers>
         <websocket:mapping path="/echoHandler" handler="echoHandler"/>
     </websocket:handlers>
 
-    <bean id="echoHandler" class="com.apress.prospring4.ch17.EchoHandler"/>
+    <mvc:default-servlet-handler/>
+
+    <mvc:view-controller  path= "/" view-name="/static/index.html" />
+
+    <bean id="echoHandler" class="com.apress.prospring5.ch17.EchoHandler"/>
 </beans>

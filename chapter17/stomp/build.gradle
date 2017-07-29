@@ -1,18 +1,10 @@
 apply plugin: 'war'
 
-dependencies {
-	compile project(':chapter12:base-remote')
-	compile spring.webmvc, web.servlet
-	testCompile spring.test
-}
-
-
 war {
-	archiveName = 'remoting.war'
+	archiveName = 'stomp.war'
 	manifest {
 		attributes("Created-By"      : "Iuliana Cosmina",
 				"Specification-Title": "Pro Spring 5",
 				"Class-Path"         : configurations.compile.collect { it.getName() }.join(' '))
 	}
-}
-
+} 
