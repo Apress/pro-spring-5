@@ -22,7 +22,7 @@
         http://www.springframework.org/schema/integration/file
         http://www.springframework.org/schema/integration/file/spring-integration-file.xsd">
 
-    <batch:job id="personJob">
+    <batch:job id="singerJob">
         <batch:step id="step1">
             <batch:tasklet>
                 <batch:chunk reader="itemReader" processor="itemProcessor" writer="itemWriter"
@@ -38,7 +38,7 @@
 
     <jdbc:embedded-database id="dataSource" type="H2">
         <jdbc:script location="classpath:/org/springframework/batch/core/schema-h2.sql"/>
-        <jdbc:script location="classpath:/META-INF/spring/jobs/personJob/support/singer.sql"/>
+        <jdbc:script location="classpath:support/singer.sql"/>
     </jdbc:embedded-database>
 
     <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager"
@@ -49,7 +49,7 @@
     <bean id="jobLauncher" class="org.springframework.batch.core.launch.support.SimpleJobLauncher"
                 p:jobRepository-ref="jobRepository"/>
 
-    <bean id="stepExecutionStatsListener" class="StepExecutionStatsListener"/>
+    <bean id="stepExecutionStatsListener" class="com.apress.prospring5.ch18.StepExecutionStatsListener"/>
 
     <bean id="itemReader" class="org.springframework.batch.item.file.FlatFileItemReader" scope="step">
         <property name="resource" value="file://#{jobParameters['file.name']}"/>
@@ -57,25 +57,25 @@
             <bean class="org.springframework.batch.item.file.mapping.DefaultLineMapper">
                 <property name="lineTokenizer">
                     <bean class="org.springframework.batch.item.file.transform.DelimitedLineTokenizer">
-                        <property name="names" value="firstName,lastName"/>
+                        <property name="names" value="firstName,lastName,song"/>
                     </bean>
                 </property>
                 <property name="fieldSetMapper">
                     <bean class="org.springframework.batch.item.file.mapping.BeanWrapperFieldSetMapper">
-                        <property name="targetType" value="Person"/>
+                        <property name="targetType" value="com.apress.prospring5.ch18.Singer"/>
                     </bean>
                 </property>
             </bean>
         </property>
     </bean>
 
-    <bean id="itemProcessor" class="PersonItemProcessor"/>
+    <bean id="itemProcessor" class="com.apress.prospring5.ch18.SingerItemProcessor"/>
 
     <bean id="itemWriter" class="org.springframework.batch.item.database.JdbcBatchItemWriter">
         <property name="itemSqlParameterSourceProvider">
             <bean class="org.springframework.batch.item.database.BeanPropertyItemSqlParameterSourceProvider"/>
         </property>
-        <property name="sql" value="INSERT INTO people (first_name, last_name) VALUES (:firstName, :lastName)"/>
+        <property name="sql" value="INSERT INTO singer (first_name, last_name, song) VALUES (:firstName, :lastName, :song)"/>
         <property name="dataSource" ref="dataSource"/>
     </bean>
 
@@ -84,14 +84,14 @@
     <int:channel id="loggingChannel"/>
 
     <int-file:inbound-channel-adapter id="inboundFileChannelAdapater" channel="inbound"
-                                      directory="file:/tmp/people/" filename-pattern="*.csv">
+                                      directory="file:/Users/iuliana.grajdeanu/temp/" filename-pattern="*.csv">
         <int:poller fixed-rate="1000"/>
     </int-file:inbound-channel-adapter>
 
     <int:transformer input-channel="inbound"
                      output-channel="outbound">
-        <bean class="com.apress.prospring4.ch18.MessageToJobLauncher">
-            <constructor-arg ref="personJob"/>
+        <bean class="com.apress.prospring5.ch18.MessageToJobLauncher">
+            <constructor-arg ref="singerJob"/>
             <constructor-arg value="file.name"/>
         </bean>
     </int:transformer>

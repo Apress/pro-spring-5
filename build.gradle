@@ -6,6 +6,8 @@ ext {
 	springAmqpVersion = '2.0.0.M4'
 	springSecurityVersion = '5.0.0.M2'
 	springBatchVersion = '4.0.0.M3'
+	springIntegrationVersion = '5.0.0.M6'
+	springBatchIntegrationVersion = '4.0.0.M3'
 
 	//logging libs
 	slf4jVersion = '1.7.25'
@@ -70,8 +72,9 @@ ext {
 			springSecurityTest: "org.springframework.security:spring-security-test:$springSecurityVersion",
 			webSocket         : "org.springframework:spring-websocket:$springVersion",
 			messaging         : "org.springframework:spring-messaging:$springVersion",
-			batchCore         : "org.springframework.batch:spring-batch-core:$springBatchVersion"
-
+			batchCore         : "org.springframework.batch:spring-batch-core:$springBatchVersion",
+			batchIntegration  : "org.springframework.batch:spring-batch-integration:$springBatchIntegrationVersion",
+			integrationFile : "org.springframework.integration:spring-integration-file:$springIntegrationVersion"
 
 	]
 
@@ -101,7 +104,7 @@ ext {
 			starterRabbitmq : "org.springframework.boot:spring-boot-starter-amqp:$bootVersion",
 			starterThyme    : "org.springframework.boot:spring-boot-starter-thymeleaf:$bootVersion",
 			starterSecurity : "org.springframework.boot:spring-boot-starter-security:$bootVersion",
-			starterBatch : "org.springframework.boot:spring-boot-starter-batch:$bootVersion"
+			starterBatch    : "org.springframework.boot:spring-boot-starter-batch:$bootVersion"
 
 	]
 
@@ -159,7 +162,7 @@ ext {
 	db = [
 			mysql : "mysql:mysql-connector-java:$mysqlVersion",
 			derby : "org.apache.derby:derby:$derbyVersion",
-			dbcp2  : "org.apache.commons:commons-dbcp2:$dbcpVersion",
+			dbcp2 : "org.apache.commons:commons-dbcp2:$dbcpVersion",
 			dbcp  : "commons-dbcp:commons-dbcp:1.4",
 			h2    : "com.h2database:h2:$h2Version",
 			hsqldb: "org.hsqldb:hsqldb:2.4.0"
