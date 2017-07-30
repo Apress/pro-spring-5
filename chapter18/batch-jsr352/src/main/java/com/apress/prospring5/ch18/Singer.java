@@ -1,8 +1,9 @@
-package com.apress.prospring4.ch18;
+package com.apress.prospring5.ch18;
 
-public class Person {
+public class Singer {
     private String firstName;
     private String lastName;
+    private String song;
 
     public void setFirstName(String firstName) {
         this.firstName = firstName;
@@ -20,8 +21,16 @@ public class Person {
         return lastName;
     }
 
+    public String getSong() {
+        return song;
+    }
+
+    public void setSong(String song) {
+        this.song = song;
+    }
+
     @Override
     public String toString() {
-        return "firstName: " + firstName + ", lastName: " + lastName;
+        return "firstName: " + firstName + ", lastName: " + lastName + ", song: " + song;
     }
 }

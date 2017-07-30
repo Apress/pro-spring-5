@@ -16,7 +16,7 @@ subprojects {
 				exclude module: 'spring-beans'
 				exclude module: 'spring-tx'
 			}
-			compile spring.batchCore, db.dbcp, db.h2, misc.io,
+			compile spring.batchCore, misc.io,
 					misc.slf4jJcl, misc.logback, misc.lang3
 		}
 	}

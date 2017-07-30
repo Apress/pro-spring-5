@@ -3,13 +3,12 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xmlns:jdbc="http://www.springframework.org/schema/jdbc"
-        xmlns:p="http://www.springframework.org/schema/p"
         xsi:schemaLocation="
         http://www.springframework.org/schema/jdbc http://www.springframework.org/schema/jdbc/spring-jdbc.xsd
         http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
         http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/jobXML_1_0.xsd">
 
-    <job id="personJob" xmlns="http://xmlns.jcp.org/xml/ns/javaee" version="1.0">
+    <job id="singerJob" xmlns="http://xmlns.jcp.org/xml/ns/javaee" version="1.0">
         <step id="step1">
             <listeners>
                 <listener ref="stepExecutionStatsListener"/>
@@ -25,36 +24,36 @@
     </job>
 
     <jdbc:embedded-database id="dataSource" type="HSQL">
-        <jdbc:script location="classpath:/META-INF/spring/jobs/personJob/support/singer.sql"/>
+        <jdbc:script location="classpath:support/singer.sql"/>
     </jdbc:embedded-database>
 
-    <bean id="stepExecutionStatsListener" class="StepExecutionStatsListener"/>
+    <bean id="stepExecutionStatsListener" class="com.apress.prospring5.ch18.StepExecutionStatsListener"/>
 
     <bean id="itemReader" class="org.springframework.batch.item.file.FlatFileItemReader">
-        <property name="resource" value="classpath:/META-INF/spring/jobs/personJob/support/test-data.csv"/>
+        <property name="resource" value="classpath:support/test-data.csv"/>
         <property name="lineMapper">
             <bean class="org.springframework.batch.item.file.mapping.DefaultLineMapper">
                 <property name="lineTokenizer">
                     <bean class="org.springframework.batch.item.file.transform.DelimitedLineTokenizer">
-                        <property name="names" value="firstName,lastName"/>
+                        <property name="names" value="firstName,lastName, song"/>
                     </bean>
                 </property>
                 <property name="fieldSetMapper">
                     <bean class="org.springframework.batch.item.file.mapping.BeanWrapperFieldSetMapper">
-                        <property name="targetType" value="Person"/>
+                        <property name="targetType" value="com.apress.prospring5.ch18.Singer"/>
                     </bean>
                 </property>
             </bean>
         </property>
     </bean>
 
-    <bean id="itemProcessor" class="PersonItemProcessor"/>
+    <bean id="itemProcessor" class="com.apress.prospring5.ch18.SingerItemProcessor"/>
 
     <bean id="itemWriter" class="org.springframework.batch.item.database.JdbcBatchItemWriter">
         <property name="itemSqlParameterSourceProvider">
             <bean class="org.springframework.batch.item.database.BeanPropertyItemSqlParameterSourceProvider"/>
         </property>
-        <property name="sql" value="INSERT INTO people (first_name, last_name) VALUES (:firstName, :lastName)"/>
+        <property name="sql" value="INSERT INTO singer (first_name, last_name, song) VALUES (:firstName, :lastName, :song)"/>
         <property name="dataSource" ref="dataSource"/>
     </bean>
 </beans>

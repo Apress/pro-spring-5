@@ -1,4 +1,4 @@
-package com.apress.prospring4.ch18;
+package com.apress.prospring5.ch18;
 
 import org.springframework.batch.core.jsr.launch.JsrJobOperator;
 
@@ -6,8 +6,8 @@ import javax.batch.runtime.BatchStatus;
 import javax.batch.runtime.JobExecution;
 import java.util.Properties;
 
-public class PersonJob {
-    public static void main(String[] args) throws Exception {
+public class SingerJobDemo {
+    public static void main(String... args) throws Exception {
         JsrJobOperator jobOperator = new JsrJobOperator();
 
         long executionId = jobOperator.start("singerJob", new Properties());

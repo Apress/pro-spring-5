@@ -51,26 +51,26 @@ ext {
 	junit5Version = '5.0.0-M4'
 
 	spring = [
-			context            : "org.springframework:spring-context:$springVersion",
-			webmvc             : "org.springframework:spring-webmvc:$springVersion",
-			aop                : "org.springframework:spring-aop:$springVersion",
-			aspects            : "org.springframework:spring-aspects:$springVersion",
-			tx                 : "org.springframework:spring-tx:$springVersion",
-			jdbc               : "org.springframework:spring-jdbc:$springVersion",
-			contextSupport     : "org.springframework:spring-context-support:$springVersion",
-			orm                : "org.springframework:spring-orm:$springVersion",
-			data               : "org.springframework.data:spring-data-jpa:$springDataVersion",
-			test               : "org.springframework:spring-test:$springVersion",
-			jms                : "org.springframework:spring-jms:$springVersion",
-			oxm                : "org.springframework:spring-oxm:$springVersion",
-			securityWeb        : "org.springframework.security:spring-security-web:$springSecurityVersion",
-			securityConfig     : "org.springframework.security:spring-security-config:$springSecurityVersion",
-			securityTaglibs    : "org.springframework.security:spring-security-taglibs:$springSecurityVersion",
-			rabbit             : "org.springframework.amqp:spring-rabbit:$springAmqpVersion",
-			springSecurityTest : "org.springframework.security:spring-security-test:$springSecurityVersion",
-			webSocket          : "org.springframework:spring-websocket:$springVersion",
-			messaging          : "org.springframework:spring-messaging:$springVersion",
-			batchCore          : "org.springframework.batch:spring-batch-core:$springBatchVersion"
+			context           : "org.springframework:spring-context:$springVersion",
+			webmvc            : "org.springframework:spring-webmvc:$springVersion",
+			aop               : "org.springframework:spring-aop:$springVersion",
+			aspects           : "org.springframework:spring-aspects:$springVersion",
+			tx                : "org.springframework:spring-tx:$springVersion",
+			jdbc              : "org.springframework:spring-jdbc:$springVersion",
+			contextSupport    : "org.springframework:spring-context-support:$springVersion",
+			orm               : "org.springframework:spring-orm:$springVersion",
+			data              : "org.springframework.data:spring-data-jpa:$springDataVersion",
+			test              : "org.springframework:spring-test:$springVersion",
+			jms               : "org.springframework:spring-jms:$springVersion",
+			oxm               : "org.springframework:spring-oxm:$springVersion",
+			securityWeb       : "org.springframework.security:spring-security-web:$springSecurityVersion",
+			securityConfig    : "org.springframework.security:spring-security-config:$springSecurityVersion",
+			securityTaglibs   : "org.springframework.security:spring-security-taglibs:$springSecurityVersion",
+			rabbit            : "org.springframework.amqp:spring-rabbit:$springAmqpVersion",
+			springSecurityTest: "org.springframework.security:spring-security-test:$springSecurityVersion",
+			webSocket         : "org.springframework:spring-websocket:$springVersion",
+			messaging         : "org.springframework:spring-messaging:$springVersion",
+			batchCore         : "org.springframework.batch:spring-batch-core:$springBatchVersion"
 
 
 	]
@@ -155,10 +155,12 @@ ext {
 	]
 
 	db = [
-			mysql: "mysql:mysql-connector-java:$mysqlVersion",
-			derby: "org.apache.derby:derby:$derbyVersion",
-			dbcp : "org.apache.commons:commons-dbcp2:$dbcpVersion",
-			h2   : "com.h2database:h2:$h2Version"
+			mysql : "mysql:mysql-connector-java:$mysqlVersion",
+			derby : "org.apache.derby:derby:$derbyVersion",
+			dbcp2  : "org.apache.commons:commons-dbcp2:$dbcpVersion",
+			dbcp  : "commons-dbcp:commons-dbcp:1.4",
+			h2    : "com.h2database:h2:$h2Version",
+			hsqldb: "org.hsqldb:hsqldb:2.4.0"
 	]
 }
 
