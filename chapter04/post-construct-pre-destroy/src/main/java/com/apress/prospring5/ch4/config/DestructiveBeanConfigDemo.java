@@ -26,7 +26,7 @@ public class DestructiveBeanConfigDemo {
 
 	}
 
-	public static void main(String[] args) {
+	public static void main(String... args) {
 		GenericApplicationContext ctx =
 				   new AnnotationConfigApplicationContext(DestructiveBeanConfig.class);
 

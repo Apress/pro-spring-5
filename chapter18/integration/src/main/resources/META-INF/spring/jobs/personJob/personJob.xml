@@ -38,7 +38,7 @@
 
     <jdbc:embedded-database id="dataSource" type="H2">
         <jdbc:script location="classpath:/org/springframework/batch/core/schema-h2.sql"/>
-        <jdbc:script location="classpath:/META-INF/spring/jobs/personJob/support/person.sql"/>
+        <jdbc:script location="classpath:/META-INF/spring/jobs/personJob/support/singer.sql"/>
     </jdbc:embedded-database>
 
     <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager"
@@ -49,7 +49,7 @@
     <bean id="jobLauncher" class="org.springframework.batch.core.launch.support.SimpleJobLauncher"
                 p:jobRepository-ref="jobRepository"/>
 
-    <bean id="stepExecutionStatsListener" class="com.apress.prospring4.ch18.StepExecutionStatsListener"/>
+    <bean id="stepExecutionStatsListener" class="StepExecutionStatsListener"/>
 
     <bean id="itemReader" class="org.springframework.batch.item.file.FlatFileItemReader" scope="step">
         <property name="resource" value="file://#{jobParameters['file.name']}"/>
@@ -62,14 +62,14 @@
                 </property>
                 <property name="fieldSetMapper">
                     <bean class="org.springframework.batch.item.file.mapping.BeanWrapperFieldSetMapper">
-                        <property name="targetType" value="com.apress.prospring4.ch18.Person"/>
+                        <property name="targetType" value="Person"/>
                     </bean>
                 </property>
             </bean>
         </property>
     </bean>
 
-    <bean id="itemProcessor" class="com.apress.prospring4.ch18.PersonItemProcessor"/>
+    <bean id="itemProcessor" class="PersonItemProcessor"/>
 
     <bean id="itemWriter" class="org.springframework.batch.item.database.JdbcBatchItemWriter">
         <property name="itemSqlParameterSourceProvider">

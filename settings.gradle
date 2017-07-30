@@ -294,6 +294,12 @@ findProject(':chapter17:websocket-api')?.name = 'websocket-api'
 include 'chapter17:websocket-api-cfg'
 findProject(':chapter17:websocket-api-cfg')?.name = 'websocket-api-cfg'
 
+include 'chapter18'
+include 'chapter18:batch'
+findProject(':chapter18:batch')?.name = 'batch'
+include 'chapter18:batch-cfg'
+findProject(':chapter18:batch-cfg')?.name = 'batch-cfg'
+
 println(' This project is a collection of simple code samples. It is meant to be used together with the ' +
 		'"Spring Pro, Fifth Edition" ' +
 		' published by Apress in order to learn and practice with all Spring Web libraries. ')

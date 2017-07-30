@@ -69,7 +69,7 @@
                 <configuration>
                     <archive>
                         <manifest>
-                            <mainClass>com.apress.prospring4.ch18.PersonJob</mainClass>
+                            <mainClass>PersonJob</mainClass>
                             <addClasspath>true</addClasspath>
                             <classpathPrefix>dependency/</classpathPrefix>
                         </manifest>

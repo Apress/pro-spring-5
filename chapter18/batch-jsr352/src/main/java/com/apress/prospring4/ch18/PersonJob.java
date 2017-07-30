@@ -10,7 +10,7 @@ public class PersonJob {
     public static void main(String[] args) throws Exception {
         JsrJobOperator jobOperator = new JsrJobOperator();
 
-        long executionId = jobOperator.start("personJob", new Properties());
+        long executionId = jobOperator.start("singerJob", new Properties());
         JobExecution jobExecution = jobOperator.getJobExecution(executionId);
 
         waitForJob(jobOperator, jobExecution);

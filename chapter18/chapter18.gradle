@@ -9,6 +9,15 @@ subprojects {
 	}
 
 	dependencies {
-		compile spring.webmvc, misc.slf4jJcl, misc.logback, misc.lang3
+		if (!project.name.contains("boot")) {
+			compile(spring.jdbc) {
+				//exclude these as batchCore will bring them on as transitive dependencies
+				exclude module: 'spring-core'
+				exclude module: 'spring-beans'
+				exclude module: 'spring-tx'
+			}
+			compile spring.batchCore, db.dbcp, db.h2, misc.io,
+					misc.slf4jJcl, misc.logback, misc.lang3
+		}
 	}
 }
