@@ -100,7 +100,8 @@ ext {
 			starterJms      : "org.springframework.boot:spring-boot-starter-artemis:$bootVersion",
 			starterRabbitmq : "org.springframework.boot:spring-boot-starter-amqp:$bootVersion",
 			starterThyme    : "org.springframework.boot:spring-boot-starter-thymeleaf:$bootVersion",
-			starterSecurity : "org.springframework.boot:spring-boot-starter-security:$bootVersion"
+			starterSecurity : "org.springframework.boot:spring-boot-starter-security:$bootVersion",
+			starterBatch : "org.springframework.boot:spring-boot-starter-batch:$bootVersion"
 
 	]
 
@@ -141,6 +142,7 @@ ext {
 			poi            : "org.apache.poi:poi:$poiVersion",
 			io             : "commons-io:commons-io:2.5",
 	]
+
 	web = [
 			tiles        : "org.apache.tiles:tiles-jsp:$tilesVersion",
 			jstl         : "jstl:jstl:1.2",
