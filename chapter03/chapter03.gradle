@@ -2,13 +2,6 @@ subprojects {
 	group 'com.apress.prospring5.ch03'
 	apply plugin: 'java'
 
-	//Unfortunately, the runtime discovery algorithm in commons-logging, while convenient for the end-user, is problematic
-	// So the Spring team recommends excluding it and replacing it with SL4j
-	// https://docs.spring.io/spring/docs/5.0.0.M4/spring-framework-reference/htmlsingle/#overview-not-using-commons-logging
-	configurations {
-		all*.exclude group: "commons-logging", module: "commons-logging"
-	}
-
 	/*Task that copies all the dependencies under build/libs */
 	task copyDependencies(type: Copy) {
 		from configurations.compile
