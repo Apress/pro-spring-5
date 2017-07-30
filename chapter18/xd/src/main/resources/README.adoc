@@ -1,0 +1,21 @@
+== Work with Spring XD
+
+.To enable MySQL support you must do the following, before starting XD.
+* copy in spring-xd-1.3.2.RELEASE/xd/lib/  the mysql driver from [USER_HOME/.gradle/caches/modules-2/files-2.1/mysql/mysql-connector-java/6.0.6/1d19b184dbc596008cc71c83596f051c3ec4097f/mysql-connector-java-6.0.6.jar
+* edit the spring-xd-1.3.2.RELEASE/xd/config/servers.yml and add your connection data
+
+.Then go ahead on your business
+* create the database schema in MySql by running the commands from resources/support/ddl.sql in your MySQL WorkBench with root
+* open a shell and go to spring-xd-1.3.2.RELEASE/xd/bin/ and run *./xd-singlenode* to start the Spring XD engine
+* open another shell and go to spring-xd-1.3.2.RELEASE/shell/bin/  and tun *./xd-shell* to start the Spring XD shell
+* in the XD shell paste the following line (after correcting the location of the singers.csv file of course)
+[source,ruby]
+----
+job create singerjob --definition "filejdbc --resources=/temp/singers.csv --names=firstname,lastname,song --tableName=singer --initializeDatabase=true" --deploy
+----
+* launch your job with
+
+[source,ruby]
+----
+job launch singerjob
+---

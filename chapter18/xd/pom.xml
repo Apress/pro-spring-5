@@ -52,7 +52,7 @@
                 <configuration>
                     <archive>
                         <manifest>
-                            <mainClass>com.apress.prospring4.ch18.PersonJobResults</mainClass>
+                            <mainClass>com.apress.prospring4.ch18.SingerJobResults</mainClass>
                             <addClasspath>true</addClasspath>
                             <classpathPrefix>dependency/</classpathPrefix>
                         </manifest>

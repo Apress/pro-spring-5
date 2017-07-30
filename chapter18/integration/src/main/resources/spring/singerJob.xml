@@ -83,7 +83,7 @@
     <int:channel id="outbound"/>
     <int:channel id="loggingChannel"/>
 
-    <int-file:inbound-channel-adapter id="inboundFileChannelAdapater" channel="inbound"
+    <int-file:inbound-channel-adapter id="inboundFileChannelAdapter" channel="inbound"
                                       directory="file:/Users/iuliana.grajdeanu/temp/" filename-pattern="*.csv">
         <int:poller fixed-rate="1000"/>
     </int-file:inbound-channel-adapter>

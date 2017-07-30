@@ -1,0 +1,11 @@
+dependencies {
+	compile db.h2, db.dbcp2, spring.batchIntegration, spring.integrationFile
+}
+jar {
+	manifest {
+		attributes("Created-By"      : "Iuliana Cosmina",
+				"Specification-Title": "Pro Spring 5",
+				"Main-Class"         : "com.apress.prospring5.ch18.FileWatcherDemo",
+				"Class-Path"         : configurations.compile.collect { it.getName() }.join(' '))
+	}
+}

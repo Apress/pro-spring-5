@@ -305,6 +305,10 @@ include 'chapter18:batch-jsr352'
 findProject(':chapter18:batch-jsr352')?.name = 'batch-jsr352'
 include 'chapter18:integration'
 findProject(':chapter18:integration')?.name = 'integration'
+include 'chapter18:integration-cfg'
+findProject(':chapter18:integration-cfg')?.name = 'integration-cfg'
+include 'chapter18:xd'
+findProject(':chapter18:xd')?.name = 'xd'
 
 println(' This project is a collection of simple code samples. It is meant to be used together with the ' +
 		'"Spring Pro, Fifth Edition" ' +
