@@ -1,0 +1,14 @@
+dependencies {
+    compile react.projReactorIpc, react.tomcatEmbedded, spring.webflux
+    compile  misc.slf4jJcl, misc.logback, hibernate.em, hibernate.validator, db.h2,
+            spring.data
+}
+
+jar {
+    manifest {
+        attributes("Created-By": "Iuliana Cosmina",
+                "Specification-Title": "Pro Spring 5",
+                "Main-Class": "com.apress.prospring5.ch18.FileWatcherDemo",
+                "Class-Path": configurations.compile.collect { it.getName() }.join(' '))
+    }
+}

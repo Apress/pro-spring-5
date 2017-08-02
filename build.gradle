@@ -74,7 +74,8 @@ ext {
 			messaging         : "org.springframework:spring-messaging:$springVersion",
 			batchCore         : "org.springframework.batch:spring-batch-core:$springBatchVersion",
 			batchIntegration  : "org.springframework.batch:spring-batch-integration:$springBatchIntegrationVersion",
-			integrationFile : "org.springframework.integration:spring-integration-file:$springIntegrationVersion"
+			integrationFile   : "org.springframework.integration:spring-integration-file:$springIntegrationVersion",
+			webflux           : "org.springframework:spring-webflux:$springVersion"
 
 	]
 
@@ -157,6 +158,11 @@ ext {
 			httpclient   : "org.apache.httpcomponents:httpclient:$httpclientVersion",
 			websocket    : "javax.websocket:javax.websocket-api:1.1",
 			servlet      : "javax.servlet:javax.servlet-api:3.1.0",
+	]
+
+	react = [
+			projReactorIpc : "io.projectreactor.ipc:reactor-netty:0.7.0.M1",
+			tomcatEmbedded : "org.apache.tomcat.embed:tomcat-embed-core:9.0.0.M25"
 	]
 
 	db = [
