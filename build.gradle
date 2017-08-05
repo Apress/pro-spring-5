@@ -1,6 +1,6 @@
 ext {
 	//spring libs
-	springVersion = '5.0.0.RC3'
+	springVersion = '5.0.0.M4'
 	bootVersion = '2.0.0.M3'
 	springDataVersion = '2.0.0.M3'
 	springAmqpVersion = '2.0.0.M4'
@@ -105,7 +105,8 @@ ext {
 			starterRabbitmq : "org.springframework.boot:spring-boot-starter-amqp:$bootVersion",
 			starterThyme    : "org.springframework.boot:spring-boot-starter-thymeleaf:$bootVersion",
 			starterSecurity : "org.springframework.boot:spring-boot-starter-security:$bootVersion",
-			starterBatch    : "org.springframework.boot:spring-boot-starter-batch:$bootVersion"
+			starterBatch    : "org.springframework.boot:spring-boot-starter-batch:$bootVersion",
+			starterWebflux    : "org.springframework.boot:spring-boot-starter-webflux:$bootVersion"
 
 	]
 

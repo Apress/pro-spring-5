@@ -1,14 +1,31 @@
+buildscript {
+    repositories {
+        mavenLocal()
+        mavenCentral()
+        maven { url "http://repo.spring.io/release" }
+        maven { url "http://repo.spring.io/snapshot" }
+        maven { url "https://repo.spring.io/libs-snapshot" }
+        maven { url "http://repo.spring.io/milestone" }
+        maven { url "https://repo.spring.io/libs-milestone" }
+    }
+
+    dependencies {
+        classpath boot.springBootPlugin
+    }
+}
+
+apply plugin: 'org.springframework.boot'
+
 dependencies {
-    compile react.projReactorIpc, react.tomcatEmbedded, spring.webflux
-    compile  misc.slf4jJcl, misc.logback, hibernate.em, hibernate.validator, db.h2,
-            spring.data
+    compile boot.starterWebflux, boot.starterWeb, boot.starterJpa, boot.starterJta, db.h2
+    testCompile boot.starterTest
 }
 
 jar {
     manifest {
         attributes("Created-By": "Iuliana Cosmina",
                 "Specification-Title": "Pro Spring 5",
-                "Main-Class": "com.apress.prospring5.ch18.FileWatcherDemo",
+                "Main-Class"         : "com.apress.prospring5.ch16.SingerApplication",
                 "Class-Path": configurations.compile.collect { it.getName() }.join(' '))
     }
 }
