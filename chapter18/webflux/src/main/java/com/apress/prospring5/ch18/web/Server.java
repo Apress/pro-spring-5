@@ -1,18 +1,14 @@
-package com.apress.prospring5.ch18;
+package com.apress.prospring5.ch18.web;
 
-import com.apress.prospring5.ch18.web.SingerHandler;
 import org.apache.catalina.Context;
 import org.apache.catalina.LifecycleException;
 import org.apache.catalina.startup.Tomcat;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.ComponentScan;
-import org.springframework.context.annotation.Configuration;
 import org.springframework.http.server.reactive.HttpHandler;
 import org.springframework.http.server.reactive.ReactorHttpHandlerAdapter;
 import org.springframework.http.server.reactive.ServletHttpHandlerAdapter;
-import org.springframework.stereotype.Component;
 import org.springframework.web.reactive.function.server.RouterFunction;
 import org.springframework.web.reactive.function.server.ServerResponse;
 import reactor.ipc.netty.http.server.HttpServer;
@@ -27,7 +23,6 @@ import static org.springframework.web.reactive.function.server.ServerResponse.ok
 /**
  * Created by iuliana.cosmina on 8/6/17.
  */
-@Component
 public class Server {
 	public static final String HOST = "localhost";
 
@@ -68,8 +63,9 @@ public class Server {
 		Context rootContext = tomcatServer.addContext("", System.getProperty("java.io.tmpdir"));
 		ServletHttpHandlerAdapter servlet = new ServletHttpHandlerAdapter(httpHandler);
 		Tomcat.addServlet(rootContext, "httpHandlerServlet", servlet);
-		rootContext.addServletMapping("/", "httpHandlerServlet");
+		rootContext.addServletMappingDecoded("/", "httpHandlerServlet");
 		tomcatServer.start();
+		logger.info("Embedded Tomcat server started...");
 	}
 
 }

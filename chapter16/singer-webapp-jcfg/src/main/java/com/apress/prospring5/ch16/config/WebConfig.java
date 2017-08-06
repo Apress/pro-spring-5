@@ -28,7 +28,7 @@ import java.util.Locale;
 @Configuration
 @EnableWebMvc
 @ComponentScan(basePackages = {"com.apress.prospring5.ch16"})
-public class WebConfig extends WebMvcConfigurerAdapter {
+public class WebConfig implements WebMvcConfigurer {
 
 	//Declare our static resources. I added cache to the java config but it?s not required.
 	@Override

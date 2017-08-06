@@ -1,4 +1,4 @@
-package com.apress.prospring5.ch12.config;
+package com.apress.prospring5.ch18;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -22,8 +22,8 @@ import java.util.Properties;
  * Created by iuliana.cosmina on 4/29/17.
  */
 @Configuration
-@EnableJpaRepositories(basePackages = {"com.apress.prospring5.ch12.repos"})
-@ComponentScan(basePackages  = {"com.apress.prospring5.ch12"} )
+@EnableJpaRepositories(basePackages = {"com.apress.prospring5.ch18.repos"})
+@ComponentScan(basePackages  = {"com.apress.prospring5.ch18"} )
 public class DataServiceConfig {
 
 	private static Logger logger = LoggerFactory.getLogger(DataServiceConfig.class);
@@ -48,10 +48,6 @@ public class DataServiceConfig {
 		hibernateProp.put("hibernate.max_fetch_depth", 3);
 		hibernateProp.put("hibernate.jdbc.batch_size", 10);
 		hibernateProp.put("hibernate.jdbc.fetch_size", 50);
-
-		hibernateProp.put("hibernate.jmx.enabled", true);
-		hibernateProp.put("hibernate.generate_statistics", true);
-		hibernateProp.put("hibernate.session_factory_name", "sessionFactory");
 		return hibernateProp;
 	}
 
@@ -69,7 +65,7 @@ public class DataServiceConfig {
 	@Bean
 	public EntityManagerFactory entityManagerFactory() {
 		LocalContainerEntityManagerFactoryBean factoryBean = new LocalContainerEntityManagerFactoryBean();
-		factoryBean.setPackagesToScan("com.apress.prospring5.ch12.entities");
+		factoryBean.setPackagesToScan("com.apress.prospring5.ch18.entities");
 		factoryBean.setDataSource(dataSource());
 		factoryBean.setJpaVendorAdapter(new HibernateJpaVendorAdapter());
 		factoryBean.setJpaProperties(hibernateProperties());

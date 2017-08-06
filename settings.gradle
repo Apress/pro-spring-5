@@ -309,8 +309,13 @@ include 'chapter18:integration-cfg'
 findProject(':chapter18:integration-cfg')?.name = 'integration-cfg'
 include 'chapter18:xd'
 findProject(':chapter18:xd')?.name = 'xd'
+include 'chapter18:webflux-boot'
+findProject(':chapter18:webflux-boot')?.name = 'webflux-boot'
 include 'chapter18:webflux'
 findProject(':chapter18:webflux')?.name = 'webflux'
+
+include 'chapter18:boot-tests'
+findProject(':chapter18:boot-tests')?.name = 'boot-tests'
 
 println(' This project is a collection of simple code samples. It is meant to be used together with the ' +
 		'"Spring Pro, Fifth Edition" ' +
@@ -323,6 +328,4 @@ rootProject.children.each { project ->
 	assert project.buildFile.exists()
 	assert project.buildFile.isFile()
 }
-include 'chapter18:webflux'
-findProject(':chapter18:webflux')?.name = 'webflux'
 

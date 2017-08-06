@@ -1,6 +1,6 @@
 dependencies {
     compile project(':chapter13:base-test')
-    testCompile testing.junit5, testing. junitJupiter, testing.mockito, spring.test
+    testCompile testing.junit5Engine, testing.mockito, spring.test
 }
 
 jar {

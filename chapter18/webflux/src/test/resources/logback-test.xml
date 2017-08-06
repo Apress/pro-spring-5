@@ -13,7 +13,7 @@
 
     <logger name="com.apress.prospring5.ch18" level="debug"/>
 
-    <logger name="org.springframework" level="info"/>
+    <logger name="org.springframework" level="debug"/>
 
 
     <root level="info">

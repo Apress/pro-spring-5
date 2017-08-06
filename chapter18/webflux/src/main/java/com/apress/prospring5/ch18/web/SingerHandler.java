@@ -20,18 +20,8 @@ public class SingerHandler {
 
 	@Autowired ReactiveSingerRepo reactiveSingerRepo;
 
-	//needed for testing
-	public SingerHandler(ReactiveSingerRepo reactiveSingerRepo) {
-		this.reactiveSingerRepo = reactiveSingerRepo;
-	}
-
 	public HandlerFunction<ServerResponse> list = serverRequest -> ServerResponse.ok()
 			.contentType(APPLICATION_JSON).body(reactiveSingerRepo.findAll(), Singer.class);
-
-	/*public Mono<ServerResponse> list(ServerRequest request) {
-		Flux<Singer> singers = reactiveSingerRepo.findAll();
-		return ServerResponse.ok().contentType(APPLICATION_JSON).body(singers, Singer.class);
-	}*/
 
 	public Mono<ServerResponse> show(ServerRequest request) {
 		Mono<Singer> singerMono = reactiveSingerRepo.findById(Long.valueOf(request.pathVariable("id")));
@@ -43,10 +33,4 @@ public class SingerHandler {
 
 	public HandlerFunction<ServerResponse> save = serverRequest -> ServerResponse.ok()
 			.build(reactiveSingerRepo.save(serverRequest.bodyToMono(Singer.class)));
-
-	/*public Mono<ServerResponse> save(ServerRequest request) {
-		Mono<Singer> data = request.bodyToMono(Singer.class);
-		reactiveSingerRepo.save(data);
-		return ServerResponse.ok().build(reactiveSingerRepo.save(data));
-	}*/
 }

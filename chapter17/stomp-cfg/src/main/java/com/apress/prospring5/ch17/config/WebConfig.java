@@ -6,7 +6,10 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.core.task.SimpleAsyncTaskExecutor;
 import org.springframework.core.task.TaskExecutor;
 import org.springframework.scheduling.annotation.EnableAsync;
-import org.springframework.web.servlet.config.annotation.*;
+import org.springframework.web.servlet.config.annotation.DefaultServletHandlerConfigurer;
+import org.springframework.web.servlet.config.annotation.EnableWebMvc;
+import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 /**
  * Created by iuliana.cosmina on 7/29/17.
@@ -15,7 +18,7 @@ import org.springframework.web.servlet.config.annotation.*;
 @EnableWebMvc
 @EnableAsync
 @ComponentScan(basePackages = {"com.apress.prospring5.ch17"})
-public class WebConfig extends WebMvcConfigurerAdapter {
+public class WebConfig implements WebMvcConfigurer {
 
 	// <=> <mvc:default-servlet-handler/>
 	@Override

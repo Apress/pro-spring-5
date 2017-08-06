@@ -20,11 +20,6 @@ public class SingerHandler {
 
 	@Autowired ReactiveSingerRepo reactiveSingerRepo;
 
-	//needed for testing
-	public SingerHandler(ReactiveSingerRepo reactiveSingerRepo) {
-		this.reactiveSingerRepo = reactiveSingerRepo;
-	}
-
 	public HandlerFunction<ServerResponse> list = serverRequest -> ServerResponse.ok()
 			.contentType(APPLICATION_JSON).body(reactiveSingerRepo.findAll(), Singer.class);
 

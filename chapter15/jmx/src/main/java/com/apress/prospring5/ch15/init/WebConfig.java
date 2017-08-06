@@ -20,7 +20,7 @@ import org.springframework.jmx.export.MBeanExporter;
 import org.springframework.oxm.castor.CastorMarshaller;
 import org.springframework.web.servlet.config.annotation.DefaultServletHandlerConfigurer;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
-import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 import javax.persistence.EntityManagerFactory;
 import java.text.DateFormat;
@@ -36,12 +36,13 @@ import java.util.Map;
 @Configuration
 @EnableWebMvc
 @ComponentScan(basePackages = {"com.apress.prospring5.ch15"})
-public class WebConfig extends WebMvcConfigurerAdapter {
+public class WebConfig implements WebMvcConfigurer {
 
 	@Autowired ApplicationContext ctx;
 
 	/**
 	 * Setting the MappingJackson2HttpMessageConverter and configuring it
+	 *
 	 * @return
 	 */
 	@Bean
@@ -85,24 +86,23 @@ public class WebConfig extends WebMvcConfigurerAdapter {
 
 	@Bean CastorMarshaller castorMarshaller() {
 		CastorMarshaller castorMarshaller = new CastorMarshaller();
-		castorMarshaller.setMappingLocation(ctx.getResource( "classpath:spring/oxm-mapping.xml"));
+		castorMarshaller.setMappingLocation(ctx.getResource("classpath:spring/oxm-mapping.xml"));
 		return castorMarshaller;
 	}
-
 	// JMX beans
 
 	@Bean AppStatistics appStatisticsBean() {
 		return new AppStatisticsImpl();
 	}
 
-	@Bean CustomStatistics statisticsBean(){
+	@Bean CustomStatistics statisticsBean() {
 		return new CustomStatistics();
 	}
 
 	@Autowired
 	private EntityManagerFactory entityManagerFactory;
 
-	@Bean SessionFactory sessionFactory(){
+	@Bean SessionFactory sessionFactory() {
 		return entityManagerFactory.unwrap(SessionFactory.class);
 	}
 

@@ -17,8 +17,8 @@ buildscript {
 apply plugin: 'org.springframework.boot'
 
 dependencies {
-    compile boot.starterWebflux, boot.starterWeb, boot.starterJpa, boot.starterJta, db.h2
-    testCompile boot.starterTest, testing.junit5Engine
+    compile boot.starterWebflux, boot.starterWeb
+    testCompile boot.starterTest, testing.junit5Engine, testing.junit5Runner
 }
 
 jar {

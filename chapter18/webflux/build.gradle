@@ -1,30 +1,22 @@
-buildscript {
-    repositories {
-        mavenLocal()
-        mavenCentral()
-        maven { url "http://repo.spring.io/release" }
-        maven { url "http://repo.spring.io/snapshot" }
-        maven { url "https://repo.spring.io/libs-snapshot" }
-        maven { url "http://repo.spring.io/milestone" }
-        maven { url "https://repo.spring.io/libs-milestone" }
-    }
-
-    dependencies {
-        classpath boot.springBootPlugin
-    }
-}
-
-apply plugin: 'org.springframework.boot'
+apply plugin: 'war'
 
 dependencies {
-    compile boot.starterWebflux, boot.starterWeb, boot.starterJpa, boot.starterJta, db.h2
-    testCompile boot.starterTest, testing.junitJupiter, testing.junit5
+    compile spring.webflux, spring.data, db.h2, hibernate.em, react.projReactorIpc, react.tomcatEmbedded,
+            misc.jacksonDatabind, misc.slf4jJcl, misc.logback
+    compile(hibernate.tx) {
+        exclude group: 'org.hibernate', module: 'hibernate'
+    }
+    testCompile testing.junit5Engine, spring.test, testing.junit
 }
 
-jar {
+/*, spring.data, spring.context
+            react.reactiveStreams, react.projReactIpc, react.tomcatEmbedded*/
+
+war {
+    archiveName = 'singer-webapp-jcfg.war'
     manifest {
-        attributes("Created-By": "Iuliana Cosmina",
+        attributes("Created-By"      : "Iuliana Cosmina",
                 "Specification-Title": "Pro Spring 5",
-                "Class-Path": configurations.compile.collect { it.getName() }.join(' '))
+                "Class-Path"         : configurations.compile.collect { it.getName() }.join(' '))
     }
 }

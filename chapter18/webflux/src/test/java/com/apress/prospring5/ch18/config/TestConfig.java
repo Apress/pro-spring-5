@@ -1,4 +1,4 @@
-package com.apress.prospring5.ch18;
+package com.apress.prospring5.ch18.config;
 
 import com.apress.prospring5.ch18.web.Server;
 import org.springframework.beans.factory.annotation.Autowired;

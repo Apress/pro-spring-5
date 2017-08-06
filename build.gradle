@@ -1,6 +1,6 @@
 ext {
 	//spring libs
-	springVersion = '5.0.0.M4'
+	springVersion = '5.0.0.RC3'
 	bootVersion = '2.0.0.M3'
 	springDataVersion = '2.0.0.M3'
 	springAmqpVersion = '2.0.0.M4'
@@ -30,7 +30,7 @@ ext {
 	artemisVersion = '2.1.0'
 	hornetqVersion = '2.4.0.Final'
 	castorVersion = '1.4.1'
-	jacksonVersion = '2.9.0.pr3'
+	jacksonVersion = '2.9.0'
 	httpclientVersion = '4.5.3'
 	poiVersion = '3.16'
 	tilesVersion = '3.0.7'
@@ -106,14 +106,14 @@ ext {
 			starterThyme    : "org.springframework.boot:spring-boot-starter-thymeleaf:$bootVersion",
 			starterSecurity : "org.springframework.boot:spring-boot-starter-security:$bootVersion",
 			starterBatch    : "org.springframework.boot:spring-boot-starter-batch:$bootVersion",
-			starterWebflux    : "org.springframework.boot:spring-boot-starter-webflux:$bootVersion"
+			starterWebflux  : "org.springframework.boot:spring-boot-starter-webflux:$bootVersion"
 
 	]
 
 	testing = [
 			junit       : "junit:junit:$junitVersion",
-			junit5      : "org.junit.jupiter:junit-jupiter-engine:$junit5Version",
-			junitJupiter: "org.junit.jupiter:junit-jupiter-api:$junit5Version",
+			junit5Engine: "org.junit.jupiter:junit-jupiter-engine:$junit5Version",
+			junit5Runner: "org.junit.platform:junit-platform-runner:1.0.0-M4",
 			mockito     : "org.mockito:mockito-all:$mockitoVersion",
 			easymock    : "org.easymock:easymock:3.4",
 			jmock       : "org.jmock:jmock:2.8.2",
@@ -162,8 +162,8 @@ ext {
 	]
 
 	react = [
-			projReactorIpc : "io.projectreactor.ipc:reactor-netty:0.7.0.M1",
-			tomcatEmbedded : "org.apache.tomcat.embed:tomcat-embed-core:9.0.0.M25"
+			projReactorIpc: "io.projectreactor.ipc:reactor-netty:0.7.0.M1",
+			tomcatEmbedded: "org.apache.tomcat.embed:tomcat-embed-core:9.0.0.M25",
 	]
 
 	db = [
