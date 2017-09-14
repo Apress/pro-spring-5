@@ -1,21 +1,19 @@
 == Apress Source Code
 
-TODO - change book ISBN
-This repository accompanies [*Pro Spring 5th Edition*](http://www.apress.com/9781430261513) by Iuliana Cosmina, Clarence Ho, Rob Harrop, and Chris  Schaefer (Apress, 2017).
+This repository accompanies [*Pro Spring 5th Edition*](http://www.apress.com/9781484228074) by Iuliana Cosmina, Rob Harrop, Chris Schaefer, Clarence Ho (Apress, 2017).
 
-image::9781430261513.jpg[Cover image]
+image::9781484228074.jpg[Cover image]
 
 Download the files as a zip using the green button, or clone the repository to your machine using Git.
 
 == Releases
 Release v1.0 corresponds to the code in the published book, without corrections or updates.
 
+== Corrections
+For corrections to the content in the published book, see the file errata.md.
+
 == Contributions
 See the file Contributing.adoc for more information on how you can contribute to this repository.
-
-== UNDER CONSTRUCTION
-
-Version 5 of this book is being written so sources here will be changed to use Spring 5.x and Spring Boot 2.x
 
 
 == Building and Deploying

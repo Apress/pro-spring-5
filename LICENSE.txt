@@ -1,6 +1,6 @@
 Freeware License, some rights reserved
 
-Copyright (c) 2017 Iuliana Cosmina, Clarence Ho, Rob Harrop, and Chris  Schaefer
+Copyright (c) 2017 Iuliana Cosmina, Rob Harrop, Chris Schaefer, Clarence Ho
 
 Permission is hereby granted, free of charge, to anyone obtaining a copy 
 of this software and associated documentation files (the "Software"), 
