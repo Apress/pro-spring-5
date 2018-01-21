@@ -7,6 +7,11 @@ gradle
 gradlew*
 *.class
 transaction-logs
+.project
+.settings
+target
+.classpath
+WebContent
 
 # Mobile Tools for Java (J2ME)
 .mtj.tmp/
