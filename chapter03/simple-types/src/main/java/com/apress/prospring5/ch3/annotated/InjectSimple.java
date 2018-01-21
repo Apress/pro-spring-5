@@ -9,7 +9,7 @@ public class InjectSimple {
 
 	@Value("John Mayer")
 	private String name;
-	@Value("39")
+	@Value("40")
 	private int age;
 	@Value("1.92")
 	private float height;

@@ -12,7 +12,7 @@ public class InjectSimple {
 
 	public static void main(String... args) {
 		GenericXmlApplicationContext ctx = new GenericXmlApplicationContext();
-		ctx.load("classpath:spring/app-context-xml.xml");
+		ctx.load("classpath:spring/app-context-simple-xml.xml");
 		ctx.refresh();
 
 		InjectSimple simple = (InjectSimple) ctx.getBean("injectSimple");

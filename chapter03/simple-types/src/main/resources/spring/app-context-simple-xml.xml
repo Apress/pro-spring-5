@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:p="http://www.springframework.org/schema/p"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+
+    <bean id="injectSimple" class="com.apress.prospring5.ch3.xml.InjectSimple"
+    	p:name="John Mayer"
+        p:age="39"
+    	p:height="1.92"
+        p:programmer="false"
+    	p:ageInSeconds="1241401112"/>
+</beans>
