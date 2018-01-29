@@ -11,16 +11,10 @@ buildscript {
 	}
 
 	dependencies {
-		classpath "nl.eveoh:gradle-aspectj:1.6"
+		classpath "nl.eveoh:gradle-aspectj:2.0"
 	}
 }
 apply plugin: 'aspectj'
-
-sourceSets {
-	aspects
-}
-
-sourceSets.aspects.java.srcDirs = ['src/main/aspects']
 
 jar {
 	manifest {

@@ -16,7 +16,7 @@ ext {
 	groovyVersion = '2.4.5'
 	guavaVersion = '21.0'
 
-	aspectjVersion = '1.9.0.BETA-5'
+	aspectjVersion = '1.8.13'
 	derbyVersion = '10.13.1.1'
 	dbcpVersion = '2.1'
 	mysqlVersion = '6.0.6'
@@ -187,6 +187,7 @@ subprojects {
 		maven { url "https://repo.spring.io/libs-snapshot" }
 		maven { url "http://repo.spring.io/milestone" }
 		maven { url "https://repo.spring.io/libs-milestone" }
+		maven { url "https://maven.eveoh.nl/content/repositories/releases" }
 	}
 }
 
