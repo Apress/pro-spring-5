@@ -13,11 +13,10 @@ public class NamePointcutUsingAdvisor {
 	public static void main(String... args) {
 		GrammyGuitarist johnMayer = new GrammyGuitarist();
 
-		NameMatchMethodPointcut pc = new NameMatchMethodPointcut();
-		pc.addMethodName("sing");
-		pc.addMethodName("rest");
+		NameMatchMethodPointcutAdvisor advisor = new NameMatchMethodPointcutAdvisor(new SimpleAdvice());
+		advisor.setMappedNames("sing");
+		advisor.setMappedNames("rest");
 
-		Advisor advisor = new NameMatchMethodPointcutAdvisor(new SimpleAdvice());
 		ProxyFactory pf = new ProxyFactory();
 		pf.setTarget(johnMayer);
 		pf.addAdvisor(advisor);

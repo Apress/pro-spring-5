@@ -17,7 +17,7 @@ buildscript {
 apply plugin: 'aspectj'
 
 jar {
-	manifest {
+	manifest {NamePointcutUsingAdvisor
 		attributes(
 				"Created-By": "Iuliana Cosmina",
 				"Specification-Title": "Pro Spring 5",
