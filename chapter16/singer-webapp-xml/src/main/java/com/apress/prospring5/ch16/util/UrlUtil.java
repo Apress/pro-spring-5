@@ -1,7 +1,5 @@
 package com.apress.prospring5.ch16.util;
 
-import java.io.UnsupportedEncodingException;
-
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.web.util.UriUtils;
@@ -15,11 +13,7 @@ public class UrlUtil {
             enc = WebUtils.DEFAULT_CHARACTER_ENCODING;
         }
 
-        try {
-            pathSegment = UriUtils.encodePathSegment(pathSegment, enc);
-        } catch (UnsupportedEncodingException uee) {
-            //
-        }
+        pathSegment = UriUtils.encodePathSegment(pathSegment, enc);
 
         return pathSegment;
     }
