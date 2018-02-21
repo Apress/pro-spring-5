@@ -17,9 +17,13 @@
 
     <authentication-manager>
         <authentication-provider>
+            <password-encoder ref="encoder"/>
             <user-service>
-                <user name="user" password="user" authorities="ROLE_USER" />
+                <!-- pass is still user -->
+                <user name="user" password="$2a$10$RmUal0VbYmacU1ISvPYbquhjnoPE/.BA0EVtb.Hc7wDwZv/h9jzIe" authorities="ROLE_USER" />
             </user-service>
         </authentication-provider>
     </authentication-manager>
+
+    <beans:bean  id="encoder" class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder" />
 </beans:beans>

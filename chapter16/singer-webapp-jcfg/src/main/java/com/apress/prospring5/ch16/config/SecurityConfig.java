@@ -7,6 +7,8 @@ import org.springframework.security.config.annotation.method.configuration.Enabl
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.csrf.CsrfTokenRepository;
 import org.springframework.security.web.csrf.HttpSessionCsrfTokenRepository;
 
@@ -21,7 +23,11 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	@Autowired
 	public void configureGlobal(AuthenticationManagerBuilder auth) {
 		try {
-			auth.inMemoryAuthentication().withUser("user").password("user").roles("USER");
+			PasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+			auth
+					.inMemoryAuthentication()
+					.passwordEncoder(passwordEncoder)
+					.withUser("user").password(passwordEncoder.encode("user")).roles("USER");
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
