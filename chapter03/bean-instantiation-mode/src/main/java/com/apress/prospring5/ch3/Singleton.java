@@ -10,4 +10,8 @@ public class Singleton {
     public static Singleton getInstance() {
         return instance; 
     }
+
+    private Singleton(){
+        // needed so developers cannot instantiate this class directly
+    }
 }

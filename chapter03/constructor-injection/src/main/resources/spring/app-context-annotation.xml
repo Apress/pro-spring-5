@@ -14,4 +14,14 @@
 
     <bean id="message" class="java.lang.String"
           c:_0="I hope that someone gets my message in a bottle"/>
+
+    <bean id="message2" class="java.lang.String"
+          c:_0="I know I won't be injected :("/>
 </beans>
+
+
+<!--  Java provides a no-arg constructor by default
+if it does not extend except Object class and has no any constructors.
+ In page 105, the class Singleton should have a private constructor
+  otherwise anybody can get an instance of it by calling new operator,
+   which breaks the rule single instance in a container. -->
