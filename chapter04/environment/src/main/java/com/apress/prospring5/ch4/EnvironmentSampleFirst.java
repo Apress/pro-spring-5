@@ -1,14 +1,15 @@
 package com.apress.prospring5.ch4;
 
-import java.util.HashMap;
-import java.util.Map;
-
 import org.springframework.context.support.GenericXmlApplicationContext;
 import org.springframework.core.env.ConfigurableEnvironment;
 import org.springframework.core.env.MapPropertySource;
 import org.springframework.core.env.MutablePropertySources;
 
-public class EnvironmentSample {
+import java.util.HashMap;
+import java.util.Map;
+
+public class EnvironmentSampleFirst {
+
     public static void main(String... args) {
         GenericXmlApplicationContext ctx = new GenericXmlApplicationContext();
         ctx.refresh();
@@ -17,7 +18,7 @@ public class EnvironmentSample {
         MutablePropertySources propertySources = env.getPropertySources();
 
         Map<String,Object> appMap = new HashMap<>();
-        appMap.put("application.home", "application_home");
+        appMap.put("user.home", "application_home");
 
         propertySources.addFirst(new MapPropertySource("prospring5_MAP", appMap));
 
