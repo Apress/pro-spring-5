@@ -56,51 +56,51 @@ public class ProxyPerfTest {
         long after = 0;
 
         System.out.println("Testing Advised Method");
-        before = System.currentTimeMillis();
+        before = System.nanoTime();
         for(int x = 0; x < 500000; x++) {
             bean.advised();
         }
-        after = System.currentTimeMillis();
+        after = System.nanoTime();
 
-        System.out.println("Took " + (after - before) + " ms");
+        System.out.println("Took " + (after - before) / 1000000 + " ms");
 
         System.out.println("Testing Unadvised Method");
-        before = System.currentTimeMillis();
+        before = System.nanoTime();
         for(int x = 0; x < 500000; x++) {
             bean.unadvised();
         }
-        after = System.currentTimeMillis();
+        after = System.nanoTime();
 
-        System.out.println("Took " + (after - before) + " ms");
+        System.out.println("Took " + (after - before) / 1000000 + " ms");
 
         System.out.println("Testing equals() Method");
-        before = System.currentTimeMillis();
+        before = System.nanoTime();
         for(int x = 0; x < 500000; x++) {
             bean.equals(bean);
         }
-        after = System.currentTimeMillis();
+        after = System.nanoTime();
 
-        System.out.println("Took " + (after - before) + " ms");
+        System.out.println("Took " + (after - before) / 1000000 + " ms");
 
         System.out.println("Testing hashCode() Method");
-        before = System.currentTimeMillis();
+        before = System.nanoTime();
         for(int x = 0; x < 500000; x++) {
             bean.hashCode();
         }
-        after = System.currentTimeMillis();
+        after = System.nanoTime();
 
-        System.out.println("Took " + (after - before) + " ms");
+        System.out.println("Took " + (after - before) / 1000000 + " ms");
 
         Advised advised = (Advised)bean;
 
         System.out.println("Testing Advised.getProxyTargetClass() Method");
-        before = System.currentTimeMillis();
+        before = System.nanoTime();
         for(int x = 0; x < 500000; x++) {
             advised.getTargetClass();
         }
-        after = System.currentTimeMillis();
+        after = System.nanoTime();
 
-        System.out.println("Took " + (after - before) + " ms");
+        System.out.println("Took " + (after - before) / 1000000 + " ms");
 
         System.out.println(">>>\n");
     }
