@@ -1,0 +1,62 @@
+\documentclass[10pt,oneside]{book}      
+
+% Prepared by:
+% Princeton Satellite Systems
+% 6 Market St. Suite 926
+% Plainsboro, NJ 08536
+% (609) 275-9606
+% info@psatellite.com
+
+\usepackage{apressstyles}
+\usepackage{bookmark}% http://ctan.org/pkg/bookmark
+
+\title{Textbook Single Chapter}     
+\author{Iuliana Cosmina}      
+\newcommand{\imagepath}{images/}
+\newcommand{\codepath}{src/}
+
+\usepackage{hyperref}
+\usepackage{wrapfig}
+\usepackage{verbatim}
+\usepackage{fancyvrb}
+\usepackage{graphicx}
+\usepackage[usenames, dvipsnames]{color}
+\usepackage[english]{babel}
+\usepackage{fullpage}
+\usepackage[T1]{fontenc}
+\usepackage[utf8x]{inputenc}
+\usepackage{hyperref}
+\usepackage{emptypage}
+\usepackage{soul}
+
+\graphicspath{{images/}}
+\listfiles
+
+% template to used for quizzes%
+\newcounter{qcounter}
+\newenvironment{quizz}
+{ 
+	\begin{list}{\Alph{qcounter}.~}{\usecounter{qcounter}}
+}{
+	\end{list}
+}
+
+\newcommand*{\fvtextcolor}[2]{\textcolor{#1}{#2}}
+
+% chapter we are currently compiling
+\includeonly{errata}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+% if you will include code listings, set the global parameters
+\lstset{language=Matlab,basicstyle=\small\ttfamily,emptylines=1,breaklines}
+
+\setcounter{secnumdepth}{1}
+
+\mainmatter
+
+\include{errata}
+% ...
+
+\end{document} 
+
