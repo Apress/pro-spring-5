@@ -43,8 +43,7 @@ public class DestructiveBeanWithInterface {
     public static void main(String... args) throws Exception {
         GenericXmlApplicationContext ctx = new GenericXmlApplicationContext();
         ctx.load("classpath:spring/app-context-annotation.xml");
-        ctx.registerShutdownHook();
-        ctx.refresh(); 
+        ctx.refresh();
         ctx.getBean("destructiveBean", DestructiveBeanWithInterface.class);
     }
 }
