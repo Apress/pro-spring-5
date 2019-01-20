@@ -2,7 +2,7 @@ jar {
 	manifest {
 		attributes( "Created-By"         : "Iuliana Cosmina",
 		             "Specification-Title": "Pro Spring 5",
-		             "Main-Class"         : "com.apress.prospring5.ch4.BeanNamePrinterDemo",
+		             "Main-Class"         : "com.apress.prospring5.ch4.NamedSingerDemo",
 		             "Class-Path"         : configurations.compile.collect { it.getName() }.join(' '))
 	}
 }

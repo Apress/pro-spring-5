@@ -14,7 +14,7 @@ println anotherSinger
 println singer.firstName + 39
 println anotherSinger.firstName + 39
 
-//Siplified Syntax
+//Simplified Syntax
 def list = ['This', 'is', 'John Mayer']
 println list
 

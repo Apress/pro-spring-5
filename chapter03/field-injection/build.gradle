@@ -2,7 +2,7 @@ jar {
     manifest {
         attributes("Created-By"      : "Iuliana Cosmina",
                 "Specification-Title": "Pro Spring 5",
-                "Main-Class"         : "com.apress.prospring5.ch3.annotation.FieldInjection",
+                "Main-Class"         : "com.apress.prospring5.ch3.annotated.FieldInjection",
                 "Class-Path"         : configurations.compile.collect { it.getName() }.join(' '))
     }
 }

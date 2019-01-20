@@ -37,7 +37,7 @@ public class TxJtaDemo {
 		if (singers.size()!= 2) {
 			logger.error("--> Something went wrong.");
 		} else {
-			logger.info("--> Singers form both DBs: " + singers);
+			logger.info("--> Singers from both DBs: " + singers);
 		}
 		ctx.close();
 	}

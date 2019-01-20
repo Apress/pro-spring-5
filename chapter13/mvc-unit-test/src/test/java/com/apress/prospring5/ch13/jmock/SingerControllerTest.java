@@ -1,4 +1,4 @@
-package om.apress.prospring5.ch13.jmock;
+package com.apress.prospring5.ch13.jmock;
 
 import com.apress.prospring5.ch13.SingerController;
 import com.apress.prospring5.ch13.entities.Singer;

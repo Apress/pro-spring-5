@@ -48,7 +48,7 @@ public class JdbcSingerDao implements SingerDao, InitializingBean {
 					album.setSingerId(id);
 					album.setTitle(rs.getString("title"));
 					album.setReleaseDate(rs.getDate("release_date"));
-					singer.addAbum(album);
+					singer.addAlbum(album);
 				}
 			}
 			return new ArrayList<>(map.values());

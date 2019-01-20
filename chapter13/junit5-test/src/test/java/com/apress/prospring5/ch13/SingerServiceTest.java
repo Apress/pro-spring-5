@@ -49,7 +49,7 @@ public class SingerServiceTest {
 
 	@AfterEach
 	void dispose() {
-		logger.info("--> @AfterEach - executes before each test method in this class");
+		logger.info("--> @AfterEach - executes after each test method in this class");
 	}
 
 	@Test

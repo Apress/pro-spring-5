@@ -20,12 +20,12 @@ public class IntegrationTwoTest {
 	@Autowired FluxGenerator fluxGenerator;
 
 	@Test
-	public void test1One() {
+	public void test1Two() {
 		fluxGenerator.generate("a", "b", "c").collectList().block().forEach(logger::info);
 	}
 
 	@Test
-	public void test2One() {
+	public void test2Two() {
 		fluxGenerator.generate( "aa", "bb", "cc").collectList().block().forEach(logger::info);
 	}
 }

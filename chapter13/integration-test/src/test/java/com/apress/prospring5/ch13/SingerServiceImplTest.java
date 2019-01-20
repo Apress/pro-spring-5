@@ -73,7 +73,7 @@ public class SingerServiceImplTest extends AbstractTransactionalJUnit4SpringCont
         assertEquals(1, singers.size());
     }
 
-    @Test(expected=ConstraintViolationException.class)
+    @Test(expected=AssertionError.class)
     public void testAddSingerWithJSR349Error() throws Exception {
         deleteFromTables("SINGER");
 

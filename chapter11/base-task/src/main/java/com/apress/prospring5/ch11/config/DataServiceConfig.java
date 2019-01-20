@@ -68,7 +68,6 @@ public class DataServiceConfig {
 		LocalContainerEntityManagerFactoryBean factoryBean = new LocalContainerEntityManagerFactoryBean();
 		factoryBean.setPackagesToScan("com.apress.prospring5.ch11.entities");
 		factoryBean.setDataSource(dataSource());
-		factoryBean.setJpaVendorAdapter(new HibernateJpaVendorAdapter());
 		factoryBean.setJpaProperties(hibernateProperties());
 		factoryBean.setJpaVendorAdapter(jpaVendorAdapter());
 		factoryBean.afterPropertiesSet();

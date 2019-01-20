@@ -30,7 +30,7 @@ import java.util.Locale;
 @ComponentScan(basePackages = {"com.apress.prospring5.ch16"})
 public class WebConfig implements WebMvcConfigurer {
 
-	//Declare our static resources. I added cache to the java config but it?s not required.
+	//Declare our static resources. I added cache to the java config but it's not required.
 	@Override
 	public void addResourceHandlers(ResourceHandlerRegistry registry) {
 		registry.addResourceHandler("/resources/**").addResourceLocations("/")
@@ -72,7 +72,7 @@ public class WebConfig implements WebMvcConfigurer {
 		return validator();
 	}
 
-	// <=> replacement for 'typeConversionService'  ban
+	// <=> replacement for 'typeConversionService'  bean
 	@Override
 	public void addFormatters(FormatterRegistry formatterRegistry) {
 		formatterRegistry.addFormatter(dateFormatter());
@@ -101,7 +101,9 @@ public class WebConfig implements WebMvcConfigurer {
 
 	@Bean
 	LocaleChangeInterceptor localeChangeInterceptor() {
-		return new LocaleChangeInterceptor();
+		LocaleChangeInterceptor interceptor = new LocaleChangeInterceptor();
+		interceptor.setParamName("lang");
+		return interceptor;
 	}
 
 	@Bean ResourceBundleThemeSource themeSource() {

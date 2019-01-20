@@ -38,11 +38,11 @@ public class SpringEnversJPADemo {
 
         SingerAudit oldSinger = singerAuditService.findAuditByRevision(4l, 1);
         System.out.println("");
-        System.out.println("Old Singer with id 1 and rev 1:" + oldSinger);
+        System.out.println("Old Singer with id 4 and rev 1:" + oldSinger);
         System.out.println("");
         oldSinger = singerAuditService.findAuditByRevision(4l, 2);
         System.out.println("");
-        System.out.println("Old Singer with id 1 and rev 2:" + oldSinger);
+        System.out.println("Old Singer with id 4 and rev 2:" + oldSinger);
         System.out.println("");
 
         ctx.close();

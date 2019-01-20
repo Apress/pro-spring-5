@@ -90,13 +90,13 @@ public class AnnotationJdbcTest {
 		album.setTitle("My Kind of Blues");
 		album.setReleaseDate(new Date(
 				(new GregorianCalendar(1961, 7, 18)).getTime().getTime()));
-		singer.addAbum(album);
+		singer.addAlbum(album);
 
 		album = new Album();
 		album.setTitle("A Heart Full of Blues");
 		album.setReleaseDate(new Date(
 				(new GregorianCalendar(1962, 3, 20)).getTime().getTime()));
-		singer.addAbum(album);
+		singer.addAlbum(album);
 
 		singerDao.insertWithAlbum(singer);
 

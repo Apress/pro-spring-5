@@ -114,7 +114,6 @@ public class SingerController {
                 InputStream inputStream = file.getInputStream();
                 if (inputStream == null) logger.info("File inputstream is null");
                 fileContent = IOUtils.toByteArray(inputStream);
-                singer.setPhoto(fileContent);
             } catch (IOException ex) {
                 logger.error("Error saving uploaded file");
             }

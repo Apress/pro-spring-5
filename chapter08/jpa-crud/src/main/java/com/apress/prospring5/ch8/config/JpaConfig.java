@@ -68,7 +68,6 @@ public class JpaConfig {
 		LocalContainerEntityManagerFactoryBean factoryBean = new LocalContainerEntityManagerFactoryBean();
 		factoryBean.setPackagesToScan("com.apress.prospring5.ch8.entities");
 		factoryBean.setDataSource(dataSource());
-		factoryBean.setJpaVendorAdapter(new HibernateJpaVendorAdapter());
 		factoryBean.setJpaProperties(hibernateProperties());
 		factoryBean.setJpaVendorAdapter(jpaVendorAdapter());
 		factoryBean.afterPropertiesSet();

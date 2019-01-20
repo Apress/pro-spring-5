@@ -1,8 +1,8 @@
-package com.apress.prosring5.ch12.test;
+package com.apress.prospring5.ch12.test;
 
 import com.apress.prospring5.ch12.entities.Singers;
 import com.apress.prospring5.ch12.entities.Singer;
-import com.apress.prosring5.ch12.RestClientConfig;
+import com.apress.prospring5.ch12.RestClientConfig;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -50,7 +50,7 @@ public class RestClientTest {
 	}
 
 	@Test
-	public void testFindbyId() {
+	public void testFindById() {
 		logger.info("--> Testing retrieve a singer by id : 1");
 		Singer singer = restTemplate.getForObject(URL_GET_SINGER_BY_ID, Singer.class, 1);
 		assertNotNull(singer);
