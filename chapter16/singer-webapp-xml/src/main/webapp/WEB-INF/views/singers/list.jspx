@@ -10,7 +10,7 @@
     <spring:message code="label_singer_first_name" var="labelSingerFirstName"/>
     <spring:message code="label_singer_last_name" var="labelSingerLastName"/>
     <spring:message code="label_singer_birth_date" var="labelSingerBirthDate"/>
-    <spring:url value="/singers/" var="showSingerUrl"/>
+    <spring:url value="/singers" var="showSingerUrl"/>
 
     <script type="text/javascript">
         $(function(){

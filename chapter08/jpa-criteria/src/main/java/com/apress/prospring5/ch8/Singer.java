@@ -109,7 +109,7 @@ public class Singer implements Serializable {
      this.albums = albums;
     }
 
-    public boolean addAbum(Album album) {
+    public boolean addAlbum(Album album) {
         album.setSinger(this);
         return getAlbums().add(album);
     }

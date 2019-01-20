@@ -38,7 +38,7 @@ public class SpringAuditJPADemo {
 
         singer = singerAuditService.findById(4l);
         System.out.println("");
-        System.out.println("Singer with id 1:" + singer);
+        System.out.println("Singer with id 4:" + singer);
         System.out.println("");
 
         System.out.println("Update singer");

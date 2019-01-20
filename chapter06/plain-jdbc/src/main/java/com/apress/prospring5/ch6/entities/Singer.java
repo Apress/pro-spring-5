@@ -37,7 +37,7 @@ public class Singer implements Serializable {
 		return this.lastName;
 	}
 
-	public boolean addAbum(Album album) {
+	public boolean addAlbum(Album album) {
 		if (albums == null) {
 			albums = new ArrayList<>();
 			albums.add(album);

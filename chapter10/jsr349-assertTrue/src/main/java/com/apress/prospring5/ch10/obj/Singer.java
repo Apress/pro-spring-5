@@ -46,7 +46,7 @@ public class Singer {
 		this.gender = gender;
 	}
 
-	@AssertTrue(message="ERROR! Individual customer should have gender and last name defined")
+	@AssertTrue(message="Country Singer should have gender and last name defined")
 	public boolean isCountrySinger() {
 		boolean result = true;
 

@@ -54,7 +54,7 @@ public class DateTimeFieldHandler extends GeneralizedFieldHandler {
 			try {
 				dateTime = sdf.parse(dateTimeString);
 			} catch (ParseException e) {
-				logger.error("Not a valida date:" + dateTimeString, e);
+				logger.error("Not a valid date:" + dateTimeString, e);
 			}
 		}
 		return dateTime;

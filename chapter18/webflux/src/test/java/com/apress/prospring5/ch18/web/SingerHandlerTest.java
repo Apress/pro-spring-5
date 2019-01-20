@@ -31,7 +31,7 @@ public class SingerHandlerTest {
 	WebTestClient testClient;
 
 	@Test
-	public void getPerson() throws Exception {
+	public void getSinger() throws Exception {
 		List<Singer> result = this.testClient.get()
 				.uri("/1")
 				.exchange()

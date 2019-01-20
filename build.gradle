@@ -26,7 +26,7 @@ ext {
 	javaElVersion = '3.0.1-b04'
 	glasshfishELVersion = '2.2.1-b05'
 	jmsVersion = '2.0'
-	artemisVersion = '2.1.0'
+	artemisVersion = '2.4.0'
 	hornetqVersion = '2.4.0.Final'
 	castorVersion = '1.4.1'
 	jacksonVersion = '2.9.0'
@@ -134,7 +134,7 @@ ext {
 			guava          : "com.google.guava:guava:$guavaVersion",
 			joda           : "joda-time:joda-time:$jodaVersion",
 			usertype       : "org.jadira.usertype:usertype.core:$utVersion",
-			artemis        : "org.apache.activemq:artemis-jms-server:2.1.0",
+			artemis        : "org.apache.activemq:artemis-jms-server:$artemisVersion",
 			javaEl         : "javax.el:javax.el-api:$javaElVersion",
 			glassfishEl    : "org.glassfish.web:el-impl:$glasshfishELVersion",
 			jms            : "javax.jms:javax.jms-api:$jmsVersion",
@@ -157,7 +157,7 @@ ext {
 			tomcatWsEmbed: "org.apache.tomcat.embed:tomcat-embed-websocket:$twsVersion",
 			httpclient   : "org.apache.httpcomponents:httpclient:$httpclientVersion",
 			websocket    : "javax.websocket:javax.websocket-api:1.1",
-			servlet      : "javax.servlet:javax.servlet-api:3.1.0",
+			servlet      : "javax:javaee-web-api:7.0",
 	]
 
 	react = [

@@ -1,5 +1,5 @@
 dependencies {
-	compile db.hsqldb,db.dbcp
+	compile db.hsqldb,db.dbcp, db.dbcp2
 }
 
 jar {

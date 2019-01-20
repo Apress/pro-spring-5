@@ -16,7 +16,7 @@ import javax.annotation.Resource;
 @Repository("instrumentDao")
 public class InstrumentDaoImpl implements InstrumentDao {
 
-	private static final Log logger = LogFactory.getLog(SingerDaoImpl.class);
+	private static final Log logger = LogFactory.getLog(InstrumentDaoImpl.class);
 	private SessionFactory sessionFactory;
 
 

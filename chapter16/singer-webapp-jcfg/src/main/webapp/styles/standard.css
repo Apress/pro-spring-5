@@ -1,5 +1,9 @@
 @import url("messages/messages.css");
 
+.banner {
+    background: url("../images/banner.png") no-repeat 0px center;
+    height: 90px;
+}
 /* main elements */
 
 body,div,td {

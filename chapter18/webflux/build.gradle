@@ -13,7 +13,7 @@ dependencies {
             react.reactiveStreams, react.projReactIpc, react.tomcatEmbedded*/
 
 war {
-    archiveName = 'singer-webapp-jcfg.war'
+    archiveName = 'webflux.war'
     manifest {
         attributes("Created-By"      : "Iuliana Cosmina",
                 "Specification-Title": "Pro Spring 5",

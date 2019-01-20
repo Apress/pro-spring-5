@@ -5,7 +5,7 @@
     <script src="http://cdnjs.cloudflare.com/ajax/libs/stomp.js/2.3.2/stomp.min.js"></script>
     <script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
     <script>
-        var stomp = Stomp.over(new SockJS("/stomp/ws"));
+        var stomp = Stomp.over(new SockJS("/ws"));
 
         function displayStockPrice(frame) {
             var prices = JSON.parse(frame.body);

@@ -7,7 +7,7 @@ import java.lang.reflect.Method;
 public class FormatMessageReplacer implements MethodReplacer {
 
 	@Override
-	public Object reimplement(Object arg0, Method method, Object... args)
+	public Object reimplement(Object arg0, Method method, Object[] args)
 			throws Throwable {
 		if (isFormatMessageMethod(method)) {
 			String msg = (String) args[0];

@@ -35,13 +35,13 @@ public class DBInitializer {
 		album1.setTitle("The Search For Everything");
 		album1.setReleaseDate(new java.sql.Date(
 				(new GregorianCalendar(2017, 0, 20)).getTime().getTime()));
-		singer.addAbum(album1);
+		singer.addAlbum(album1);
 
 		Album album2 = new Album();
 		album2.setTitle("Battle Studies");
 		album2.setReleaseDate(new java.sql.Date(
 				(new GregorianCalendar(2009, 10, 17)).getTime().getTime()));
-		singer.addAbum(album2);
+		singer.addAlbum(album2);
 
 		singerRepository.save(singer);
 
@@ -55,7 +55,7 @@ public class DBInitializer {
 		album.setTitle("From The Cradle");
 		album.setReleaseDate(new java.sql.Date(
 				(new GregorianCalendar(1994, 8, 13)).getTime().getTime()));
-		singer.addAbum(album);
+		singer.addAlbum(album);
 
 		singerRepository.save(singer);
 

@@ -14,7 +14,7 @@
         http://www.springframework.org/schema/context/spring-context.xsd">
 
     <!-- this is a sample configuration file, depicted here for legacy purposes, to show you how it was done before.
-   It is not really used anywhere in this example, but provided the necessary dependecnies this configuration is functional. -->
+   It is not really used anywhere in this example, but provided the necessary dependencies this configuration is functional. -->
     <jdbc:embedded-database id="dataSource" type="H2">
         <jdbc:script location="classpath:db/schema.sql"/>
         <jdbc:script location="classpath:db/test-data.sql"/>

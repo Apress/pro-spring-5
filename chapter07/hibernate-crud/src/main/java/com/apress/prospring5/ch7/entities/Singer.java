@@ -79,7 +79,7 @@ public class Singer extends AbstractEntity {
 		this.lastName = lastName;
 	}
 
-	public boolean addAbum(Album album) {
+	public boolean addAlbum(Album album) {
 		album.setSinger(this);
 		return albums.add(album);
 	}

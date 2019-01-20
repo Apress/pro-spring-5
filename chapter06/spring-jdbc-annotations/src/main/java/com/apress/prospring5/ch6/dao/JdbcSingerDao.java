@@ -158,7 +158,7 @@ public class JdbcSingerDao implements SingerDao {
 	@Override public void delete(Long singerId) {
 		Map<String, Object> paramMap = new HashMap<>();
 		paramMap.put("id", singerId);
-		updateSinger.updateByNamedParam(paramMap);
+		deleteSinger.updateByNamedParam(paramMap);
 		logger.info("Deleting singer with id: " + singerId);
 	}
 }

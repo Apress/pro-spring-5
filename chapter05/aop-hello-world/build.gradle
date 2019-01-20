@@ -3,7 +3,7 @@ jar {
 		attributes(
 				"Created-By": "Iuliana Cosmina",
 				"Specification-Title": "Pro Spring 5",
-				"Main-Class": "com.apress.prospring5.ch5.HelloWorldAOPDemo",
+				"Main-Class": "com.apress.prospring5.ch5.AgentAOPDemo",
 				"Class-Path": configurations.compile.collect { it.getName() }.join(' ')
 		)
 	}

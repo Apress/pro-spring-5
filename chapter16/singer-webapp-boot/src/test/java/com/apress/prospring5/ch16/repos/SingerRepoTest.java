@@ -1,11 +1,12 @@
-package com.apress.prospring5.ch16.web.com.apress.prospring5.ch16.repo;
+package com.apress.prospring5.ch16.repos;
 
 import com.apress.prospring5.ch16.entities.Singer;
-import com.apress.prospring5.ch16.repos.SingerRepository;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.annotation.DirtiesContext;
+import org.springframework.test.annotation.DirtiesContext.ClassMode;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import java.util.Date;
@@ -18,6 +19,7 @@ import static org.junit.Assert.assertEquals;
  */
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringBootTest
+@DirtiesContext(classMode=ClassMode.AFTER_CLASS)
 public class SingerRepoTest {
 
 	private SingerRepository singerRepository;
@@ -36,7 +38,7 @@ public class SingerRepoTest {
 				(new GregorianCalendar(1991, 2, 17)).getTime().getTime()));
 		singerRepository.save(singer);
 
-		//get all aingers, list should only have one
+		//get all singers, list should have 15
 		Iterable<Singer> singers = singerRepository.findAll();
 		int count = 0;
 

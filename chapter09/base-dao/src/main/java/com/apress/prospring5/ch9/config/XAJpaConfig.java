@@ -48,8 +48,8 @@ public class XAJpaConfig {
 	public Properties xaAProperties() {
 		Properties xaProp = new Properties();
 		xaProp.put("databaseName", "musicdb_a");
-		xaProp.put("user", "prospring5_a");
-		xaProp.put("password", "prospring5_a");
+		xaProp.put("user", "prospring5_A");
+		xaProp.put("password", "prospring5_A");
 		return xaProp;
 	}
 
@@ -73,8 +73,8 @@ public class XAJpaConfig {
 	public Properties xaBProperties() {
 		Properties xaProp = new Properties();
 		xaProp.put("databaseName", "musicdb_b");
-		xaProp.put("user", "prospring5_b");
-		xaProp.put("password", "prospring5_b");
+		xaProp.put("user", "prospring5_B");
+		xaProp.put("password", "prospring5_B");
 		return xaProp;
 	}
 

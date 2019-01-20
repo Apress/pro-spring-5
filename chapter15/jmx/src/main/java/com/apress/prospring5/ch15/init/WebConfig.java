@@ -111,7 +111,7 @@ public class WebConfig implements WebMvcConfigurer {
 		MBeanExporter exporter = new MBeanExporter();
 		Map<String, Object> beans = new HashMap<>();
 		beans.put("bean:name=ProSpring5SingerApp", appStatisticsBean());
-		beans.put("bean:name=Prospring5SingerApp-hibernate", statisticsBean());
+		beans.put("bean:name=ProSpring5SingerApp-hibernate", statisticsBean());
 		exporter.setBeans(beans);
 		return exporter;
 	}
