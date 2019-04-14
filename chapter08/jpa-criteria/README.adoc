@@ -1,0 +1,8 @@
+=== Observation
+
+Gradle 5.x supports annotation processors. IntelliJ IDEA does too, but they must be enabled for the project.
+Go to IntelliJ IDEA menu > Build, Execution, Deployment > Compiler > Annotation Processor.
+
+On the right check `Enable annotation processing` and make sure `Obtain processors from project classpath` is selected.
+
+Even if IntelliJ will complain about classes missing, the tests still can be run.

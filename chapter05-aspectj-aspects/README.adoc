@@ -1,0 +1,17 @@
+=== How to build
+
+Use Gradle 4.0 to build this project. The gradle-aspectj is compatible only with this version of Gradle and
+an alternative plugin to support compiling of of AspectJ files  (with aj extension" is not available at teh moment.
+
+Since AspectJ files support with Spring will not be in future versions of this book, this module will be removed altogether.
+
+=== Observation
+
+IntelliJ IDEA still does not know how to handle aspects, thus my recommendation to run the examples in the command line is to
+follow the next steps:
+
+    * build the project with `gradle clean build -x test --refresh-dependencies`
+    * go to `chapter05-aspectj-aspects/`
+    * execute `gradle copyDependencies`
+    * go to: `aspectj-aspects/build/libs`
+    * execute `java -jar aspectj-aspects-5.0-SNAPSHOT.jar` and you should see the following: `The Prefix foobar! The Suffix foo`

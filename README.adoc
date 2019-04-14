@@ -22,7 +22,7 @@ See the file Contributing.adoc for more information on how you can contribute to
 
 
 == Building and Deploying
-This is a Gradle multi-module project. Build it from scratch using:
+This is a Gradle multi-module project. Currently it can be compiled with Gradle 5.x and JDK 8. Build it from scratch using:
 ----
 gradle clean build
 ----
