@@ -11,7 +11,7 @@
     <name>batch-jsr352</name>
     <properties>
         <spring.framework.version>4.0.2.RELEASE</spring.framework.version>
-        <spring.batch.version>3.0.1.RELEASE</spring.batch.version>
+        <spring.batch.version>4.2.4.RELEASE</spring.batch.version>
         <commons.dbcp.version>1.4</commons.dbcp.version>
         <commons.io.version>2.4</commons.io.version>
         <log4j.version>1.2.17</log4j.version>
