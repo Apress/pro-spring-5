@@ -3,6 +3,7 @@ package com.apress.prospring5.ch12.test;
 import com.apress.prospring5.ch12.entities.Singer;
 import org.junit.Before;
 import org.junit.Test;
+import org.junit.Ignore;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.client.RestTemplate;
@@ -16,6 +17,7 @@ import static org.junit.Assert.*;
 /**
  * Created by iuliana.cosmina on 6/17/17.
  */
+@Ignore
 public class RestClientTest {
 
 	final Logger logger = LoggerFactory.getLogger(RestClientTest.class);

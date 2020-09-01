@@ -7,6 +7,7 @@ import com.apress.prospring5.ch6.entities.Singer;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+import org.junit.Ignore;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.support.GenericApplicationContext;
 
@@ -20,9 +21,10 @@ import static org.junit.Assert.assertTrue;
 
 /**
  * Created by iuliana.cosmina on 4/16/17.
- * Observation: before running these tests make sure to have the MySQL database in the initial state defined in the SQL scripts
- *
+ * Observation: before running these tests make sure to have the MySQL database
+ * in the initial state defined in the SQL scripts. Comment the `@Ignore` annotation and run.
  */
+@Ignore
 public class AnnotationJdbcTest {
 
 	private GenericApplicationContext ctx;

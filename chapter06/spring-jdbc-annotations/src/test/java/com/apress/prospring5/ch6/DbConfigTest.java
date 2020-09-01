@@ -2,6 +2,7 @@ package com.apress.prospring5.ch6;
 
 import com.apress.prospring5.ch6.config.DbConfig;
 import org.junit.Test;
+import org.junit.Ignore;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
@@ -20,6 +21,7 @@ import static org.junit.Assert.assertTrue;
 /**
  * Created by iuliana.cosmina on 4/14/17.
  */
+@Ignore  // requires a mysql database
 public class DbConfigTest {
 
 	private static Logger logger = LoggerFactory.getLogger(DbConfigTest.class);

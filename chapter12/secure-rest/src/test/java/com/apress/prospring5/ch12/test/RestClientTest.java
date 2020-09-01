@@ -4,6 +4,7 @@ import com.apress.prospring5.ch12.Singers;
 import com.apress.prospring5.ch12.entities.Singer;
 import com.apress.prospring5.ch12.RestClientConfig;
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.slf4j.Logger;
@@ -24,6 +25,7 @@ import static org.junit.Assert.assertTrue;
 /**
  * Created by iuliana.cosmina on 6/17/17.
  */
+@Ignore
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(classes = {RestClientConfig.class})
 public class RestClientTest {

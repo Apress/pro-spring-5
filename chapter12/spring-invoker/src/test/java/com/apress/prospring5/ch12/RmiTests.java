@@ -2,8 +2,8 @@ package com.apress.prospring5.ch12;
 
 import com.apress.prospring5.ch12.config.RmiClientConfig;
 import com.apress.prospring5.ch12.entities.Singer;
-import com.apress.prospring5.ch12.services.DBInitializer;
 import com.apress.prospring5.ch12.services.SingerService;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.slf4j.Logger;
@@ -19,6 +19,7 @@ import static org.junit.Assert.assertEquals;
 /**
  * Created by iuliana.cosmina on 6/5/17.
  */
+@Ignore
 @ContextConfiguration(classes = RmiClientConfig.class)
 @RunWith(SpringRunner.class)
 public class RmiTests {
