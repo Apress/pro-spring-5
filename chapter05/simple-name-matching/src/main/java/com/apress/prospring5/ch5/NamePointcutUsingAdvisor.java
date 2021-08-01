@@ -14,8 +14,7 @@ public class NamePointcutUsingAdvisor {
 		GrammyGuitarist johnMayer = new GrammyGuitarist();
 
 		NameMatchMethodPointcutAdvisor advisor = new NameMatchMethodPointcutAdvisor(new SimpleAdvice());
-		advisor.setMappedNames("sing");
-		advisor.setMappedNames("rest");
+		advisor.setMappedNames("sing", "rest");		
 
 		ProxyFactory pf = new ProxyFactory();
 		pf.setTarget(johnMayer);
