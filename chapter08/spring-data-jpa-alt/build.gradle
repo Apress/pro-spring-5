@@ -1,12 +1,12 @@
 // this is an alternative example for the Spring Data JPA example using JpaRepository
 dependencies {
-	compile spring.data, misc.guava
+	implementation spring.data, misc.guava
 }
 
 jar {
 	manifest {
 		attributes("Created-By"      : "Iuliana Cosmina",
 				"Specification-Title": "Pro Spring 5",
-				"Class-Path"         : configurations.compile.collect { it.getName() }.join(' '))
+				"Class-Path"         : configurations.runtimeClasspath.files.collect { it.getName() }.join(' '))
 	}
 }

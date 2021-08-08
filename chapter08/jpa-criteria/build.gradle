@@ -2,7 +2,7 @@ apply plugin: 'idea'
 
 dependencies {
 	annotationProcessor hibernate.jpaModelGen
-	compile hibernate.querydslapt
+	implementation hibernate.querydslapt
 }
 
 jar {
@@ -11,6 +11,6 @@ jar {
 				"Created-By"      : "Iuliana Cosmina",
 				"Specification-Title": "Pro Spring 5",
 				'Main-Class': 'com.apress.prospring5.ch8.SpringJPADemo',
-				"Class-Path": configurations.compile.collect { it.getName() }.join(' '))
+				"Class-Path": configurations.runtimeClasspath.files.collect { it.getName() }.join(' '))
 	}
 }

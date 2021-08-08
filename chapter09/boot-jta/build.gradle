@@ -2,10 +2,10 @@ buildscript {
 	repositories {
 		mavenLocal()
 		mavenCentral()
-		maven { url "http://repo.spring.io/release" }
-		maven { url "http://repo.spring.io/snapshot" }
+		maven { url "https://repo.spring.io/release" }
+		maven { url "https://repo.spring.io/snapshot" }
 		maven { url "https://repo.spring.io/libs-snapshot" }
-		maven { url "http://repo.spring.io/milestone" }
+		maven { url "https://repo.spring.io/milestone" }
 		maven { url "https://repo.spring.io/libs-milestone" }
 	}
 
@@ -17,8 +17,8 @@ buildscript {
 apply plugin: 'org.springframework.boot'
 
 dependencies {
-	compile boot.starterJpa, boot.starterJta, boot.starterJms, db.h2
-	compile(misc.artemis) {
+	implementation boot.starterJpa, boot.starterJta, boot.starterJms, db.h2
+	implementation(misc.artemis) {
 		exclude group: 'org.apache.geronimo.specs', module: 'geronimo-jms_2.0_spec'
 	}
 }
@@ -28,6 +28,6 @@ jar {
 		attributes("Created-By": "Iuliana Cosmina",
 				"Specification-Title": "Pro Spring 5",
 				"Main-Class"         : "com.apress.prospring5.ch9.Application",
-				"Class-Path": configurations.compile.collect { it.getName() }.join(' '))
+				"Class-Path": configurations.runtimeClasspath.files.collect { it.getName() }.join(' '))
 	}
 }

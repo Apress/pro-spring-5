@@ -2,10 +2,10 @@ buildscript {
     repositories {
         mavenLocal()
         mavenCentral()
-        maven { url "http://repo.spring.io/release" }
-        maven { url "http://repo.spring.io/snapshot" }
+        maven { url "https://repo.spring.io/release" }
+        maven { url "https://repo.spring.io/snapshot" }
         maven { url "https://repo.spring.io/libs-snapshot" }
-        maven { url "http://repo.spring.io/milestone" }
+        maven { url "https://repo.spring.io/milestone" }
         maven { url "https://repo.spring.io/libs-milestone" }
     }
 
@@ -17,7 +17,7 @@ buildscript {
 apply plugin: 'org.springframework.boot'
 
 dependencies {
-    compile boot.starterAop
+    implementation boot.starterAop
 }
 
 jar {
@@ -26,7 +26,7 @@ jar {
                 "Created-By": "Iuliana Cosmina",
                 "Specification-Title": "Pro Spring 5",
                 "Main-Class": "com.apress.prospring5.ch5.Application",
-                "Class-Path": configurations.compile.collect { it.getName() }.join(' ')
+                "Class-Path": configurations.runtimeClasspath.files.collect { it.getName() }.join(' ')
         )
     }
 }

@@ -1,4 +1,4 @@
 dependencies {
-	compile project(':chapter06:plain-jdbc')
-	compile db.dbcp2
+	implementation project(':chapter06:plain-jdbc')
+	implementation db.dbcp2
 }

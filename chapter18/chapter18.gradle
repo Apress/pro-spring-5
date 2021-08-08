@@ -4,19 +4,19 @@ subprojects {
 
 	/*Task that copies all the dependencies under build/libs */
 	task copyDependencies(type: Copy) {
-		from configurations.compile
+		from configurations.implementation
 		into 'build/libs'
 	}
 
 	dependencies {
 		if (!project.name.contains("boot") && !project.name.contains("webflux")) {
-			compile(spring.batchCore) {
+			implementation(spring.batchCore) {
 				//exclude these as jdbc will bring them on as transitive dependencies
 				exclude module: 'spring-core'
 				exclude module: 'spring-beans'
 				exclude module: 'spring-tx'
 			}
-			compile spring.jdbc, misc.io, misc.slf4jJcl, misc.logback, misc.lang3
+			implementation spring.jdbc, misc.io, misc.slf4jJcl, misc.logback, misc.lang3
 		}
 	}
 }

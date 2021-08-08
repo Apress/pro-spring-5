@@ -1,7 +1,7 @@
 dependencies {
-	compile spring.jms, misc.jms, misc.hornetq
+	implementation spring.jms, misc.jms, misc.hornetq
 
-	testCompile spring.test
+	testImplementation spring.test
 }
 
 jar {
@@ -9,7 +9,7 @@ jar {
 		attributes("Created-By"      : "Iuliana Cosmina",
 				"Specification-Title": "Pro Spring 5",
 				"Main-Class"         : "com.apress.prospring5.ch12.JmsHornetQDemo",
-				"Class-Path"         : configurations.compile.collect { it.getName() }.join(' '))
+				"Class-Path"         : configurations.runtimeClasspath.files.collect { it.getName() }.join(' '))
 	}
 }
 

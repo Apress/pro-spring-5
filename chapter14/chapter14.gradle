@@ -4,11 +4,11 @@ subprojects {
 
 	/*Task that copies all the dependencies under build/libs */
 	task copyDependencies(type: Copy) {
-		from configurations.compile
+		from configurations.implementation
 		into 'build/libs'
 	}
 
 	dependencies {
-		compile spring.webmvc, misc.slf4jJcl, misc.logback, misc.lang3
+		implementation spring.webmvc, misc.slf4jJcl, misc.logback, misc.lang3
 	}
 }

@@ -1,6 +1,6 @@
 dependencies {
-	compile project(':chapter13:base-test')
-	compile  misc.poi,
+	implementation project(':chapter13:base-test')
+	implementation  misc.poi,
 		hibernate.validator, misc.validation, misc.javaEl, misc.glassfishEl
 }
 
@@ -8,6 +8,6 @@ jar {
 	manifest {
 		attributes("Created-By"      : "Iuliana Cosmina",
 				"Specification-Title": "Pro Spring 5",
-				"Class-Path"         : configurations.compile.collect { it.getName() }.join(' '))
+				"Class-Path"         : configurations.runtimeClasspath.files.collect { it.getName() }.join(' '))
 	}
 }
