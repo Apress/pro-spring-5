@@ -15,8 +15,8 @@ public class MessageSupportFactory {
 			props.load(this.getClass().getResourceAsStream("/msf.properties"));
 			String rendererClass = props.getProperty("renderer.class");
 			String providerClass = props.getProperty("provider.class");
-			renderer = (MessageRenderer) Class.forName(rendererClass).newInstance();
-			provider = (MessageProvider) Class.forName(providerClass).newInstance();
+			renderer = (MessageRenderer) Class.forName(rendererClass).getDeclaredConstructor().newInstance();
+			provider = (MessageProvider) Class.forName(providerClass).getDeclaredConstructor().newInstance();
 		} catch (Exception ex) {
 			ex.printStackTrace();
 		}
