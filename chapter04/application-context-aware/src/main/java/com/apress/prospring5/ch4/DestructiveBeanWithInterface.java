@@ -40,7 +40,7 @@ public class DestructiveBeanWithInterface {
         this.filePath = filePath;
     }
 
-    public static void main(String... args) throws Exception {
+    public static void main(String... args) {
         GenericXmlApplicationContext ctx = new GenericXmlApplicationContext();
         ctx.load("classpath:spring/app-context-annotation.xml");
         ctx.refresh();
