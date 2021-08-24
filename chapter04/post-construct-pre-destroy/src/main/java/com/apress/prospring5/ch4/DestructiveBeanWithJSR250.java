@@ -49,7 +49,7 @@ public class DestructiveBeanWithJSR250 {
             (DestructiveBeanWithJSR250) ctx.getBean("destructiveBean");
 
         System.out.println("Calling destroy()");
-        ctx.destroy();
+        ctx.close();
         System.out.println("Called destroy()");
     }
 }
