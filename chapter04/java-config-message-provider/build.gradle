@@ -1,4 +1,5 @@
 dependencies {
+	implementation project(':chapter02:hello-world')
 	implementation project(':chapter03:constructor-injection')
 	testImplementation testing.junit
 }
