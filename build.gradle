@@ -144,7 +144,7 @@ ext {
 			castor         : "org.codehaus.castor:castor-xml:$castorVersion",
 			jacksonDatabind: "com.fasterxml.jackson.core:jackson-databind:$jacksonVersion",
 			poi            : "org.apache.poi:poi:$poiVersion",
-			io             : "commons-io:commons-io:2.5",
+			io             : "commons-io:commons-io:2.7",
 	]
 
 	web = [
