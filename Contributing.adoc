@@ -18,3 +18,4 @@ Thank you for your contribution!
 The list below contains the list of people that have found errors in the previous edition of the book and submitted them to the author and made sure the second edition was better.
 
 * https://github.com/rafalnowicki116[Rafal Nowicki]
+* https://github.com/Affid[Affid Fedorov]

@@ -44,7 +44,7 @@ public class DestructiveBean implements InitializingBean {
         DestructiveBean bean = (DestructiveBean) ctx.getBean("destructiveBean");
 
         System.out.println("Calling destroy()");
-        ctx.destroy();
+        ctx.close();
         System.out.println("Called destroy()");
     }
 }
