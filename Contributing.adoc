@@ -12,3 +12,10 @@ Copyright for Apress source code belongs to the author(s). However, under fair u
 * Submit a pull request.
 
 Thank you for your contribution!
+
+== Current list of contributors
+
+The list below contains the list of people that have found errors in the previous edition of the book and submitted them to the author and made sure the second edition was better.
+
+* https://github.com/rafalnowicki116[Rafal Nowicki]
+* https://github.com/Affid[Affid Fedorov]
