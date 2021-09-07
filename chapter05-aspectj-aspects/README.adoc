@@ -1,7 +1,7 @@
 === How to build
 
 Use Gradle 4.0 to build this project. The gradle-aspectj is compatible only with this version of Gradle and
-an alternative plugin to support compiling of of AspectJ files  (with aj extension" is not available at teh moment.
+an alternative plugin to support compiling of of AspectJ files  (with "aj" extension is not available at the moment).
 
 Since AspectJ files support with Spring will not be in future versions of this book, this module will be removed altogether.
 

@@ -1,9 +1,7 @@
 package com.apress.prospring5.ch5;
 
 import com.apress.prospring5.ch2.common.Guitar;
-import org.springframework.aop.Advisor;
 import org.springframework.aop.framework.ProxyFactory;
-import org.springframework.aop.support.NameMatchMethodPointcut;
 import org.springframework.aop.support.NameMatchMethodPointcutAdvisor;
 
 /**
@@ -15,7 +13,7 @@ public class NamePointcutUsingAdvisor {
 
 		NameMatchMethodPointcutAdvisor advisor = new NameMatchMethodPointcutAdvisor(new SimpleAdvice());
 		advisor.setMappedNames("sing");
-		advisor.setMappedNames("rest");
+		advisor.setMappedNames("rest"); // this overrides the list of methods to intercept
 
 		ProxyFactory pf = new ProxyFactory();
 		pf.setTarget(johnMayer);
