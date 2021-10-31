@@ -34,7 +34,10 @@ public class PlainJdbcDemo {
 
         logger.info("-------------");
         logger.info("Deleting the previous created singer");
-
+                
+        // fetch the last Singer, we need Id (Id was set by DB)
+        List<Singer> singers = singerDao.findAll();
+        singer = singers.get(singers.size() - 1);
         singerDao.delete(singer.getId());
 
         logger.info("Listing singer data after new singer deleted:");
