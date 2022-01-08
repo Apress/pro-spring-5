@@ -19,7 +19,7 @@ ext {
 	derbyVersion = '10.13.1.1'
 	dbcpVersion = '2.1'
 	mysqlVersion = '6.0.6'
-	h2Version = '1.4.194'
+	h2Version = '2.0.206'
 	jodaVersion = '2.9.9'
 	utVersion = '6.0.1.GA'
 	javaxValidationVersion = '2.0.0.Beta2'
