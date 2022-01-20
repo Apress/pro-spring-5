@@ -4,35 +4,35 @@ subprojects {
 
 	/*Task that copies all the dependencies under build/libs */
 	task copyDependencies(type: Copy) {
-		from configurations.compile
+		from configurations.implementation
 		into 'build/libs'
 	}
 
 	dependencies {
 		//we specify these dependencies for all submodules, except the boot module, that defines its own
-		compile misc.guava
+		implementation misc.guava
 		if (!project.name.contains("boot")) {
-			compile (spring.contextSupport) {
+			implementation (spring.contextSupport) {
 				exclude  module: 'spring-context'
 				exclude  module: 'spring-beans'
 				exclude  module: 'spring-core'
 			}
-			compile (spring.securityTaglibs) {
+			implementation (spring.securityTaglibs) {
 				exclude  module: 'spring-web'
 				exclude  module: 'spring-context'
 				exclude  module: 'spring-beans'
 				exclude  module: 'spring-core'
 			}
-			compile (spring.securityConfig) {
+			implementation (spring.securityConfig) {
 				exclude  module: 'spring-security-core'
 				exclude  module: 'spring-context'
 				exclude  module: 'spring-beans'
 				exclude  module: 'spring-core'
 			}
-			compile  misc.slf4jJcl, misc.logback, misc.lang3, hibernate.em, hibernate.validator, db.h2,
+			implementation  misc.slf4jJcl, misc.logback, misc.lang3, hibernate.em, hibernate.validator, db.h2,
 					spring.data, spring.webmvc, misc.castor, misc.validation, web.tiles, web.jstl,
 					misc.jacksonDatabind, web.servlet, misc.io
 		}
-		testCompile testing.junit
+		testImplementation testing.junit
 	}
 }

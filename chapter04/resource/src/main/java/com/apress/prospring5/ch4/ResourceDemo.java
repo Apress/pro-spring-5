@@ -9,10 +9,10 @@ public class ResourceDemo {
     public static void main(String... args) throws Exception{
         ApplicationContext ctx = new ClassPathXmlApplicationContext();
 
-        File file = File.createTempFile("test", "txt");
+        File file = File.createTempFile("test.", "txt");
         file.deleteOnExit();
 
-        Resource res1 = ctx.getResource("file://" + file.getPath());
+        Resource res1 = ctx.getResource("file:///" + file.getPath());
         displayInfo(res1);
 
         Resource res2 = ctx.getResource("classpath:test.txt");

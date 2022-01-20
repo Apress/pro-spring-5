@@ -1,6 +1,6 @@
 dependencies {
-	compile db.mysql
-	compile (hibernate.tx) {
+	implementation db.mysql
+	implementation (hibernate.tx) {
 		exclude group: 'org.hibernate', module: 'hibernate'
 	}
 }
@@ -9,6 +9,6 @@ jar {
 	manifest {
 		attributes("Created-By"      : "Iuliana Cosmina",
 				"Specification-Title": "Pro Spring 5",
-				"Class-Path"         : configurations.compile.collect { it.getName() }.join(' '))
+				"Class-Path"         : configurations.runtimeClasspath.files.collect { it.getName() }.join(' '))
 	}
 }

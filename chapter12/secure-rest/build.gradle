@@ -1,10 +1,10 @@
 apply plugin: 'war'
 
 dependencies {
-	compile project(':chapter12:base-remote')
-	compile spring.oxm, spring.webmvc, web.servlet, misc.castor, misc.jacksonDatabind, web.httpclient,
+	implementation project(':chapter12:base-remote')
+	implementation spring.oxm, spring.webmvc, web.servlet, misc.castor, misc.jacksonDatabind, web.httpclient,
 			spring.securityWeb, spring.securityConfig
-	testCompile spring.test
+	testImplementation spring.test
 }
 
 
@@ -13,7 +13,7 @@ war {
 	manifest {
 		attributes("Created-By"      : "Iuliana Cosmina",
 				"Specification-Title": "Pro Spring 5",
-				"Class-Path"         : configurations.compile.collect { it.getName() }.join(' '))
+				"Class-Path"         : configurations.runtimeClasspath.files.collect { it.getName() }.join(' '))
 	}
 }
 

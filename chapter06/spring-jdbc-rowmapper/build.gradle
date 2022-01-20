@@ -1,12 +1,12 @@
 dependencies {
-	compile project(':chapter06:plain-jdbc')
-	compile db.h2
+	implementation project(':chapter06:plain-jdbc')
+	implementation db.h2
 }
 
 jar {
 	manifest {
 		attributes("Created-By"      : "Iuliana Cosmina",
 				"Specification-Title": "Pro Spring 5",
-				"Class-Path"         : configurations.compile.collect { it.getName() }.join(' '))
+				"Class-Path"         : configurations.runtimeClasspath.files.collect { it.getName() }.join(' '))
 	}
 }

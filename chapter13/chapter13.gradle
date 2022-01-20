@@ -4,15 +4,15 @@ subprojects {
 
 	/*Task that copies all the dependencies under build/libs */
 	task copyDependencies(type: Copy) {
-		from configurations.compile
+		from configurations.implementation
 		into 'build/libs'
 	}
 
 	dependencies {
 		//we specify these dependencies for all submodules, except the boot module, that defines its own
 		if (!project.name.contains("junit5")) {
-			compile spring.context, spring.webmvc, misc.slf4jJcl, misc.logback, misc.lang3, misc.guava
-			testCompile testing.junit, testing.mockito, spring.test, testing.dbunit
+			implementation spring.context, spring.webmvc, misc.slf4jJcl, misc.logback, misc.lang3, misc.guava
+			testImplementation testing.junit, testing.mockito, spring.test, testing.dbunit
 		}
 	}
 }

@@ -3,7 +3,6 @@ package com.apress.prospring5.ch4;
 import com.apress.prospring5.ch2.decoupled.MessageProvider;
 import com.apress.prospring5.ch2.decoupled.MessageRenderer;
 import com.apress.prospring5.ch2.decoupled.StandardOutMessageRenderer;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.*;
 import org.springframework.core.env.Environment;
 
@@ -11,8 +10,11 @@ import org.springframework.core.env.Environment;
 @PropertySource(value = "classpath:message.properties")
 public class AppConfigOne {
 
-	@Autowired
-	Environment env;
+	final Environment env;
+
+	public AppConfigOne(Environment env) {
+		this.env = env;
+	}
 
 	@Bean
 	@Lazy

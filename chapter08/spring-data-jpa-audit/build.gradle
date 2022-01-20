@@ -1,6 +1,6 @@
 
 dependencies {
-	compile spring.aspects, spring.data, misc.guava
+	implementation spring.aspects, spring.data, misc.guava
 }
 
 jar {
@@ -8,6 +8,6 @@ jar {
 		attributes("Created-By"      : "Iuliana Cosmina",
 				"Specification-Title": "Pro Spring 5",
 				"Main-Class"         : "com.apress.prospring5.ch8.SpringAuditJPADemo",
-				"Class-Path"         : configurations.compile.collect { it.getName() }.join(' '))
+				"Class-Path"         : configurations.runtimeClasspath.files.collect { it.getName() }.join(' '))
 	}
 }

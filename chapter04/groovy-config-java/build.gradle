@@ -1,8 +1,8 @@
 apply plugin: 'groovy'
 
 dependencies {
-	compile misc.groovy
-	compile project(':chapter03:bean-inheritance')
+	implementation misc.groovy
+	implementation project(':chapter03:bean-inheritance')
 }
 
 jar {
@@ -10,6 +10,6 @@ jar {
 		attributes("Created-By"      : "Iuliana Cosmina",
 				"Specification-Title": "Pro Spring 5",
 				"Main-Class"         : "com.apress.prospring5.ch4.GroovyBeansFromJava",
-				"Class-Path"         : configurations.compile.collect { it.getName() }.join(' '))
+				"Class-Path"         : configurations.runtimeClasspath.files.collect { it.getName() }.join(' '))
 	}
 }

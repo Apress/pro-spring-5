@@ -4,16 +4,16 @@ subprojects {
 
 	/*Task that copies all the dependencies under build/libs */
 	task copyDependencies(type: Copy) {
-		from configurations.compile
+		from configurations.implementation
 		into 'build/libs'
 	}
 
 	dependencies {
 		//we specify these dependencies for all submodules, except the boot module, that defines its own
 		if (!project.name.contains("boot")) {
-			compile spring.contextSupport, misc.slf4jJcl, misc.logback, db.h2, misc.lang3, hibernate.em,
+			implementation spring.contextSupport, misc.slf4jJcl, misc.logback, db.h2, misc.lang3, hibernate.em,
 					hibernate.validator, misc.joda, misc.validation
 		}
-		testCompile testing.junit
+		testImplementation testing.junit
 	}
 }

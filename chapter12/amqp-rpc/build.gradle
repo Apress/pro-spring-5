@@ -1,5 +1,5 @@
 dependencies {
-	compile spring.rabbit
+	implementation spring.rabbit
 }
 
 
@@ -8,6 +8,6 @@ jar {
 		attributes("Created-By"      : "Iuliana Cosmina",
 				"Specification-Title": "Pro Spring 5",
 				"Main-Class"         : "com.apress.prospring5.ch12.AmqpRpcDemo",
-				"Class-Path"         : configurations.compile.collect { it.getName() }.join(' '))
+				"Class-Path"         : configurations.runtimeClasspath.files.collect { it.getName() }.join(' '))
 	}
 }

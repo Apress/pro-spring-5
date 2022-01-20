@@ -1,11 +1,11 @@
 dependencies{
-	compile misc.javaEl, misc.glassfishEl
+	implementation misc.javaEl, misc.glassfishEl
 }
 jar {
 	manifest {
 		attributes("Created-By"      : "Iuliana Cosmina",
 				"Specification-Title": "Pro Spring 5",
 				"Main-Class"         : "com.apress.prospring5.ch10.Jsr349Demo",
-				"Class-Path"         : configurations.compile.collect { it.getName() }.join(' '))
+				"Class-Path"         : configurations.runtimeClasspath.files.collect { it.getName() }.join(' '))
 	}
 }

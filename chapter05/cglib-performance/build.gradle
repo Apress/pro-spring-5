@@ -1,6 +1,6 @@
 dependencies {
-	compile project(':chapter02:hello-world')
-	compile project(':chapter05:aop-hello-world')
+	implementation project(':chapter02:hello-world')
+	implementation project(':chapter05:aop-hello-world')
 }
 
 jar {
@@ -8,6 +8,6 @@ jar {
 		attributes("Created-By"         : "Iuliana Cosmina",
 				"Specification-Title": "Pro Spring 5",
 				"Main-Class"         : "com.apress.prospring5.ch5.ProxyPerfTest",
-				"Class-Path"         : configurations.compile.collect { it.getName() }.join(' '))
+				"Class-Path"         : configurations.runtimeClasspath.files.collect { it.getName() }.join(' '))
 	}
 }

@@ -1,5 +1,5 @@
 dependencies {
-	compile project(':chapter11:base-task')
+	implementation project(':chapter11:base-task')
 }
 
 jar {
@@ -7,6 +7,6 @@ jar {
 		attributes("Created-By"      : "Iuliana Cosmina",
 				"Specification-Title": "Pro Spring 5",
 				"Main-Class"         : "com.apress.prospring5.ch11.ScheduleTaskDemo",
-				"Class-Path"         : configurations.compile.collect { it.getName() }.join(' '))
+				"Class-Path"         : configurations.runtimeClasspath.files.collect { it.getName() }.join(' '))
 	}
 }

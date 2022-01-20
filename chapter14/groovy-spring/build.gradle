@@ -1,7 +1,7 @@
 apply plugin: 'groovy'
 
 dependencies{
-	compile spring.context, misc.groovy, misc.joda
+	implementation spring.context, misc.groovy, misc.joda
 }
 
 jar {
@@ -9,7 +9,7 @@ jar {
 		attributes("Created-By"      : "Iuliana Cosmina",
 				"Specification-Title": "Pro Spring 5",
 				"Main-Class"         : "com.apress.prospring5.ch14.RuleEngineDemo",
-				"Class-Path"         : configurations.compile.collect { it.getName() }.join(' '))
+				"Class-Path"         : configurations.runtimeClasspath.files.collect { it.getName() }.join(' '))
 	}
 }
 

@@ -2,10 +2,10 @@ buildscript {
     repositories {
         mavenLocal()
         mavenCentral()
-        maven { url "http://repo.spring.io/release" }
-        maven { url "http://repo.spring.io/snapshot" }
+        maven { url "https://repo.spring.io/release" }
+        maven { url "https://repo.spring.io/snapshot" }
         maven { url "https://repo.spring.io/libs-snapshot" }
-        maven { url "http://repo.spring.io/milestone" }
+        maven { url "https://repo.spring.io/milestone" }
         maven { url "https://repo.spring.io/libs-milestone" }
     }
 
@@ -17,9 +17,9 @@ buildscript {
 apply plugin: 'org.springframework.boot'
 
 dependencies {
-    compile boot.starterJpa, boot.starterJta, db.h2, boot.starterWeb, boot.starterThyme, boot.starterSecurity,
+    implementation boot.starterJpa, boot.starterJta, db.h2, boot.starterWeb, boot.starterThyme, boot.starterSecurity,
             web.thymeSecurity, web.bootstrap, web.jQuery
-    testCompile boot.starterTest, spring.springSecurityTest
+    testImplementation boot.starterTest, spring.springSecurityTest
 }
 
 jar {
@@ -27,6 +27,6 @@ jar {
         attributes("Created-By": "Iuliana Cosmina",
                 "Specification-Title": "Pro Spring 5",
                 "Main-Class"         : "com.apress.prospring5.ch16.SingerApplication",
-                "Class-Path": configurations.compile.collect { it.getName() }.join(' '))
+                "Class-Path": configurations.runtimeClasspath.files.collect { it.getName() }.join(' '))
     }
 }

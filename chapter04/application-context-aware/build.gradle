@@ -4,7 +4,7 @@ jar {
 				"Created-By": "Iuliana Cosmina",
 				"Specification-Title": "Pro Spring 5",
 				"Main-Class": "com.apress.prospring5.ch4.DestructiveBeanWithInterface",
-				"Class-Path": configurations.compile.collect { it.getName() }.join(' ')
+				"Class-Path": configurations.runtimeClasspath.files.collect { it.getName() }.join(' ')
 		)
 	}
 }
