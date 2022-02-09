@@ -1,4 +1,4 @@
-package com.apress.prospring5.ch7.config;
+package com.apress.prospring5.ch7.base.config;
 
 import org.hibernate.SessionFactory;
 import org.slf4j.Logger;
@@ -54,7 +54,7 @@ public class AppConfig {
 	@Bean public SessionFactory sessionFactory() throws IOException {
 		LocalSessionFactoryBean sessionFactoryBean = new LocalSessionFactoryBean();
 		sessionFactoryBean.setDataSource(dataSource());
-		sessionFactoryBean.setPackagesToScan("com.apress.prospring5.ch7.entities");
+		sessionFactoryBean.setPackagesToScan("com.apress.prospring5.ch7.base.entities");
 		sessionFactoryBean.setHibernateProperties(hibernateProperties());
 		sessionFactoryBean.afterPropertiesSet();
 		return sessionFactoryBean.getObject();

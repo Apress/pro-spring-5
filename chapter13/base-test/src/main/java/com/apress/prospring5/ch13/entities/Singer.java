@@ -1,6 +1,5 @@
 package com.apress.prospring5.ch13.entities;
 
-
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;

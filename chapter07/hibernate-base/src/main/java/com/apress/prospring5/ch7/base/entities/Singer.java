@@ -1,4 +1,4 @@
-package com.apress.prospring5.ch7.entities;
+package com.apress.prospring5.ch7.base.entities;
 
 import javax.persistence.*;
 import java.io.Serializable;

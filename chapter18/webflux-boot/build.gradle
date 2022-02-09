@@ -17,7 +17,11 @@ buildscript {
 apply plugin: 'org.springframework.boot'
 
 dependencies {
-    compile boot.starterWebflux, boot.starterWeb, boot.starterJpa, boot.starterJta, db.h2
+    compile  (boot.starterJpa) {
+        exclude group: 'org.hibernate', module: 'hibernate-core'
+    }
+    compile hibernate.core  // overwrite version of hibernate used so it works well with H2 2.0.206
+    compile boot.starterWebflux, boot.starterWeb, boot.starterJta, db.h2
     testCompile boot.starterTest, testing.junit5Engine
 }
 

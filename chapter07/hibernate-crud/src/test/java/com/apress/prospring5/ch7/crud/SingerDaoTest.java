@@ -1,9 +1,8 @@
-package com.apress.prospring5.ch7;
+package com.apress.prospring5.ch7.crud;
 
 import com.apress.prospring5.ch7.config.AdvancedConfig;
 import com.apress.prospring5.ch7.dao.SingerDao;
 import com.apress.prospring5.ch7.entities.Album;
-import com.apress.prospring5.ch7.entities.Instrument;
 import com.apress.prospring5.ch7.entities.Singer;
 import org.junit.After;
 import org.junit.Before;

@@ -1,10 +1,8 @@
-package com.apress.prospring5.ch7;
+package com.apress.prospring5.ch7.base;
 
-import com.apress.prospring5.ch7.config.AppConfig;
-import com.apress.prospring5.ch7.dao.SingerDao;
-import com.apress.prospring5.ch7.entities.Album;
-import com.apress.prospring5.ch7.entities.Instrument;
-import com.apress.prospring5.ch7.entities.Singer;
+import com.apress.prospring5.ch7.base.config.AppConfig;
+import com.apress.prospring5.ch7.base.dao.SingerDao;
+import com.apress.prospring5.ch7.base.entities.Singer;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;

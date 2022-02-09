@@ -31,7 +31,7 @@ ext {
 	castorVersion = '1.4.1'
 	jacksonVersion = '2.9.0'
 	httpclientVersion = '4.5.3'
-	poiVersion = '3.16'
+	poiVersion = '4.1.2'
 	tilesVersion = '3.0.7'
 	bootstrapVersion = '3.3.7-1'
 	thymeSecurityVersion = '3.0.2.RELEASE'
@@ -39,16 +39,16 @@ ext {
 	twsVersion = '9.0.0.M22'
 
 	//persistency libraries
-	hibernateVersion = '5.2.10.Final'
-	hibernateJpaVersion = '1.0.0.Final'
-	hibernateValidatorVersion = '5.4.1.Final' //6.0.0.Beta2
+	hibernateVersion = '5.6.5.Final'
+	hibernateJpaVersion = '1.0.2.Final'
+	hibernateValidatorVersion = '5.4.3.Final' //6.0.0.Beta2
 	atomikosVersion = '4.0.4'
 
 	//testing libs
 	mockitoVersion = '2.0.2-beta'
 	junitVersion = '4.12'
 	hamcrestVersion = '1.3'
-	dbunitVersion = '2.5.3'
+	dbunitVersion = '2.7.2'
 	junit5Version = '5.3.1'
 
 	spring = [
@@ -83,6 +83,7 @@ ext {
 			jpaModelGen: "org.hibernate:hibernate-jpamodelgen:$hibernateVersion",
 			ehcache    : "org.hibernate:hibernate-ehcache:$hibernateVersion",
 			em         : "org.hibernate:hibernate-entitymanager:$hibernateVersion",
+			core       : "org.hibernate:hibernate-core:$hibernateVersion",
 			envers     : "org.hibernate:hibernate-envers:$hibernateVersion",
 			jpaApi     : "org.hibernate.javax.persistence:hibernate-jpa-2.1-api:$hibernateJpaVersion",
 			querydslapt: "com.mysema.querydsl:querydsl-apt:2.7.1",
@@ -161,7 +162,7 @@ ext {
 	]
 
 	react = [
-			projReactorIpc: "io.projectreactor.ipc:reactor-netty:0.7.0.M1",
+			projReactorIpc: "io.projectreactor.ipc:reactor-netty:0.7.15.RELEASE",
 			tomcatEmbedded: "org.apache.tomcat.embed:tomcat-embed-core:9.0.0.M25",
 	]
 

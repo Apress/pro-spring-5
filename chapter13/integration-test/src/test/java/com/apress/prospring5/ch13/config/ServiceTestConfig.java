@@ -13,9 +13,7 @@ import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseType;
 
 @Configuration
 @ComponentScan(basePackages={"com.apress.prospring5.ch13"},
-        excludeFilters =  {@ComponentScan.Filter(type = FilterType.ASSIGNABLE_TYPE,
-                value = DBInitializer.class)
-})
+        excludeFilters =  {@ComponentScan.Filter(type = FilterType.ASSIGNABLE_TYPE, value = DBInitializer.class)})
 @Profile("test")
 public class ServiceTestConfig {
     private static Logger logger = LoggerFactory.getLogger(ServiceTestConfig.class);
