@@ -27,6 +27,7 @@ public class PlainJdbcDemo {
         singer.setLastName("Sheeran");
         singer.setBirthDate(new Date((new GregorianCalendar(1991, 2, 1991)).getTime().getTime()));
         singerDao.insert(singer);
+        logger.info("The singer has ID now: " + singer.getId());
 
         logger.info("Listing singer data after new singer created:");
 

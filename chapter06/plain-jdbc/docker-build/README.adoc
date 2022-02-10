@@ -1,0 +1,13 @@
+== Build the MySQL image
+
+[source]
+----
+docker build -t prospring5-mysql:1.0 .
+----
+
+== Start the Container
+
+[source]
+----
+docker run --name local-mysql -d -p 3306:3306 prospring5-mysql:1.0
+----
