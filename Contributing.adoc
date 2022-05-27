@@ -19,3 +19,4 @@ The list below contains the list of people that have found errors in the previou
 
 * https://github.com/rafalnowicki116[Rafal Nowicki]
 * https://github.com/Affid[Affid Fedorov]
+* https://github.com/Norlandz
