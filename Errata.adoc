@@ -1,0 +1,38 @@
+== Errata for *Pro Spring 5*
+
+=== Introduction
+Hi guys, I am really thankful to all of you that have bought the book, who have contributed to finding mistakes in it and in the code, and asking questions about details that seem unclear.
+
+
+=== Chapter 3: Introducing IoC and DI in Spring
+
+'''
+
+On **page 44**, last information note on the page:
+
+Original paragraph:
+
+Recall that in Chapter 2 it was chosen to define the dependencies in the business *purposes*. This was  for illustration purposes and should not be treated in any way as a best practice.
+
+Should be replaced with:
+
+Recall that in Chapter 2 it was chosen to define the dependencies in the business interfaces (specifically `MessageRenderer` interface). This was for illustration purposes and should not be treated in any way as a best practice.
+
+(Observation submitted by _Satish Singh_)
+
+
+=== Chapter 7: Using Hibernate in Spring
+
+On **page 368** , last paragraph on the page:
+
+Original paragraph:
+
+The getter method of the attribute `contactTelDetails` is annotated with `@OneToMany`, which indicates the one-to-many relationship with the `Album` class. Several attributes are passed to the annotation. The `mappedBy` attribute indicates the property in the `Album` class that provides the association (that is, linked up by the foreign-key definition in the `FK_ALBUM_SINGER` table). The `cascade` attribute means that the update operation should “cascade” to the child. The `orphanRemoval` attribute means that after the albums have been updated, those entries that no longer exist in the set should be deleted from the database.
+
+Should be replaced with:
+
+The getter method of the `albums` attribute  is annotated with `@OneToMany`, which indicates the one-to-many relationship with the `Album` class. Several attributes are passed to the annotation.
+
+* The `mappedBy` attribute indicates the property in the `Album` class that provides the association (that is, linked up by the foreign-key definition in the `FK_ALBUM_SINGER` table).
+* The `cascade` attribute means that the update operation should “cascade” to the child.
+* The `orphanRemoval` attribute means that after the `albums` have been updated, those entries that no longer exist in the set should be deleted from the database.
