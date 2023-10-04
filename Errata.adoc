@@ -3,6 +3,10 @@
 === Introduction
 Hi guys, I am really thankful to all of you that have bought the book, who have contributed to finding mistakes in it and in the code, and asking questions about details that seem unclear.
 
+=== Chapter 2: Spring Configuration Using Annotations
+
+'''
+On **page 34**, in the first paragraph `@ComponentScanning` should be replaced with `@ComponentScan`.
 
 === Chapter 3: Introducing IoC and DI in Spring
 
@@ -20,8 +24,34 @@ Recall that in Chapter 2 it was chosen to define the dependencies in the busines
 
 (Observation submitted by _Satish Singh_)
 
+'''
+On **pages 50, 52 & 54** the package `com.apress.prospring5.ch3.annotation` should be `com.apress.prospring5.ch3.annotated`
+
+(Observation submitted by _Satish Singh_)
+
+'''
+On *page 54*, the first paragraph in the last section:
+
+Original paragraph:
+
+In Chapter 1 we mentioned that `app-context-xml.xml` can be replaced with a configuration class, without
+modifying the classes representing the bean types being created.
+
+Should be replaced with:
+
+In Chapter 2 we mentioned that `app-context.xml` can be replaced with a configuration class, without
+modifying the classes representing the bean types being created.
+
+'''
+
+On *page 55* `<context:component-scanning ../>` should be replaced with `<context:component-scanning ../>`.
+
+(Observation submitted by _Satish Singh_)
+
 
 === Chapter 7: Using Hibernate in Spring
+
+'''
 
 On **page 368** , last paragraph on the page:
 
