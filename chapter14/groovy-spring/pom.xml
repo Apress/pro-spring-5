@@ -8,7 +8,7 @@
   <name>groovy-spring</name>
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <spring.version>4.0.2.RELEASE</spring.version>
+    <spring.version>5.2.22.RELEASE</spring.version>
     <groovy.all.version>2.2.2</groovy.all.version>
     <joda.time.version>2.3</joda.time.version>
   </properties>
